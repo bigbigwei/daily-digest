@@ -1,108 +1,549 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>每日简报 - Daily Digest</title>
+<title>每日简报 — AI · 科技 · 财经</title>
+<meta name="description" content="每日精选 AI、科技、财经资讯，深度阅读与市场数据一站掌握">
 <style>
-:root {
-  --bg: #f5f5f7;
+/* ===== Theme Variables ===== */
+:root[data-theme="dark"] {
+  --bg: #000000;
+  --bg-elevated: #0a0a0a;
+  --bg-card: #111111;
+  --bg-card-hover: #1a1a1a;
+  --text: #f0f0f0;
+  --text-secondary: #999999;
+  --text-muted: #555555;
+  --border: #222222;
+  --accent: #00d4ff;
+  --accent-dim: rgba(0,212,255,0.1);
+  --accent-glow: rgba(0,212,255,0.15);
+  --gradient-hero: linear-gradient(160deg, #000 0%, #050510 40%, #0a0a1a 100%);
+  --shadow: 0 0 0 1px rgba(255,255,255,0.04);
+  --shadow-hover: 0 8px 40px rgba(0,212,255,0.06), 0 0 0 1px rgba(255,255,255,0.08);
+}
+:root[data-theme="light"] {
+  --bg: #fafafa;
+  --bg-elevated: #ffffff;
   --bg-card: #ffffff;
-  --text: #1d1d1f;
-  --text-secondary: #6e6e73;
-  --text-muted: #86868b;
-  --border: #e5e5e7;
-  --accent: #0071e3;
-  --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
-  --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
-  --radius: 16px;
-  --max-width: 800px;
+  --bg-card-hover: #f5f5f5;
+  --text: #111111;
+  --text-secondary: #666666;
+  --text-muted: #999999;
+  --border: #e8e8e8;
+  --accent: #0066ff;
+  --accent-dim: rgba(0,102,255,0.06);
+  --accent-glow: rgba(0,102,255,0.08);
+  --gradient-hero: linear-gradient(160deg, #f5f5f5 0%, #eef2ff 40%, #f0f5ff 100%);
+  --shadow: 0 1px 3px rgba(0,0,0,0.06);
+  --shadow-hover: 0 8px 30px rgba(0,0,0,0.08);
 }
-[data-theme="dark"] {
-  --bg: #0d0d0d; --bg-card: #1c1c1e; --text: #f5f5f7;
-  --text-secondary: #a1a1a6; --text-muted: #6e6e73; --border: #2c2c2e;
-  --accent: #2997ff; --shadow-sm: 0 1px 3px rgba(0,0,0,0.3); --shadow-md: 0 4px 12px rgba(0,0,0,0.4);
-}
+
+/* ===== Reset ===== */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
-  background: var(--bg); color: var(--text); line-height: 1.6;
-  min-height: 100vh; transition: background 0.3s, color 0.3s;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", "Segoe UI", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  transition: background 0.4s, color 0.4s;
 }
-.page-header {
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-  color: #fff; padding: 48px 24px; text-align: center;
+a { color: inherit; text-decoration: none; }
+
+/* ===== Top Bar ===== */
+.topbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 16px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: transparent;
+  transition: background 0.3s;
 }
-.page-header h1 { font-size: 36px; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.5px; }
-.page-header p { font-size: 16px; opacity: 0.7; }
-.header-controls { margin-top: 20px; }
-.theme-btn {
-  background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.2);
-  color: #fff; padding: 8px 16px; border-radius: 20px; cursor: pointer; font-size: 14px;
+.topbar.scrolled {
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
 }
-.theme-btn:hover { background: rgba(255,255,255,0.25); }
-.archive-list {
-  max-width: var(--max-width); margin: 32px auto; padding: 0 24px;
+[data-theme="light"] .topbar.scrolled {
+  background: rgba(255,255,255,0.9);
 }
-.archive-item {
-  display: flex; justify-content: space-between; align-items: center;
-  background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius);
-  padding: 20px 24px; margin-bottom: 12px; box-shadow: var(--shadow-sm);
-  transition: all 0.25s; text-decoration: none; color: var(--text);
+.topbar-brand {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--text-secondary);
 }
-.archive-item:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
-.archive-item-left h3 { font-size: 17px; font-weight: 600; margin-bottom: 4px; }
-.archive-item-left p { font-size: 13px; color: var(--text-muted); }
-.archive-item-right {
-  font-size: 13px; color: var(--accent); font-weight: 500; white-space: nowrap;
+.topbar-actions { display: flex; gap: 12px; align-items: center; }
+.theme-toggle {
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.2s;
 }
-.footer { text-align: center; padding: 32px; font-size: 13px; color: var(--text-muted); }
+.theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
+
+/* ===== Hero / Cover ===== */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 48px 80px;
+  background: var(--gradient-hero);
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -30%; right: -15%;
+  width: 800px; height: 800px;
+  background: radial-gradient(circle, var(--accent-glow) 0%, transparent 65%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 200px;
+  background: linear-gradient(to top, var(--bg) 0%, transparent 100%);
+  pointer-events: none;
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+}
+.hero-issue {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  padding: 6px 14px;
+  border-radius: 4px;
+  margin-bottom: 24px;
+}
+.hero-date {
+  font-size: 15px;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+  font-weight: 400;
+}
+.hero h1 {
+  font-size: clamp(40px, 6vw, 72px);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -2px;
+  margin-bottom: 24px;
+  background: linear-gradient(135deg, var(--text) 0%, var(--text-secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero-summary {
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  max-width: 680px;
+  margin-bottom: 32px;
+}
+.hero-stats {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+.hero-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.hero-stat-value {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+}
+.hero-stat-label {
+  font-size: 12px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 40px;
+  padding: 14px 28px;
+  background: var(--accent);
+  color: #000;
+  font-weight: 600;
+  font-size: 15px;
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+.hero-cta:hover { opacity: 0.85; transform: translateY(-1px); }
+.hero-cta svg { width: 18px; height: 18px; }
+
+/* ===== Today's Brief ===== */
+.today-brief {
+  padding: 0 48px 64px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.section-header-line {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+.section-header-line h2 {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+.section-header-line::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+.brief-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.brief-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  transition: all 0.3s;
+  display: flex;
+  flex-direction: column;
+}
+.brief-card:hover {
+  background: var(--bg-card-hover);
+  border-color: rgba(0,212,255,0.2);
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-2px);
+}
+.brief-card-tag {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+.brief-card h3 {
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.45;
+  margin-bottom: 10px;
+  letter-spacing: -0.2px;
+}
+.brief-card p {
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  flex: 1;
+}
+.brief-card-source {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+}
+
+/* ===== Archive Section ===== */
+.archive {
+  padding: 0 48px 100px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Timeline */
+.timeline {
+  position: relative;
+  padding-left: 32px;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 7px;
+  top: 8px;
+  bottom: 8px;
+  width: 1px;
+  background: var(--border);
+}
+.timeline-item {
+  position: relative;
+  margin-bottom: 24px;
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -32px;
+  top: 10px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  background: var(--bg);
+  transition: all 0.3s;
+}
+.timeline-item:first-child::before {
+  border-color: var(--accent);
+  box-shadow: 0 0 12px var(--accent-glow);
+  background: var(--accent);
+}
+.timeline-item:hover::before {
+  border-color: var(--accent);
+  background: var(--accent);
+}
+.timeline-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px 28px;
+  transition: all 0.3s;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.timeline-item:hover .timeline-card {
+  background: var(--bg-card-hover);
+  border-color: rgba(0,212,255,0.2);
+  box-shadow: var(--shadow-hover);
+}
+.timeline-info h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  letter-spacing: -0.2px;
+}
+.timeline-info p {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+.timeline-meta {
+  text-align: right;
+  flex-shrink: 0;
+  margin-left: 24px;
+}
+.timeline-date {
+  font-size: 13px;
+  color: var(--text-secondary);
+  font-variant-numeric: tabular-nums;
+}
+.timeline-arrow {
+  font-size: 14px;
+  color: var(--accent);
+  margin-top: 4px;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.timeline-item:hover .timeline-arrow { opacity: 1; }
+
+/* ===== Footer ===== */
+.footer {
+  padding: 40px 48px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+.footer a { color: var(--accent); }
+
+/* ===== Responsive ===== */
 @media (max-width: 768px) {
-  .page-header h1 { font-size: 26px; }
-  .archive-item { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .hero { padding: 0 24px 60px; min-height: 90vh; }
+  .hero h1 { font-size: 32px; letter-spacing: -1px; }
+  .hero-summary { font-size: 16px; }
+  .hero-stats { gap: 20px; }
+  .hero-stat-value { font-size: 22px; }
+  .hero-cta { width: 100%; justify-content: center; }
+  .topbar { padding: 12px 20px; }
+  .today-brief { padding: 0 24px 48px; }
+  .brief-grid { grid-template-columns: 1fr; gap: 12px; }
+  .archive { padding: 0 24px 60px; }
+  .timeline { padding-left: 28px; }
+  .timeline-card { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .timeline-meta { text-align: left; margin-left: 0; }
+  .timeline-arrow { opacity: 1; }
+  .footer { flex-direction: column; gap: 12px; padding: 32px 24px; text-align: center; }
+}
+@media (max-width: 480px) {
+  .hero h1 { font-size: 28px; }
+  .hero-stat-value { font-size: 20px; }
+}
+
+/* ===== Animations ===== */
+@media (prefers-reduced-motion: no-preference) {
+  .brief-card, .timeline-card { animation: fadeIn 0.5s ease backwards; }
+  .brief-card:nth-child(2) { animation-delay: 0.1s; }
+  .brief-card:nth-child(3) { animation-delay: 0.2s; }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
 }
 </style>
 </head>
 <body>
-<header class="page-header">
-  <h1>📰 每日简报</h1>
-  <p>AI · 科技 · 财经 — 每日精选资讯</p>
-  <div class="header-controls">
-    <button class="theme-btn" onclick="toggleTheme()" id="themeBtn">🌙 深色</button>
+
+<!-- Top Bar -->
+<div class="topbar" id="topbar">
+  <div class="topbar-brand">Daily Digest</div>
+  <div class="topbar-actions">
+    <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn" aria-label="Toggle theme">☀️</button>
   </div>
-</header>
-<div class="archive-list">
-  <a class="archive-item" href="posts/2026-03-31.html">
-    <div class="archive-item-left">
-      <h3>第 2 期 · 油价飙升与AI军备竞赛</h3>
-      <p>2026年3月31日 星期二</p>
-    </div>
-    <div class="archive-item-right">阅读 →</div>
-  </a>
-  <a class="archive-item" href="posts/2026-03-30.html">
-    <div class="archive-item-left">
-      <h3>第 1 期 · 算力回流应用</h3>
-      <p>2026年3月30日 星期一</p>
-    </div>
-    <div class="archive-item-right">阅读 →</div>
-  </a>
 </div>
+
+<!-- Hero Cover -->
+<section class="hero">
+  <div class="hero-content">
+    <span class="hero-issue">第 2 期</span>
+    <div class="hero-date">2026年3月31日 星期二</div>
+    <h1>油价飙升与AI军备竞赛</h1>
+    <p class="hero-summary">国际油价突破关键关口推升全球通胀预期，美股承压；同时 AI 领域军备竞赛加速，OpenAI 关闭 Sora 将算力集中到高 ROI 产品，Claude 付费订阅翻倍增长。</p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <span class="hero-stat-value">35</span>
+        <span class="hero-stat-label">资讯</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-value">4</span>
+        <span class="hero-stat-label">深度</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-value">18</span>
+        <span class="hero-stat-label">信源</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-value">~18</span>
+        <span class="hero-stat-label">分钟</span>
+      </div>
+    </div>
+    <a href="posts/2026-03-31.html" class="hero-cta">
+      阅读本期
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- Today's Brief -->
+<section class="today-brief">
+  <div class="section-header-line">
+    <h2>今日速览</h2>
+  </div>
+  <div class="brief-grid">
+    <div class="brief-card">
+      <div class="brief-card-tag">AI</div>
+      <h3>OpenAI 关闭 Sora，算力从"炫技"回流高 ROI 产品</h3>
+      <p>Sora 用户峰值约 100 万后滑落至不足 50 万，日成本仍达 100 万美元。资源转向更能带来收入的方向。</p>
+      <div class="brief-card-source">TechCrunch</div>
+    </div>
+    <div class="brief-card">
+      <div class="brief-card-tag">财经</div>
+      <h3>国际油价飙升推高通胀预期，美股三大指数全线下挫</h3>
+      <p>地缘紧张叠加供给收缩，原油突破关键价位，通胀预期重新升温，市场风险偏好回落。</p>
+      <div class="brief-card-source">Reuters</div>
+    </div>
+    <div class="brief-card">
+      <div class="brief-card-tag">科技</div>
+      <h3>Anthropic 获法院禁令，AI 安全边界开始影响政企采购</h3>
+      <p>联邦法官要求撤销将 Anthropic 认定为"供应链风险"的命令，模型使用政策已成为经营变量。</p>
+      <div class="brief-card-source">TechCrunch</div>
+    </div>
+  </div>
+</section>
+
+<!-- Archive Timeline -->
+<section class="archive">
+  <div class="section-header-line">
+    <h2>往期归档</h2>
+  </div>
+  <div class="timeline">
+    <a class="timeline-item" href="posts/2026-03-31.html">
+      <div class="timeline-card">
+        <div class="timeline-info">
+          <h3>第 2 期 · 油价飙升与AI军备竞赛</h3>
+          <p>35条资讯 · 4篇深度 · 18个信源</p>
+        </div>
+        <div class="timeline-meta">
+          <div class="timeline-date">2026.03.31</div>
+          <div class="timeline-arrow">→</div>
+        </div>
+      </div>
+    </a>
+    <a class="timeline-item" href="posts/2026-03-30.html">
+      <div class="timeline-card">
+        <div class="timeline-info">
+          <h3>第 1 期 · 算力回流应用</h3>
+          <p>2026年3月30日 星期一</p>
+        </div>
+        <div class="timeline-meta">
+          <div class="timeline-date">2026.03.30</div>
+          <div class="timeline-arrow">→</div>
+        </div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- Footer -->
 <footer class="footer">
-  <p>由 AI 自动抓取与编辑 · 每日 07:00 更新 · news.huangwei.ai</p>
+  <span>© 2026 Daily Digest · AI 自动编辑 · 每日 07:00 更新</span>
+  <a href="https://news.huangwei.ai">news.huangwei.ai</a>
 </footer>
+
 <script>
 function toggleTheme() {
-  const html = document.documentElement, btn = document.getElementById('themeBtn');
-  if (html.getAttribute('data-theme') === 'dark') {
-    html.removeAttribute('data-theme'); btn.textContent = '🌙 深色'; localStorage.setItem('theme','light');
-  } else {
-    html.setAttribute('data-theme','dark'); btn.textContent = '☀️ 浅色'; localStorage.setItem('theme','dark');
+  const html = document.documentElement;
+  const btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function() {
+  const saved = localStorage.getItem('theme');
+  if (saved === 'light') {
+    document.documentElement.setAttribute('data-theme', 'light');
+    document.getElementById('themeBtn').textContent = '🌙';
   }
-}
-if (localStorage.getItem('theme')==='dark'||(!localStorage.getItem('theme')&&window.matchMedia('(prefers-color-scheme:dark)').matches)){
-  document.documentElement.setAttribute('data-theme','dark');
-  document.getElementById('themeBtn').textContent='☀️ 浅色';
-}
+})();
+window.addEventListener('scroll', () => {
+  document.getElementById('topbar').classList.toggle('scrolled', window.scrollY > 60);
+});
 </script>
 </body>
 </html>
