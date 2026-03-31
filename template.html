@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日简报 - {{DATE}}</title>
+<style>
+/* ===== CSS Variables & Theme ===== */
+:root {
+  --bg: #f5f5f7;
+  --bg-card: #ffffff;
+  --bg-hero: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  --text: #1d1d1f;
+  --text-secondary: #6e6e73;
+  --text-muted: #86868b;
+  --border: #e5e5e7;
+  --accent: #0071e3;
+  --accent-light: #e8f2ff;
+  --tag-ai: #7c3aed;
+  --tag-ai-bg: #f3e8ff;
+  --tag-tech: #0891b2;
+  --tag-tech-bg: #e0f7fa;
+  --tag-finance: #d97706;
+  --tag-finance-bg: #fef3c7;
+  --tag-science: #059669;
+  --tag-science-bg: #d1fae5;
+  --tag-product: #e11d48;
+  --tag-product-bg: #ffe4e6;
+  --tag-dev: #6366f1;
+  --tag-dev-bg: #eef2ff;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+  --shadow-lg: 0 8px 30px rgba(0,0,0,0.12);
+  --radius: 16px;
+  --radius-sm: 10px;
+  --max-width: 1200px;
+}
+
+[data-theme="dark"] {
+  --bg: #0d0d0d;
+  --bg-card: #1c1c1e;
+  --text: #f5f5f7;
+  --text-secondary: #a1a1a6;
+  --text-muted: #6e6e73;
+  --border: #2c2c2e;
+  --accent: #2997ff;
+  --accent-light: #1a2a3a;
+  --tag-ai-bg: #2d1b4e;
+  --tag-tech-bg: #0c2d33;
+  --tag-finance-bg: #2d2010;
+  --tag-science-bg: #0d2818;
+  --tag-product-bg: #2d0f15;
+  --tag-dev-bg: #1a1b3a;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.4);
+  --shadow-lg: 0 8px 30px rgba(0,0,0,0.5);
+}
+
+/* ===== Reset & Base ===== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  transition: background 0.3s, color 0.3s;
+}
+
+a { color: var(--accent); text-decoration: none; transition: opacity 0.2s; }
+a:hover { opacity: 0.8; }
+img { max-width: 100%; border-radius: var(--radius-sm); }
+
+/* ===== Hero Section ===== */
+.hero {
+  background: var(--bg-hero);
+  color: #fff;
+  padding: 48px 24px 40px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(0,113,227,0.15) 0%, transparent 70%);
+  border-radius: 50%;
+}
+.hero-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+.hero-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+.hero-brand {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+.theme-toggle {
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  backdrop-filter: blur(10px);
+  transition: all 0.2s;
+}
+.theme-toggle:hover { background: rgba(255,255,255,0.25); }
+.hero h1 {
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin-bottom: 8px;
+}
+.hero-date {
+  font-size: 16px;
+  opacity: 0.7;
+  margin-bottom: 20px;
+}
+.hero-stats {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.hero-stat {
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.15);
+  padding: 12px 20px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+}
+.hero-stat strong {
+  display: block;
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+/* ===== Reading Progress ===== */
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: var(--accent);
+  z-index: 1000;
+  transition: width 0.1s;
+  width: 0%;
+}
+
+/* ===== Navigation ===== */
+.nav-bar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  transition: background 0.3s;
+}
+.nav-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  gap: 4px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.nav-inner::-webkit-scrollbar { display: none; }
+.nav-item {
+  padding: 14px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+}
+.nav-item:hover, .nav-item.active {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+/* ===== Main Container ===== */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 32px 24px 80px;
+}
+
+/* ===== Section ===== */
+.section {
+  margin-bottom: 48px;
+}
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--border);
+}
+.section-icon {
+  font-size: 24px;
+  line-height: 1;
+}
+.section-title {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+}
+.section-count {
+  margin-left: auto;
+  font-size: 13px;
+  color: var(--text-muted);
+  background: var(--bg);
+  padding: 4px 10px;
+  border-radius: 12px;
+}
+
+/* ===== Headline Card ===== */
+.headline-card {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  margin-bottom: 24px;
+  border: 1px solid var(--border);
+}
+.headline-card .headline-body {
+  padding: 28px;
+}
+.headline-card h2 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  line-height: 1.4;
+  letter-spacing: -0.3px;
+}
+.headline-card p {
+  font-size: 16px;
+  color: var(--text-secondary);
+  line-height: 1.75;
+}
+.headline-tag {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 6px;
+  margin-bottom: 12px;
+}
+
+/* ===== News Grid ===== */
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 16px;
+}
+.news-card {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border);
+  transition: all 0.25s ease;
+  display: flex;
+  flex-direction: column;
+}
+.news-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+.news-card-tag {
+  display: inline-flex;
+  align-items: center;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  width: fit-content;
+}
+.tag-ai { color: var(--tag-ai); background: var(--tag-ai-bg); }
+.tag-tech { color: var(--tag-tech); background: var(--tag-tech-bg); }
+.tag-finance { color: var(--tag-finance); background: var(--tag-finance-bg); }
+.tag-science { color: var(--tag-science); background: var(--tag-science-bg); }
+.tag-product { color: var(--tag-product); background: var(--tag-product-bg); }
+.tag-dev { color: var(--tag-dev); background: var(--tag-dev-bg); }
+
+.news-card h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  line-height: 1.5;
+  letter-spacing: -0.2px;
+}
+.news-card p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  flex: 1;
+}
+.news-card-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+  font-size: 12px;
+  color: var(--text-muted);
+}
+.news-source {
+  font-weight: 500;
+}
+
+/* ===== Deep Read Section ===== */
+.deep-read-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.deep-read-card {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  display: flex;
+  transition: all 0.25s ease;
+}
+.deep-read-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+.deep-read-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 60px;
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--accent);
+  opacity: 0.3;
+}
+.deep-read-body {
+  padding: 20px 20px 20px 0;
+  flex: 1;
+}
+.deep-read-body h3 {
+  font-size: 17px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  line-height: 1.5;
+}
+.deep-read-body p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin-bottom: 10px;
+}
+.deep-read-meta {
+  display: flex;
+  gap: 16px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+.read-time {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* ===== Market Data ===== */
+.market-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.market-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 16px;
+  text-align: center;
+}
+.market-item .name { font-size: 13px; color: var(--text-muted); margin-bottom: 4px; }
+.market-item .value { font-size: 20px; font-weight: 700; margin-bottom: 2px; }
+.market-item .change { font-size: 14px; font-weight: 600; }
+.up { color: #ef4444; }
+.down { color: #22c55e; }
+
+/* ===== Quotes Section ===== */
+.quotes-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.quote-card {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 24px;
+  position: relative;
+  box-shadow: var(--shadow-sm);
+}
+.quote-card::before {
+  content: '\201C';
+  position: absolute;
+  top: 12px;
+  left: 20px;
+  font-size: 48px;
+  color: var(--accent);
+  opacity: 0.15;
+  font-family: Georgia, serif;
+  line-height: 1;
+}
+.quote-text {
+  font-size: 16px;
+  line-height: 1.75;
+  margin-bottom: 12px;
+  padding-left: 8px;
+  font-style: italic;
+}
+.quote-author {
+  font-size: 13px;
+  color: var(--text-muted);
+  font-weight: 500;
+  padding-left: 8px;
+}
+
+/* ===== Tool/Product Rec ===== */
+.tool-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+.tool-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.25s ease;
+}
+.tool-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+.tool-card h3 { font-size: 16px; font-weight: 600; margin-bottom: 6px; }
+.tool-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
+.tool-card-link {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+/* ===== Archive Link ===== */
+.archive-section {
+  text-align: center;
+  padding: 40px 0;
+  border-top: 1px solid var(--border);
+}
+.archive-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--accent);
+  padding: 12px 24px;
+  border-radius: 20px;
+  border: 1px solid var(--accent);
+  transition: all 0.2s;
+}
+.archive-link:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* ===== Footer ===== */
+.footer {
+  text-align: center;
+  padding: 32px 24px;
+  font-size: 13px;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border);
+}
+
+/* ===== Back to Top ===== */
+.back-to-top {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  box-shadow: var(--shadow-md);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s;
+  z-index: 99;
+}
+.back-to-top.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== Mobile Responsive ===== */
+@media (max-width: 768px) {
+  .hero { padding: 36px 20px 32px; }
+  .hero h1 { font-size: 26px; }
+  .hero-stats { gap: 12px; }
+  .hero-stat { padding: 10px 14px; font-size: 12px; }
+  .hero-stat strong { font-size: 18px; }
+  .container { padding: 20px 16px 60px; }
+  .section-title { font-size: 19px; }
+  .news-grid { grid-template-columns: 1fr; gap: 12px; }
+  .market-grid { grid-template-columns: repeat(2, 1fr); }
+  .tool-grid { grid-template-columns: 1fr; }
+  .headline-card h2 { font-size: 20px; }
+  .headline-card .headline-body { padding: 20px; }
+  .deep-read-card { flex-direction: column; }
+  .deep-read-number {
+    min-width: unset;
+    justify-content: flex-start;
+    padding: 16px 20px 0;
+    font-size: 22px;
+  }
+  .deep-read-body { padding: 12px 20px 20px; }
+  .nav-item { padding: 12px 14px; font-size: 13px; }
+}
+
+@media (max-width: 480px) {
+  .hero h1 { font-size: 22px; }
+  .hero-stat { flex: 1; min-width: calc(50% - 6px); }
+  .market-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ===== Animations ===== */
+@media (prefers-reduced-motion: no-preference) {
+  .news-card, .deep-read-card, .quote-card, .tool-card {
+    animation: fadeInUp 0.4s ease backwards;
+  }
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- Reading Progress Bar -->
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- Hero Section -->
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-top">
+      <div class="hero-brand">DAILY DIGEST</div>
+      <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">🌙 深色</button>
+    </div>
+    <h1>{{TITLE}}</h1>
+    <div class="hero-date">{{DATE_DISPLAY}} · 第 {{ISSUE_NUMBER}} 期</div>
+    <div class="hero-stats">
+      <div class="hero-stat"><strong>{{NEWS_COUNT}}</strong>条资讯</div>
+      <div class="hero-stat"><strong>{{DEEP_READ_COUNT}}</strong>篇深度</div>
+      <div class="hero-stat"><strong>{{SOURCE_COUNT}}</strong>个信源</div>
+      <div class="hero-stat"><strong>~{{READ_TIME}}</strong>分钟阅读</div>
+    </div>
+  </div>
+</header>
+
+<!-- Sticky Navigation -->
+<nav class="nav-bar">
+  <div class="nav-inner">
+    <div class="nav-item active" data-section="headline">头条聚焦</div>
+    <div class="nav-item" data-section="ai">AI 前沿</div>
+    <div class="nav-item" data-section="tech">科技动态</div>
+    <div class="nav-item" data-section="finance">全球财经</div>
+    <div class="nav-item" data-section="market">市场数据</div>
+    <div class="nav-item" data-section="science">科学突破</div>
+    <div class="nav-item" data-section="product">产品发现</div>
+    <div class="nav-item" data-section="deepread">深度阅读</div>
+    <div class="nav-item" data-section="devtool">开发者工具</div>
+    <div class="nav-item" data-section="quotes">言论</div>
+  </div>
+</nav>
+
+<!-- Main Content -->
+<main class="container">
+
+  <!-- 头条聚焦 -->
+  <section class="section" id="headline">
+    <div class="section-header">
+      <span class="section-icon">🔥</span>
+      <h2 class="section-title">头条聚焦</h2>
+    </div>
+    {{HEADLINE_CONTENT}}
+  </section>
+
+  <!-- AI 前沿 -->
+  <section class="section" id="ai">
+    <div class="section-header">
+      <span class="section-icon">🤖</span>
+      <h2 class="section-title">AI 前沿</h2>
+      <span class="section-count">{{AI_COUNT}} 条</span>
+    </div>
+    <div class="news-grid">
+      {{AI_CONTENT}}
+    </div>
+  </section>
+
+  <!-- 科技动态 -->
+  <section class="section" id="tech">
+    <div class="section-header">
+      <span class="section-icon">💻</span>
+      <h2 class="section-title">科技动态</h2>
+      <span class="section-count">{{TECH_COUNT}} 条</span>
+    </div>
+    <div class="news-grid">
+      {{TECH_CONTENT}}
+    </div>
+  </section>
+
+  <!-- 全球财经 -->
+  <section class="section" id="finance">
+    <div class="section-header">
+      <span class="section-icon">📊</span>
+      <h2 class="section-title">全球财经</h2>
+      <span class="section-count">{{FINANCE_COUNT}} 条</span>
+    </div>
+    <div class="news-grid">
+      {{FINANCE_CONTENT}}
+    </div>
+  </section>
+
+  <!-- 市场数据 -->
+  <section class="section" id="market">
+    <div class="section-header">
+      <span class="section-icon">📈</span>
+      <h2 class="section-title">市场数据</h2>
+    </div>
+    {{MARKET_CONTENT}}
+  </section>
+
+  <!-- 科学突破 -->
+  <section class="section" id="science">
+    <div class="section-header">
+      <span class="section-icon">🔬</span>
+      <h2 class="section-title">科学突破</h2>
+      <span class="section-count">{{SCIENCE_COUNT}} 条</span>
+    </div>
+    <div class="news-grid">
+      {{SCIENCE_CONTENT}}
+    </div>
+  </section>
+
+  <!-- 产品发现 -->
+  <section class="section" id="product">
+    <div class="section-header">
+      <span class="section-icon">🚀</span>
+      <h2 class="section-title">产品发现</h2>
+      <span class="section-count">{{PRODUCT_COUNT}} 条</span>
+    </div>
+    <div class="news-grid">
+      {{PRODUCT_CONTENT}}
+    </div>
+  </section>
+
+  <!-- 深度阅读 -->
+  <section class="section" id="deepread">
+    <div class="section-header">
+      <span class="section-icon">📚</span>
+      <h2 class="section-title">深度阅读</h2>
+      <span class="section-count">{{DEEP_READ_COUNT}} 篇</span>
+    </div>
+    <div class="deep-read-list">
+      {{DEEP_READ_CONTENT}}
+    </div>
+  </section>
+
+  <!-- 开发者工具 -->
+  <section class="section" id="devtool">
+    <div class="section-header">
+      <span class="section-icon">🛠️</span>
+      <h2 class="section-title">开发者工具</h2>
+    </div>
+    <div class="tool-grid">
+      {{DEVTOOL_CONTENT}}
+    </div>
+  </section>
+
+  <!-- 言论 -->
+  <section class="section" id="quotes">
+    <div class="section-header">
+      <span class="section-icon">💬</span>
+      <h2 class="section-title">言论</h2>
+    </div>
+    <div class="quotes-list">
+      {{QUOTES_CONTENT}}
+    </div>
+  </section>
+
+  <!-- Archive -->
+  <div class="archive-section">
+    <a href="../index.html" class="archive-link">← 查看往期简报</a>
+  </div>
+
+</main>
+
+<footer class="footer">
+  <p>由 AI 自动抓取与编辑 · 每日 07:00 更新 · news.huangwei.ai</p>
+</footer>
+
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+// Theme toggle
+function toggleTheme() {
+  const html = document.documentElement;
+  const btn = document.getElementById('themeBtn');
+  if (html.getAttribute('data-theme') === 'dark') {
+    html.removeAttribute('data-theme');
+    btn.textContent = '🌙 深色';
+    localStorage.setItem('theme', 'light');
+  } else {
+    html.setAttribute('data-theme', 'dark');
+    btn.textContent = '☀️ 浅色';
+    localStorage.setItem('theme', 'dark');
+  }
+}
+// Restore theme
+if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+  document.documentElement.setAttribute('data-theme', 'dark');
+  document.getElementById('themeBtn').textContent = '☀️ 浅色';
+}
+
+// Reading progress
+window.addEventListener('scroll', () => {
+  const scrollTop = document.documentElement.scrollTop;
+  const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  const progress = (scrollTop / scrollHeight) * 100;
+  document.getElementById('progressBar').style.width = progress + '%';
+
+  // Back to top
+  const btn = document.getElementById('backToTop');
+  btn.classList.toggle('visible', scrollTop > 400);
+});
+
+// Nav active state
+const navItems = document.querySelectorAll('.nav-item');
+navItems.forEach(item => {
+  item.addEventListener('click', () => {
+    const section = document.getElementById(item.dataset.section);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+// Intersection observer for active nav
+const sections = document.querySelectorAll('.section');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      navItems.forEach(n => n.classList.remove('active'));
+      const nav = document.querySelector(`.nav-item[data-section="${entry.target.id}"]`);
+      if (nav) nav.classList.add('active');
+    }
+  });
+}, { rootMargin: '-100px 0px -50% 0px' });
+sections.forEach(s => observer.observe(s));
+</script>
+</body>
+</html>

@@ -1,25 +1,95 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>每日简报</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日简报 - Daily Digest</title>
+<style>
+:root {
+  --bg: #f5f5f7;
+  --bg-card: #ffffff;
+  --text: #1d1d1f;
+  --text-secondary: #6e6e73;
+  --text-muted: #86868b;
+  --border: #e5e5e7;
+  --accent: #0071e3;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+  --radius: 16px;
+  --max-width: 800px;
+}
+[data-theme="dark"] {
+  --bg: #0d0d0d; --bg-card: #1c1c1e; --text: #f5f5f7;
+  --text-secondary: #a1a1a6; --text-muted: #6e6e73; --border: #2c2c2e;
+  --accent: #2997ff; --shadow-sm: 0 1px 3px rgba(0,0,0,0.3); --shadow-md: 0 4px 12px rgba(0,0,0,0.4);
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+  background: var(--bg); color: var(--text); line-height: 1.6;
+  min-height: 100vh; transition: background 0.3s, color 0.3s;
+}
+.page-header {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  color: #fff; padding: 48px 24px; text-align: center;
+}
+.page-header h1 { font-size: 36px; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.5px; }
+.page-header p { font-size: 16px; opacity: 0.7; }
+.header-controls { margin-top: 20px; }
+.theme-btn {
+  background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.2);
+  color: #fff; padding: 8px 16px; border-radius: 20px; cursor: pointer; font-size: 14px;
+}
+.theme-btn:hover { background: rgba(255,255,255,0.25); }
+.archive-list {
+  max-width: var(--max-width); margin: 32px auto; padding: 0 24px;
+}
+.archive-item {
+  display: flex; justify-content: space-between; align-items: center;
+  background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 20px 24px; margin-bottom: 12px; box-shadow: var(--shadow-sm);
+  transition: all 0.25s; text-decoration: none; color: var(--text);
+}
+.archive-item:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+.archive-item-left h3 { font-size: 17px; font-weight: 600; margin-bottom: 4px; }
+.archive-item-left p { font-size: 13px; color: var(--text-muted); }
+.archive-item-right {
+  font-size: 13px; color: var(--accent); font-weight: 500; white-space: nowrap;
+}
+.footer { text-align: center; padding: 32px; font-size: 13px; color: var(--text-muted); }
+@media (max-width: 768px) {
+  .page-header h1 { font-size: 26px; }
+  .archive-item { flex-direction: column; align-items: flex-start; gap: 8px; }
+}
+</style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="inner">
-      <div class="site-title">📰 每日简报</div>
-    </div>
-  </header>
-
-  <main class="container">
-    <ul class="issue-list">
-      <li class="issue-item">
-        <a class="issue-link" href="posts/2026-03-30.html">第 1 期 · 算力回流应用</a>
-        <span class="issue-date">2026-03-30</span>
-      </li>
-    </ul>
-  </main>
+<header class="page-header">
+  <h1>📰 每日简报</h1>
+  <p>AI · 科技 · 财经 — 每日精选资讯</p>
+  <div class="header-controls">
+    <button class="theme-btn" onclick="toggleTheme()" id="themeBtn">🌙 深色</button>
+  </div>
+</header>
+<div class="archive-list">
+  {{ARCHIVE_LIST}}
+</div>
+<footer class="footer">
+  <p>由 AI 自动抓取与编辑 · 每日 07:00 更新 · news.huangwei.ai</p>
+</footer>
+<script>
+function toggleTheme() {
+  const html = document.documentElement, btn = document.getElementById('themeBtn');
+  if (html.getAttribute('data-theme') === 'dark') {
+    html.removeAttribute('data-theme'); btn.textContent = '🌙 深色'; localStorage.setItem('theme','light');
+  } else {
+    html.setAttribute('data-theme','dark'); btn.textContent = '☀️ 浅色'; localStorage.setItem('theme','dark');
+  }
+}
+if (localStorage.getItem('theme')==='dark'||(!localStorage.getItem('theme')&&window.matchMedia('(prefers-color-scheme:dark)').matches)){
+  document.documentElement.setAttribute('data-theme','dark');
+  document.getElementById('themeBtn').textContent='☀️ 浅色';
+}
+</script>
 </body>
 </html>
