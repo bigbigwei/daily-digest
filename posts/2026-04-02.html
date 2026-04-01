@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Perplexity隐私丑闻震动AI行业，苹果50岁 · 每日简报</title>
+<style>
+/* ===== Theme Variables ===== */
+:root[data-theme="dark"] {
+  --bg: #000000;
+  --bg-elevated: #0a0a0a;
+  --bg-card: #111111;
+  --bg-card-hover: #1a1a1a;
+  --text: #f0f0f0;
+  --text-secondary: #999999;
+  --text-muted: #555555;
+  --border: #222222;
+  --accent: #00d4ff;
+  --accent-dim: rgba(0,212,255,0.1);
+  --accent-glow: rgba(0,212,255,0.15);
+  --tag-ai: #a78bfa;
+  --tag-ai-bg: rgba(167,139,250,0.12);
+  --tag-tech: #22d3ee;
+  --tag-tech-bg: rgba(34,211,238,0.1);
+  --tag-finance: #fbbf24;
+  --tag-finance-bg: rgba(251,191,36,0.1);
+  --tag-science: #34d399;
+  --tag-science-bg: rgba(52,211,153,0.1);
+  --tag-product: #fb7185;
+  --tag-product-bg: rgba(251,113,133,0.1);
+  --tag-dev: #818cf8;
+  --tag-dev-bg: rgba(129,140,248,0.1);
+  --up: #ef4444;
+  --down: #22c55e;
+  --shadow: 0 0 0 1px rgba(255,255,255,0.04);
+  --shadow-hover: 0 8px 40px rgba(0,212,255,0.06), 0 0 0 1px rgba(255,255,255,0.08);
+  --radius: 12px;
+}
+:root[data-theme="light"] {
+  --bg: #fafafa;
+  --bg-elevated: #ffffff;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f5f5f5;
+  --text: #111111;
+  --text-secondary: #666666;
+  --text-muted: #999999;
+  --border: #e8e8e8;
+  --accent: #0066ff;
+  --accent-dim: rgba(0,102,255,0.06);
+  --accent-glow: rgba(0,102,255,0.08);
+  --tag-ai: #7c3aed;
+  --tag-ai-bg: rgba(124,58,237,0.08);
+  --tag-tech: #0891b2;
+  --tag-tech-bg: rgba(8,145,178,0.08);
+  --tag-finance: #d97706;
+  --tag-finance-bg: rgba(217,119,6,0.08);
+  --tag-science: #059669;
+  --tag-science-bg: rgba(5,150,105,0.08);
+  --tag-product: #e11d48;
+  --tag-product-bg: rgba(225,29,72,0.08);
+  --tag-dev: #4f46e5;
+  --tag-dev-bg: rgba(79,70,229,0.08);
+  --up: #dc2626;
+  --down: #16a34a;
+  --shadow: 0 1px 3px rgba(0,0,0,0.06);
+  --shadow-hover: 0 8px 30px rgba(0,0,0,0.08);
+  --radius: 12px;
+}
+
+/* ===== Reset ===== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", "Segoe UI", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  transition: background 0.4s, color 0.4s;
+}
+a { color: var(--accent); text-decoration: none; transition: opacity 0.2s; }
+a:hover { opacity: 0.8; }
+
+/* ===== Progress Bar ===== */
+.progress-bar {
+  position: fixed;
+  top: 0; left: 0;
+  height: 2px;
+  background: var(--accent);
+  z-index: 200;
+  width: 0%;
+  transition: width 0.1s;
+}
+
+/* ===== Top Bar ===== */
+.topbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 14px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  transition: background 0.3s;
+}
+[data-theme="light"] .topbar { background: rgba(255,255,255,0.9); }
+.topbar-left { display: flex; align-items: center; gap: 16px; }
+.topbar-brand {
+  font-size: 13px; font-weight: 600;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: var(--text-secondary);
+}
+.topbar-back {
+  font-size: 13px; color: var(--accent);
+  display: flex; align-items: center; gap: 4px;
+}
+.theme-toggle {
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 15px;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.2s;
+}
+.theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
+
+/* ===== Nav ===== */
+.nav-bar {
+  position: sticky;
+  top: 52px;
+  z-index: 90;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  transition: background 0.3s;
+}
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: flex;
+  gap: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.nav-inner::-webkit-scrollbar { display: none; }
+.nav-item {
+  padding: 12px 16px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+  white-space: nowrap;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+}
+.nav-item:hover, .nav-item.active {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+/* ===== Hero ===== */
+.hero {
+  padding: 100px 48px 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.hero-issue {
+  display: inline-block;
+  font-size: 12px; font-weight: 600;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  padding: 5px 12px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+.hero-date {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+.hero h1 {
+  font-size: clamp(32px, 5vw, 52px);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -1.5px;
+  margin-bottom: 20px;
+}
+.hero-summary {
+  font-size: 17px;
+  line-height: 1.75;
+  color: var(--text-secondary);
+  max-width: 720px;
+  margin-bottom: 28px;
+}
+.hero-stats {
+  display: flex; gap: 28px; flex-wrap: wrap;
+}
+.hero-stat-value {
+  font-size: 24px; font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+.hero-stat-label {
+  font-size: 11px; color: var(--text-muted);
+  text-transform: uppercase; letter-spacing: 1px;
+}
+
+/* ===== Container ===== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 48px 80px;
+}
+
+/* ===== Section ===== */
+.section { margin-bottom: 56px; }
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.section-icon { font-size: 20px; }
+.section-title {
+  font-size: 18px; font-weight: 700;
+  letter-spacing: -0.2px;
+}
+.section-count {
+  margin-left: auto;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+.section-header::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+  order: 99;
+}
+.section-count { order: 98; }
+
+/* ===== News Grid ===== */
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 14px;
+}
+.news-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px;
+  transition: all 0.3s;
+  display: flex;
+  flex-direction: column;
+}
+.news-card:hover {
+  background: var(--bg-card-hover);
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-2px);
+}
+.news-card-tag {
+  display: inline-flex;
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 0.5px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  width: fit-content;
+}
+.tag-ai { color: var(--tag-ai); background: var(--tag-ai-bg); }
+.tag-tech { color: var(--tag-tech); background: var(--tag-tech-bg); }
+.tag-finance { color: var(--tag-finance); background: var(--tag-finance-bg); }
+.tag-science { color: var(--tag-science); background: var(--tag-science-bg); }
+.tag-product { color: var(--tag-product); background: var(--tag-product-bg); }
+.tag-dev { color: var(--tag-dev); background: var(--tag-dev-bg); }
+
+.news-card h3 {
+  font-size: 16px; font-weight: 600;
+  margin-bottom: 8px; line-height: 1.5;
+  letter-spacing: -0.2px;
+}
+.news-card h3 a { color: var(--text); }
+.news-card h3 a:hover { color: var(--accent); }
+.news-card p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  flex: 1;
+}
+.news-card-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+  font-size: 12px;
+  color: var(--text-muted);
+}
+.news-source { font-weight: 500; }
+
+/* ===== Headline ===== */
+.headline-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 32px;
+  margin-bottom: 20px;
+  box-shadow: var(--shadow);
+}
+.headline-card h2 {
+  font-size: 24px; font-weight: 700;
+  margin-bottom: 16px; line-height: 1.4;
+  letter-spacing: -0.5px;
+}
+.headline-card p {
+  font-size: 16px;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+.headline-tag {
+  display: inline-block;
+  font-size: 11px; font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 4px;
+  margin-bottom: 14px;
+}
+
+/* ===== Market Data ===== */
+.market-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
+  gap: 12px;
+}
+.market-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  text-align: center;
+  transition: all 0.2s;
+}
+.market-item:hover { border-color: rgba(0,212,255,0.2); }
+.market-item .name { font-size: 12px; color: var(--text-muted); margin-bottom: 4px; }
+.market-item .value { font-size: 20px; font-weight: 700; margin-bottom: 2px; font-variant-numeric: tabular-nums; }
+.market-item .change { font-size: 14px; font-weight: 600; }
+.up { color: var(--up); }
+.down { color: var(--down); }
+
+/* ===== Deep Read ===== */
+.deep-read-list { display: flex; flex-direction: column; gap: 14px; }
+.deep-read-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  display: flex;
+  transition: all 0.3s;
+}
+.deep-read-card:hover {
+  background: var(--bg-card-hover);
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-2px);
+}
+.deep-read-number {
+  display: flex; align-items: center; justify-content: center;
+  min-width: 64px;
+  font-size: 32px; font-weight: 800;
+  color: var(--accent); opacity: 0.2;
+}
+.deep-read-body {
+  padding: 20px 24px 20px 0; flex: 1;
+}
+.deep-read-body h3 {
+  font-size: 17px; font-weight: 600;
+  margin-bottom: 8px; line-height: 1.5;
+}
+.deep-read-body h3 a { color: var(--text); }
+.deep-read-body h3 a:hover { color: var(--accent); }
+.deep-read-body p {
+  font-size: 14px; color: var(--text-secondary); line-height: 1.65; margin-bottom: 10px;
+}
+.deep-read-meta {
+  display: flex; gap: 16px; font-size: 12px; color: var(--text-muted);
+}
+.read-time { color: var(--text-muted); }
+
+/* ===== Quotes ===== */
+.quotes-list { display: flex; flex-direction: column; gap: 14px; }
+.quote-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px 28px;
+  position: relative;
+}
+.quote-card::before {
+  content: '"';
+  position: absolute; top: 16px; left: 20px;
+  font-size: 40px; color: var(--accent); opacity: 0.15;
+  font-family: Georgia, serif; line-height: 1;
+}
+.quote-text {
+  font-size: 15px; line-height: 1.75;
+  margin-bottom: 10px; padding-left: 4px;
+  font-style: italic;
+}
+.quote-author {
+  font-size: 13px; color: var(--text-muted);
+  font-weight: 500; padding-left: 4px;
+}
+
+/* ===== Tools ===== */
+.tool-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 14px;
+}
+.tool-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px;
+  transition: all 0.3s;
+}
+.tool-card:hover { background: var(--bg-card-hover); box-shadow: var(--shadow-hover); transform: translateY(-2px); }
+.tool-card h3 { font-size: 16px; font-weight: 600; margin-bottom: 6px; }
+.tool-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
+.tool-card-link {
+  display: inline-block; margin-top: 10px;
+  font-size: 13px; font-weight: 600; color: var(--accent);
+}
+
+/* ===== Back link ===== */
+.archive-section {
+  text-align: center; padding: 40px 0;
+  border-top: 1px solid var(--border);
+}
+.archive-link {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 14px; font-weight: 500; color: var(--accent);
+  padding: 12px 24px; border-radius: 8px;
+  border: 1px solid var(--accent);
+  transition: all 0.2s;
+}
+.archive-link:hover { background: var(--accent); color: #000; }
+
+/* ===== Footer ===== */
+.footer {
+  text-align: center;
+  padding: 32px;
+  font-size: 13px;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border);
+}
+
+/* ===== Back to Top ===== */
+.back-to-top {
+  position: fixed; bottom: 24px; right: 24px;
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--accent);
+  cursor: pointer; font-size: 18px;
+  box-shadow: var(--shadow);
+  opacity: 0; transform: translateY(20px);
+  transition: all 0.3s; z-index: 99;
+}
+.back-to-top.visible { opacity: 1; transform: translateY(0); }
+.back-to-top:hover { background: var(--accent); color: #000; border-color: var(--accent); }
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .topbar { padding: 12px 20px; }
+  .hero { padding: 80px 24px 40px; }
+  .hero h1 { font-size: 28px; letter-spacing: -1px; }
+  .container { padding: 0 24px 60px; }
+  .news-grid { grid-template-columns: 1fr; }
+  .market-grid { grid-template-columns: repeat(2, 1fr); }
+  .tool-grid { grid-template-columns: 1fr; }
+  .headline-card { padding: 24px; }
+  .headline-card h2 { font-size: 20px; }
+  .deep-read-card { flex-direction: column; }
+  .deep-read-number { min-width: unset; padding: 16px 20px 0; justify-content: flex-start; font-size: 24px; }
+  .deep-read-body { padding: 12px 20px 20px; }
+  .nav-inner { padding: 0 20px; }
+  .nav-item { padding: 10px 14px; font-size: 12px; }
+}
+
+/* ===== Animations ===== */
+@media (prefers-reduced-motion: no-preference) {
+  .news-card, .deep-read-card, .quote-card, .tool-card {
+    animation: fadeIn 0.4s ease backwards;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- Top Bar -->
+<div class="topbar">
+  <div class="topbar-left">
+    <a href="../index.html" class="topbar-back">← 首页</a>
+    <span class="topbar-brand">Daily Digest</span>
+  </div>
+  <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn" aria-label="Toggle theme">☀️</button>
+</div>
+
+<!-- Nav -->
+<nav class="nav-bar">
+  <div class="nav-inner">
+    <div class="nav-item active" data-section="headline">头条</div>
+    <div class="nav-item" data-section="ai">AI</div>
+    <div class="nav-item" data-section="tech">科技</div>
+    <div class="nav-item" data-section="finance">财经</div>
+    <div class="nav-item" data-section="market">行情</div>
+    <div class="nav-item" data-section="science">科学</div>
+    <div class="nav-item" data-section="product">产品</div>
+    <div class="nav-item" data-section="deepread">深度</div>
+    <div class="nav-item" data-section="devtool">工具</div>
+    <div class="nav-item" data-section="quotes">言论</div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<header class="hero">
+  <span class="hero-issue">第 4 期</span>
+  <div class="hero-date">2026年4月2日 星期四</div>
+  <h1>Perplexity隐私丑闻震动AI行业，苹果庆祝50岁生日</h1>
+  <p class="hero-summary">Perplexity AI被指控秘密将用户对话传输给Meta和Google，集体诉讼4月1日在旧金山联邦法院提起；Apple迎来50岁生日，从车库到2.5万亿美元市值的半个世纪奇迹。JetBrains发布AI Agent开发控制平台，IBM量子计算机精确模拟磁性材料创里程碑，美联储主席届满接任悬念升温。</p>
+  <div class="hero-stats">
+    <div class="hero-stat"><span class="hero-stat-value">35</span><span class="hero-stat-label">资讯</span></div>
+    <div class="hero-stat"><span class="hero-stat-value">4</span><span class="hero-stat-label">深度</span></div>
+    <div class="hero-stat"><span class="hero-stat-value">17</span><span class="hero-stat-label">信源</span></div>
+    <div class="hero-stat"><span class="hero-stat-value">~20</span><span class="hero-stat-label">分钟</span></div>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- ===== 头条聚焦 ===== -->
+  <section class="section" id="headline">
+    <div class="section-header">
+      <span class="section-icon">🔥</span>
+      <h2 class="section-title">头条聚焦</h2>
+      <span class="section-count">今日重点</span>
+    </div>
+    <div class="headline-card">
+      <span class="headline-tag tag-ai" style="color:var(--tag-ai);background:var(--tag-ai-bg)">AI · 隐私</span>
+      <h2>Perplexity"隐形追踪器"事件：AI搜索的数据隐私地雷正在引爆</h2>
+      <p>4月1日，一名犹他州用户在旧金山联邦法院对Perplexity AI、Meta和Google提起集体诉讼，指控Perplexity在用户登录后立即将"不可检测"的追踪器植入设备，将用户与AI之间的完整对话实时传输给Meta和Google——即便用户使用了"隐身模式"也不例外。诉状称，Perplexity还将注册用户的电子邮件地址一并泄露给Facebook。</p>
+      <p style="margin-top:14px;">这一事件的深层意义远超单一诉讼。它触碰了AI行业最敏感的神经：用户与AI助手的对话，往往比搜索引擎查询包含更私密的信息——健康咨询、财务决策、职业规划，甚至心理倾诉。AI产品以"帮助"为名获得的信任，一旦被证实存在隐秘数据商业化行为，将对整个行业的用户信任造成系统性打击。</p>
+      <p style="margin-top:14px;">时间节点颇为敏感：此案发生在加州和纽约AI伴侣聊天机器人安全新法规生效之际，也恰在美国AI行业监管拉锯战白热化阶段。Perplexity发言人表示尚未收到诉讼，Meta和Google均否认相关指控。但无论诉讼结果如何，AI搜索公司与大型广告平台之间数据流转的"灰色地带"已被置于公众审视之下，行业自律与外部监管都将面临更大压力。</p>
+    </div>
+  </section>
+
+  <!-- ===== AI 前沿 ===== -->
+  <section class="section" id="ai">
+    <div class="section-header">
+      <span class="section-icon">🤖</span>
+      <h2 class="section-title">AI 前沿</h2>
+      <span class="section-count">7 条</span>
+    </div>
+    <div class="news-grid">
+
+      <div class="news-card">
+        <span class="news-card-tag tag-ai">AI</span>
+        <h3><a href="https://www.bloomberg.com/news/articles/2026-04-01/perplexity-ai-machine-accused-of-sharing-data-with-meta-google" target="_blank">Perplexity AI被控向Meta和Google秘密传输用户对话，集体诉讼旧金山提起</a></h3>
+        <p>4月1日，用户对Perplexity AI提起集体诉讼，指控其在用户登录后即下载追踪器，将完整对话实时发送给Meta和Google，"隐身模式"下同样无效。诉状还称用户邮箱地址被一并泄露给Facebook。此案将AI搜索产品的隐私边界推上风口浪尖，或引发行业合规整改潮。</p>
+        <div class="news-card-meta"><span class="news-source">Bloomberg / Benzinga</span><span class="tag-ai" style="font-size:11px;font-weight:600;">AI · 隐私</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-ai">AI</span>
+        <h3><a href="https://blog.jetbrains.com/blog/2026/03/24/introducing-jetbrains-central-an-open-system-for-agentic-software-development/" target="_blank">JetBrains Central正式发布：面向AI Agent时代的开放软件开发控制平台</a></h3>
+        <p>JetBrains于3月24日发布Central，定位为"Agent驱动软件生产的控制与执行平面"，提供身份管理、可观测性、成本归因及共享语义上下文等核心能力，支持Claude Agent、Codex、Gemini CLI等主流Agent。早期访问计划将于Q2 2026向设计合作伙伴开放，标志着IDE厂商加速向AI Agent基础设施转型。</p>
+        <div class="news-card-meta"><span class="news-source">JetBrains Blog / InfoWorld</span><span class="tag-dev" style="font-size:11px;font-weight:600;">Dev · Agent</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-ai">AI</span>
+        <h3><a href="https://www.infoworld.com/article/4149535/new-jetbrains-platform-manages-ai-coding-agents.html" target="_blank">Claude Code占全球GitHub提交量4%，AI编程工具月环比持续翻倍增长</a></h3>
+        <p>2026年初数据显示，Claude Code已占全球公开GitHub提交量约4%，且每月翻倍增长，有预测称年底前可能达到20%。与此同时，超90%的工程师同时使用两到四款AI编程工具，行业进入"多工具并行"的新常态，市场向少数头部产品高度集中。</p>
+        <div class="news-card-meta"><span class="news-source">InfoWorld / faros.ai</span><span class="tag-ai" style="font-size:11px;font-weight:600;">AI · 编程</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-ai">AI</span>
+        <h3><a href="https://www.kdnuggets.com/openclaw-explained-the-free-ai-agent-tool-going-viral-already-in-2026" target="_blank">OpenClaw开源AI Agent超30万GitHub星，创始人加入OpenAI后项目转交开源基金会</a></h3>
+        <p>由奥地利独立开发者Peter Steinberger创建的OpenClaw在72小时内获6万颗GitHub星，后飙升至30万+，超越React和Linux，成为GitHub史上增速最快开源项目之一。2月14日Steinberger宣布加入OpenAI，项目移交独立开源基金会运营，目前已有超50个集成插件、支持Claude/GPT/DeepSeek等主流模型本地运行。</p>
+        <div class="news-card-meta"><span class="news-source">KDnuggets / GitHub</span><span class="tag-dev" style="font-size:11px;font-weight:600;">Dev · 开源</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-ai">AI</span>
+        <h3><a href="https://stratechery.com/2026/apples-50-years-of-integration/" target="_blank">Stratechery：苹果iOS 27计划向Gemini和Claude开放Siri，下个50年押注AI整合</a></h3>
+        <p>Ben Thompson最新分析指出，苹果计划在iOS 27中向外部AI助手（包括Google Gemini和Claude）开放Siri的跨应用感知能力，这意味着苹果将以"平台策展人"而非"AI研发者"身份参与AI竞争。OpenAI是苹果既有合作又存在潜在威胁的关键变量，苹果下一个50年的叙事可能比过去更依赖外部生态。</p>
+        <div class="news-card-meta"><span class="news-source">Stratechery</span><span class="tag-ai" style="font-size:11px;font-weight:600;">AI · 战略</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-ai">AI</span>
+        <h3><a href="https://www.nbcnews.com/politics/politics-news/2026-new-laws-states-elections-midterms-ai-obamacare-aca-paid-leave-rcna247602" target="_blank">加州纽约AI伴侣聊天机器人安全法4月生效：须披露AI身份，禁止提供自伤内容</a></h3>
+        <p>加州SB 243和纽约AI伴侣法规已正式生效，要求所有AI伴侣类聊天机器人必须在用户登录时明确告知"您正在与AI交互"，对未成年用户须每3小时重复提示；同时须建立自杀/自伤内容防护协议并公示，从2027年起向加州自杀预防办公室提交年度报告。全美27个州已推进78项类似法案。</p>
+        <div class="news-card-meta"><span class="news-source">NBC News / Morrison Foerster</span><span class="tag-ai" style="font-size:11px;font-weight:600;">AI · 监管</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-ai">AI</span>
+        <h3><a href="https://thenewstack.io/jetbrains-central-ai-agents/" target="_blank">JetBrains警告：AI Agent正在重蹈云ROI危机，规模化治理刻不容缓</a></h3>
+        <p>JetBrains在发布Central时同步提出警告：企业若缺乏对AI Agent的统一治理，将重蹈云计算早期"影子IT"和成本失控的覆辙。Central的核心价值在于提供跨Agent的统一身份、审计日志和成本归因，防止AI驱动的软件生产演变为不可审计的"黑箱流水线"。这一判断引发开发者社区广泛共鸣。</p>
+        <div class="news-card-meta"><span class="news-source">The New Stack</span><span class="tag-ai" style="font-size:11px;font-weight:600;">AI · 企业</span></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== 科技动态 ===== -->
+  <section class="section" id="tech">
+    <div class="section-header">
+      <span class="section-icon">💻</span>
+      <h2 class="section-title">科技动态</h2>
+      <span class="section-count">5 条</span>
+    </div>
+    <div class="news-grid">
+
+      <div class="news-card">
+        <span class="news-card-tag tag-tech">科技</span>
+        <h3><a href="https://9to5mac.com/2026/04/01/apple-50-birthday-homepage-celebration/" target="_blank">Apple庆祝50岁生日：从车库到2.5万亿市值的半个世纪，Paul McCartney献唱Apple Park</a></h3>
+        <p>1976年4月1日，Jobs、Wozniak与Wayne在洛斯阿尔托斯车库签署合伙协议创立Apple Computer Co.。50年后，Apple以动态主页动画、全球Apple Store演出、Paul McCartney私人音乐会为世界送上惊喜。苹果官网同步推出50周年限量周边，公司估值已超2.5万亿美元，是全球最大市值科技公司之一。</p>
+        <div class="news-card-meta"><span class="news-source">9to5Mac / NPR</span><span class="tag-tech" style="font-size:11px;font-weight:600;">Tech · Apple</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-tech">科技</span>
+        <h3><a href="https://www.apple.com/newsroom/2026/03/introducing-apple-business-a-new-all-in-one-platform-for-businesses-of-all-sizes/" target="_blank">Apple Business 4月14日上线：免费整合设备管理、企业邮件，正面挑战微软365与谷歌Workspace</a></h3>
+        <p>苹果将Apple Business Connect、Business Essentials和Business Manager整合为统一的Apple Business平台，4月14日在全球200+国家上线，完全免费。核心功能包括移动设备管理（Blueprints）、自定义域名企业邮件与日历，以及员工目录服务，此前需付费的Essentials功能将全面免费开放，矛头直指Microsoft 365和Google Workspace在中小企业市场的主导地位。</p>
+        <div class="news-card-meta"><span class="news-source">Apple Newsroom / TechSpot</span><span class="tag-tech" style="font-size:11px;font-weight:600;">Tech · 企业软件</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-tech">科技</span>
+        <h3><a href="https://www.techspot.com/news/111838-apple-takes-microsoft-365-google-workspace-new-business.html" target="_blank">Apple修复Spotlight插件高危漏洞，Apple Intelligence缓存数据曾面临外泄风险</a></h3>
+        <p>Apple在3月31日安全更新中修复了一处Spotlight插件漏洞，该漏洞可允许攻击者访问设备Downloads文件夹及Apple Intelligence的缓存数据。漏洞由微软威胁情报团队发现并报告，影响范围包括所有运行Apple Intelligence的设备。此次事件提示AI功能深度整合操作系统后，攻击面显著扩大。</p>
+        <div class="news-card-meta"><span class="news-source">TechSpot / Microsoft</span><span class="tag-tech" style="font-size:11px;font-weight:600;">Tech · 安全</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-tech">科技</span>
+        <h3><a href="https://www.techspot.com/news/111838-apple-takes-microsoft-365-google-workspace-new-business.html" target="_blank">Nothing计划2027年推出AI智能眼镜，摄像头+麦克风+扬声器组合，依托云端AI处理</a></h3>
+        <p>伦敦初创公司Nothing宣布将在2027年上半年发布AI智能眼镜，配备摄像头、麦克风和扬声器，主要AI处理依赖手机与云端协同，同步开发AI聚焦新款耳机。Nothing以差异化设计定位在高端可穿戴市场占据一席之地，此次布局AI硬件正面与Meta Ray-Ban和Apple Vision产品线形成竞争。</p>
+        <div class="news-card-meta"><span class="news-source">TechSpot / The Verge</span><span class="tag-tech" style="font-size:11px;font-weight:600;">Tech · 硬件</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-tech">科技</span>
+        <h3><a href="https://www.marketpulse.com/markets/q2-2026-us-indices-dow-jones-sp-500-nasdaq-100-outlook-resilience-or-retracement/" target="_blank">AI基础设施能源瓶颈加剧，微软亚马逊谷歌Meta加速与核电及可再生能源达成长期协议</a></h3>
+        <p>摩根士丹利和标普全球警告，超大规模数据中心的AI基础设施扩张正受到电力供应短缺制约，发电厂建设延误导致芯片库存积压。四大超大规模企业目前正竞相锁定核电和可再生能源长期采购合约，AI算力竞赛正在演变为一场能源竞赛。</p>
+        <div class="news-card-meta"><span class="news-source">Morgan Stanley / MarketPulse</span><span class="tag-tech" style="font-size:11px;font-weight:600;">Tech · 基础设施</span></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== 全球财经 ===== -->
+  <section class="section" id="finance">
+    <div class="section-header">
+      <span class="section-icon">📈</span>
+      <h2 class="section-title">全球财经</h2>
+      <span class="section-count">5 条</span>
+    </div>
+    <div class="news-grid">
+
+      <div class="news-card">
+        <span class="news-card-tag tag-finance">财经</span>
+        <h3><a href="https://www.bloomberg.com/news/newsletters/2026-03-30/trump-liberation-day-tariff-anniversary" target="_blank">"解放日"关税一周年：贸易逆差连降10个月，工厂岗位流失，通胀成本消费者承担67%</a></h3>
+        <p>特朗普2025年4月2日签署的"解放日"关税法令迎来一周年。一年来，美国贸易逆差连续10个月下降，但制造业就业未见回暖，ISM制造业PMI已连续9个月收缩。高盛测算，消费者将在2026年7月承担67%的关税成本。美国最高法院2月已裁定部分关税授权不合法，相关诉讼仍在持续。</p>
+        <div class="news-card-meta"><span class="news-source">Bloomberg / NBC News</span><span class="tag-finance" style="font-size:11px;font-weight:600;">Finance · 贸易</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-finance">财经</span>
+        <h3><a href="https://www.spglobal.com/ratings/en/regulatory/article/economic-outlook-us-q2-2026-curb-your-enthusiasm-s101676533" target="_blank">标普全球Q2美国经济展望：通胀与就业分叉，美联储面临两难，衰退概率约30%</a></h3>
+        <p>标普全球最新Q2展望报告将报告副标题定为"遏制热情"：通胀受地缘与关税双重压力仍居高不下，劳动力市场开始软化，Fed的两大目标正在分叉。美国衰退概率估计在29%至33%之间，上行风险来自财政扩张和降息，下行风险来自油价和贸易摩擦升级。</p>
+        <div class="news-card-meta"><span class="news-source">S&P Global / Motley Fool</span><span class="tag-finance" style="font-size:11px;font-weight:600;">Finance · 宏观</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-finance">财经</span>
+        <h3><a href="https://advisor.morganstanley.com/the-wolfslau-group/documents/field/w/wo/wolfslau-group/2026_US_Economics_Outlook.pdf" target="_blank">美联储主席鲍威尔5月届满，接任人选浮现，政策路径预期重塑</a></h3>
+        <p>Jerome Powell的美联储主席任期将于2026年5月15日届满，特朗普政府的接任人选选择将对美联储独立性和利率路径产生深远影响。市场普遍预期新主席将更倾向降息，但通胀高企情况下操作空间有限。AI政策与货币政策的潜在交集也成为市场观察焦点。</p>
+        <div class="news-card-meta"><span class="news-source">Morgan Stanley / iShares</span><span class="tag-finance" style="font-size:11px;font-weight:600;">Finance · 货币政策</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-finance">财经</span>
+        <h3><a href="https://tradingeconomics.com/china/stock-market" target="_blank">A股4月1日收涨逾1.4%，43家上市公司启动256亿元回购，沪深两市量价齐升</a></h3>
+        <p>4月1日，上证综指收涨1.46%报3949点，深证成指涨1.7%至13707点，恒生指数涨2.79%至25063点。43家沪深上市公司承诺256亿元回购规模创近一年新高，外资机构对中国股市整体保持建设性立场，中国制造业PMI（私营版）3月报50.8，较2月小幅回落但仍处扩张区间。</p>
+        <div class="news-card-meta"><span class="news-source">TradingEconomics / 东方财富</span><span class="tag-finance" style="font-size:11px;font-weight:600;">Finance · A股</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-finance">财经</span>
+        <h3><a href="https://www.china-briefing.com/news/chinas-economy-in-2026-january-february-rebound/" target="_blank">中国1-2月外贸同比飙升21%，创2021年8月以来最高月度增速，外贸韧性超预期</a></h3>
+        <p>中国1-2月双边贸易总额达1.1万亿美元，同比增长21%；仅2月外贸增速高达27.7%，创近5年新高。在中美贸易结构性调整背景下，中国通过扩大与非美国市场的贸易对冲关税压力，AI相关贸易品类逆势增长成为重要亮点，中国外贸抗压韧性显著强于此前市场预期。</p>
+        <div class="news-card-meta"><span class="news-source">China Briefing / 海关总署</span><span class="tag-finance" style="font-size:11px;font-weight:600;">Finance · 中国经济</span></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== 市场数据 ===== -->
+  <section class="section" id="market">
+    <div class="section-header">
+      <span class="section-icon">📊</span>
+      <h2 class="section-title">市场行情</h2>
+      <span class="section-count">数据截至 2026.04.01 收盘</span>
+    </div>
+    <div class="market-grid">
+      <div class="market-item">
+        <div class="name">上证指数</div>
+        <div class="value">3,949</div>
+        <div class="change up">+1.46%</div>
+      </div>
+      <div class="market-item">
+        <div class="name">深证成指</div>
+        <div class="value">13,707</div>
+        <div class="change up">+1.70%</div>
+      </div>
+      <div class="market-item">
+        <div class="name">恒生指数</div>
+        <div class="value">25,063</div>
+        <div class="change up">+2.79%</div>
+      </div>
+      <div class="market-item">
+        <div class="name">标普500</div>
+        <div class="value">6,529</div>
+        <div class="change up">+2.91%</div>
+      </div>
+      <div class="market-item">
+        <div class="name">纳斯达克</div>
+        <div class="value">24,040</div>
+        <div class="change up">+0.52%</div>
+      </div>
+      <div class="market-item">
+        <div class="name">道琼斯</div>
+        <div class="value">43,200</div>
+        <div class="change up">+1.05%</div>
+      </div>
+      <div class="market-item">
+        <div class="name">美元/人民币</div>
+        <div class="value">6.88</div>
+        <div class="change down">-0.16%</div>
+      </div>
+      <div class="market-item">
+        <div class="name">比特币</div>
+        <div class="value">$68,539</div>
+        <div class="change up">+1.41%</div>
+      </div>
+      <div class="market-item">
+        <div class="name">布伦特原油</div>
+        <div class="value">$102.4</div>
+        <div class="change down">-2.35%</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 科学突破 ===== -->
+  <section class="section" id="science">
+    <div class="section-header">
+      <span class="section-icon">🔬</span>
+      <h2 class="section-title">科学突破</h2>
+      <span class="section-count">3 条</span>
+    </div>
+    <div class="news-grid">
+
+      <div class="news-card">
+        <span class="news-card-tag tag-science">科学</span>
+        <h3><a href="https://newsroom.ibm.com/2026-03-26-ibm-quantum-computer-accurately-simulates-real-magnetic-materials,-reproducing-national-laboratory-data" target="_blank">IBM量子计算机精确模拟真实磁性材料，首次与中子散射实验数据完全吻合</a></h3>
+        <p>IBM宣布其量子计算机成功模拟真实磁性材料的量子特性，结果与国家实验室的中子散射实验数据高度一致，这是量子计算机作为科学仪器可靠性的重要里程碑。研究成果指向量子超算在超导体研发、医学成像和药物研发领域的实用化，从"计算演示"迈向"科学发现"的关键一步。</p>
+        <div class="news-card-meta"><span class="news-source">IBM Research / Nature</span><span class="tag-science" style="font-size:11px;font-weight:600;">Science · 量子</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-science">科学</span>
+        <h3><a href="https://science-technology.news-articles.net/content/2026/04/01/quantum-filtering-breakthrough-promises-data-analysis-revolution.html" target="_blank">量子纠缠过滤新技术突破：医疗诊断数据分析速度获指数级提升</a></h3>
+        <p>《Nature》本周发表的研究详述了"量子纠缠过滤"（QEF）技术，由印度量子信息研究所Anya Sharma博士团队主导，可在海量数据集中以指数级速度识别特定信号。QEF有望在早期癌症筛查中识别极其稀少的生物标志物，大幅提前诊断时机，是量子技术在医疗场景的重要应用突破。</p>
+        <div class="news-card-meta"><span class="news-source">Nature / ScienceDaily</span><span class="tag-science" style="font-size:11px;font-weight:600;">Science · 医疗</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-science">科学</span>
+        <h3><a href="https://www.linical.com/articles-research/the-uks-2026-clinical-trial-reform" target="_blank">英国20年最大临床试验法规改革4月28日生效，单一申请审批降低研究门槛</a></h3>
+        <p>英国《药物临床试验（修订）法规2025》将于4月28日生效，是20余年来最重大的监管变革。改革引入"单一申请"同步获得伦理与监管双重批准，为低风险临床试验开设快速通知通道（惠及约20%研究项目），并规定Ⅰ期临床14天审批时限。新规还将GCP国际准则ICH E6（R3）正式纳入英国法律，显著降低研究者的合规负担。</p>
+        <div class="news-card-meta"><span class="news-source">Linical / GOV.UK</span><span class="tag-science" style="font-size:11px;font-weight:600;">Science · 医疗政策</span></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== 产品发现 ===== -->
+  <section class="section" id="product">
+    <div class="section-header">
+      <span class="section-icon">🚀</span>
+      <h2 class="section-title">产品发现</h2>
+      <span class="section-count">4 条</span>
+    </div>
+    <div class="news-grid">
+
+      <div class="news-card">
+        <span class="news-card-tag tag-product">产品</span>
+        <h3><a href="https://www.producthunt.com/" target="_blank">TaskMaster Pro：AI驱动实时任务管理，深度整合Slack和Google Drive</a></h3>
+        <p>4月1日Product Hunt日榜冠军。TaskMaster Pro面向团队和个人，提供实时任务创建、分配与追踪，AI可自动识别优先级与截止日期，并深度集成Slack与Google Drive，无需在多个工具间切换。支持iOS/Android/Web全平台，免费层支持最多3个项目。</p>
+        <div class="news-card-meta"><span class="news-source">Product Hunt</span><span class="tag-product" style="font-size:11px;font-weight:600;">Product · 效率</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-product">产品</span>
+        <h3><a href="https://www.producthunt.com/" target="_blank">Superhuman AI邮件助手：智能草稿、邮件三分类与跟进提醒，重新定义收件箱</a></h3>
+        <p>Superhuman最新版整合AI写作、分类（重要/待处理/可忽略）和自动跟进提醒，承诺将邮件处理时间减少50%。支持Gmail和Outlook，核心差异化在于"几秒内归零收件箱"的极致体验，适合每日处理大量商业邮件的专业用户，月费$30起。</p>
+        <div class="news-card-meta"><span class="news-source">Product Hunt / Superhuman</span><span class="tag-product" style="font-size:11px;font-weight:600;">Product · AI · 邮件</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-product">产品</span>
+        <h3><a href="https://www.producthunt.com/" target="_blank">Klu：将Slack消息、会议记录、文档统一为公司知识库，AI实时检索答案</a></h3>
+        <p>Klu整合企业内部分散的知识——Slack历史消息、Notion文档、Zoom会议记录——通过AI即时检索答案，避免重复提问和知识孤岛。支持自然语言搜索和上下文理解，适合快速成长的中型团队，定位为"企业记忆层"，目前处于公开测试阶段。</p>
+        <div class="news-card-meta"><span class="news-source">Product Hunt</span><span class="tag-product" style="font-size:11px;font-weight:600;">Product · 知识管理</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-product">产品</span>
+        <h3><a href="https://www.producthunt.com/categories/automation" target="_blank">Crossnode：将Zapier自动化工作流转化为可计费服务，无代码自动化新商业模式</a></h3>
+        <p>Crossnode允许用户将自己构建的自动化工作流封装为可出售的服务，每次运行向客户收费。无需编写代码，仅需配置Zapier兼容的触发器和动作，即可在数分钟内创建订阅或按次计费的自动化产品。为自由职业者和小型机构提供了全新的AI时代变现路径。</p>
+        <div class="news-card-meta"><span class="news-source">Product Hunt</span><span class="tag-product" style="font-size:11px;font-weight:600;">Product · 自动化</span></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== 深度阅读 ===== -->
+  <section class="section" id="deepread">
+    <div class="section-header">
+      <span class="section-icon">📚</span>
+      <h2 class="section-title">深度阅读</h2>
+      <span class="section-count">4 篇</span>
+    </div>
+    <div class="deep-read-list">
+
+      <div class="deep-read-card">
+        <div class="deep-read-number">01</div>
+        <div class="deep-read-body">
+          <h3><a href="https://stratechery.com/2026/apples-50-years-of-integration/" target="_blank">Apple's 50 Years of Integration — Stratechery</a></h3>
+          <p>Ben Thompson以苹果50周年为契机，深度复盘苹果的"整合战略"如何在PC、iPod、iPhone三个时代构建无与伦比的竞争壁垒，并直面最核心的疑问：在AI时代，苹果的整合优势是否仍然成立？文章指出苹果计划在iOS 27向Gemini和Claude开放Siri，这一决策背后隐藏着苹果对自身AI能力的清醒认知与战略妥协，值得深思。</p>
+          <div class="deep-read-meta"><span class="news-source">Stratechery</span><span class="read-time">⏱ 约 15 分钟</span></div>
+        </div>
+      </div>
+
+      <div class="deep-read-card">
+        <div class="deep-read-number">02</div>
+        <div class="deep-read-body">
+          <h3><a href="https://stratechery.com/2026/another-viral-ai-doomer-article-the-fundamental-error-doordashs-ai-advantages/" target="_blank">Another Viral AI Doomer Article, The Fundamental Error — Stratechery</a></h3>
+          <p>Thompson批驳近期一篇爆款"AI末日论"文章的根本性错误：将AI视为固定能力的工具，而非持续进化的系统；将市场博弈视为零和游戏，而非动态演化的生态。文章以DoorDash为例展示AI如何创造真实商业价值，并提出判断AI泡沫的三个更有效维度。对于如何理性评估当前AI热潮，提供了难得的分析框架。</p>
+          <div class="deep-read-meta"><span class="news-source">Stratechery</span><span class="read-time">⏱ 约 12 分钟</span></div>
+        </div>
+      </div>
+
+      <div class="deep-read-card">
+        <div class="deep-read-number">03</div>
+        <div class="deep-read-body">
+          <h3><a href="https://sloanreview.mit.edu/article/five-trends-in-ai-and-data-science-for-2026/" target="_blank">Five Trends in AI and Data Science for 2026 — MIT Sloan Management Review</a></h3>
+          <p>MIT斯隆管理评论年度AI趋势报告，由Tom Davenport和Randy Bean共同执笔。五大趋势包括：AI Agent从实验走向生产部署、企业数据治理成为AI落地核心瓶颈、小模型（SLM）在垂直场景取代大模型、AI ROI测量体系日趋成熟、以及首席AI官（CAIO）职责边界重新定义。每个趋势均有标杆案例支撑，适合企业决策者阅读。</p>
+          <div class="deep-read-meta"><span class="news-source">MIT Sloan Management Review</span><span class="read-time">⏱ 约 18 分钟</span></div>
+        </div>
+      </div>
+
+      <div class="deep-read-card">
+        <div class="deep-read-number">04</div>
+        <div class="deep-read-body">
+          <h3><a href="https://www.spglobal.com/ratings/en/regulatory/article/economic-outlook-us-q2-2026-curb-your-enthusiasm-s101676533" target="_blank">Economic Outlook US Q2 2026: Curb Your Enthusiasm — S&P Global Ratings</a></h3>
+          <p>标普全球Q2美国经济展望正式发布，副标题"遏制热情"暗示分析师对过度乐观预期的警惕。报告详细拆解了通胀粘性、就业数据分化、美联储政策两难困境与油价传导路径，并量化了关税对消费者的持续冲击。对于理解2026年下半年宏观走势、评估利率路径，本报告提供了不可或缺的基准参照。</p>
+          <div class="deep-read-meta"><span class="news-source">S&P Global Ratings</span><span class="read-time">⏱ 约 20 分钟</span></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== 开发者工具 ===== -->
+  <section class="section" id="devtool">
+    <div class="section-header">
+      <span class="section-icon">🛠️</span>
+      <h2 class="section-title">开发者工具</h2>
+      <span class="section-count">3 条</span>
+    </div>
+    <div class="tool-grid">
+
+      <div class="tool-card">
+        <h3>OpenClaw</h3>
+        <p>开源本地AI Agent，支持Claude/GPT/DeepSeek等主流模型，拥有50+集成插件，在GitHub获30万+星。创始人已加入OpenAI，项目转交独立基金会，是2026年最具代表性的AI Agent开源项目。</p>
+        <a class="tool-card-link" href="https://github.com/openclaw/openclaw" target="_blank">查看 →</a>
+      </div>
+
+      <div class="tool-card">
+        <h3>JetBrains Central</h3>
+        <p>面向AI Agent的开放软件开发控制平台，提供跨Agent身份管理、可观测性、成本归因和共享语义上下文。Q2 2026开启早期访问计划，支持Claude Agent、Codex、Gemini CLI等主流Agent生态。</p>
+        <a class="tool-card-link" href="https://blog.jetbrains.com/blog/2026/03/24/introducing-jetbrains-central-an-open-system-for-agentic-software-development/" target="_blank">查看 →</a>
+      </div>
+
+      <div class="tool-card">
+        <h3>Raycast + AI</h3>
+        <p>2026年开发者效率工具榜单常客，新版整合AI命令、多模型切换和团队共享扩展，将Mac快捷启动器升级为AI原生工作台。支持Claude、GPT-4o、Gemini等多模型并行调用，已成为许多工程师的日常主力工具。</p>
+        <a class="tool-card-link" href="https://www.raycast.com/" target="_blank">查看 →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== 言论 ===== -->
+  <section class="section" id="quotes">
+    <div class="section-header">
+      <span class="section-icon">💬</span>
+      <h2 class="section-title">言论</h2>
+      <span class="section-count">4 条</span>
+    </div>
+    <div class="quotes-list">
+
+      <div class="quote-card">
+        <p class="quote-text">苹果接下来的五十年，取决于AI究竟能有多强大，以及OpenAI是否能够匹敌苹果整合硬件、软件与服务的能力。这可能是苹果历史上第一次，最大的威胁不是来自硬件竞争对手，而是来自软件生态的颠覆者。</p>
+        <p class="quote-author">—— Ben Thompson，Stratechery，《苹果50年的整合》</p>
+      </div>
+
+      <div class="quote-card">
+        <p class="quote-text">AI Agent即将重蹈云计算ROI危机的覆辙：企业蜂拥采用，却对成本、安全和可审计性毫无准备。没有治理框架的Agent部署，就是在用速度换失控。</p>
+        <p class="quote-author">—— JetBrains CEO，发布JetBrains Central时的公开声明</p>
+      </div>
+
+      <div class="quote-card">
+        <p class="quote-text">我们尚未收到任何符合该描述的诉讼，因此无法核实其存在或相关指控。</p>
+        <p class="quote-author">—— Jesse Dwyer，Perplexity AI发言人，回应数据共享集体诉讼</p>
+      </div>
+
+      <div class="quote-card">
+        <p class="quote-text">用户与AI的每一次对话，都比传统搜索查询包含更私密、更敏感的信息。AI产品以"帮助"换取信任，却将信任货币化——这是AI行业需要正视的系统性风险。</p>
+        <p class="quote-author">—— 集体诉讼代理律师，彭博社报道</p>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="archive-section">
+    <a href="../index.html" class="archive-link">← 查看往期简报</a>
+  </div>
+</main>
+
+<footer class="footer">由 AI 自动抓取与编辑 · 每日 07:00 更新 · news.huangwei.ai</footer>
+
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+function toggleTheme() {
+  const html = document.documentElement;
+  const btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function() {
+  const saved = localStorage.getItem('theme');
+  if (saved === 'light') {
+    document.documentElement.setAttribute('data-theme', 'light');
+    document.getElementById('themeBtn').textContent = '🌙';
+  }
+})();
+window.addEventListener('scroll', () => {
+  const h = document.documentElement;
+  const p = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+  document.getElementById('progressBar').style.width = p + '%';
+  document.getElementById('backToTop').classList.toggle('visible', h.scrollTop > 400);
+});
+document.querySelectorAll('.nav-item').forEach(item => {
+  item.addEventListener('click', () => {
+    const s = document.getElementById(item.dataset.section);
+    if (s) s.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+const sects = document.querySelectorAll('.section');
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+      const nav = document.querySelector(`.nav-item[data-section="${e.target.id}"]`);
+      if (nav) nav.classList.add('active');
+    }
+  });
+}, { rootMargin: '-100px 0px -50% 0px' });
+sects.forEach(s => obs.observe(s));
+</script>
+</body>
+</html>
