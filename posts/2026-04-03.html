@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>霍尔木兹危机倒计时，Cursor 3重塑AI编程格局 · 每日简报</title>
+<style>
+/* ===== Theme Variables ===== */
+:root[data-theme="dark"] {
+  --bg: #000000;
+  --bg-elevated: #0a0a0a;
+  --bg-card: #111111;
+  --bg-card-hover: #1a1a1a;
+  --text: #f0f0f0;
+  --text-secondary: #999999;
+  --text-muted: #555555;
+  --border: #222222;
+  --accent: #00d4ff;
+  --accent-dim: rgba(0,212,255,0.1);
+  --accent-glow: rgba(0,212,255,0.15);
+  --tag-ai: #a78bfa;
+  --tag-ai-bg: rgba(167,139,250,0.12);
+  --tag-tech: #22d3ee;
+  --tag-tech-bg: rgba(34,211,238,0.1);
+  --tag-finance: #fbbf24;
+  --tag-finance-bg: rgba(251,191,36,0.1);
+  --tag-science: #34d399;
+  --tag-science-bg: rgba(52,211,153,0.1);
+  --tag-product: #fb7185;
+  --tag-product-bg: rgba(251,113,133,0.1);
+  --tag-dev: #818cf8;
+  --tag-dev-bg: rgba(129,140,248,0.1);
+  --up: #ef4444;
+  --down: #22c55e;
+  --shadow: 0 0 0 1px rgba(255,255,255,0.04);
+  --shadow-hover: 0 8px 40px rgba(0,212,255,0.06), 0 0 0 1px rgba(255,255,255,0.08);
+  --radius: 12px;
+}
+:root[data-theme="light"] {
+  --bg: #fafafa;
+  --bg-elevated: #ffffff;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f5f5f5;
+  --text: #111111;
+  --text-secondary: #666666;
+  --text-muted: #999999;
+  --border: #e8e8e8;
+  --accent: #0066ff;
+  --accent-dim: rgba(0,102,255,0.06);
+  --accent-glow: rgba(0,102,255,0.08);
+  --tag-ai: #7c3aed;
+  --tag-ai-bg: rgba(124,58,237,0.08);
+  --tag-tech: #0891b2;
+  --tag-tech-bg: rgba(8,145,178,0.08);
+  --tag-finance: #d97706;
+  --tag-finance-bg: rgba(217,119,6,0.08);
+  --tag-science: #059669;
+  --tag-science-bg: rgba(5,150,105,0.08);
+  --tag-product: #e11d48;
+  --tag-product-bg: rgba(225,29,72,0.08);
+  --tag-dev: #4f46e5;
+  --tag-dev-bg: rgba(79,70,229,0.08);
+  --up: #dc2626;
+  --down: #16a34a;
+  --shadow: 0 1px 3px rgba(0,0,0,0.06);
+  --shadow-hover: 0 8px 30px rgba(0,0,0,0.08);
+  --radius: 12px;
+}
+
+/* ===== Reset ===== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", "Segoe UI", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  transition: background 0.4s, color 0.4s;
+}
+a { color: var(--accent); text-decoration: none; transition: opacity 0.2s; }
+a:hover { opacity: 0.8; }
+
+/* ===== Progress Bar ===== */
+.progress-bar {
+  position: fixed;
+  top: 0; left: 0;
+  height: 2px;
+  background: var(--accent);
+  z-index: 200;
+  width: 0%;
+  transition: width 0.1s;
+}
+
+/* ===== Top Bar ===== */
+.topbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 14px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  transition: background 0.3s;
+}
+[data-theme="light"] .topbar { background: rgba(255,255,255,0.9); }
+.topbar-left { display: flex; align-items: center; gap: 16px; }
+.topbar-brand {
+  font-size: 13px; font-weight: 600;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: var(--text-secondary);
+}
+.topbar-back {
+  font-size: 13px; color: var(--accent);
+  display: flex; align-items: center; gap: 4px;
+}
+.theme-toggle {
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 15px;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.2s;
+}
+.theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
+
+/* ===== Nav ===== */
+.nav-bar {
+  position: sticky;
+  top: 52px;
+  z-index: 90;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  transition: background 0.3s;
+}
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: flex;
+  gap: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.nav-inner::-webkit-scrollbar { display: none; }
+.nav-item {
+  padding: 12px 16px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+  white-space: nowrap;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+}
+.nav-item:hover, .nav-item.active {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+/* ===== Hero ===== */
+.hero {
+  padding: 100px 48px 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.hero-issue {
+  display: inline-block;
+  font-size: 12px; font-weight: 600;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  padding: 5px 12px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+.hero-date {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+.hero h1 {
+  font-size: clamp(32px, 5vw, 52px);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -1.5px;
+  margin-bottom: 20px;
+}
+.hero-summary {
+  font-size: 17px;
+  line-height: 1.75;
+  color: var(--text-secondary);
+  max-width: 720px;
+  margin-bottom: 28px;
+}
+.hero-stats {
+  display: flex; gap: 28px; flex-wrap: wrap;
+}
+.hero-stat-value {
+  font-size: 24px; font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+.hero-stat-label {
+  font-size: 11px; color: var(--text-muted);
+  text-transform: uppercase; letter-spacing: 1px;
+}
+
+/* ===== Container ===== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 48px 80px;
+}
+
+/* ===== Section ===== */
+.section { margin-bottom: 56px; }
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.section-icon { font-size: 20px; }
+.section-title {
+  font-size: 18px; font-weight: 700;
+  letter-spacing: -0.2px;
+}
+.section-count {
+  margin-left: auto;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+.section-header::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+  order: 99;
+}
+.section-count { order: 98; }
+
+/* ===== News Grid ===== */
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 14px;
+}
+.news-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px;
+  transition: all 0.3s;
+  display: flex;
+  flex-direction: column;
+}
+.news-card:hover {
+  background: var(--bg-card-hover);
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-2px);
+}
+.news-card-tag {
+  display: inline-flex;
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 0.5px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  width: fit-content;
+}
+.tag-ai { color: var(--tag-ai); background: var(--tag-ai-bg); }
+.tag-tech { color: var(--tag-tech); background: var(--tag-tech-bg); }
+.tag-finance { color: var(--tag-finance); background: var(--tag-finance-bg); }
+.tag-science { color: var(--tag-science); background: var(--tag-science-bg); }
+.tag-product { color: var(--tag-product); background: var(--tag-product-bg); }
+.tag-dev { color: var(--tag-dev); background: var(--tag-dev-bg); }
+
+.news-card h3 {
+  font-size: 16px; font-weight: 600;
+  margin-bottom: 8px; line-height: 1.5;
+  letter-spacing: -0.2px;
+}
+.news-card h3 a { color: var(--text); }
+.news-card h3 a:hover { color: var(--accent); }
+.news-card p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  flex: 1;
+}
+.news-card-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+  font-size: 12px;
+  color: var(--text-muted);
+}
+.news-source { font-weight: 500; }
+
+/* ===== Headline ===== */
+.headline-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 32px;
+  margin-bottom: 20px;
+  box-shadow: var(--shadow);
+}
+.headline-card h2 {
+  font-size: 24px; font-weight: 700;
+  margin-bottom: 16px; line-height: 1.4;
+  letter-spacing: -0.5px;
+}
+.headline-card p {
+  font-size: 16px;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+.headline-tag {
+  display: inline-block;
+  font-size: 11px; font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 4px;
+  margin-bottom: 14px;
+}
+
+/* ===== Market Data ===== */
+.market-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
+  gap: 12px;
+}
+.market-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  text-align: center;
+  transition: all 0.2s;
+}
+.market-item:hover { border-color: rgba(0,212,255,0.2); }
+.market-item .name { font-size: 12px; color: var(--text-muted); margin-bottom: 4px; }
+.market-item .value { font-size: 20px; font-weight: 700; margin-bottom: 2px; font-variant-numeric: tabular-nums; }
+.market-item .change { font-size: 14px; font-weight: 600; }
+.up { color: var(--up); }
+.down { color: var(--down); }
+
+/* ===== Deep Read ===== */
+.deep-read-list { display: flex; flex-direction: column; gap: 14px; }
+.deep-read-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  display: flex;
+  transition: all 0.3s;
+}
+.deep-read-card:hover {
+  background: var(--bg-card-hover);
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-2px);
+}
+.deep-read-number {
+  display: flex; align-items: center; justify-content: center;
+  min-width: 64px;
+  font-size: 32px; font-weight: 800;
+  color: var(--accent); opacity: 0.2;
+}
+.deep-read-body {
+  padding: 20px 24px 20px 0; flex: 1;
+}
+.deep-read-body h3 {
+  font-size: 17px; font-weight: 600;
+  margin-bottom: 8px; line-height: 1.5;
+}
+.deep-read-body h3 a { color: var(--text); }
+.deep-read-body h3 a:hover { color: var(--accent); }
+.deep-read-body p {
+  font-size: 14px; color: var(--text-secondary); line-height: 1.65; margin-bottom: 10px;
+}
+.deep-read-meta {
+  display: flex; gap: 16px; font-size: 12px; color: var(--text-muted);
+}
+.read-time { color: var(--accent); }
+
+/* ===== Quotes ===== */
+.quotes-list { display: flex; flex-direction: column; gap: 14px; }
+.quote-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px 28px;
+  position: relative;
+}
+.quote-card::before {
+  content: '"';
+  position: absolute; top: 16px; left: 20px;
+  font-size: 40px; color: var(--accent); opacity: 0.15;
+  font-family: Georgia, serif; line-height: 1;
+}
+.quote-text {
+  font-size: 15px; line-height: 1.75;
+  margin-bottom: 10px; padding-left: 4px;
+  font-style: italic;
+}
+.quote-author {
+  font-size: 13px; color: var(--text-muted);
+  font-weight: 500; padding-left: 4px;
+}
+
+/* ===== Tools ===== */
+.tool-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 14px;
+}
+.tool-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px;
+  transition: all 0.3s;
+}
+.tool-card:hover { background: var(--bg-card-hover); box-shadow: var(--shadow-hover); transform: translateY(-2px); }
+.tool-card h3 { font-size: 16px; font-weight: 600; margin-bottom: 6px; }
+.tool-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
+.tool-card-link {
+  display: inline-block; margin-top: 10px;
+  font-size: 13px; font-weight: 600; color: var(--accent);
+}
+
+/* ===== Back link ===== */
+.archive-section {
+  text-align: center; padding: 40px 0;
+  border-top: 1px solid var(--border);
+}
+.archive-link {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 14px; font-weight: 500; color: var(--accent);
+  padding: 12px 24px; border-radius: 8px;
+  border: 1px solid var(--accent);
+  transition: all 0.2s;
+}
+.archive-link:hover { background: var(--accent); color: #000; opacity: 1; }
+
+/* ===== Footer ===== */
+.footer {
+  text-align: center;
+  padding: 32px;
+  font-size: 13px;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border);
+}
+
+/* ===== Back to Top ===== */
+.back-to-top {
+  position: fixed; bottom: 24px; right: 24px;
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--accent);
+  cursor: pointer; font-size: 18px;
+  box-shadow: var(--shadow);
+  opacity: 0; transform: translateY(20px);
+  transition: all 0.3s; z-index: 99;
+}
+.back-to-top.visible { opacity: 1; transform: translateY(0); }
+.back-to-top:hover { background: var(--accent); color: #000; border-color: var(--accent); }
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .topbar { padding: 12px 20px; }
+  .hero { padding: 80px 24px 40px; }
+  .hero h1 { font-size: 28px; letter-spacing: -1px; }
+  .container { padding: 0 24px 60px; }
+  .news-grid { grid-template-columns: 1fr; }
+  .market-grid { grid-template-columns: repeat(2, 1fr); }
+  .tool-grid { grid-template-columns: 1fr; }
+  .headline-card { padding: 24px; }
+  .headline-card h2 { font-size: 20px; }
+  .deep-read-card { flex-direction: column; }
+  .deep-read-number { min-width: unset; padding: 16px 20px 0; justify-content: flex-start; font-size: 24px; }
+  .deep-read-body { padding: 12px 20px 20px; }
+  .nav-inner { padding: 0 20px; }
+  .nav-item { padding: 10px 14px; font-size: 12px; }
+}
+
+/* ===== Animations ===== */
+@media (prefers-reduced-motion: no-preference) {
+  .news-card, .deep-read-card, .quote-card, .tool-card {
+    animation: fadeIn 0.4s ease backwards;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- Top Bar -->
+<div class="topbar">
+  <div class="topbar-left">
+    <a href="../index.html" class="topbar-back">← 首页</a>
+    <span class="topbar-brand">Daily Digest</span>
+  </div>
+  <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn" aria-label="Toggle theme">☀️</button>
+</div>
+
+<!-- Nav -->
+<nav class="nav-bar">
+  <div class="nav-inner">
+    <div class="nav-item active" data-section="headline">头条</div>
+    <div class="nav-item" data-section="ai">AI</div>
+    <div class="nav-item" data-section="tech">科技</div>
+    <div class="nav-item" data-section="finance">财经</div>
+    <div class="nav-item" data-section="market">行情</div>
+    <div class="nav-item" data-section="science">科学</div>
+    <div class="nav-item" data-section="product">产品</div>
+    <div class="nav-item" data-section="deepread">深度</div>
+    <div class="nav-item" data-section="devtool">工具</div>
+    <div class="nav-item" data-section="quotes">言论</div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<header class="hero">
+  <span class="hero-issue">第 5 期</span>
+  <div class="hero-date">2026年4月3日 · 星期五 · 耶稣受难日</div>
+  <h1>霍尔木兹危机倒计时，Cursor 3重塑AI编程格局</h1>
+  <p class="hero-summary">伊美冲突进入关键窗口期：石油分析师警告若霍尔木兹海峡4月中旬前未解封，全球供应损失将翻倍至每日1000万桶，油价或冲击200美元；美国今日发布3月非农数据，市场预期+5.7万人，美股因耶稣受难日休市，周一反应成关键观察点。与此同时，Cursor 3以"Agent优先"架构正面挑战Claude Code与Codex，Anthropic意外泄露Claude Code全部源码震惊业界。</p>
+  <div class="hero-stats">
+    <div class="hero-stat"><span class="hero-stat-value">33</span><span class="hero-stat-label">资讯</span></div>
+    <div class="hero-stat"><span class="hero-stat-value">4</span><span class="hero-stat-label">深度</span></div>
+    <div class="hero-stat"><span class="hero-stat-value">18</span><span class="hero-stat-label">信源</span></div>
+    <div class="hero-stat"><span class="hero-stat-value">~18</span><span class="hero-stat-label">分钟</span></div>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- ===== 头条聚焦 ===== -->
+  <section class="section" id="headline">
+    <div class="section-header">
+      <span class="section-icon">🔥</span>
+      <h2 class="section-title">头条聚焦</h2>
+      <span class="section-count">深度分析</span>
+    </div>
+    <div class="headline-card">
+      <span class="headline-tag tag-finance" style="color:var(--tag-finance);background:var(--tag-finance-bg)">财经 × 地缘</span>
+      <h2>霍尔木兹倒计时：全球石油供应的"4月19日生死线"</h2>
+      <p>今天是耶稣受难日，美股休市，但石油市场的倒计时钟声不会因节假日而停歇。伊美冲突已将全球能源供应推至悬崖边缘：自3月初霍尔木兹海峡瘫痪以来，全球已累计损失约4.5至5百万桶/日的石油供应——约占全球总供应量的5%。这一数字听起来可控，但分析师发出刺耳警告：若海峡4月19日前无法重开，供应损失将翻倍至每日1000万桶，届时将超越2020年疫情冲击，成为有史以来最大规模的单次供应中断。</p>
+      <p style="margin-top:16px;">布伦特原油已站上110美元/桶，美国平均油价逾4年来首次突破4美元/加仑。高盛与美国政府官员已开始推演200美元油价情景：若达到这一水平，将触发全球性经济衰退，通胀将被迫二次反弹，美联储即便在就业市场疲软的背景下也将面临无力降息的窘境。与此形成对比的是，今日发布的3月非农就业数据（预期+5.7万）和2月的-9.2万一道，将成为美联储5月议息的关键校准点。值得注意的是，因Kaiser Permanente罢工解除，3万名工人理论上将重返就业市场，令实际数据存在超预期可能。两组信号相互角力，而市场的答卷将在下周一欧洲时段揭晓。</p>
+      <p style="margin-top:16px;">在AI层面，Cursor 3的发布同样是今日的重量级事件。这款代号"Glass"的产品以"Agent优先"为核心架构，允许开发者同时调度多个AI Agent并行完成编程任务，直接对标Anthropic的Claude Code和OpenAI的Codex。一天前，Anthropic自曝Claude Code完整源码（近50万行代码）泄露事件，手忙脚乱之际，竞争对手乘势出击。AI编程工具的竞争格局，正在这两件事中同步重塑。</p>
+    </div>
+  </section>
+
+  <!-- ===== AI 前沿 ===== -->
+  <section class="section" id="ai">
+    <div class="section-header">
+      <span class="section-icon">🤖</span>
+      <h2 class="section-title">AI 前沿</h2>
+      <span class="section-count">7 条</span>
+    </div>
+    <div class="news-grid">
+
+      <div class="news-card">
+        <span class="news-card-tag tag-ai">AI</span>
+        <h3><a href="https://startupnews.fyi/2026/04/02/cursor-launches-a-new-ai-agent-experience-to-take-on-claude-code-and-codex/" target="_blank">Cursor 3正式发布：多Agent并行架构，"Glass"直取Claude Code与Codex</a></h3>
+        <p>Cursor发布代号"Glass"的全新产品Cursor 3，以"Agent优先"界面允许开发者同时管理多个AI编程Agent并行完成任务，正面挑战Anthropic的Claude Code和OpenAI的Codex。公司年化收入已超5亿美元，估值293亿美元。AI编程工具从"副驾驶"全面进化为"自动驾驶"。</p>
+        <div class="news-card-meta"><span class="news-source">Wired / Techmeme</span><span>4月2日</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-ai">AI · 安全</span>
+        <h3><a href="https://www.bloomberg.com/news/articles/2026-04-01/anthropic-accidentally-releases-source-code-for-claude-ai-agent" target="_blank">Anthropic意外泄露Claude Code全部源码：50万行代码含未发布功能路线图</a></h3>
+        <p>Anthropic因打包失误将内部调试文件随Claude Code更新包推送至公共注册表，导致近50万行、约2000个文件的完整源码泄露，数小时内被镜像至GitHub并获数千星。泄露内容包含大量未发布功能标志和内部性能数据，竞争对手获得详细产品路线图，Anthropic运营安全遭到质疑。</p>
+        <div class="news-card-meta"><span class="news-source">Bloomberg / Fortune</span><span>4月1日</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-ai">AI · 模型</span>
+        <h3><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-flash-lite/" target="_blank">谷歌发布Gemini 3.1 Flash-Lite：速度提升2.5倍，每百万Token仅0.25美元</a></h3>
+        <p>谷歌在AI Studio和Vertex AI平台推出Gemini 3.1 Flash-Lite预览版，首答速度较上代提升2.5倍，输出速度提升45%，支持"思考强度"四档调节（最小/低/中/高），并显著改善语音识别精度。定价仅为$0.25/百万输入Token，是旗舰Pro版本的八分之一，直接冲击低成本AI推理市场。</p>
+        <div class="news-card-meta"><span class="news-source">Google Blog / VentureBeat</span><span>4月1日</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-ai">AI · 商业</span>
+        <h3><a href="https://markets.financialcontent.com/stocks/article/marketminute-2026-4-2-the-trillion-dollar-ai-tsunami-openai-and-anthropic-prepare-for-historic-public-debuts" target="_blank">OpenAI年化收入破250亿，Anthropic加速至190亿，双雄IPO路线图浮现</a></h3>
+        <p>OpenAI年化收入已达250亿美元（月收入20亿美元），Anthropic收入在两个月内从90亿飙至190亿——Claude Code成为财富500强软件工程标配。两家公司均瞄准2026年Q4上市，Anthropic已聘请Wilson Sonsini和高盛/摩根大通联合承销，目标估值400至500亿美元，OpenAI则逼近万亿美元量级。</p>
+        <div class="news-card-meta"><span class="news-source">Bloomberg / FinancialContent</span><span>4月2日</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-ai">AI · 开源</span>
+        <h3><a href="https://dev.to/s3atoshi_leading_ai/open-weight-ai-models-just-caught-up-with-gpt-gemini-and-claude-heres-what-what-means-for-where-2p0n" target="_blank">开源大模型基准追平闭源巨头：GLM-5对齐GPT-5.2，算力民主化加速</a></h3>
+        <p>2026年前8周已发布10款主要开源模型架构。智谱GLM-5在主流基准上已与GPT-5.2和Claude Opus 4.6持平，阶跃Step 3.5 Flash性能超越DeepSeek V3.2。开源模型的追赶速度令业界震惊，中国开源模型的全球开发者好感度大幅提升，多家西方AI应用已悄然切换至中国开源底层模型。</p>
+        <div class="news-card-meta"><span class="news-source">DEV Community / LLM-Stats</span><span>4月2日</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-ai">AI · 监管</span>
+        <h3><a href="https://www.nysenate.gov/newsroom/press-releases/2025/andrew-gounardes/landmark-ai-safety-bill-signed-law" target="_blank">纽约RAISE法案生效：AI开发者须在72小时内报告安全事故，违规最高罚300万美元</a></h3>
+        <p>纽约州《RAISE法案》正式生效，在纽约州金融服务厅设立专职AI监管机构，要求AI开发者提交详细安全计划、72小时内报告重大安全事故，并将重复违规罚款上限提升至300万美元。与此同时，科罗拉多将全面AI法案实施时间推迟至2026年6月30日，加州AI伴侣安全法规于4月起强制执行。</p>
+        <div class="news-card-meta"><span class="news-source">NY Senate / aiandnews.com</span><span>4月2日</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-ai">AI · 融资</span>
+        <h3><a href="https://techcrunch.com/2026/03/27/physical-intelligence-is-reportedly-in-talks-to-raise-1-billion-again/" target="_blank">Physical Intelligence再融10亿美元，估值四个月内从56亿翻倍至110亿</a></h3>
+        <p>旧金山机器人AI初创公司Physical Intelligence据报正在洽谈新一轮约10亿美元融资，估值将突破110亿美元，距离上一轮56亿美元估值仅四个月。AI机器人领域的融资热度持续飙升，AI初创种子轮估值中位数已达4000至4500万美元，非AI赛道融资几乎受到投资人冷遇。</p>
+        <div class="news-card-meta"><span class="news-source">TechCrunch</span><span>3月27日</span></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== 科技动态 ===== -->
+  <section class="section" id="tech">
+    <div class="section-header">
+      <span class="section-icon">💻</span>
+      <h2 class="section-title">科技动态</h2>
+      <span class="section-count">5 条</span>
+    </div>
+    <div class="news-grid">
+
+      <div class="news-card">
+        <span class="news-card-tag tag-tech">科技 · 制造</span>
+        <h3><a href="https://www.apple.com/newsroom/2026/03/apple-adds-new-partners-to-its-american-manufacturing-program/" target="_blank">苹果追加4亿美元美国芯片供应链投资，TDK首次在美生产传感器元件</a></h3>
+        <p>苹果宣布与博世、Cirrus Logic、TDK和Qnity Electronics追加4亿美元合作，扩大在美半导体及电子元件生产，是苹果6000亿美元美国制造计划的组成部分。TDK将首次在美国本土生产摄像头传感器元件，Cirrus Logic与GlobalFoundries合作在纽约晶圆厂开发混合信号半导体，苹果2026年将从台积电亚利桑那工厂采购逾1亿颗芯片。</p>
+        <div class="news-card-meta"><span class="news-source">Apple Newsroom / Manufacturing Dive</span><span>4月1日</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-tech">科技 · 芯片</span>
+        <h3><a href="https://www.cnbc.com/2026/01/26/nvidia-set-to-supplant-apple-as-tsmcs-largest-customer.html" target="_blank">英伟达取代苹果成台积电最大客户，AI算力需求重塑半导体供应链格局</a></h3>
+        <p>2026年英伟达将首次超越苹果，成为台积电最大单一客户，标志着半导体供应链"AI化"的历史性转折。与此同时，超大型云厂商（微软、谷歌、Meta、亚马逊）对高带宽内存（HBM）的贪婪需求，已迫使三星、SK海力士和美光将有限产能全面向企业级产品倾斜，引发全球内存短缺危机，预计严重冲击2026年智能手机和PC市场出货量。</p>
+        <div class="news-card-meta"><span class="news-source">CNBC / IDC</span><span>1月 / 近期</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-tech">科技 · 机器人</span>
+        <h3><a href="https://www.hyundainews.com/releases/4664" target="_blank">现代汽车发布AI+机器人战略：2028年年产3万台人形机器人，首批进驻乔治亚工厂</a></h3>
+        <p>现代汽车集团详细披露其"AI+机器人"路线图，计划2028年建成年产3万台人形机器人产线，首批Atlas机器人将部署于美国乔治亚州工厂执行分拣任务。CES 2026现场演示中，Atlas已完成真实工厂生产线上的首次公开作业展示。现代工会警告，人形机器人大规模上岗须事先达成劳资协议，否则将引发重大劳动争议。</p>
+        <div class="news-card-meta"><span class="news-source">Hyundai Newsroom / Automotive News</span><span>近期</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-tech">科技 · 互联网</span>
+        <h3><a href="https://techcrunch.com/2026/03/25/meta-is-cutting-several-hundred-jobs/" target="_blank">Meta年内二度裁员：现实实验室1月裁10%后，再削数百岗位</a></h3>
+        <p>Meta今年第二次实施裁员，裁减数百名员工，距1月对Reality Labs部门裁减10%员工仅数月之隔。此次裁员涉及多个业务部门，Meta未公布具体裁员比例。尽管公司AI广告营收持续强劲，但在人力成本控制上Meta正维持一贯的精简策略，同时将资源向AI基础设施和Llama模型研发倾斜。</p>
+        <div class="news-card-meta"><span class="news-source">TechCrunch</span><span>3月25日</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-tech">科技 · 网络安全</span>
+        <h3><a href="https://www.washingtonpost.com/wp-intelligence/ai-tech-brief/2026/04/02/ai-tech-brief-adam-gleave-farai-safety-regulation/" target="_blank">FAR.AI联创：推理模型让AI安全评估"失效"，编程Agent成攻击新入口</a></h3>
+        <p>AI安全研究机构FAR.AI联合创始人Adam Gleave在《华盛顿邮报》撰文指出，推理型模型（如o3/Gemini Thinking）的内部"思维链"难以审计，使现有安全评估方法几近失效；AI编程Agent深度嵌入企业基础设施后，成为新型攻击入口。他呼吁AI实验室在Agent规模化前建立可验证的安全机制，否则监管将不得不强制介入。</p>
+        <div class="news-card-meta"><span class="news-source">The Washington Post</span><span>4月2日</span></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== 全球财经 ===== -->
+  <section class="section" id="finance">
+    <div class="section-header">
+      <span class="section-icon">📈</span>
+      <h2 class="section-title">全球财经</h2>
+      <span class="section-count">6 条</span>
+    </div>
+    <div class="news-grid">
+
+      <div class="news-card">
+        <span class="news-card-tag tag-finance">财经 · 就业</span>
+        <h3><a href="https://www.techi.com/march-jobs-report-2026/" target="_blank">3月非农今日揭晓：预期+5.7万，市场闭市延迟反应至周一</a></h3>
+        <p>美国劳工统计局于美东时间上午8:30发布3月就业报告，经济学家共识预期新增5.7万个非农就业岗位——远低于疫情后平均月增18万的基准，但略好于2月份的-9.2万。Kaiser Permanente罢工结束后约3万名工人重返岗位，构成上行变量。美股因耶稣受难日休市，市场将于周一对数据作出完整定价，美联储5月议息会议的降息预期面临重新校准。</p>
+        <div class="news-card-meta"><span class="news-source">BLS / Techi</span><span>4月3日</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-finance">财经 · 能源</span>
+        <h3><a href="https://en.wikipedia.org/wiki/2026_Strait_of_Hormuz_crisis" target="_blank">霍尔木兹危机：4月19日成全球石油"生死线"，200美元油价预案已启动</a></h3>
+        <p>石油高管和华尔街分析师警告，若霍尔木兹海峡4月19日前无法重开，每日损失供应将从当前4.5至5百万桶翻倍突破1000万桶，超越史上最大供应中断纪录。美国政府已启动200美元油价压力测试，战略石油储备释放计划准备就绪。布伦特此前最高触及126美元/桶，当前约110美元，美国汽油均价已4年来首破4美元。</p>
+        <div class="news-card-meta"><span class="news-source">Al Jazeera / Bloomberg / Wikipedia</span><span>4月2日</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-finance">财经 · 贸易</span>
+        <h3><a href="https://www.cnbc.com/2026/04/01/stock-market-today-live-updates.html" target="_blank">美国2月贸易逆差收窄至573亿美元，同比下降55%，关税重塑进出口结构</a></h3>
+        <p>美国商务部公布2月贸易逆差573亿美元，环比小幅扩大但低于预期，同比下降55%创历史大幅降幅。高盛测算显示，关税引发的贸易逆差收窄效应显著，但背后代价是贸易转移至印度、马来西亚、越南等中间国，消费者承担了约37%的额外成本，美国企业承担51%，外国出口商仅9%。</p>
+        <div class="news-card-meta"><span class="news-source">CNBC</span><span>4月2日</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-finance">财经 · 关税</span>
+        <h3><a href="https://foreignpolicy.com/2026/03/19/trump-tariffs-trade-failure-deficit-reindustrialization-china-economy-costs/" target="_blank">美国贸易代表办公室启动新一轮301条款调查，目标直指中国制造业"过剩产能"</a></h3>
+        <p>美国贸易代表办公室（USTR）3月对中国及其他贸易伙伴启动两项新的301条款调查，聚焦"制造业过剩产能与强迫劳动"，听证会计划4至5月举行。与此同时，中美关税谈判延续——中国商品对美实际税率仍约30%，特朗普访华计划存在变数，两国均希望在11月2026年到期节点前维持现有协议框架。</p>
+        <div class="news-card-meta"><span class="news-source">Foreign Policy / PIIE</span><span>3月 / 近期</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-finance">财经 · 股市</span>
+        <h3><a href="https://www.thestreet.com/latest-news/stock-market-today-apr-2-2026-updates" target="_blank">美股4月2日收盘：标普+0.11%收6583，伊朗信号安抚盘中逾1%跌幅</a></h3>
+        <p>4月2日美股剧烈震荡后翻红：道指一度跌超600点后收跌0.13%至46,505，标普500最终收涨0.11%至6,583，纳指涨0.18%至21,879。盘中转折点源于伊朗官媒宣布正与阿曼协商"霍尔木兹航运监测协议"。WTI原油期货当日最高摸至113美元/桶后回落至约110美元，市场处于高度警觉状态。</p>
+        <div class="news-card-meta"><span class="news-source">TheStreet / Yahoo Finance</span><span>4月2日</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-finance">财经 · 中国</span>
+        <h3><a href="https://www.china-briefing.com/news/chinas-2026-tariff-schedule/" target="_blank">中国2026年关税调整表出炉：高科技与医疗健康领域定向减税，贸易战下谋产业升级</a></h3>
+        <p>中国2026年关税调整方案已出炉，将对高技术装备、医疗健康领域的关键中间品实施定向关税减免，以降低先进制造业原材料成本，推动产业升级。此举与美国USTR新一轮301条款调查形成对冲，显示中美贸易博弈已从单纯关税攻防转向产业政策层面的结构性竞争。</p>
+        <div class="news-card-meta"><span class="news-source">China Briefing</span><span>近期</span></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== 市场数据 ===== -->
+  <section class="section" id="market">
+    <div class="section-header">
+      <span class="section-icon">📊</span>
+      <h2 class="section-title">市场行情</h2>
+      <span class="section-count">数据截至4月2日收盘</span>
+    </div>
+    <div class="market-grid">
+      <div class="market-item">
+        <div class="name">标普500</div>
+        <div class="value">6,583</div>
+        <div class="change up">+0.11%</div>
+      </div>
+      <div class="market-item">
+        <div class="name">纳斯达克</div>
+        <div class="value">21,879</div>
+        <div class="change up">+0.18%</div>
+      </div>
+      <div class="market-item">
+        <div class="name">道琼斯</div>
+        <div class="value">46,505</div>
+        <div class="change down">-0.13%</div>
+      </div>
+      <div class="market-item">
+        <div class="name">上证指数</div>
+        <div class="value">3,302</div>
+        <div class="change down">-0.42%</div>
+      </div>
+      <div class="market-item">
+        <div class="name">深证成指</div>
+        <div class="value">10,831</div>
+        <div class="change down">-0.55%</div>
+      </div>
+      <div class="market-item">
+        <div class="name">创业板指</div>
+        <div class="value">2,167</div>
+        <div class="change down">-0.71%</div>
+      </div>
+      <div class="market-item">
+        <div class="name">恒生指数</div>
+        <div class="value">24,618</div>
+        <div class="change down">-0.88%</div>
+      </div>
+      <div class="market-item">
+        <div class="name">布伦特原油</div>
+        <div class="value">$110.2</div>
+        <div class="change up">+2.1%</div>
+      </div>
+      <div class="market-item">
+        <div class="name">比特币</div>
+        <div class="value">$68,450</div>
+        <div class="change up">+1.8%</div>
+      </div>
+      <div class="market-item">
+        <div class="name">美元/人民币</div>
+        <div class="value">7.238</div>
+        <div class="change up">+0.12%</div>
+      </div>
+    </div>
+    <p style="font-size:12px;color:var(--text-muted);margin-top:12px;">⚠️ 美股因耶稣受难日（4月3日）休市，A股与港股数据为4月2日收盘价，部分数据为近似参考值</p>
+  </section>
+
+  <!-- ===== 科学突破 ===== -->
+  <section class="section" id="science">
+    <div class="section-header">
+      <span class="section-icon">🔬</span>
+      <h2 class="section-title">科学突破</h2>
+      <span class="section-count">3 条</span>
+    </div>
+    <div class="news-grid">
+
+      <div class="news-card">
+        <span class="news-card-tag tag-science">科学 · AI医疗</span>
+        <h3><a href="https://www.nature.com/news" target="_blank">流形拓扑深度学习（MTDL）突破：多项生物医学影像基准成绩超越现有最优方法</a></h3>
+        <p>最新研究提出将拓扑深度学习拓展至微分流形的MTDL框架，基于de Rham-Hodge理论，在多项生物医学影像分析基准测试中超越现有最优算法。这一突破为医学影像分析、分子结构预测等领域开辟了新的几何感知深度学习路径，有望加速AI辅助诊断的临床部署。</p>
+        <div class="news-card-meta"><span class="news-source">Nature</span><span>近期</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-science">科学 · 学术</span>
+        <h3><a href="https://www.nature.com/news" target="_blank">大规模学术可重复性评估：85%论文可复现，但25%存在非平凡编程错误</a></h3>
+        <p>覆盖110篇经济学与政治科学顶刊论文的大规模可重复性评估揭示：85%可计算复现，72%统计显著结果在稳健性检验中方向不变，但约25%的论文存在非平凡编程错误，其中部分错误会影响核心结论。该研究引发学术界对"代码发布标准"和"同行复现审查"制度的新讨论。</p>
+        <div class="news-card-meta"><span class="news-source">Nature</span><span>近期</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-science">科学 · 医学</span>
+        <h3><a href="https://www.nature.com/news" target="_blank">卵巢过度刺激综合征（OHSS）机制破解：阻断FSH受体相关通路在小鼠中成功治疗</a></h3>
+        <p>研究发现促卵泡素受体（FSHR）突变导致自发性OHSS，而金翅雀虽携带类似致病突变却通过降低相关受体活性天然规避。研究团队据此对小鼠成功实施靶向干预，为数百万接受辅助生殖治疗的女性提供了潜在的预防OHSS新靶点，有望减少体外受精并发症的发生率。</p>
+        <div class="news-card-meta"><span class="news-source">Nature</span><span>近期</span></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== 产品发现 ===== -->
+  <section class="section" id="product">
+    <div class="section-header">
+      <span class="section-icon">🚀</span>
+      <h2 class="section-title">产品发现</h2>
+      <span class="section-count">4 条</span>
+    </div>
+    <div class="news-grid">
+
+      <div class="news-card">
+        <span class="news-card-tag tag-product">产品</span>
+        <h3><a href="https://cursor.com/changelog" target="_blank">Cursor Automations：批量调度AI编程任务的企业级Agent管理平台</a></h3>
+        <p>随Cursor 3一同发布的Automations平台允许企业级用户在自有基础设施上部署自托管AI编程Agent，支持按时间或事件触发批量任务。Cursor Automations将AI编程从"单任务对话"升级为"持续运行的自动化工作流"，已有多家财富500强企业提前测试，目标直指GitHub Actions和Jenkins等CI/CD传统工具。</p>
+        <div class="news-card-meta"><span class="news-source">Cursor / The New Stack</span><span>4月2日</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-product">产品 · 金融</span>
+        <h3><a href="https://www.producthunt.com/products" target="_blank">BudgetWise：AI驱动个人财务管理，自动归类支出并生成可视化储蓄路线图</a></h3>
+        <p>BudgetWise登上Product Hunt日榜前三，提供基于AI的个人财务管理功能：自动从银行账单中提取并归类支出，结合用户收入和储蓄目标生成可视化路线图，并在支出异常时主动提醒。产品主打隐私优先，所有财务数据在本地加密处理，不上传至云端，定位高净值个人用户。</p>
+        <div class="news-card-meta"><span class="news-source">Product Hunt</span><span>4月3日</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-product">产品 · AI</span>
+        <h3><a href="https://blog.mean.ceo/ai-agents-news-april-2026/" target="_blank">Replit Agent 4：多Agent协作10倍提速，4000万用户含财富500强85%</a></h3>
+        <p>Replit发布Agent 4，通过多Agent协作工作流将代码生成速度提升10倍，支持并行调试、测试和部署。Replit估值从半年前30亿美元飙升至90亿美元，用户超4000万，含财富500强企业85%。Agent 4的发布与Cursor 3同日，AI编程工具市场进入真正的"多强争霸"阶段。</p>
+        <div class="news-card-meta"><span class="news-source">AI Funding Tracker</span><span>近期</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-product">产品 · 工具</span>
+        <h3><a href="https://www.producthunt.com/products" target="_blank">Langflow 2.0：拖拽式AI Agent工作流设计器，支持RAG全链路可视化搭建</a></h3>
+        <p>Langflow发布2.0版本，低代码平台支持拖拽式构建AI Agent工作流，覆盖RAG（检索增强生成）全流程，内置100+预置节点包括向量数据库、LLM调用和工具集成。新版本增加调试回放、版本控制和团队协作功能，面向企业AI应用开发者，与LangChain、LlamaIndex深度集成。</p>
+        <div class="news-card-meta"><span class="news-source">GitHub / Product Hunt</span><span>近期</span></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== 深度阅读 ===== -->
+  <section class="section" id="deepread">
+    <div class="section-header">
+      <span class="section-icon">📚</span>
+      <h2 class="section-title">深度阅读</h2>
+      <span class="section-count">4 篇</span>
+    </div>
+    <div class="deep-read-list">
+
+      <div class="deep-read-card">
+        <div class="deep-read-number">01</div>
+        <div class="deep-read-body">
+          <h3><a href="https://www.bloomberg.com/graphics/2026-iran-war-hormuz-closure-oil-shock/" target="_blank">霍尔木兹关闭：历史上最大能源冲击的量化解析 — Bloomberg Graphics</a></h3>
+          <p>彭博社深度图解分析霍尔木兹海峡关闭的经济影响链：20%全球石油通过量被切断、各国战略储备消耗速度、替代航线的成本与容量上限、$200油价情景下的全球GDP损失模型。这是理解当前能源危机数量级的最佳入门文章，数据密度极高，图表清晰，建议能源和宏观投资者必读。</p>
+          <div class="deep-read-meta"><span class="news-source">Bloomberg</span><span class="read-time">⏱ 约 12 分钟</span></div>
+        </div>
+      </div>
+
+      <div class="deep-read-card">
+        <div class="deep-read-number">02</div>
+        <div class="deep-read-body">
+          <h3><a href="https://gizmodo.com/source-code-for-anthropics-claude-code-leaks-at-the-exact-wrong-time-2000740379" target="_blank">在最糟糕的时机泄露：Anthropic的Claude Code源码事件全解析 — Gizmodo</a></h3>
+          <p>Gizmodo的深度报道完整还原了Anthropic Claude Code源码泄露事件的时间线、泄露内容分析（未发布功能标志、内部性能数据）以及对公司"安全优先"品牌形象的打击。文章还梳理了Anthropic一年内两次重大运营安全事故，探讨AI实验室在超高速扩张期面临的系统性工程风险。适合关注AI安全和公司治理的读者。</p>
+          <div class="deep-read-meta"><span class="news-source">Gizmodo</span><span class="read-time">⏱ 约 8 分钟</span></div>
+        </div>
+      </div>
+
+      <div class="deep-read-card">
+        <div class="deep-read-number">03</div>
+        <div class="deep-read-body">
+          <h3><a href="https://stratechery.com/2026/ai-and-the-human-condition/" target="_blank">AI与人类处境 — Stratechery · Ben Thompson</a></h3>
+          <p>Thompson在这篇深思熟虑的文章中探讨AI对人类意义感、创造欲和审美能力的深层影响。他认为AI的大规模普及可能反而激发人类对"真实手工艺"和"有温度建造物"的珍视——当AI可以生成一切时，人类亲手创造的事物才真正变得稀缺。这篇文章是AI浪潮中难得的哲学性反思，在技术新闻的洪流中提供了人文锚点。</p>
+          <div class="deep-read-meta"><span class="news-source">Stratechery</span><span class="read-time">⏱ 约 15 分钟</span></div>
+        </div>
+      </div>
+
+      <div class="deep-read-card">
+        <div class="deep-read-number">04</div>
+        <div class="deep-read-body">
+          <h3><a href="https://markets.financialcontent.com/stocks/article/marketminute-2026-4-2-the-trillion-dollar-ai-tsunami-openai-and-anthropic-prepare-for-historic-public-debuts" target="_blank">万亿AI浪潮：OpenAI与Anthropic的历史性上市前夕 — FinancialContent</a></h3>
+          <p>这篇深度报道将两家公司的收入增速（Anthropic年增近10倍 vs OpenAI约3.4倍）、IPO时间线、承销团队组成和估值区间一一拆解，并引用Epoch AI预测：按当前增速，Anthropic将于2026年中期在年化收入上超越OpenAI。对于关注AI公司估值逻辑和资本市场动态的读者，这是本周最值得收藏的一篇报道。</p>
+          <div class="deep-read-meta"><span class="news-source">FinancialContent</span><span class="read-time">⏱ 约 10 分钟</span></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== 开发者工具 ===== -->
+  <section class="section" id="devtool">
+    <div class="section-header">
+      <span class="section-icon">🛠️</span>
+      <h2 class="section-title">开发者工具</h2>
+      <span class="section-count">3 条</span>
+    </div>
+    <div class="tool-grid">
+
+      <div class="tool-card">
+        <h3>Cursor 3 / Glass</h3>
+        <p>全新"Agent优先"IDE，允许开发者同时管理多个AI Agent并行推进代码任务，内置任务队列、Agent状态面板和自托管基础设施支持，大幅超越单一"副驾驶"模式。</p>
+        <a class="tool-card-link" href="https://cursor.com/changelog" target="_blank">查看更新日志 →</a>
+      </div>
+
+      <div class="tool-card">
+        <h3>Langflow 2.0</h3>
+        <p>拖拽式AI Agent工作流构建平台，支持RAG全流程可视化，内置向量数据库、LLM节点和工具集成100+，新增版本控制和团队协作，面向企业AI应用开发者的低代码解决方案。</p>
+        <a class="tool-card-link" href="https://github.com/langflow-ai/langflow" target="_blank">查看 GitHub →</a>
+      </div>
+
+      <div class="tool-card">
+        <h3>GoReleaser v2.5</h3>
+        <p>Go项目发布自动化工具，近期更新支持多平台交叉编译、容器镜像自动推送和GitHub/GitLab Release页面生成，已成为Go开源项目维护者的发布工程标配工具，GitHub Stars逾35,000。</p>
+        <a class="tool-card-link" href="https://github.com/goreleaser/goreleaser" target="_blank">查看 GitHub →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== 言论 ===== -->
+  <section class="section" id="quotes">
+    <div class="section-header">
+      <span class="section-icon">💬</span>
+      <h2 class="section-title">言论</h2>
+      <span class="section-count">4 条</span>
+    </div>
+    <div class="quotes-list">
+
+      <div class="quote-card">
+        <p class="quote-text">如果霍尔木兹海峡继续关闭，全球将面临有史以来最严重的石油供应中断。我们正在对200美元/桶的情景进行压力测试，这不是危言耸听，而是我们必须规划的现实。</p>
+        <p class="quote-author">—— 匿名高级美国政府官员，援引自《华尔街日报》，2026年4月</p>
+      </div>
+
+      <div class="quote-card">
+        <p class="quote-text">源码泄露不涉及任何客户数据，这是一次由人为失误导致的发布打包问题，并非安全漏洞。我们正在全面审查发布流程以防止类似事件再次发生。</p>
+        <p class="quote-author">—— Anthropic发言人，回应Claude Code源码泄露事件，2026年4月1日</p>
+      </div>
+
+      <div class="quote-card">
+        <p class="quote-text">推理模型的"思维链"是一个黑盒，我们无法真正审计模型在里面想了什么。当AI Agent深入嵌入关键基础设施时，这个盲点将成为系统性安全风险，而不仅仅是学术问题。</p>
+        <p class="quote-author">—— Adam Gleave，FAR.AI联合创始人兼CEO，《华盛顿邮报》，2026年4月2日</p>
+      </div>
+
+      <div class="quote-card">
+        <p class="quote-text">Cursor 3不是一个更好的代码编辑器，而是一个全新的软件开发范式：你不再写代码，你指挥Agent舰队去写代码。这是软件工程师职能最深刻的一次重新定义。</p>
+        <p class="quote-author">—— Maxwell Zeff，Wired记者，报道Cursor 3发布，2026年4月2日</p>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="archive-section">
+    <a href="../index.html" class="archive-link">← 查看往期简报</a>
+  </div>
+
+</main>
+
+<footer class="footer">由 AI 自动抓取与编辑 · 每日 07:00 更新 · news.huangwei.ai</footer>
+
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+function toggleTheme() {
+  const html = document.documentElement;
+  const btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function() {
+  const saved = localStorage.getItem('theme');
+  if (saved === 'light') {
+    document.documentElement.setAttribute('data-theme', 'light');
+    document.getElementById('themeBtn').textContent = '🌙';
+  }
+})();
+window.addEventListener('scroll', () => {
+  const h = document.documentElement;
+  const p = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+  document.getElementById('progressBar').style.width = p + '%';
+  document.getElementById('backToTop').classList.toggle('visible', h.scrollTop > 400);
+});
+document.querySelectorAll('.nav-item').forEach(item => {
+  item.addEventListener('click', () => {
+    const s = document.getElementById(item.dataset.section);
+    if (s) s.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+const sects = document.querySelectorAll('.section');
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+      const nav = document.querySelector(`.nav-item[data-section="${e.target.id}"]`);
+      if (nav) nav.classList.add('active');
+    }
+  });
+}, { rootMargin: '-100px 0px -50% 0px' });
+sects.forEach(s => obs.observe(s));
+</script>
+</body>
+</html>
