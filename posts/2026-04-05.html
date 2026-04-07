@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>特朗普伊朗最后通牒，Artemis II奔月在途 · 每日简报</title>
+<style>
+:root[data-theme="dark"] {
+  --bg: #000000; --bg-elevated: #0a0a0a; --bg-card: #111111; --bg-card-hover: #1a1a1a;
+  --text: #f0f0f0; --text-secondary: #999999; --text-muted: #555555; --border: #222222;
+  --accent: #00d4ff; --accent-dim: rgba(0,212,255,0.1); --accent-glow: rgba(0,212,255,0.15);
+  --tag-ai: #a78bfa; --tag-ai-bg: rgba(167,139,250,0.12);
+  --tag-tech: #22d3ee; --tag-tech-bg: rgba(34,211,238,0.1);
+  --tag-finance: #fbbf24; --tag-finance-bg: rgba(251,191,36,0.1);
+  --tag-science: #34d399; --tag-science-bg: rgba(52,211,153,0.1);
+  --tag-product: #fb7185; --tag-product-bg: rgba(251,113,133,0.1);
+  --tag-dev: #818cf8; --tag-dev-bg: rgba(129,140,248,0.1);
+  --up: #ef4444; --down: #22c55e;
+  --shadow: 0 0 0 1px rgba(255,255,255,0.04);
+  --shadow-hover: 0 8px 40px rgba(0,212,255,0.06), 0 0 0 1px rgba(255,255,255,0.08);
+  --radius: 12px;
+}
+:root[data-theme="light"] {
+  --bg: #fafafa; --bg-elevated: #ffffff; --bg-card: #ffffff; --bg-card-hover: #f5f5f5;
+  --text: #111111; --text-secondary: #666666; --text-muted: #999999; --border: #e8e8e8;
+  --accent: #0066ff; --accent-dim: rgba(0,102,255,0.06); --accent-glow: rgba(0,102,255,0.08);
+  --tag-ai: #7c3aed; --tag-ai-bg: rgba(124,58,237,0.08);
+  --tag-tech: #0891b2; --tag-tech-bg: rgba(8,145,178,0.08);
+  --tag-finance: #d97706; --tag-finance-bg: rgba(217,119,6,0.08);
+  --tag-science: #059669; --tag-science-bg: rgba(5,150,105,0.08);
+  --tag-product: #e11d48; --tag-product-bg: rgba(225,29,72,0.08);
+  --tag-dev: #4f46e5; --tag-dev-bg: rgba(79,70,229,0.08);
+  --up: #dc2626; --down: #16a34a;
+  --shadow: 0 1px 3px rgba(0,0,0,0.06); --shadow-hover: 0 8px 30px rgba(0,0,0,0.08); --radius: 12px;
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", "Segoe UI", sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; transition: background 0.4s, color 0.4s; }
+a { color: var(--accent); text-decoration: none; transition: opacity 0.2s; }
+a:hover { opacity: 0.8; }
+.progress-bar { position: fixed; top: 0; left: 0; height: 2px; background: var(--accent); z-index: 200; width: 0%; transition: width 0.1s; }
+.topbar { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; background: rgba(0,0,0,0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); transition: background 0.3s; }
+[data-theme="light"] .topbar { background: rgba(255,255,255,0.9); }
+.topbar-left { display: flex; align-items: center; gap: 16px; }
+.topbar-brand { font-size: 13px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--text-secondary); }
+.topbar-back { font-size: 13px; color: var(--accent); display: flex; align-items: center; gap: 4px; }
+.theme-toggle { background: none; border: 1px solid var(--border); color: var(--text-secondary); width: 34px; height: 34px; border-radius: 50%; cursor: pointer; font-size: 15px; display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
+.theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
+.nav-bar { position: sticky; top: 52px; z-index: 90; background: var(--bg); border-bottom: 1px solid var(--border); transition: background 0.3s; }
+.nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 32px; display: flex; gap: 0; overflow-x: auto; scrollbar-width: none; }
+.nav-inner::-webkit-scrollbar { display: none; }
+.nav-item { padding: 12px 16px; font-size: 13px; font-weight: 500; color: var(--text-muted); white-space: nowrap; cursor: pointer; border-bottom: 2px solid transparent; transition: all 0.2s; }
+.nav-item:hover, .nav-item.active { color: var(--accent); border-bottom-color: var(--accent); }
+.hero { padding: 100px 48px 60px; max-width: 1200px; margin: 0 auto; }
+.hero-issue { display: inline-block; font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); border: 1px solid var(--accent); padding: 5px 12px; border-radius: 4px; margin-bottom: 20px; }
+.hero-date { font-size: 14px; color: var(--text-muted); margin-bottom: 16px; }
+.hero h1 { font-size: clamp(32px, 5vw, 52px); font-weight: 800; line-height: 1.15; letter-spacing: -1.5px; margin-bottom: 20px; }
+.hero-summary { font-size: 17px; line-height: 1.75; color: var(--text-secondary); max-width: 720px; margin-bottom: 28px; }
+.hero-stats { display: flex; gap: 28px; flex-wrap: wrap; }
+.hero-stat-value { font-size: 24px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.hero-stat-label { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 48px 80px; }
+.section { margin-bottom: 56px; }
+.section-header { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; }
+.section-icon { font-size: 20px; }
+.section-title { font-size: 18px; font-weight: 700; letter-spacing: -0.2px; }
+.section-count { margin-left: auto; font-size: 12px; color: var(--text-muted); }
+.section-header::after { content: ''; flex: 1; height: 1px; background: var(--border); order: 99; }
+.section-count { order: 98; }
+.news-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 14px; }
+.news-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px; transition: all 0.3s; display: flex; flex-direction: column; }
+.news-card:hover { background: var(--bg-card-hover); box-shadow: var(--shadow-hover); transform: translateY(-2px); }
+.news-card-tag { display: inline-flex; font-size: 11px; font-weight: 600; letter-spacing: 0.5px; padding: 3px 8px; border-radius: 4px; margin-bottom: 10px; width: fit-content; }
+.tag-ai { color: var(--tag-ai); background: var(--tag-ai-bg); }
+.tag-tech { color: var(--tag-tech); background: var(--tag-tech-bg); }
+.tag-finance { color: var(--tag-finance); background: var(--tag-finance-bg); }
+.tag-science { color: var(--tag-science); background: var(--tag-science-bg); }
+.tag-product { color: var(--tag-product); background: var(--tag-product-bg); }
+.tag-dev { color: var(--tag-dev); background: var(--tag-dev-bg); }
+.news-card h3 { font-size: 16px; font-weight: 600; margin-bottom: 8px; line-height: 1.5; letter-spacing: -0.2px; }
+.news-card h3 a { color: var(--text); }
+.news-card h3 a:hover { color: var(--accent); }
+.news-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.65; flex: 1; }
+.news-card-meta { display: flex; justify-content: space-between; align-items: center; margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--border); font-size: 12px; color: var(--text-muted); }
+.headline-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 32px; margin-bottom: 20px; box-shadow: var(--shadow); }
+.headline-card h2 { font-size: 24px; font-weight: 700; margin-bottom: 16px; line-height: 1.4; letter-spacing: -0.5px; }
+.headline-card p { font-size: 16px; color: var(--text-secondary); line-height: 1.8; }
+.headline-card p + p { margin-top: 14px; }
+.headline-tag { display: inline-block; font-size: 11px; font-weight: 600; padding: 3px 8px; border-radius: 4px; margin-bottom: 14px; }
+.market-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(155px, 1fr)); gap: 12px; }
+.market-item { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; text-align: center; transition: all 0.2s; }
+.market-item:hover { border-color: rgba(0,212,255,0.2); }
+.market-item .name { font-size: 12px; color: var(--text-muted); margin-bottom: 4px; }
+.market-item .value { font-size: 20px; font-weight: 700; margin-bottom: 2px; font-variant-numeric: tabular-nums; }
+.market-item .change { font-size: 14px; font-weight: 600; }
+.up { color: var(--up); } .down { color: var(--down); }
+.deep-read-list { display: flex; flex-direction: column; gap: 14px; }
+.deep-read-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; display: flex; transition: all 0.3s; }
+.deep-read-card:hover { background: var(--bg-card-hover); box-shadow: var(--shadow-hover); transform: translateY(-2px); }
+.deep-read-number { display: flex; align-items: center; justify-content: center; min-width: 64px; font-size: 32px; font-weight: 800; color: var(--accent); opacity: 0.2; }
+.deep-read-body { padding: 20px 24px 20px 0; flex: 1; }
+.deep-read-body h3 { font-size: 17px; font-weight: 600; margin-bottom: 8px; line-height: 1.5; }
+.deep-read-body h3 a { color: var(--text); }
+.deep-read-body h3 a:hover { color: var(--accent); }
+.deep-read-body p { font-size: 14px; color: var(--text-secondary); line-height: 1.65; margin-bottom: 10px; }
+.deep-read-meta { display: flex; gap: 16px; font-size: 12px; color: var(--text-muted); }
+.news-source { font-weight: 500; }
+.quotes-list { display: flex; flex-direction: column; gap: 14px; }
+.quote-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px 28px; position: relative; }
+.quote-card::before { content: '"'; position: absolute; top: 16px; left: 20px; font-size: 40px; color: var(--accent); opacity: 0.15; font-family: Georgia, serif; line-height: 1; }
+.quote-text { font-size: 15px; line-height: 1.75; margin-bottom: 10px; padding-left: 4px; font-style: italic; }
+.quote-author { font-size: 13px; color: var(--text-muted); font-weight: 500; padding-left: 4px; }
+.tool-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 14px; }
+.tool-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px; transition: all 0.3s; }
+.tool-card:hover { background: var(--bg-card-hover); box-shadow: var(--shadow-hover); transform: translateY(-2px); }
+.tool-card h3 { font-size: 16px; font-weight: 600; margin-bottom: 6px; }
+.tool-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
+.tool-card-link { display: inline-block; margin-top: 10px; font-size: 13px; font-weight: 600; color: var(--accent); }
+.archive-section { text-align: center; padding: 40px 0; border-top: 1px solid var(--border); }
+.archive-link { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 500; color: var(--accent); padding: 12px 24px; border-radius: 8px; border: 1px solid var(--accent); transition: all 0.2s; }
+.archive-link:hover { background: var(--accent); color: #000; }
+.footer { text-align: center; padding: 32px; font-size: 13px; color: var(--text-muted); border-top: 1px solid var(--border); }
+.back-to-top { position: fixed; bottom: 24px; right: 24px; width: 42px; height: 42px; border-radius: 50%; background: var(--bg-card); border: 1px solid var(--border); color: var(--accent); cursor: pointer; font-size: 18px; box-shadow: var(--shadow); opacity: 0; transform: translateY(20px); transition: all 0.3s; z-index: 99; }
+.back-to-top.visible { opacity: 1; transform: translateY(0); }
+.back-to-top:hover { background: var(--accent); color: #000; border-color: var(--accent); }
+@media (max-width: 768px) {
+  .topbar { padding: 12px 20px; } .hero { padding: 80px 24px 40px; }
+  .hero h1 { font-size: 28px; letter-spacing: -1px; } .container { padding: 0 24px 60px; }
+  .news-grid { grid-template-columns: 1fr; } .market-grid { grid-template-columns: repeat(2, 1fr); }
+  .tool-grid { grid-template-columns: 1fr; } .headline-card { padding: 24px; }
+  .headline-card h2 { font-size: 20px; } .deep-read-card { flex-direction: column; }
+  .deep-read-number { min-width: unset; padding: 16px 20px 0; justify-content: flex-start; font-size: 24px; }
+  .deep-read-body { padding: 12px 20px 20px; } .nav-inner { padding: 0 20px; }
+  .nav-item { padding: 10px 14px; font-size: 12px; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .news-card, .deep-read-card, .quote-card, .tool-card { animation: fadeIn 0.4s ease backwards; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+}
+</style>
+</head>
+<body>
+<div class="progress-bar" id="progressBar"></div>
+<div class="topbar">
+  <div class="topbar-left">
+    <a href="../index.html" class="topbar-back">← 首页</a>
+    <span class="topbar-brand">Daily Digest</span>
+  </div>
+  <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn" aria-label="Toggle theme">☀️</button>
+</div>
+<nav class="nav-bar">
+  <div class="nav-inner">
+    <div class="nav-item active" data-section="headline">头条</div>
+    <div class="nav-item" data-section="ai">AI</div>
+    <div class="nav-item" data-section="tech">科技</div>
+    <div class="nav-item" data-section="finance">财经</div>
+    <div class="nav-item" data-section="market">行情</div>
+    <div class="nav-item" data-section="science">科学</div>
+    <div class="nav-item" data-section="product">产品</div>
+    <div class="nav-item" data-section="deepread">深度</div>
+    <div class="nav-item" data-section="devtool">工具</div>
+    <div class="nav-item" data-section="quotes">言论</div>
+  </div>
+</nav>
+<header class="hero">
+  <span class="hero-issue">第 7 期</span>
+  <div class="hero-date">2026年4月5日 星期日</div>
+  <h1>特朗普伊朗最后通牒，Artemis II奔月在途</h1>
+  <p class="hero-summary">特朗普设定周二晚8点最后期限：伊朗不重开霍尔木兹海峡即遭打击电力设施，油价再冲113美元；Artemis II载人奔月任务进入第五天，即将完成54年来首次人类月球飞越；Anthropic MCP突破9700万次安装；Q1全球VC投资额297亿美元，AI独占81%。</p>
+  <div class="hero-stats">
+    <div class="hero-stat"><span class="hero-stat-value">32</span><span class="hero-stat-label">资讯</span></div>
+    <div class="hero-stat"><span class="hero-stat-value">4</span><span class="hero-stat-label">深度</span></div>
+    <div class="hero-stat"><span class="hero-stat-value">15</span><span class="hero-stat-label">信源</span></div>
+    <div class="hero-stat"><span class="hero-stat-value">~18</span><span class="hero-stat-label">分钟</span></div>
+  </div>
+</header>
+<main class="container">
+
+  <section class="section" id="headline">
+    <div class="section-header">
+      <span class="section-icon">🔥</span>
+      <h2 class="section-title">头条聚焦</h2>
+      <span class="section-count">1 条</span>
+    </div>
+    <div class="headline-card">
+      <span class="headline-tag tag-finance" style="color:var(--tag-finance);background:var(--tag-finance-bg)">地缘 · 科技 · 太空</span>
+      <h2>伊朗最后通牒与人类奔月：同一个周日的两个历史性时刻</h2>
+      <p>4月5日，两条截然不同的历史性新闻交织在一起：在地球上，特朗普向伊朗发出最强硬措辞——若霍尔木兹海峡不在周二晚8时前重开，美国将打击伊朗发电厂和水淡化设施，誓让伊朗"活在地狱里"；油价随即再度飙升，WTI突破113美元，布伦特逼近111美元。德黑兰则迅速拒绝，伊核卫队发誓将"用一切手段"回击。全球市场在周末期间屏息等待。</p>
+      <p>而在距地球约32万公里之外，NASA Artemis II任务已进入飞行第五天，四名宇航员——Reid Wiseman、Victor Glover、Christina Koch和加拿大宇航员Jeremy Hansen——正朝月球方向飞行，即将完成人类54年来首次绕月飞越。Glover将成为首位绕月的非裔美国人，Koch成为首位绕月女性，这是人类自1972年阿波罗17号以来距月球最近的一刻。</p>
+      <p>在科技领域，Anthropic MCP（模型上下文协议）突破9700万次安装，并已捐赠给Linux基金会，正式成为AI Agent基础设施事实标准；Q1全球VC创下297亿美元历史纪录，其中AI独占81%。Shield AI以120亿美元估值完成20亿美元融资，自主驾驶战斗机系统加速落地。这是一个人类技术极限与地缘政治危机并行上演的周日。</p>
+    </div>
+  </section>
+
+  <section class="section" id="ai">
+    <div class="section-header">
+      <span class="section-icon">🤖</span>
+      <h2 class="section-title">AI 前沿</h2>
+      <span class="section-count">6 条</span>
+    </div>
+    <div class="news-grid">
+
+      <div class="news-card">
+        <span class="news-card-tag tag-ai">AI · 协议</span>
+        <h3><a href="https://www.anthropic.com/news/donating-the-model-context-protocol-and-establishing-of-the-agentic-ai-foundation" target="_blank">Anthropic MCP突破9700万安装，捐赠Linux基金会成AI Agent事实标准</a></h3>
+        <p>Anthropic的模型上下文协议（MCP）在3月25日突破9700万次安装，仅用16个月便达成其他开发者基础设施协议五年才能达到的规模。Anthropic随即将MCP捐赠给Linux基金会并成立"Agentic AI Foundation（AAIF）"。目前全球已有超过1万个活跃公共MCP服务器，Claude、GPT-5.4、Gemini和主流Agent框架全面支持MCP作为工具整合连接层，标志着其从实验性标准正式跃升为基础设施层。</p>
+        <div class="news-card-meta"><span class="news-source">Anthropic / AI Unfiltered</span><span>tag-ai</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-ai">AI · 国防</span>
+        <h3><a href="https://techcrunch.com/2026/03/26/defense-startup-shield-ai-lands-12-7b-valuation-up-140-after-u-s-air-force-deal/" target="_blank">Shield AI完成20亿美元融资，Hivemind自主驾驶战机获美国空军CCA项目选定</a></h3>
+        <p>国防AI公司Shield AI以127亿美元估值（较一年前+140%）完成20亿美元融资，由Advent International领投，摩根大通、黑石跟投。其旗舰产品Hivemind——一款无需GPS即可自主驾驶飞机的AI飞行员——已被美国空军选定为"协同作战飞机（CCA）"项目的任务自主供应商，并正在Anduril YFQ-44A战机上进行飞行测试。Hivemind已成功驾驶包括F-16在内的26种飞行器，伊朗战争背景下军事AI采购热度空前。</p>
+        <div class="news-card-meta"><span class="news-source">TechCrunch / Shield AI</span><span>tag-ai</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-ai">AI · 争议</span>
+        <h3><a href="https://techcrunch.com/2026/04/05/copilot-is-for-entertainment-purposes-only-according-to-microsofts-terms-of-service/" target="_blank">微软Copilot服务条款写明"仅供娱乐"，企业客户哗然，微软急于撇清</a></h3>
+        <p>微软Copilot服务条款中的一句话引爆互联网："Copilot仅供娱乐目的……不应依赖其提供重要建议。"这一措辞来自2025年10月更新的条款，因与微软每月30美元/用户的企业销售定位严重矛盾而走红。微软目前拥有1500万付费Microsoft 365 Copilot席位，仅占商业席位的3.3%，已承诺更新为"不再反映当前使用方式"的措辞。谷歌和OpenAI均未对其产品使用此类表述。</p>
+        <div class="news-card-meta"><span class="news-source">TechCrunch / TNW</span><span>tag-ai</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-ai">AI · VC</span>
+        <h3><a href="https://news.crunchbase.com/venture/record-breaking-funding-ai-global-q1-2026/" target="_blank">Q1 2026全球VC融资297亿美元破纪录，AI独占81%、四笔最大VC轮均在本季</a></h3>
+        <p>Crunchbase最新报告：Q1 2026全球创业公司融资297亿美元，较上季环比增长2.5倍，创有史以来最高季度纪录。AI获得约242亿美元，占全球VC总额81%（上年同期为55%）。有史以来规模最大的四笔VC轮均在Q1落定：OpenAI（1220亿）、Anthropic（300亿）、xAI（200亿）、Waymo（160亿），合计1880亿美元，占全球总额65%。北美创业公司独揽2526亿美元，超过上季全球总和的三倍。</p>
+        <div class="news-card-meta"><span class="news-source">Crunchbase News</span><span>tag-ai</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-ai">AI · 产业</span>
+        <h3><a href="https://techcrunch.com/2026/04/05/japan-is-proving-experimental-physical-ai-is-ready-for-the-real-world/" target="_blank">日本机器人：不是来抢你工作的，是填补没人愿意做的岗位</a></h3>
+        <p>TechCrunch深度报道：驱动力源于生存压力而非技术炫耀，日本在工厂、仓库和关键基础设施中大规模部署物理AI机器人，由SoftBank等公司将视觉语言模型与实时控制系统结合，使机器人能够理解环境并自主执行复杂任务。日本经济贸易工业省于3月宣布，目标是建立国内物理AI产业并在2040年前占据全球市场30%份额。这一"必要性驱动"的模式正成为全球复制的参考样本。</p>
+        <div class="news-card-meta"><span class="news-source">TechCrunch / WebProNews</span><span>tag-ai</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-ai">AI · 军事</span>
+        <h3><a href="https://www.defenseone.com/technology/2026/04/" target="_blank">伊朗战争加速国防AI采购：特种作战部队快速引入定制化小模型</a></h3>
+        <p>伊朗战争已持续超过35天，美军及盟军的实战需求正推动国防AI采购进入"快速通道"——大型通用前沿模型正被针对具体任务定制的小型专属模型替代。WarClaw（Edgerunner）、Hivemind（Shield AI）等产品代表新一代"任务优先"军事AI。AI安全研究机构FAR.AI此前警告，推理模型正令AI安全评估体系"失效"，而伊朗战争首次将这一问题置于真实战场环境中接受检验。</p>
+        <div class="news-card-meta"><span class="news-source">Defense One / FAR.AI</span><span>tag-ai</span></div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section" id="tech">
+    <div class="section-header">
+      <span class="section-icon">💻</span>
+      <h2 class="section-title">科技动态</h2>
+      <span class="section-count">5 条</span>
+    </div>
+    <div class="news-grid">
+
+      <div class="news-card">
+        <span class="news-card-tag tag-tech">科技</span>
+        <h3><a href="https://www.nasa.gov/blogs/missions/2026/04/05/artemis-ii-flight-day-5-crew-demos-suits-readies-for-lunar-flyby/" target="_blank">Artemis II飞行第5天：宇航员演示舱外服操作，月球飞越倒计时</a></h3>
+        <p>NASA Artemis II任务于4月1日从肯尼迪航天中心发射后进入飞行第5天，四名宇航员在深空环境中完成宇航服操作演示并开始为次日月球飞越作最终准备。乘员组包括Reid Wiseman、Victor Glover（首位绕月非裔美国人）、Christina Koch（首位绕月女性）和加拿大宇航员Jeremy Hansen（首位非美国人绕月）。这是人类自1972年12月阿波罗17号以来首次飞越月球的载人任务。</p>
+        <div class="news-card-meta"><span class="news-source">NASA</span><span>tag-tech</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-tech">科技</span>
+        <h3><a href="https://news.crunchbase.com/venture/foundational-ai-startup-funding-doubled-openai-anthropic-xai-q1-2026/" target="_blank">Q1基础AI融资额是全年2025年两倍，初创公司种子轮估值飙至4000-4500万</a></h3>
+        <p>Q1 2026基础AI领域（包括OpenAI、Anthropic、xAI）的融资总额是2025年全年的两倍以上。Y Combinator数据显示，AI初创公司种子轮估值已飙升至4000-4500万美元，投资者押注的是"有验证的AI人才和快速商业牵引力"。Shield AI、Waymo等物理AI/国防AI公司融资额紧随其后，量子计算和AI基础设施同期获得大规模资本注入，反映出行业对"下一个平台期"的强烈乐观预期。</p>
+        <div class="news-card-meta"><span class="news-source">Crunchbase / TechCrunch</span><span>tag-tech</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-tech">科技</span>
+        <h3><a href="https://www.statnews.com/2026/04/06/unitedhealth-group-massive-artificial-intelligence-push-patient-implications/" target="_blank">UnitedHealth豪赌30亿美元AI：22000名工程师、1000+AI解决方案重塑医疗理赔</a></h3>
+        <p>全球最大健康保险公司UnitedHealth Group宣布30亿美元AI投资计划，目标是用AI重新发明数十亿份医疗理赔的处理和审计方式，自动化覆盖欺诈检测、临床记录、账单代码选择等核心流程。公司22,000名软件工程师中超过80%已在使用AI辅助编程。新推出的HIPAA合规AI伴侣"Avery"是其1000余款AI解决方案中最新一款，专注于引导用户在复杂保险工作流中导航。</p>
+        <div class="news-card-meta"><span class="news-source">STAT News</span><span>tag-tech</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-tech">科技</span>
+        <h3><a href="https://theaiinsider.tech/2026/03/30/shield-ai-announces-2b-in-funding-to-scale-autonomous-ai-defense-systems-and-simulation-capabilities/" target="_blank">Shield AI收购仿真平台Aechelon，VTOL隐身无人战斗机X-BAT今年首飞</a></h3>
+        <p>Shield AI将用20亿融资的一部分收购支持美国国防部联合仿真环境的仿真平台Aechelon Technology，进一步完善其从算法到训练到部署的全栈能力。公司去年10月发布的X-BAT——一款无需跑道、可从船舶部署、完全由Hivemind驾驶的VTOL隐身无人战斗机——计划于今年完成首次垂直起降飞行，预计2028年完成作战部署。</p>
+        <div class="news-card-meta"><span class="news-source">The AI Insider</span><span>tag-tech</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-tech">科技</span>
+        <h3><a href="https://www.newsdirectory3.com/google-ai-edge-eloquent-new-ios-app-to-transform-your-notes/" target="_blank">Xoople完成1.3亿美元B轮：西班牙卫星公司为AI地球测绘构建精准数据网络</a></h3>
+        <p>西班牙地理空间数据初创公司Xoople完成1.3亿美元B轮融资（Nazca Capital领投、西班牙政府CDTI参与），累计融资达2.25亿美元。公司正在构建专为深度学习模型设计的卫星星座，提供比商业遥感图像精度高10倍以上的地理空间数据。现有客户覆盖政府、国防和能源行业，CEO表示公司已进入"独角兽区间"，将利用本轮资金加速卫星发射节奏。</p>
+        <div class="news-card-meta"><span class="news-source">TechCrunch</span><span>tag-tech</span></div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section" id="finance">
+    <div class="section-header">
+      <span class="section-icon">📈</span>
+      <h2 class="section-title">全球财经</h2>
+      <span class="section-count">5 条</span>
+    </div>
+    <div class="news-grid">
+
+      <div class="news-card">
+        <span class="news-card-tag tag-finance">财经</span>
+        <h3><a href="https://fortune.com/2026/04/05/stock-market-today-oil-prices-stock-futures-fuel-shortages-trump-threats-iran-hormuz-deadline/" target="_blank">特朗普设周二8点最后通牒：伊朗不开霍尔木兹即遭打击电力水利设施</a></h3>
+        <p>特朗普周日以极具冲击性的措辞向伊朗发出最后通牒：若霍尔木兹海峡不在周二晚8时（美东时间）前重新向全球商业航运开放，美国将立即打击伊朗的发电厂和水淡化设施，誓让伊朗"活在地狱里"。伊朗随即拒绝，油价期货跳涨，WTI突破113美元/桶，布伦特接近111美元，美股期货下挫，黄金上涨，避险情绪急升。</p>
+        <div class="news-card-meta"><span class="news-source">Fortune / NBC News</span><span>tag-finance</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-finance">财经</span>
+        <h3><a href="https://www.washingtonpost.com/business/2026/04/05/stock-markets-trump-oil-war-iran/" target="_blank">美股期货振荡：停火谈判"伊斯兰堡协议"与特朗普最后通牒同时运行</a></h3>
+        <p>一边是特朗普的激烈措辞，另一边是美伊双方通过地区调停人讨论一份为期45天的停火协议（"伊斯兰堡协议"），可能以核问题和资产冻结为换价。市场在截然相反的信号中持续振荡：股票期货在周日降约0.2%，油价逼近113美元，分析师表示若停火成真，油价可能迅速回落20%以上。截至日终，市场尚未形成明确方向性判断。</p>
+        <div class="news-card-meta"><span class="news-source">Washington Post / Bloomberg</span><span>tag-finance</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-finance">财经</span>
+        <h3><a href="https://www.linos.ai/business/china-tariff-retaliation-2026/" target="_blank">中美贸易战持续升温：中国对美农产品汽车征25-80%关税，精准打击摇摆州</a></h3>
+        <p>中国对美反制关税策略已趋于精准化：大豆、猪肉、玉米、小麦面临25-80%关税（重创爱荷华、伊利诺伊、印第安纳州农场主），美国汽车在华关税超过50%（福特、通用、特斯拉中国销量大幅下滑）。分析师指出，中国刻意针对国会关键选区进行政治压力最大化，同时美国进口关税已触达部分商品145%的极端水平，两国实际上正相互切断供应链联系。</p>
+        <div class="news-card-meta"><span class="news-source">Linos.ai / PIIE</span><span>tag-finance</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-finance">财经</span>
+        <h3><a href="https://phemex.com/blogs/oil-prices-bitcoin-energy-crypto-markets" target="_blank">比特币与原油同步波动：能源成本上涨侵蚀矿工利润，加密市场进入防御模式</a></h3>
+        <p>伊朗战争推高电力成本正传导至加密货币挖矿行业：比特币在过去数周从历史高点12.6万美元回落超过44%，能源价格上涨直接压缩矿工利润率，大型矿场正将算力向能源价格较低的亚洲和中东地区迁移。分析师指出，若停火协议达成，油价可能大幅回落，届时矿工经营成本的改善可能成为比特币的重要正面催化剂。</p>
+        <div class="news-card-meta"><span class="news-source">Phemex / 24/7 Wall St.</span><span>tag-finance</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-finance">财经</span>
+        <h3><a href="https://www.thestreet.com/latest-news/stock-market-today-apr-6-2026-updates" target="_blank">Motley Fool：伊朗战争结束不会带来"特朗普反弹"，通胀惯性将持续侵蚀市场</a></h3>
+        <p>Motley Fool分析师发出警告：即便伊朗停火协议达成，投资者也不应期待"立竿见影的大涨"。理由是：关税造成的通胀压力不会因停火而消失，美联储因工资通胀和能源价格居高不下而维持较高利率的路径短期不变，消费者支出正承受油价上涨的滞后冲击，企业Q1财报季即将在4月中下旬到来，指引将是真正的检验点。</p>
+        <div class="news-card-meta"><span class="news-source">Motley Fool</span><span>tag-finance</span></div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section" id="market">
+    <div class="section-header">
+      <span class="section-icon">📊</span>
+      <h2 class="section-title">市场行情</h2>
+      <span class="section-count">数据截至4月4日，4月5日（周日）全球主要市场休市</span>
+    </div>
+    <div class="market-grid">
+      <div class="market-item"><div class="name">上证指数</div><div class="value">3,880</div><div class="change down">-1.00%</div></div>
+      <div class="market-item"><div class="name">恒生指数</div><div class="value">25,116</div><div class="change down">-0.70%</div></div>
+      <div class="market-item"><div class="name">标普500</div><div class="value">6,583</div><div class="change down">休市</div></div>
+      <div class="market-item"><div class="name">纳斯达克</div><div class="value">21,879</div><div class="change up">上周+4.4%</div></div>
+      <div class="market-item"><div class="name">道琼斯</div><div class="value">41,562</div><div class="change down">休市</div></div>
+      <div class="market-item"><div class="name">比特币</div><div class="value">$67,322</div><div class="change down">-1.37%</div></div>
+      <div class="market-item"><div class="name">WTI原油</div><div class="value">$113.00</div><div class="change up">+1.31%</div></div>
+      <div class="market-item"><div class="name">布伦特原油</div><div class="value">$110.85</div><div class="change up">+1.67%</div></div>
+      <div class="market-item"><div class="name">美元/人民币</div><div class="value">7.262</div><div class="change down">-0.07%</div></div>
+      <div class="market-item"><div class="name">黄金</div><div class="value">$3,312</div><div class="change up">+0.85%</div></div>
+    </div>
+  </section>
+
+  <section class="section" id="science">
+    <div class="section-header">
+      <span class="section-icon">🔬</span>
+      <h2 class="section-title">科学突破</h2>
+      <span class="section-count">3 条</span>
+    </div>
+    <div class="news-grid">
+
+      <div class="news-card">
+        <span class="news-card-tag tag-science">科学 · 太空</span>
+        <h3><a href="https://www.nasa.gov/news-release/nasas-artemis-ii-mission-leaves-earth-orbit-for-flight-around-moon/" target="_blank">Artemis II离开地球轨道：人类54年来首次奔向月球，月球飞越定于4月6日</a></h3>
+        <p>NASA Artemis II任务已成功离开地球轨道，四名宇航员现正向月球方向飞行，月球飞越定于4月6日执行。这是人类自1972年阿波罗17号以来首次前往月球轨道的载人任务，宇航员将近距离拍摄月球远侧特定区域——这也是历史上人类首次亲眼目睹部分月球远侧地貌。任务预计总时长10天，完成月球飞越后将于太平洋返回，目标溅落地点位于圣地亚哥外海。</p>
+        <div class="news-card-meta"><span class="news-source">NASA</span><span>tag-science</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-science">科学</span>
+        <h3><a href="https://www.foxnews.com/us/artemis-ii-astronauts-nearly-halfway-moon-nasa-shares-stunning-photos-orion-spacecraft" target="_blank">Orion飞船发布首批深空影像：地球逐渐变小，四名宇航员状态良好</a></h3>
+        <p>NASA通过其官方频道发布了Artemis II任务中Orion飞船拍摄的深空影像，画面中地球正逐渐缩小为一个蔚蓝球体。这是Orion飞船首次载人飞行，也是首次将人类带入超出低地球轨道的飞行环境（月球距离约36-40万公里），四名宇航员在接受采访时表示身体状态良好、精神振奋。任务科学目标包括测试宇航服在深空辐射环境下的性能和Orion生命支持系统的可靠性。</p>
+        <div class="news-card-meta"><span class="news-source">Fox News / NASA</span><span>tag-science</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-science">科学</span>
+        <h3><a href="https://news.crunchbase.com/venture/record-breaking-funding-ai-global-q1-2026/" target="_blank">量子计算Q1融资创历史：多个初创公司完成A/B轮，硬件突破与错误纠正并进</a></h3>
+        <p>Q1 2026 VC数据显示量子计算成为融资增速最快的细分领域之一，多家量子硬件初创公司完成大额A/B轮，投资者押注量子错误纠正（QEC）取得实用化突破的时间节点正在提前。Google量子AI、IonQ、PsiQuantum等公司的竞争正进入关键决胜阶段，预计2026年下半年将有重要里程碑发布。IBM量子计算机本月早些时候已实现对真实磁性材料的精确仿真，验证了量子优势的实用前景。</p>
+        <div class="news-card-meta"><span class="news-source">Crunchbase / 综合</span><span>tag-science</span></div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section" id="product">
+    <div class="section-header">
+      <span class="section-icon">🚀</span>
+      <h2 class="section-title">产品发现</h2>
+      <span class="section-count">3 条</span>
+    </div>
+    <div class="news-grid">
+
+      <div class="news-card">
+        <span class="news-card-tag tag-product">产品</span>
+        <h3><a href="https://www.drmattlynch.com/innovations-at-your-fingertips-highlights-from-product-hunts-april-5-2026-leaderboard/" target="_blank">Domscribe：为AI Agent提供实时UI上下文，让编辑更精准</a></h3>
+        <p>Product Hunt 4月5日新品Domscribe解决了AI Agent在网页编辑中的核心痛点：无法"看到"当前UI状态。Domscribe为Agent提供实时UI上下文感知能力，使其能在正确的DOM位置执行精准修改，而非盲目猜测。面向正在开发网页Agent的工程师和浏览器自动化场景，解决了目前主流Agent框架在动态页面编辑准确率低的问题。</p>
+        <div class="news-card-meta"><span class="news-source">Product Hunt</span><span>tag-product</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-product">产品</span>
+        <h3><a href="https://www.producthunt.com/leaderboard/daily/2026/4/5" target="_blank">OpenBox：受监管行业AI Agent部署的合规治理平台</a></h3>
+        <p>OpenBox为在金融、医疗、法律等受监管行业部署AI Agent的企业提供全套治理工具，包括权限控制、操作审计日志、异常行为检测和合规报告生成。随着AI Agent在企业流程中的渗透加深，Agent监管和合规已成为CTO、CRO（首席风险官）面临的新核心议题。OpenBox定位于成为"AI Agent的防火墙"，提供RBAC控制和SOC2/HIPAA友好的部署方式。</p>
+        <div class="news-card-meta"><span class="news-source">Product Hunt</span><span>tag-product</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-product">产品</span>
+        <h3><a href="https://www.anthropic.com/news/donating-the-model-context-protocol-and-establishing-of-the-agentic-ai-foundation" target="_blank">Agentic AI Foundation（AAIF）：Anthropic捐赠MCP后的新开源治理组织</a></h3>
+        <p>随着MCP被捐赠给Linux基金会，Anthropic同步宣布成立Agentic AI Foundation（AAIF），旨在以中立基金会的形式推进MCP的标准化迭代和生态建设，避免单一公司控制这一已成为行业基础设施的协议。目前AAIF已获得多家主流AI公司和开发工具厂商的联合创始成员资格，其治理框架将仿照成熟的开源基金会模式运营，分离商业利益与标准制定职能。</p>
+        <div class="news-card-meta"><span class="news-source">Anthropic</span><span>tag-product</span></div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section" id="deepread">
+    <div class="section-header">
+      <span class="section-icon">📚</span>
+      <h2 class="section-title">深度阅读</h2>
+      <span class="section-count">4 篇</span>
+    </div>
+    <div class="deep-read-list">
+
+      <div class="deep-read-card">
+        <div class="deep-read-number">01</div>
+        <div class="deep-read-body">
+          <h3><a href="https://techcrunch.com/2026/04/05/japan-is-proving-experimental-physical-ai-is-ready-for-the-real-world/" target="_blank">日本正在证明：物理AI已准备好进入真实世界 — TechCrunch</a></h3>
+          <p>这篇TechCrunch深度报道是2026年迄今最值得精读的"物理AI现实检验"文章之一。作者Kate Park详细记录了日本从实验到规模部署的完整路径：驱动力是人口危机（劳动力急剧萎缩），而非技术炫耀；SoftBank如何将视觉语言模型与实时控制结合；创业公司创新+大企业规模化的"日本模式"如何区别于美国的VC驱动路径。对于关注机器人、物理AI产业链的读者，这是本周最值得收藏的参考。</p>
+          <div class="deep-read-meta"><span class="news-source">TechCrunch</span><span class="read-time">⏱ 约 14 分钟</span></div>
+        </div>
+      </div>
+
+      <div class="deep-read-card">
+        <div class="deep-read-number">02</div>
+        <div class="deep-read-body">
+          <h3><a href="https://news.crunchbase.com/venture/record-breaking-funding-ai-global-q1-2026/" target="_blank">Q1 2026 VC全记录：297亿美元、AI独占81%、四笔历史最大轮 — Crunchbase</a></h3>
+          <p>Crunchbase这份季度报告是理解当前风险投资格局的最权威一手数据来源。报告不仅记录了创纪录的融资数字，更深度分析了资本分布结构：为何80%资金流向基础模型而非应用层？种子轮估值暴涨意味着什么？在OpenAI、Anthropic、xAI消化大量资本的同时，早期AI创业公司的实际机会窗口在哪里？报告结尾对Q2的前瞻预判同样值得关注。</p>
+          <div class="deep-read-meta"><span class="news-source">Crunchbase News</span><span class="read-time">⏱ 约 16 分钟</span></div>
+        </div>
+      </div>
+
+      <div class="deep-read-card">
+        <div class="deep-read-number">03</div>
+        <div class="deep-read-body">
+          <h3><a href="https://techcrunch.com/2026/04/05/copilot-is-for-entertainment-purposes-only-according-to-microsofts-terms-of-service/" target="_blank">微软Copilot"仅供娱乐"条款背后：企业AI责任边界的深层困境 — TechCrunch</a></h3>
+          <p>这篇报道引发的讨论远比表面争议更深刻：当AI产品大规模进入企业核心工作流，厂商的法律责任边界应该如何划定？微软每月向企业收取30美元/用户，却在服务条款中声称"仅供娱乐"，这不是笔误，而是折射出整个行业在"AI可靠性承诺"与"法律风险规避"之间的根本矛盾。谷歌、OpenAI的类似条款对比分析，以及企业用户的实际法律风险暴露，是理解AI企业应用合规边界的必读内容。</p>
+          <div class="deep-read-meta"><span class="news-source">TechCrunch / TNW</span><span class="read-time">⏱ 约 11 分钟</span></div>
+        </div>
+      </div>
+
+      <div class="deep-read-card">
+        <div class="deep-read-number">04</div>
+        <div class="deep-read-body">
+          <h3><a href="https://247wallst.com/investing/2026/04/04/bitcoin-price-the-oil-reserves-keeping-markets-alive-are-about-to-run-out-why-btc-could-be-in-trouble/" target="_blank">比特币、油价与战争：能源成本如何成为加密市场的隐性杀手 — 24/7 Wall St.</a></h3>
+          <p>这篇分析将伊朗战争、能源价格、比特币挖矿成本和市场流动性串联在一起，提供了一个不常见但极具说服力的宏观视角：为何油价飙升会通过"电力成本传导链"间接打压比特币价格？战略石油储备消耗加速意味着什么？若停火实现，加密市场将获得多大的"能源成本改善红利"？对同时关注能源、地缘政治和数字资产的读者，这是本周最值得精读的跨界分析。</p>
+          <div class="deep-read-meta"><span class="news-source">24/7 Wall St.</span><span class="read-time">⏱ 约 10 分钟</span></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section" id="devtool">
+    <div class="section-header">
+      <span class="section-icon">🛠️</span>
+      <h2 class="section-title">开发者工具</h2>
+      <span class="section-count">3 条</span>
+    </div>
+    <div class="tool-grid">
+
+      <div class="tool-card">
+        <h3>Agentic AI Foundation（AAIF）MCP Registry</h3>
+        <p>Anthropic将MCP捐赠给Linux基金会后建立的新协议注册中心，汇集全球超过1万个活跃MCP服务器。开发者可在此搜索、注册和发布MCP服务，是构建AI Agent工具链的核心资源入口。</p>
+        <a class="tool-card-link" href="https://www.anthropic.com/news/donating-the-model-context-protocol-and-establishing-of-the-agentic-ai-foundation" target="_blank">查看 →</a>
+      </div>
+
+      <div class="tool-card">
+        <h3>OpenBox — AI Agent治理平台</h3>
+        <p>面向受监管行业（金融、医疗、法律）的AI Agent合规治理工具，提供RBAC权限控制、操作审计日志、异常检测和合规报告，支持SOC2/HIPAA友好部署，帮助企业在享受Agent自动化红利的同时控制合规风险。</p>
+        <a class="tool-card-link" href="https://www.producthunt.com/leaderboard/daily/2026/4/5" target="_blank">查看 →</a>
+      </div>
+
+      <div class="tool-card">
+        <h3>Domscribe — AI Agent实时UI感知</h3>
+        <p>为浏览器AI Agent提供实时DOM上下文感知能力，解决Agent在动态网页编辑中因"看不到"当前UI状态而产生的错误操作问题。支持主流Agent框架集成，特别适合网页自动化、爬虫和低代码Agent开发场景。</p>
+        <a class="tool-card-link" href="https://www.producthunt.com/leaderboard/daily/2026/4/5" target="_blank">查看 →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section" id="quotes">
+    <div class="section-header">
+      <span class="section-icon">💬</span>
+      <h2 class="section-title">言论</h2>
+      <span class="section-count">4 条</span>
+    </div>
+    <div class="quotes-list">
+
+      <div class="quote-card">
+        <p class="quote-text">如果你们不立即开放霍尔木兹海峡，伊朗将会活在地狱里——我们将以从未有过的方式打击你们。</p>
+        <p class="quote-author">—— 唐纳德·特朗普，美国总统，4月5日最后通牒</p>
+      </div>
+
+      <div class="quote-card">
+        <p class="quote-text">MCP从实验性标准转变为Agent AI基础设施层，仅用了16个月——这是任何开发者协议历史上最快的采用曲线之一。</p>
+        <p class="quote-author">—— Anthropic，随MCP捐赠Linux基金会声明</p>
+      </div>
+
+      <div class="quote-card">
+        <p class="quote-text">日本不是在试验物理AI，而是在真实世界中规模化部署它——驱动力不是炫耀技术，而是生存的必要性。</p>
+        <p class="quote-author">—— Kate Park，TechCrunch，《日本物理AI》报道</p>
+      </div>
+
+      <div class="quote-card">
+        <p class="quote-text">在Q1，历史上规模最大的四笔VC轮全都关闭了。这不是泡沫，这是在对全新的技术平台下注。</p>
+        <p class="quote-author">—— Crunchbase News，Q1 2026 VC报告</p>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="archive-section">
+    <a href="../index.html" class="archive-link">← 查看往期简报</a>
+  </div>
+
+</main>
+<footer class="footer">由 AI 自动抓取与编辑 · 每日 07:00 更新 · news.huangwei.ai</footer>
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script>
+function toggleTheme() {
+  const html = document.documentElement; const btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function() {
+  const saved = localStorage.getItem('theme');
+  if (saved === 'light') { document.documentElement.setAttribute('data-theme', 'light'); document.getElementById('themeBtn').textContent = '🌙'; }
+})();
+window.addEventListener('scroll', () => {
+  const h = document.documentElement;
+  const p = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+  document.getElementById('progressBar').style.width = p + '%';
+  document.getElementById('backToTop').classList.toggle('visible', h.scrollTop > 400);
+});
+document.querySelectorAll('.nav-item').forEach(item => {
+  item.addEventListener('click', () => { const s = document.getElementById(item.dataset.section); if (s) s.scrollIntoView({ behavior: 'smooth', block: 'start' }); });
+});
+const sects = document.querySelectorAll('.section');
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+      const nav = document.querySelector(`.nav-item[data-section="${e.target.id}"]`);
+      if (nav) nav.classList.add('active');
+    }
+  });
+}, { rootMargin: '-100px 0px -50% 0px' });
+sects.forEach(s => obs.observe(s));
+</script>
+</body>
+</html>
