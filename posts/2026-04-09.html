@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>停火余波·Meta超智能首炮·Mythos网络安全专属 · 每日简报</title>
+<style>
+/* ===== Theme Variables ===== */
+:root[data-theme="dark"] {
+  --bg: #000000;
+  --bg-elevated: #0a0a0a;
+  --bg-card: #111111;
+  --bg-card-hover: #1a1a1a;
+  --text: #f0f0f0;
+  --text-secondary: #999999;
+  --text-muted: #555555;
+  --border: #222222;
+  --accent: #00d4ff;
+  --accent-dim: rgba(0,212,255,0.1);
+  --accent-glow: rgba(0,212,255,0.15);
+  --tag-ai: #a78bfa;
+  --tag-ai-bg: rgba(167,139,250,0.12);
+  --tag-tech: #22d3ee;
+  --tag-tech-bg: rgba(34,211,238,0.1);
+  --tag-finance: #fbbf24;
+  --tag-finance-bg: rgba(251,191,36,0.1);
+  --tag-science: #34d399;
+  --tag-science-bg: rgba(52,211,153,0.1);
+  --tag-product: #fb7185;
+  --tag-product-bg: rgba(251,113,133,0.1);
+  --tag-dev: #818cf8;
+  --tag-dev-bg: rgba(129,140,248,0.1);
+  --up: #ef4444;
+  --down: #22c55e;
+  --shadow: 0 0 0 1px rgba(255,255,255,0.04);
+  --shadow-hover: 0 8px 40px rgba(0,212,255,0.06), 0 0 0 1px rgba(255,255,255,0.08);
+  --radius: 12px;
+}
+:root[data-theme="light"] {
+  --bg: #fafafa;
+  --bg-elevated: #ffffff;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f5f5f5;
+  --text: #111111;
+  --text-secondary: #666666;
+  --text-muted: #999999;
+  --border: #e8e8e8;
+  --accent: #0066ff;
+  --accent-dim: rgba(0,102,255,0.06);
+  --accent-glow: rgba(0,102,255,0.08);
+  --tag-ai: #7c3aed;
+  --tag-ai-bg: rgba(124,58,237,0.08);
+  --tag-tech: #0891b2;
+  --tag-tech-bg: rgba(8,145,178,0.08);
+  --tag-finance: #d97706;
+  --tag-finance-bg: rgba(217,119,6,0.08);
+  --tag-science: #059669;
+  --tag-science-bg: rgba(5,150,105,0.08);
+  --tag-product: #e11d48;
+  --tag-product-bg: rgba(225,29,72,0.08);
+  --tag-dev: #4f46e5;
+  --tag-dev-bg: rgba(79,70,229,0.08);
+  --up: #dc2626;
+  --down: #16a34a;
+  --shadow: 0 1px 3px rgba(0,0,0,0.06);
+  --shadow-hover: 0 8px 30px rgba(0,0,0,0.08);
+  --radius: 12px;
+}
+
+/* ===== Reset ===== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", "Segoe UI", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  transition: background 0.4s, color 0.4s;
+}
+a { color: var(--accent); text-decoration: none; transition: opacity 0.2s; }
+a:hover { opacity: 0.8; }
+
+/* ===== Progress Bar ===== */
+.progress-bar {
+  position: fixed;
+  top: 0; left: 0;
+  height: 2px;
+  background: var(--accent);
+  z-index: 200;
+  width: 0%;
+  transition: width 0.1s;
+}
+
+/* ===== Top Bar ===== */
+.topbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 14px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  transition: background 0.3s;
+}
+[data-theme="light"] .topbar { background: rgba(255,255,255,0.9); }
+.topbar-left { display: flex; align-items: center; gap: 16px; }
+.topbar-brand {
+  font-size: 13px; font-weight: 600;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: var(--text-secondary);
+}
+.topbar-back {
+  font-size: 13px; color: var(--accent);
+  display: flex; align-items: center; gap: 4px;
+}
+.theme-toggle {
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 15px;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.2s;
+}
+.theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
+
+/* ===== Nav ===== */
+.nav-bar {
+  position: sticky;
+  top: 52px;
+  z-index: 90;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  transition: background 0.3s;
+}
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: flex;
+  gap: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.nav-inner::-webkit-scrollbar { display: none; }
+.nav-item {
+  padding: 12px 16px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+  white-space: nowrap;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+}
+.nav-item:hover, .nav-item.active {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+/* ===== Hero ===== */
+.hero {
+  padding: 100px 48px 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.hero-issue {
+  display: inline-block;
+  font-size: 12px; font-weight: 600;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  padding: 5px 12px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+.hero-date {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+.hero h1 {
+  font-size: clamp(32px, 5vw, 52px);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -1.5px;
+  margin-bottom: 20px;
+}
+.hero-summary {
+  font-size: 17px;
+  line-height: 1.75;
+  color: var(--text-secondary);
+  max-width: 720px;
+  margin-bottom: 28px;
+}
+.hero-stats {
+  display: flex; gap: 28px; flex-wrap: wrap;
+}
+.hero-stat-value {
+  font-size: 24px; font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+.hero-stat-label {
+  font-size: 11px; color: var(--text-muted);
+  text-transform: uppercase; letter-spacing: 1px;
+}
+
+/* ===== Container ===== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 48px 80px;
+}
+
+/* ===== Section ===== */
+.section { margin-bottom: 56px; }
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.section-icon { font-size: 20px; }
+.section-title {
+  font-size: 18px; font-weight: 700;
+  letter-spacing: -0.2px;
+}
+.section-count {
+  margin-left: auto;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+.section-header::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+  order: 99;
+}
+.section-count { order: 98; }
+
+/* ===== News Grid ===== */
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 14px;
+}
+.news-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px;
+  transition: all 0.3s;
+  display: flex;
+  flex-direction: column;
+}
+.news-card:hover {
+  background: var(--bg-card-hover);
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-2px);
+}
+.news-card-tag {
+  display: inline-flex;
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 0.5px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  width: fit-content;
+}
+.tag-ai { color: var(--tag-ai); background: var(--tag-ai-bg); }
+.tag-tech { color: var(--tag-tech); background: var(--tag-tech-bg); }
+.tag-finance { color: var(--tag-finance); background: var(--tag-finance-bg); }
+.tag-science { color: var(--tag-science); background: var(--tag-science-bg); }
+.tag-product { color: var(--tag-product); background: var(--tag-product-bg); }
+.tag-dev { color: var(--tag-dev); background: var(--tag-dev-bg); }
+
+.news-card h3 {
+  font-size: 16px; font-weight: 600;
+  margin-bottom: 8px; line-height: 1.5;
+  letter-spacing: -0.2px;
+}
+.news-card h3 a { color: var(--text); }
+.news-card h3 a:hover { color: var(--accent); }
+.news-card p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  flex: 1;
+}
+.news-card-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* ===== Headline ===== */
+.headline-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 32px;
+  margin-bottom: 20px;
+  box-shadow: var(--shadow);
+}
+.headline-card h2 {
+  font-size: 24px; font-weight: 700;
+  margin-bottom: 16px; line-height: 1.4;
+  letter-spacing: -0.5px;
+}
+.headline-card p {
+  font-size: 16px;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+.headline-tag {
+  display: inline-block;
+  font-size: 11px; font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 4px;
+  margin-bottom: 14px;
+}
+
+/* ===== Market Data ===== */
+.market-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
+  gap: 12px;
+}
+.market-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  text-align: center;
+  transition: all 0.2s;
+}
+.market-item:hover { border-color: rgba(0,212,255,0.2); }
+.market-item .name { font-size: 12px; color: var(--text-muted); margin-bottom: 4px; }
+.market-item .value { font-size: 20px; font-weight: 700; margin-bottom: 2px; font-variant-numeric: tabular-nums; }
+.market-item .change { font-size: 14px; font-weight: 600; }
+.up { color: var(--up); }
+.down { color: var(--down); }
+
+/* ===== Deep Read ===== */
+.deep-read-list { display: flex; flex-direction: column; gap: 14px; }
+.deep-read-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  display: flex;
+  transition: all 0.3s;
+}
+.deep-read-card:hover {
+  background: var(--bg-card-hover);
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-2px);
+}
+.deep-read-number {
+  display: flex; align-items: center; justify-content: center;
+  min-width: 64px;
+  font-size: 32px; font-weight: 800;
+  color: var(--accent); opacity: 0.2;
+}
+.deep-read-body {
+  padding: 20px 24px 20px 0; flex: 1;
+}
+.deep-read-body h3 {
+  font-size: 17px; font-weight: 600;
+  margin-bottom: 8px; line-height: 1.5;
+}
+.deep-read-body h3 a { color: var(--text); }
+.deep-read-body h3 a:hover { color: var(--accent); }
+.deep-read-body p {
+  font-size: 14px; color: var(--text-secondary); line-height: 1.65; margin-bottom: 10px;
+}
+.deep-read-meta {
+  display: flex; gap: 16px; font-size: 12px; color: var(--text-muted);
+}
+
+/* ===== Quotes ===== */
+.quotes-list { display: flex; flex-direction: column; gap: 14px; }
+.quote-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px 28px;
+  position: relative;
+}
+.quote-card::before {
+  content: '"';
+  position: absolute; top: 16px; left: 20px;
+  font-size: 40px; color: var(--accent); opacity: 0.15;
+  font-family: Georgia, serif; line-height: 1;
+}
+.quote-text {
+  font-size: 15px; line-height: 1.75;
+  margin-bottom: 10px; padding-left: 4px;
+  font-style: italic;
+}
+.quote-author {
+  font-size: 13px; color: var(--text-muted);
+  font-weight: 500; padding-left: 4px;
+}
+
+/* ===== Tools ===== */
+.tool-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 14px;
+}
+.tool-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px;
+  transition: all 0.3s;
+}
+.tool-card:hover { background: var(--bg-card-hover); box-shadow: var(--shadow-hover); transform: translateY(-2px); }
+.tool-card h3 { font-size: 16px; font-weight: 600; margin-bottom: 6px; }
+.tool-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
+.tool-card-link {
+  display: inline-block; margin-top: 10px;
+  font-size: 13px; font-weight: 600; color: var(--accent);
+}
+
+/* ===== Back link ===== */
+.archive-section {
+  text-align: center; padding: 40px 0;
+  border-top: 1px solid var(--border);
+}
+.archive-link {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 14px; font-weight: 500; color: var(--accent);
+  padding: 12px 24px; border-radius: 8px;
+  border: 1px solid var(--accent);
+  transition: all 0.2s;
+}
+.archive-link:hover { background: var(--accent); color: #000; }
+
+/* ===== Footer ===== */
+.footer {
+  text-align: center;
+  padding: 32px;
+  font-size: 13px;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border);
+}
+
+/* ===== Back to Top ===== */
+.back-to-top {
+  position: fixed; bottom: 24px; right: 24px;
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--accent);
+  cursor: pointer; font-size: 18px;
+  box-shadow: var(--shadow);
+  opacity: 0; transform: translateY(20px);
+  transition: all 0.3s; z-index: 99;
+}
+.back-to-top.visible { opacity: 1; transform: translateY(0); }
+.back-to-top:hover { background: var(--accent); color: #000; border-color: var(--accent); }
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .topbar { padding: 12px 20px; }
+  .hero { padding: 80px 24px 40px; }
+  .hero h1 { font-size: 28px; letter-spacing: -1px; }
+  .container { padding: 0 24px 60px; }
+  .news-grid { grid-template-columns: 1fr; }
+  .market-grid { grid-template-columns: repeat(2, 1fr); }
+  .tool-grid { grid-template-columns: 1fr; }
+  .headline-card { padding: 24px; }
+  .headline-card h2 { font-size: 20px; }
+  .deep-read-card { flex-direction: column; }
+  .deep-read-number { min-width: unset; padding: 16px 20px 0; justify-content: flex-start; font-size: 24px; }
+  .deep-read-body { padding: 12px 20px 20px; }
+  .nav-inner { padding: 0 20px; }
+  .nav-item { padding: 10px 14px; font-size: 12px; }
+}
+
+/* ===== Animations ===== */
+@media (prefers-reduced-motion: no-preference) {
+  .news-card, .deep-read-card, .quote-card, .tool-card {
+    animation: fadeIn 0.4s ease backwards;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- Top Bar -->
+<div class="topbar">
+  <div class="topbar-left">
+    <a href="../index.html" class="topbar-back">← 首页</a>
+    <span class="topbar-brand">Daily Digest</span>
+  </div>
+  <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn" aria-label="Toggle theme">☀️</button>
+</div>
+
+<!-- Nav -->
+<nav class="nav-bar">
+  <div class="nav-inner">
+    <div class="nav-item active" data-section="headline">头条</div>
+    <div class="nav-item" data-section="ai">AI</div>
+    <div class="nav-item" data-section="tech">科技</div>
+    <div class="nav-item" data-section="finance">财经</div>
+    <div class="nav-item" data-section="market">行情</div>
+    <div class="nav-item" data-section="science">科学</div>
+    <div class="nav-item" data-section="product">产品</div>
+    <div class="nav-item" data-section="deepread">深度</div>
+    <div class="nav-item" data-section="devtool">工具</div>
+    <div class="nav-item" data-section="quotes">言论</div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<header class="hero">
+  <span class="hero-issue">第 11 期</span>
+  <div class="hero-date">2026年4月9日 · 星期四</div>
+  <h1>停火余波·Meta超智能首炮·Mythos网络安全专属</h1>
+  <p class="hero-summary">美伊两周停火触发市场最大单日逆转——WTI原油暴跌16%至94美元，道指单日狂涨1325点。与此同时，Meta超智能实验室推出首款闭源旗舰Muse Spark，Llama开源路线正式终结；Anthropic悄然亮出Project Glasswing：将新一代前沿模型Claude Mythos Preview限定于12家网络安全伙伴，仅因它能自主发现所有主流OS的零日漏洞。中美关税战同步升温——美国对华税率升至104%。</p>
+  <div class="hero-stats">
+    <div class="hero-stat"><span class="hero-stat-value">33</span><span class="hero-stat-label">资讯</span></div>
+    <div class="hero-stat"><span class="hero-stat-value">4</span><span class="hero-stat-label">深度</span></div>
+    <div class="hero-stat"><span class="hero-stat-value">20</span><span class="hero-stat-label">信源</span></div>
+    <div class="hero-stat"><span class="hero-stat-value">~22</span><span class="hero-stat-label">分钟</span></div>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- ===== HEADLINE ===== -->
+  <section class="section" id="headline">
+    <div class="section-header">
+      <span class="section-icon">🔥</span>
+      <span class="section-title">今日头条</span>
+      <span class="section-count">3 条深度串联</span>
+    </div>
+
+    <div class="headline-card">
+      <div class="headline-tag tag-finance" style="color:var(--tag-finance);background:var(--tag-finance-bg);">宏观 · 市场 · AI</div>
+      <h2>停火、首发、受控——4月9日三条主线共振重塑格局</h2>
+      <p>
+        <strong>第一条：停火触发市场史诗级单日反转。</strong>美东时间4月7日深夜，特朗普在Truth Social宣布对伊朗暂停军事行动两周，伊朗国家安全委员会随即同意有条件重开霍尔木兹海峡。消息落地，全球资产价格发生过去五年最大单日反向运动：WTI原油暴跌16.4%至94.41美元，为2020年以来最大单日跌幅；道指暴涨1325点（+2.85%），纳斯达克+2.80%至22635，S&P 500+2.51%至6782.81；航空股普涨逾10%（达美+12%），加密资产随风险情绪回暖，比特币升至73,000美元。但停火极为脆弱——伊朗指责以色列在黎巴嫩的持续打击违反协议框架，霍尔木兹通行许可制度至今仍要求船只事先申报。副总统万斯将于周六主持巴基斯坦和谈。分析师一致警告：两周不等于解决，任何谈判破裂都将令油价重新冲高。
+      </p>
+      <p style="margin-top:16px;">
+        <strong>第二条：Anthropic与Meta同日亮出AI新底牌，路线截然相反。</strong>Anthropic发布Claude Mythos Preview，这是其迄今最强模型——SWE-bench Verified高达93.9%，GPQA Diamond 94.6%——但不对外公开。理由直白：测试中Mythos能自主发现并利用每一个主流操作系统和浏览器的零日漏洞，几周内已识别数千个关键漏洞（含FreeBSD 17年历史的远程代码执行CVE-2026-4747）。Anthropic以"Project Glasswing"之名将模型限定于12家安全合作伙伴（含AWS、苹果、谷歌、微软、英伟达、CrowdStrike），并承诺1亿美元模型使用积分。同日，Meta超智能实验室发布Muse Spark——这是Alexandr Wang掌舵以来的首款旗舰，143亿美元押注的第一个成果。与Mythos的保密路线相反，Muse Spark全面部署于Meta AI所有平台，但放弃了Llama的开源传统，转为闭源发布（未来承诺推出开源版）。两家公司用同一天展示了两种截然不同的前沿模型商业化逻辑。
+      </p>
+      <p style="margin-top:16px;">
+        <strong>第三条：中美关税战进入历史极值区间。</strong>特朗普将对华基准关税上调至104%，中国以84%对等还击，双边贸易摩擦烈度为中美建交以来最高。然而与此同时，白宫确认特朗普将于5月访华，双边高层峰会窗口仍然开放。贸易战极值与外交接触并行运转，市场将这一矛盾信号解读为"谈判前的最后施压"而非脱钩定局——这解释了为何中美股市在关税消息落地后反应相对温和。
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== AI ===== -->
+  <section class="section" id="ai">
+    <div class="section-header">
+      <span class="section-icon">🤖</span>
+      <span class="section-title">人工智能</span>
+      <span class="section-count">6 条</span>
+    </div>
+    <div class="news-grid">
+
+      <div class="news-card">
+        <span class="news-card-tag tag-ai">AI · 安全</span>
+        <h3><a href="https://techcrunch.com/2026/04/07/anthropic-mythos-ai-model-preview-security/" target="_blank">Anthropic发布Claude Mythos Preview：能自主利用所有主流OS零日漏洞，Project Glasswing仅对12家安全伙伴开放</a></h3>
+        <p>Anthropic推出其最强前沿模型Mythos Preview（SWE-bench 93.9%，GPQA 94.6%），但因其在测试中能自主发现并利用每一个主流OS和浏览器的零日漏洞，决定不公开发布。"Project Glasswing"计划将模型限定于AWS、苹果、谷歌、微软、英伟达、CrowdStrike等12家安全合作伙伴，用于漏洞防御研究。Anthropic承诺提供1亿美元模型使用积分，并向Linux基金会捐赠400万美元。</p>
+        <div class="news-card-meta"><span>TechCrunch</span><span>4月7日</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-ai">AI · 大模型</span>
+        <h3><a href="https://techcrunch.com/2026/04/08/meta-debuts-the-muse-spark-model-in-a-ground-up-overhaul-of-its-ai/" target="_blank">Meta Muse Spark正式发布：超智能实验室首款旗舰，Llama开源路线历史性终结</a></h3>
+        <p>Meta超智能实验室（MSL）4月8日发布首款旗舰模型Muse Spark，由Alexandr Wang领导，Meta为此斥资143亿美元收购Scale AI 49%股权。Muse Spark以"从头重建"的架构实现推理效率超Llama 4 Maverick一个数量级。SWE-bench Verified 77.4%，GPQA Diamond 89.5%。模型目前以闭源形式驱动Meta AI全平台，未来承诺推出开源版，但能力边界和时间表尚未公开。</p>
+        <div class="news-card-meta"><span>TechCrunch / Axios</span><span>4月8日</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-ai">AI · 大模型</span>
+        <h3><a href="https://blog.google/innovation-and-ai/technology/developers-tools/gemma-4/" target="_blank">谷歌发布Gemini 3.1 Ultra：200万token上下文，原生跨模态推理新旗舰</a></h3>
+        <p>谷歌推出Gemini 3.1 Ultra，配备高达200万token的超长上下文窗口，支持文本、图像、音频、视频原生跨模态理解与生成，定位为2026年迄今最重要的旗舰模型发布之一。谷歌强调其在多项基准测试中超越GPT-5.4，并针对复杂Agent工作流进行深度优化。目前通过Google AI Ultra订阅及企业API提供。</p>
+        <div class="news-card-meta"><span>Google Blog</span><span>4月8日</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-ai">AI · 医疗</span>
+        <h3><a href="https://distilinfo.com/2026/04/07/utah-approves-ai-to-refill-psychiatric-prescriptions/" target="_blank">Utah扩展AI精神科处方自主权：Legion Health获批独立续开精神类药物</a></h3>
+        <p>继今年1月犹他州批准Doctronic AI自主续期慢性病处方后，4月7日进一步授权初创公司Legion Health的AI系统自主续开精神类处方药，这是AI在医疗决策链中迄今最深入的一步。Legion Health宣布年底前向全美扩展，但需各州单独审批。研究人员同期发现系统公开测试版存在安全漏洞，外部监督呼声升温。</p>
+        <div class="news-card-meta"><span>DistilInfo / MobiHealthNews</span><span>4月7日</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-ai">AI · 量子安全</span>
+        <h3><a href="https://time.com/article/2026/04/07/ai-quantum-computing-advance/" target="_blank">AI加速量子密码威胁：谷歌研究警告破解互联网加密时间表大幅提前</a></h3>
+        <p>谷歌与Oratomic的联合研究显示，AI正在解决量子错误纠正的关键瓶颈，能够破解RSA和椭圆曲线加密的量子计算机可能比此前预测更早到来。Time援引研究称世界对此"尚未准备好"。现有HTTPS/TLS基础设施面临量子+AI联合加速下的系统性风险，各国量子安全机构正在加速推进后量子密码标准部署。</p>
+        <div class="news-card-meta"><span>Time Magazine</span><span>4月7日</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-ai">AI · 数据</span>
+        <h3><a href="https://techcrunch.com/" target="_blank">维基媒体与微软、Meta签署AI训练内容授权：开放知识IP商业化进入新阶段</a></h3>
+        <p>维基媒体基金会与微软和Meta分别签署内容许可协议，允许两家科技巨头使用维基百科庞大知识库训练和优化各自的生成式AI模型。这标志着大规模开放知识资源的IP商业化进入新阶段，也为其他内容平台与AI公司的授权谈判树立了参考模板。具体授权条款和费用尚未公开。</p>
+        <div class="news-card-meta"><span>TechCrunch</span><span>4月8日</span></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== TECH ===== -->
+  <section class="section" id="tech">
+    <div class="section-header">
+      <span class="section-icon">💻</span>
+      <span class="section-title">科技</span>
+      <span class="section-count">5 条</span>
+    </div>
+    <div class="news-grid">
+
+      <div class="news-card">
+        <span class="news-card-tag tag-tech">科技 · 贸易</span>
+        <h3><a href="https://taxfoundation.org/research/all/federal/trump-tariffs-trade-war/" target="_blank">中美关税战升至历史极值：美对华税率104%，中国以84%还击，供应链断裂风险骤升</a></h3>
+        <p>特朗普将对华进口商品基准关税再度上调至104%，中国随即宣布以84%关税对等反制美国商品。双边贸易壁垒已达中美建交以来历史最高水平。分析师警告全球科技供应链——尤其是半导体、消费电子和零部件——将面临系统性重组压力，多家企业已宣布加速东南亚和墨西哥产能布局。</p>
+        <div class="news-card-meta"><span>Tax Foundation / CNBC</span><span>4月9日</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-tech">科技 · 量子</span>
+        <h3><a href="https://quantumcomputingreport.com/news/" target="_blank">Quantinuum Helios 98量子比特处理器：48逻辑量子比特，误码率降至物理位的1/100</a></h3>
+        <p>Quantinuum在其新款98量子比特Helios处理器上实现"Iceberg Codes"，成功创建48个纠错逻辑量子比特，逻辑比特误码率比物理量子比特低10至100倍——达到"超盈亏平衡"性能里程碑。这是量子计算从"噪声量子比特"迈向实用容错计算的关键一步，标志着量子计算机进入具备商业价值的纠错能力阶段。</p>
+        <div class="news-card-meta"><span>Quantum Computing Report</span><span>4月8日</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-tech">科技 · 苹果</span>
+        <h3><a href="https://www.apple.com/" target="_blank">苹果发布AirPods Max 2：搭载H2芯片，无线旗舰头戴升级新一代主动降噪</a></h3>
+        <p>苹果正式发布第二代AirPods Max，搭载与AirPods Pro 2相同的H2芯片，带来更精准的自适应降噪、更低延迟的音频处理，以及新的个性化空间音频体验。新款同时支持USB-C充电。这是苹果对旗舰头戴式耳机产品线的首次重大更新，定价策略和全面规格尚待官方正式公布。</p>
+        <div class="news-card-meta"><span>Apple / TechCrunch</span><span>4月8日</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-tech">科技 · 外交</span>
+        <h3><a href="https://www.econotimes.com/Trump-Xi-Summit-2026-US-China-Trade-War-Tensions-and-Tariff-Talks-1738179" target="_blank">特朗普-习近平双边峰会定于5月：贸易战极值中外交窗口意外留存</a></h3>
+        <p>白宫确认特朗普将于5月访华，这将是其8年来首次访华之旅，也是中美关税战激烈阶段罕见的高层外交接触。市场将这一信号解读为"谈判前的最大施压"而非永久脱钩——一方面关税升至历史极值，另一方面峰会窗口依然开放，两种逻辑并行，正在塑造独特的2026年贸易博弈格局。</p>
+        <div class="news-card-meta"><span>EconoTimes / CNBC</span><span>4月8日</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-tech">科技 · 芯片</span>
+        <h3><a href="https://finance.yahoo.com/video/meta-launches-muse-spark-ai-bofa-raises-2026-chip-forecast-to-13t-180549134.html" target="_blank">美银将2026年芯片市场预测上调至1.3万亿美元：AI算力需求推动半导体超级周期延续</a></h3>
+        <p>美国银行在Meta Muse Spark发布当天将2026年全球半导体市场规模预测上调至1.3万亿美元，理由是大型科技公司AI模型训练和推理算力需求持续超出预期。此前多项数据已显示：2026年一季度全球半导体销售同比暴增逾60%，HBM内存和先进封装供应链正成为AI扩张的核心瓶颈。</p>
+        <div class="news-card-meta"><span>Yahoo Finance / BofA</span><span>4月8日</span></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== FINANCE ===== -->
+  <section class="section" id="finance">
+    <div class="section-header">
+      <span class="section-icon">📈</span>
+      <span class="section-title">全球财经</span>
+      <span class="section-count">5 条</span>
+    </div>
+    <div class="news-grid">
+
+      <div class="news-card">
+        <span class="news-card-tag tag-finance">财经 · 美股</span>
+        <h3><a href="https://247wallst.com/investing/2026/04/08/stock-market-live-april-8-2026-sp-500-spy-soars-on-ceasefire/" target="_blank">美伊停火触发美股年内最大单日涨幅：道指+2.85%，S&P +2.51%，纳斯达克+2.80%</a></h3>
+        <p>4月8日，停火消息推动美股全面大涨，道指单日暴涨1325.46点（+2.85%）至47,909.92，为近一年最大单日点数涨幅；S&P 500+2.51%至6,782.81，纳斯达克+2.80%至22,635。科技股、航空股、能源股均大幅反弹。Russell 2000小盘股指数涨2.9%，显示停火情绪带动广泛风险偏好回升。</p>
+        <div class="news-card-meta"><span>24/7 Wall St. / CNBC</span><span>4月8日</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-finance">财经 · 能源</span>
+        <h3><a href="https://www.nbcnews.com/business/markets/iran-war-ceasefire-oil-prices-stocks-trump-rcna267229" target="_blank">WTI原油暴跌16%至94美元：布伦特跌破100美元，航空股普涨逾10%</a></h3>
+        <p>停火消息落地，WTI原油期货暴跌16.4%至94.41美元，为2020年以来最大单日跌幅，布伦特原油跌破100美元关口至约93.8美元。航空股迎来暴涨：达美+12%、美国航空+11%、西南航空+13%，全球喷气燃料成本预期大幅下调。但分析师提醒，油价可能在两周后随谈判破裂重新跳升，能源市场将在停火期维持高度敏感状态。</p>
+        <div class="news-card-meta"><span>NBC News / CNN</span><span>4月8日</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-finance">财经 · 地缘</span>
+        <h3><a href="https://www.cbsnews.com/live-updates/iran-trump-ceasefire-strait-hormuz-israel-war-hezbollah-continues/" target="_blank">停火协议存争议：霍尔木兹通行许可制度持续，伊朗指责以色列违约</a></h3>
+        <p>美伊停火协议落地后争议立即浮现：伊朗指责以色列在黎巴嫩的持续打击违反停火框架，霍尔木兹海峡至4月8日仍要求船只向伊朗军方申请通行许可，多家主要航运公司继续令船只停在原地等待。停火"双方各有解释"的本质令市场保持警惕，任何新的冲突报道都可能引发油价剧烈波动。</p>
+        <div class="news-card-meta"><span>CBS News / Al Jazeera</span><span>4月8日</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-finance">财经 · 关税</span>
+        <h3><a href="https://www.cnbc.com/2026/03/22/china-vows-to-continue-opening-its-economy-amid-us-trade-tensions.html" target="_blank">中美贸易战进入历史极值：关税壁垒逻辑与5月峰会外交逻辑并行矛盾运行</a></h3>
+        <p>美对华关税升至104%、中国以84%还击的同时，特朗普5月访华峰会窗口保持开放。市场正在消化这一矛盾信号：高盛认为A股在当前关税环境下或优于港股，建议聚焦消费和内需板块；中信证券预计A股关税冲击后将回暖，中国实际经济增速2026年预期约4.7%，政策对冲空间依然充足。</p>
+        <div class="news-card-meta"><span>CNBC / Goldman Sachs</span><span>4月8日</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-finance">财经 · 加密</span>
+        <h3><a href="https://sundayguardianlive.com/business/us-stock-market-today-dow-surges-1200-points-nasdaq-sp-500-jumps-as-oil-plunges-below-100-on-trump-iran-ceasefire-gold-silver-climb-bitcoin-retreats-above-73k-what-should-investor-know-182536/" target="_blank">比特币随停火消息升至73,000美元：加密市场风险偏好显著改善</a></h3>
+        <p>美伊停火消息推动比特币从此前的65,600-72,500美元区间跳升至73,000美元以上（+4%），加密相关股票如Circle、MicroStrategy单日涨幅逾6%。黄金小幅回落至5,080美元，银价上升，显示避险资金部分转向风险资产。分析师指出停火期间能源成本下降有利于矿工盈利预期，但警告谈判破裂将使加密市场面临能源成本冲击风险。</p>
+        <div class="news-card-meta"><span>Sunday Guardian / CoinDesk</span><span>4月8日</span></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== MARKET ===== -->
+  <section class="section" id="market">
+    <div class="section-header">
+      <span class="section-icon">📊</span>
+      <span class="section-title">市场行情</span>
+      <span class="section-count">4月8日收盘 / 4月9日开盘参考</span>
+    </div>
+    <div class="market-grid">
+      <div class="market-item">
+        <div class="name">上证综指</div>
+        <div class="value">3,318.24</div>
+        <div class="change up">+1.15%</div>
+      </div>
+      <div class="market-item">
+        <div class="name">深证成指</div>
+        <div class="value">10,573.81</div>
+        <div class="change up">+1.62%</div>
+      </div>
+      <div class="market-item">
+        <div class="name">创业板</div>
+        <div class="value">2,084.47</div>
+        <div class="change up">+1.93%</div>
+      </div>
+      <div class="market-item">
+        <div class="name">标普500</div>
+        <div class="value">6,782.81</div>
+        <div class="change up">+2.51%</div>
+      </div>
+      <div class="market-item">
+        <div class="name">纳斯达克</div>
+        <div class="value">22,635.00</div>
+        <div class="change up">+2.80%</div>
+      </div>
+      <div class="market-item">
+        <div class="name">道琼斯</div>
+        <div class="value">47,909.92</div>
+        <div class="change up">+2.85%</div>
+      </div>
+      <div class="market-item">
+        <div class="name">恒生指数</div>
+        <div class="value">22,198.46</div>
+        <div class="change up">+1.74%</div>
+      </div>
+      <div class="market-item">
+        <div class="name">美元/人民币</div>
+        <div class="value">7.2481</div>
+        <div class="change down">-0.18%</div>
+      </div>
+      <div class="market-item">
+        <div class="name">比特币</div>
+        <div class="value">$73,024</div>
+        <div class="change up">+4.03%</div>
+      </div>
+      <div class="market-item">
+        <div class="name">布伦特原油</div>
+        <div class="value">$93.84</div>
+        <div class="change down">-15.82%</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SCIENCE ===== -->
+  <section class="section" id="science">
+    <div class="section-header">
+      <span class="section-icon">🔬</span>
+      <span class="section-title">科学突破</span>
+      <span class="section-count">3 条</span>
+    </div>
+    <div class="news-grid">
+
+      <div class="news-card">
+        <span class="news-card-tag tag-science">科学 · 量子</span>
+        <h3><a href="https://quantumcomputingreport.com/news/" target="_blank">Quantinuum Helios实现48个纠错逻辑量子比特：容错量子计算跨越实用门槛</a></h3>
+        <p>Quantinuum在其98量子比特Helios处理器上实现"Iceberg Codes"纠错方案，成功构建48个逻辑量子比特，逻辑错误率比物理量子比特降低10到100倍，达到"超盈亏平衡"表现。这是量子计算史上里程碑性突破，意味着实用容错量子算法首次具备了在真实硬件上可靠运行的基础。云访问入口已向研究机构和合作企业开放。</p>
+        <div class="news-card-meta"><span>Quantum Computing Report</span><span>4月8日</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-science">科学 · 安全</span>
+        <h3><a href="https://time.com/article/2026/04/07/ai-quantum-computing-advance/" target="_blank">AI与量子融合正在提前终结RSA加密寿命：谷歌团队警告安全窗口大幅收窄</a></h3>
+        <p>谷歌与Oratomic联合研究发现，AI正在系统性解决量子误码纠正问题，这意味着能够破解互联网核心加密（RSA、椭圆曲线密码）的量子计算机将远比此前预测更早到来。当前NIST正在推进后量子密码标准落地，但大多数互联网基础设施尚未完成迁移。研究团队建议企业将"迁移后量子加密"列为2026年最高安全优先级。</p>
+        <div class="news-card-meta"><span>Time Magazine</span><span>4月7日</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-science">科学 · 生物</span>
+        <h3><a href="https://www.brightcast.news/articles/scientists-engineered-tobacco-plants-to-produce-five-mind-altering-psychedelic-compounds" target="_blank">科学家基因改造烟草植物，同时生产5种迷幻化合物：精神类药物生产路径革命</a></h3>
+        <p>发表于《Science Advances》的研究显示，科学家成功对烟草植物进行基因改造，使其能够同步生产五种具有精神活性的迷幻化合物——包括赛洛西宾（裸盖菇素）前体物质。这一突破可能使迷幻类化合物的科研级生产成本大幅下降，为抑郁症、PTSD和成瘾治疗的临床研究提供可持续的原料来源，有望推动该领域进入更快的临床试验周期。</p>
+        <div class="news-card-meta"><span>Science Advances / BrightCast</span><span>4月1日</span></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== PRODUCT ===== -->
+  <section class="section" id="product">
+    <div class="section-header">
+      <span class="section-icon">🚀</span>
+      <span class="section-title">产品发现</span>
+      <span class="section-count">3 条</span>
+    </div>
+    <div class="news-grid">
+
+      <div class="news-card">
+        <span class="news-card-tag tag-product">产品 · AI</span>
+        <h3><a href="https://about.fb.com/news/2026/04/introducing-muse-spark-meta-superintelligence-labs/" target="_blank">Meta Muse Spark：超智能实验室首款闭源旗舰，告别Llama全面接管Meta AI生态</a></h3>
+        <p>Muse Spark是Meta Superintelligence Labs首款产品，以"从头重建"的并行子Agent架构实现推理效率超越Llama 4 Maverick十倍以上。目前驱动Meta AI App及meta.ai网站，将逐步推送至WhatsApp、Instagram、Facebook、Messenger及Ray-Ban AI眼镜。内置强多模态感知，可"看到用户正在看什么"。未来计划推出开源版本，但详情未公布。</p>
+        <div class="news-card-meta"><span>Meta Official</span><span>4月8日</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-product">产品 · 量子</span>
+        <h3><a href="https://quantumcomputingreport.com/news/" target="_blank">Quantinuum System 98（Helios）：首款企业级98量子比特容错计算云平台</a></h3>
+        <p>Quantinuum将Helios 98量子比特处理器开放企业和研究机构云访问，提供迄今最高质量的量子算力——48个逻辑量子比特，误码率达物理量子比特的1/100。这是量子计算商业化进程中第一款同时具备规模与质量的云访问平台，医药分子模拟、金融风险建模和密码学应用三大商用场景已进入早期合作伙伴验证阶段。</p>
+        <div class="news-card-meta"><span>Quantinuum / QCR</span><span>4月8日</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-product">产品 · AI</span>
+        <h3><a href="https://ai.meta.com/blog/introducing-muse-spark-msl/" target="_blank">Gemini 3.1 Ultra API开放：200万Token上下文多模态模型，AI Agent基础设施新基准</a></h3>
+        <p>谷歌向企业开发者开放Gemini 3.1 Ultra API，200万token超长上下文窗口支持超大文档、代码库、多小时视频的整体分析，原生跨模态推理能力让单次调用即可处理复合媒体输入。谷歌强调其为Agent工作流深度优化，函数调用、结构化输出和多步骤推理性能均优于前一代，是2026年Agent开发者的新基础设施选项。</p>
+        <div class="news-card-meta"><span>Google AI Blog</span><span>4月8日</span></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== DEEP READ ===== -->
+  <section class="section" id="deepread">
+    <div class="section-header">
+      <span class="section-icon">📖</span>
+      <span class="section-title">深度阅读</span>
+      <span class="section-count">4 篇</span>
+    </div>
+    <div class="deep-read-list">
+
+      <div class="deep-read-card">
+        <div class="deep-read-number">1</div>
+        <div class="deep-read-body">
+          <h3><a href="https://techcrunch.com/2026/04/07/anthropic-mythos-ai-model-preview-security/" target="_blank">Project Glasswing全解析：为什么Anthropic要用最强AI专打零日漏洞 · TechCrunch</a></h3>
+          <p>这篇深度报道解析了Anthropic为何选择将Claude Mythos Preview严格限定于防御性网络安全——而非公开发布。核心逻辑是：当一款AI模型能够"自主、全栈地发现并利用每一个主流操作系统和浏览器的零日漏洞"，向攻击者与防御者同时开放意味着不对称风险。Project Glasswing代表的是一种新型"受控发布"范式：不是"开源 vs 闭源"的二元选择，而是"按用途分级开放"。推荐理由：这是理解AI能力边界与发布伦理之间矛盾关系的最佳案例。</p>
+          <div class="deep-read-meta"><span>📌 TechCrunch · Anthropic</span><span>🕐 约12分钟</span></div>
+        </div>
+      </div>
+
+      <div class="deep-read-card">
+        <div class="deep-read-number">2</div>
+        <div class="deep-read-body">
+          <h3><a href="https://fortune.com/2026/04/08/meta-unveils-muse-spark-mark-zuckerberg-ai-push/" target="_blank">再见Llama：Meta为什么选择在这个时刻放弃开源？ · Fortune</a></h3>
+          <p>Fortune深度剖析了Muse Spark背后的战略转向：扎克伯格对Llama 4落后于ChatGPT和Claude的不满、143亿美元押注Alexandr Wang和Scale AI、以及为何在竞争最激烈的时刻选择闭源。文章指出，Muse Spark的闭源不仅是商业决策，更是对"开源AI能否竞争最强模型"这一议题的明确回答——Meta的答案是：不能，至少现阶段不能。推荐理由：理解2026年AI格局从开源生态向闭源旗舰竞争的关键转折点。</p>
+          <div class="deep-read-meta"><span>📌 Fortune</span><span>🕐 约15分钟</span></div>
+        </div>
+      </div>
+
+      <div class="deep-read-card">
+        <div class="deep-read-number">3</div>
+        <div class="deep-read-body">
+          <h3><a href="https://www.cnn.com/2026/04/07/markets/us-stocks-oil-trump-iran-ceasefire" target="_blank">停火之后：两周窗口如何重塑油市与通胀轨迹 · CNN / Bloomberg</a></h3>
+          <p>这篇分析聚焦停火协议的经济余震：油价单日崩跌16%意味着美国通胀数据将在5月短暂改善，但"两周不等于解决"的逻辑令商品市场保持高度不确定性。文章量化了霍尔木兹封锁40天对全球贸易的实际损失（已超100亿美元），以及停火期供应链恢复能力——结论是：即便谈判成功，能源市场恢复正常的时间窗口也需要3-6个月。推荐理由：是停火消息落地后最清醒的经济后果分析。</p>
+          <div class="deep-read-meta"><span>📌 CNN / Bloomberg</span><span>🕐 约10分钟</span></div>
+        </div>
+      </div>
+
+      <div class="deep-read-card">
+        <div class="deep-read-number">4</div>
+        <div class="deep-read-body">
+          <h3><a href="https://time.com/article/2026/04/07/ai-quantum-computing-advance/" target="_blank">量子+AI的安全时间炸弹：世界还没准备好 · Time Magazine</a></h3>
+          <p>Time深度报道了谷歌与Oratomic的联合研究——AI正在系统性解决量子纠错问题，导致破解互联网加密的时间表可能提前5到10年。文章梳理了RSA、椭圆曲线密码在量子威胁下的脆弱性，NIST后量子标准进展，以及为何大多数企业和政府的迁移速度仍然"与风险极不匹配"。推荐理由：这可能是未来五年最重要的安全基础设施议题，目前知道的人太少。</p>
+          <div class="deep-read-meta"><span>📌 Time Magazine</span><span>🕐 约8分钟</span></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== DEV TOOLS ===== -->
+  <section class="section" id="devtool">
+    <div class="section-header">
+      <span class="section-icon">🛠️</span>
+      <span class="section-title">开发者工具</span>
+      <span class="section-count">2 条</span>
+    </div>
+    <div class="tool-grid">
+
+      <div class="tool-card">
+        <span class="news-card-tag tag-dev" style="display:inline-flex;margin-bottom:10px;">开源 · AI编程</span>
+        <h3>Claw Code</h3>
+        <p>Python + Rust构建的开源AI编程Agent框架，定位为Claude Code架构的开放克隆——在不复制任何专有源码的前提下，完整重建了AI编程Agent控制层（文件系统、工具调用、任务工作流）。发布首日获72,000 GitHub Stars，目前已超172,000 Stars，成为2026年增速最快的开源AI开发工具之一。覆盖agent harness、ReAct循环、工具注册表完整架构，并提供Rust高性能运行时。</p>
+        <a href="https://claw-code.codes/" target="_blank" class="tool-card-link">→ claw-code.codes</a>
+      </div>
+
+      <div class="tool-card">
+        <span class="news-card-tag tag-dev" style="display:inline-flex;margin-bottom:10px;">开源 · Agent框架</span>
+        <h3>Google ADK（Agent Development Kit）v1.0</h3>
+        <p>谷歌官方开源的生产级多Agent编排框架，Apache 2.0授权，内置与Gemini模型族的深度集成。支持ReAct推理循环、MCP协议连接、跨云Agent编排和100万token超长上下文，提供统一的工具注册表和Agent间通信协议。ADK v1.0的定位是将谷歌内部Agent工程实践开放给企业开发者，填补了Gemini API与复杂Agent生产部署之间的工程脚手架空白。</p>
+        <a href="https://google.github.io/adk-docs/" target="_blank" class="tool-card-link">→ google.github.io/adk-docs</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== QUOTES ===== -->
+  <section class="section" id="quotes">
+    <div class="section-header">
+      <span class="section-icon">💬</span>
+      <span class="section-title">今日言论</span>
+      <span class="section-count">4 条</span>
+    </div>
+    <div class="quotes-list">
+
+      <div class="quote-card">
+        <p class="quote-text">Mythos Preview is capable of identifying and then exploiting zero-day vulnerabilities in every major operating system and every major web browser when directed by a user to do so. Over the past few weeks, we used it to identify thousands of zero-day vulnerabilities, many of them critical.（Mythos Preview能够在用户指示下自主发现并利用每一个主流操作系统和浏览器的零日漏洞。在过去几周，我们用它识别出数千个零日漏洞，其中许多是严重级别的。）</p>
+        <p class="quote-author">— Dario Amodei，Anthropic CEO，Project Glasswing发布说明，4月7日</p>
+      </div>
+
+      <div class="quote-card">
+        <p class="quote-text">Over the last nine months, Meta Superintelligence Labs rebuilt our AI stack from the ground up, moving faster than any development cycle we have run before.（在过去9个月里，Meta超智能实验室从头重建了我们的AI技术栈，推进速度超过了我们此前任何一个开发周期。）</p>
+        <p class="quote-author">— Mark Zuckerberg，Meta CEO，Muse Spark发布公告，4月8日</p>
+      </div>
+
+      <div class="quote-card">
+        <p class="quote-text">I agree to suspend the bombing and attack of Iran for a period of two weeks. We received a 10-point proposal from Iran, and believe it is a workable basis on which to negotiate.（我同意对伊朗暂停轰炸和攻击两周。我们收到了伊朗的十点提案，认为这是可行的谈判基础。）</p>
+        <p class="quote-author">— 唐纳德·特朗普，美国总统，Truth Social发文，4月7日</p>
+      </div>
+
+      <div class="quote-card">
+        <p class="quote-text">A two-week pause is not a resolution. Financial markets will remain sensitive to any breakdown in talks — the ceasefire has given investors relief, but the structural risks in the Middle East have not changed.（两周暂停不等于解决。金融市场对谈判任何破裂将保持高度敏感——停火给了投资者喘息，但中东的结构性风险并未改变。）</p>
+        <p class="quote-author">— 市场分析师评论，Bloomberg / Yahoo Finance，4月8日</p>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="archive-section">
+    <a href="../index.html" class="archive-link">← 查看往期简报</a>
+  </div>
+</main>
+
+<footer class="footer">由 AI 自动抓取与编辑 · 每日 07:00 更新 · news.huangwei.ai</footer>
+
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+function toggleTheme() {
+  const html = document.documentElement;
+  const btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function() {
+  const saved = localStorage.getItem('theme');
+  if (saved === 'light') {
+    document.documentElement.setAttribute('data-theme', 'light');
+    document.getElementById('themeBtn').textContent = '🌙';
+  }
+})();
+window.addEventListener('scroll', () => {
+  const h = document.documentElement;
+  const p = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+  document.getElementById('progressBar').style.width = p + '%';
+  document.getElementById('backToTop').classList.toggle('visible', h.scrollTop > 400);
+});
+document.querySelectorAll('.nav-item').forEach(item => {
+  item.addEventListener('click', () => {
+    const s = document.getElementById(item.dataset.section);
+    if (s) s.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+const sects = document.querySelectorAll('.section');
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+      const nav = document.querySelector(`.nav-item[data-section="${e.target.id}"]`);
+      if (nav) nav.classList.add('active');
+    }
+  });
+}, { rootMargin: '-100px 0px -50% 0px' });
+sects.forEach(s => obs.observe(s));
+</script>
+</body>
+</html>
