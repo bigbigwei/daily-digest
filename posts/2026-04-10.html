@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>伊斯兰堡和谈开幕·ChatGPT 5.5超级应用·三星730亿AI芯片豪赌 · 每日简报</title>
+<style>
+/* ===== Theme Variables ===== */
+:root[data-theme="dark"] {
+  --bg: #000000;
+  --bg-elevated: #0a0a0a;
+  --bg-card: #111111;
+  --bg-card-hover: #1a1a1a;
+  --text: #f0f0f0;
+  --text-secondary: #999999;
+  --text-muted: #555555;
+  --border: #222222;
+  --accent: #00d4ff;
+  --accent-dim: rgba(0,212,255,0.1);
+  --accent-glow: rgba(0,212,255,0.15);
+  --tag-ai: #a78bfa;
+  --tag-ai-bg: rgba(167,139,250,0.12);
+  --tag-tech: #22d3ee;
+  --tag-tech-bg: rgba(34,211,238,0.1);
+  --tag-finance: #fbbf24;
+  --tag-finance-bg: rgba(251,191,36,0.1);
+  --tag-science: #34d399;
+  --tag-science-bg: rgba(52,211,153,0.1);
+  --tag-product: #fb7185;
+  --tag-product-bg: rgba(251,113,133,0.1);
+  --tag-dev: #818cf8;
+  --tag-dev-bg: rgba(129,140,248,0.1);
+  --up: #ef4444;
+  --down: #22c55e;
+  --shadow: 0 0 0 1px rgba(255,255,255,0.04);
+  --shadow-hover: 0 8px 40px rgba(0,212,255,0.06), 0 0 0 1px rgba(255,255,255,0.08);
+  --radius: 12px;
+}
+:root[data-theme="light"] {
+  --bg: #fafafa;
+  --bg-elevated: #ffffff;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f5f5f5;
+  --text: #111111;
+  --text-secondary: #666666;
+  --text-muted: #999999;
+  --border: #e8e8e8;
+  --accent: #0066ff;
+  --accent-dim: rgba(0,102,255,0.06);
+  --accent-glow: rgba(0,102,255,0.08);
+  --tag-ai: #7c3aed;
+  --tag-ai-bg: rgba(124,58,237,0.08);
+  --tag-tech: #0891b2;
+  --tag-tech-bg: rgba(8,145,178,0.08);
+  --tag-finance: #d97706;
+  --tag-finance-bg: rgba(217,119,6,0.08);
+  --tag-science: #059669;
+  --tag-science-bg: rgba(5,150,105,0.08);
+  --tag-product: #e11d48;
+  --tag-product-bg: rgba(225,29,72,0.08);
+  --tag-dev: #4f46e5;
+  --tag-dev-bg: rgba(79,70,229,0.08);
+  --up: #dc2626;
+  --down: #16a34a;
+  --shadow: 0 1px 3px rgba(0,0,0,0.06);
+  --shadow-hover: 0 8px 30px rgba(0,0,0,0.08);
+  --radius: 12px;
+}
+
+/* ===== Reset ===== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", "Segoe UI", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  transition: background 0.4s, color 0.4s;
+}
+a { color: var(--accent); text-decoration: none; transition: opacity 0.2s; }
+a:hover { opacity: 0.8; }
+
+/* ===== Progress Bar ===== */
+.progress-bar {
+  position: fixed;
+  top: 0; left: 0;
+  height: 2px;
+  background: var(--accent);
+  z-index: 200;
+  width: 0%;
+  transition: width 0.1s;
+}
+
+/* ===== Top Bar ===== */
+.topbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 14px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  transition: background 0.3s;
+}
+[data-theme="light"] .topbar { background: rgba(255,255,255,0.9); }
+.topbar-left { display: flex; align-items: center; gap: 16px; }
+.topbar-brand {
+  font-size: 13px; font-weight: 600;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: var(--text-secondary);
+}
+.topbar-back {
+  font-size: 13px; color: var(--accent);
+  display: flex; align-items: center; gap: 4px;
+}
+.theme-toggle {
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 15px;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.2s;
+}
+.theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
+
+/* ===== Nav ===== */
+.nav-bar {
+  position: sticky;
+  top: 52px;
+  z-index: 90;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  transition: background 0.3s;
+}
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: flex;
+  gap: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.nav-inner::-webkit-scrollbar { display: none; }
+.nav-item {
+  padding: 12px 16px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+  white-space: nowrap;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+}
+.nav-item:hover, .nav-item.active {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+/* ===== Hero ===== */
+.hero {
+  padding: 100px 48px 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.hero-issue {
+  display: inline-block;
+  font-size: 12px; font-weight: 600;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  padding: 5px 12px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+.hero-date {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+.hero h1 {
+  font-size: clamp(32px, 5vw, 52px);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -1.5px;
+  margin-bottom: 20px;
+}
+.hero-summary {
+  font-size: 17px;
+  line-height: 1.75;
+  color: var(--text-secondary);
+  max-width: 720px;
+  margin-bottom: 28px;
+}
+.hero-stats {
+  display: flex; gap: 28px; flex-wrap: wrap;
+}
+.hero-stat-value {
+  font-size: 24px; font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+.hero-stat-label {
+  font-size: 11px; color: var(--text-muted);
+  text-transform: uppercase; letter-spacing: 1px;
+}
+
+/* ===== Container ===== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 48px 80px;
+}
+
+/* ===== Section ===== */
+.section { margin-bottom: 56px; }
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.section-icon { font-size: 20px; }
+.section-title {
+  font-size: 18px; font-weight: 700;
+  letter-spacing: -0.2px;
+}
+.section-count {
+  margin-left: auto;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+.section-header::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+  order: 99;
+}
+.section-count { order: 98; }
+
+/* ===== News Grid ===== */
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 14px;
+}
+.news-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px;
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+.news-card:hover {
+  box-shadow: var(--shadow-hover);
+  border-color: rgba(0,212,255,0.2);
+}
+.news-card-tag {
+  display: inline-block;
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 0.5px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+.tag-ai { color: var(--tag-ai); background: var(--tag-ai-bg); }
+.tag-tech { color: var(--tag-tech); background: var(--tag-tech-bg); }
+.tag-finance { color: var(--tag-finance); background: var(--tag-finance-bg); }
+.tag-science { color: var(--tag-science); background: var(--tag-science-bg); }
+.tag-product { color: var(--tag-product); background: var(--tag-product-bg); }
+.tag-dev { color: var(--tag-dev); background: var(--tag-dev-bg); }
+.news-card h3 {
+  font-size: 15px; font-weight: 600;
+  line-height: 1.4;
+  margin-bottom: 10px;
+}
+.news-card h3 a { color: var(--text); }
+.news-card h3 a:hover { color: var(--accent); }
+.news-card p {
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--text-secondary);
+}
+.news-card-meta {
+  margin-top: 12px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* ===== Headline ===== */
+.headline-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 32px;
+  border-left: 3px solid var(--accent);
+}
+.headline-tag {
+  display: inline-block;
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 0.5px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+}
+.headline-card h2 {
+  font-size: 22px; font-weight: 700;
+  margin-bottom: 20px;
+  line-height: 1.35;
+}
+.headline-card p {
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--text-secondary);
+}
+
+/* ===== Market Grid ===== */
+.market-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 12px;
+}
+.market-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  transition: box-shadow 0.2s;
+}
+.market-item:hover { box-shadow: var(--shadow-hover); }
+.market-item .name {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+.market-item .value {
+  font-size: 20px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  margin-bottom: 4px;
+}
+.market-item .change {
+  font-size: 13px;
+  font-weight: 600;
+}
+.market-item .change.up { color: var(--up); }
+.market-item .change.down { color: var(--down); }
+
+/* ===== Tool Grid ===== */
+.tool-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 14px;
+}
+.tool-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+.tool-card:hover {
+  box-shadow: var(--shadow-hover);
+  border-color: rgba(129,140,248,0.3);
+}
+.tool-card h3 {
+  font-size: 17px; font-weight: 700;
+  margin-bottom: 10px;
+}
+.tool-card p {
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  margin-bottom: 14px;
+}
+.tool-card-link {
+  font-size: 13px;
+  color: var(--tag-dev);
+  font-weight: 500;
+}
+
+/* ===== Deep Read ===== */
+.deep-read-list { display: flex; flex-direction: column; gap: 14px; }
+.deep-read-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  display: flex;
+  gap: 20px;
+  transition: box-shadow 0.2s;
+}
+.deep-read-card:hover { box-shadow: var(--shadow-hover); }
+.deep-read-number {
+  font-size: 28px; font-weight: 800;
+  color: var(--accent);
+  opacity: 0.35;
+  min-width: 36px;
+  line-height: 1;
+  padding-top: 4px;
+}
+.deep-read-body { flex: 1; }
+.deep-read-card h3 {
+  font-size: 16px; font-weight: 600;
+  line-height: 1.4;
+  margin-bottom: 10px;
+}
+.deep-read-card h3 a { color: var(--text); }
+.deep-read-card h3 a:hover { color: var(--accent); }
+.deep-read-card p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin-bottom: 12px;
+}
+.deep-read-meta {
+  display: flex;
+  gap: 20px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* ===== Quotes ===== */
+.quotes-list { display: flex; flex-direction: column; gap: 12px; }
+.quote-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 22px 26px;
+  transition: box-shadow 0.2s;
+}
+.quote-card:hover { box-shadow: var(--shadow-hover); }
+.quote-text {
+  font-size: 15px;
+  line-height: 1.7;
+  font-style: italic;
+  color: var(--text-secondary);
+  margin-bottom: 10px;
+}
+.quote-author {
+  font-size: 13px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* ===== Archive / Footer ===== */
+.archive-section {
+  text-align: center;
+  padding: 28px 0 8px;
+}
+.archive-link {
+  font-size: 14px;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  padding: 10px 20px;
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+.archive-link:hover { color: var(--accent); border-color: var(--accent); }
+.footer {
+  text-align: center;
+  padding: 24px 0;
+  font-size: 12px;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border);
+  margin-top: 40px;
+}
+
+/* ===== Back to Top ===== */
+.back-to-top {
+  position: fixed;
+  bottom: 32px; right: 32px;
+  width: 40px; height: 40px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  color: var(--text-secondary);
+  font-size: 16px;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.2s;
+  z-index: 50;
+}
+.back-to-top.visible { opacity: 1; pointer-events: all; }
+.back-to-top:hover { border-color: var(--accent); color: var(--accent); }
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .hero { padding: 80px 24px 40px; }
+  .container { padding: 0 24px 60px; }
+  .topbar { padding: 12px 20px; }
+  .news-grid { grid-template-columns: 1fr; }
+  .market-grid { grid-template-columns: repeat(2, 1fr); }
+  .tool-grid { grid-template-columns: 1fr; }
+  .deep-read-card { flex-direction: column; gap: 10px; }
+  .deep-read-number { font-size: 20px; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .news-card, .market-item, .tool-card, .deep-read-card, .quote-card {
+    animation: fadeIn 0.4s ease backwards;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- Top Bar -->
+<div class="topbar">
+  <div class="topbar-left">
+    <a href="../index.html" class="topbar-back">← 首页</a>
+    <span class="topbar-brand">Daily Digest</span>
+  </div>
+  <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn" aria-label="Toggle theme">☀️</button>
+</div>
+
+<!-- Nav -->
+<nav class="nav-bar">
+  <div class="nav-inner">
+    <div class="nav-item active" data-section="headline">头条</div>
+    <div class="nav-item" data-section="ai">AI</div>
+    <div class="nav-item" data-section="tech">科技</div>
+    <div class="nav-item" data-section="finance">财经</div>
+    <div class="nav-item" data-section="market">行情</div>
+    <div class="nav-item" data-section="science">科学</div>
+    <div class="nav-item" data-section="product">产品</div>
+    <div class="nav-item" data-section="deepread">深度</div>
+    <div class="nav-item" data-section="devtool">工具</div>
+    <div class="nav-item" data-section="quotes">言论</div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<header class="hero">
+  <span class="hero-issue">第 12 期</span>
+  <div class="hero-date">2026年4月10日 · 星期五</div>
+  <h1>伊斯兰堡和谈开幕·ChatGPT 5.5超级应用·三星730亿AI芯片豪赌</h1>
+  <p class="hero-summary">副总统万斯今日赴伊斯兰堡主持美伊首轮正式和谈，能否将脆弱的两周停火转化为持久协议，将直接决定全球油价与通胀走势；与此同时，OpenAI将ChatGPT、Codex与Atlas浏览器整合为统一超级桌面应用，AI助手进入"全能入口"新时代；三星宣布2026年破纪录投入730亿美元扩大AI芯片产能，中国具身AI独角兽Spirit AI在宁德时代工厂量产人形机器人。</p>
+  <div class="hero-stats">
+    <div class="hero-stat"><span class="hero-stat-value">34</span><span class="hero-stat-label">资讯</span></div>
+    <div class="hero-stat"><span class="hero-stat-value">4</span><span class="hero-stat-label">深度</span></div>
+    <div class="hero-stat"><span class="hero-stat-value">19</span><span class="hero-stat-label">信源</span></div>
+    <div class="hero-stat"><span class="hero-stat-value">~24</span><span class="hero-stat-label">分钟</span></div>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- ===== HEADLINE ===== -->
+  <section class="section" id="headline">
+    <div class="section-header">
+      <span class="section-icon">🔥</span>
+      <span class="section-title">今日头条</span>
+      <span class="section-count">3 条深度串联</span>
+    </div>
+
+    <div class="headline-card">
+      <div class="headline-tag tag-finance" style="color:var(--tag-finance);background:var(--tag-finance-bg);">地缘 · AI · 芯片</div>
+      <h2>和谈、超级应用与芯片豪赌——4月10日三条主线同步引爆</h2>
+      <p>
+        <strong>第一条：伊斯兰堡和谈今日正式开幕，两周停火能否转化为持久协议。</strong>巴基斯坦总理谢里夫于4月10日在伊斯兰堡主持美伊谈判，副总统JD·万斯率美国代表团出席，伊朗代表团携"十点方案"抵达。核心分歧集中在两点：特朗普坚持"绝不允许铀浓缩"，伊朗方案要求承认其浓缩权利；以色列拒绝被纳入停火框架。此轮谈判若达成框架协议，霍尔木兹将正式重新开放，WTI原油可能再下探85美元区间，美国6月CPI将因能源分项大幅回落；若谈判破裂，布伦特将在数小时内重返110美元以上，通胀预期全面反弹。全球原油交易员和央行分析师正在同步盯盘这场外交博弈。
+      </p>
+      <p style="margin-top:16px;">
+        <strong>第二条：OpenAI正式推出ChatGPT 5.5超级桌面应用，AI助手版图发生结构性重组。</strong>4月6日，OpenAI将ChatGPT、Codex代码助手与Atlas AI浏览器合并为单一统一桌面应用——这是自ChatGPT发布以来最大的产品形态变革。新应用不再只是聊天窗口，而是集对话、编程、搜索浏览三种交互模式于一体的"AI操作层"。ChatGPT 5.5本身能力提升有限（更好的记忆管理、更流畅的指令跟随），但产品整合传递的信号更为重要：OpenAI正在为GPT-5.5/Spud正式发布铺垫全新交付载体。Sam Altman本周暗示GPT-5.5将"在数周内"发布。与此同时，OpenAI以$122亿超级轮完成融资后，正在以媒体版图（收购TBPN）+ 超级应用 + 旗舰模型三线并进，重塑其生态壁垒。
+      </p>
+      <p style="margin-top:16px;">
+        <strong>第三条：AI芯片竞赛全面加速，三星730亿豪赌、Spirit AI机器人量产、TSMC封装瓶颈同步曝光。</strong>三星电子宣布2026年将在芯片产能扩张与研发上破纪录投入逾110万亿韩元（约730亿美元），押注HBM4内存和3纳米制程赶超台积电；与此同时，CNBC深度报道揭露美国本土AI芯片的最后一块"台湾依赖"——TSMC在美国凤凰城生产的所有芯片，封装环节100%须运回台湾完成，暴露物理AI主权最薄弱的一环。在中国端，具身AI独角兽Spirit AI完成30天内两轮合计4.2亿美元融资，其人形机器人"小魔"已正式在宁德时代中州工厂量产运行，成为全球首批真正进入工业产线的人形机器人之一。
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== AI ===== -->
+  <section class="section" id="ai">
+    <div class="section-header">
+      <span class="section-icon">🤖</span>
+      <span class="section-title">人工智能</span>
+      <span class="section-count">6 条</span>
+    </div>
+    <div class="news-grid">
+
+      <div class="news-card">
+        <span class="news-card-tag tag-ai">AI · 产品</span>
+        <h3><a href="https://happycapyguide.com/blog/openai-chatgpt-55-super-app-codex-atlas-desktop-launch-april-2026" target="_blank">OpenAI推出ChatGPT 5.5统一超级桌面应用：ChatGPT + Codex + Atlas浏览器三合一，AI入口大整合</a></h3>
+        <p>OpenAI于4月6日正式发布ChatGPT 5.5桌面超级应用，将对话、编程、浏览三大AI交互模式整合为单一界面，开创"AI操作层"新形态。ChatGPT 5.5在能力层面改进了记忆管理、指令跟随与任务连续性，并提供早期访问GPT-5.5/Spud若干规划功能。Sam Altman在X上表示，内部代号"Spud"的GPT-5.5"正式发布仅剩数周"，这是迄今最确定的时间线信号。</p>
+        <div class="news-card-meta"><span>HappyCapyGuide / OpenAI</span><span>4月6日</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-ai">AI · 融资</span>
+        <h3><a href="https://pandaily.com/spirit-ai-raises-usd-420-million-in-30-days-backed-by-lei-jun-and-jack-ma-funds/" target="_blank">中国具身AI独角兽Spirit AI 30天完成4.2亿美元双轮融资，"小魔"人形机器人已在宁德时代量产</a></h3>
+        <p>具身智能初创Spirit AI在30天内连续完成两轮融资，合计约4.2亿美元，由顺为资本（雷军）和云锋基金（马云）支持。Spirit AI核心产品人形机器人"小魔"已在宁德时代中州电池组装产线正式投入量产，支撑近千块电池零缺陷生产，作业节奏达到或超过熟练工人水平。这是全球首批真正进入工业产线的人形机器人之一，标志着具身AI从展示走向实际部署的里程碑。</p>
+        <div class="news-card-meta"><span>Pandaily / Caproasia</span><span>4月9日</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-ai">AI · 基础设施</span>
+        <h3><a href="https://coaio.com/news/2026/04/ais-explosive-growth-and-tech-innovations-key-highlights-from-april-8-2lwc/" target="_blank">英伟达背书AI数据中心初创Firmus估值达55亿美元，押注AI训练基础设施独立化</a></h3>
+        <p>AI数据中心初创Firmus在最新一轮融资后估值达55亿美元，获英伟达战略投资支持。Firmus专注为大规模AI训练工作负载构建模块化数据中心，定位填补云巨头（AWS/Azure/GCP）与模型实验室之间的专用计算缺口。与通用云相比，其核定向AI硬件密度、直液冷、低PUE设计使训练成本降低约30%。英伟达的参与被视为对下一代Rubin平台大规模部署做生态准备。</p>
+        <div class="news-card-meta"><span>Coaio / Bloomberg</span><span>4月8日</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-ai">AI · 客服</span>
+        <h3><a href="https://www.crescendo.ai/news/latest-vc-investment-deals-in-ai-startups" target="_blank">PolyAI完成8600万美元D轮：声音AI Agent进入"完全自主"客服时代，拒绝人工介入</a></h3>
+        <p>对话AI公司PolyAI完成8600万美元D轮融资，其"Agentic AI"平台专为电话客服全流程自动化设计，已部署于航空、银行、医疗等行业，声称可处理90%以上的入站来电而无需人工介入。区别于早期规则驱动IVR，PolyAI基于LLM的声音Agent能理解口音、背景噪音并实时决策。该轮融资将用于扩大北美市场份额和多语言支持能力。</p>
+        <div class="news-card-meta"><span>Crescendo AI / TechCrunch</span><span>4月9日</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-ai">AI · 法律</span>
+        <h3><a href="https://news.bloomberglaw.com/legal-ops-and-tech/legal-ai-startup-legora-raises-550-million-for-us-expansion" target="_blank">法律AI独角兽Legora完成5.5亿美元D轮：估值55亿，服务50+市场800家律所，加速攻入美国</a></h3>
+        <p>瑞典法律AI平台Legora由Accel领投完成5.5亿美元D轮融资，估值从上一轮翻三倍至55亿美元。Legora平台每天支持全球50+市场逾800家律所的数万名律师工作，提供文件审查、合同分析、研究摘要等功能，显著降低低价值工时。此轮融资将专项用于美国市场扩张，正面迎战Harvey AI和CoCounsel。法律AI赛道在2026年Q1进入头部竞争格局，单笔融资规模持续刷新。</p>
+        <div class="news-card-meta"><span>Bloomberg Law / Crunchbase</span><span>3月10日</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-ai">AI · 开源</span>
+        <h3><a href="https://nvidianews.nvidia.com/news/nvidia-announces-open-physical-ai-data-factory-blueprint-to-accelerate-robotics-vision-ai-agents-and-autonomous-vehicle-development" target="_blank">NVIDIA发布开源物理AI数据工厂蓝图：机器人、视觉AI Agent与自动驾驶开发全面提速</a></h3>
+        <p>英伟达宣布开放"物理AI数据工厂蓝图"，以GitHub开源形式发布完整的机器人训练数据采集、标注、仿真到部署的端到端工程框架。该蓝图支持Issac GR00T基础模型、NVIDIA Cosmos世界模型及Omniverse仿真环境，直接对应Rubin GPU平台即将到来的大规模物理AI部署。英伟达将其定位为继CUDA之后物理AI领域的第二个开发者生态入口。</p>
+        <div class="news-card-meta"><span>NVIDIA Newsroom</span><span>4月9日</span></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== TECH ===== -->
+  <section class="section" id="tech">
+    <div class="section-header">
+      <span class="section-icon">💻</span>
+      <span class="section-title">科技</span>
+      <span class="section-count">5 条</span>
+    </div>
+    <div class="news-grid">
+
+      <div class="news-card">
+        <span class="news-card-tag tag-tech">科技 · 地缘</span>
+        <h3><a href="https://www.aljazeera.com/news/2026/4/8/iran-says-talks-with-us-will-begin-in-pakistans-islamabad-on-friday" target="_blank">万斯今日赴伊斯兰堡主持美伊首轮正式和谈：核浓缩红线与黎巴嫩问题成最大障碍</a></h3>
+        <p>副总统JD·万斯4月10日率美国代表团抵达伊斯兰堡，与伊朗代表团展开两周停火后的首轮正式和谈，巴基斯坦担任调停方。伊朗携"十点方案"参会，其中包含对铀浓缩权利的明确要求——这与特朗普"绝不允许浓缩"的红线直接冲突。以色列总理内塔尼亚胡拒绝将黎巴嫩纳入停火框架，美国予以背书。谈判结果将直接决定全球原油市场的走向。</p>
+        <div class="news-card-meta"><span>Al Jazeera / NPR</span><span>4月10日</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-tech">科技 · 芯片</span>
+        <h3><a href="https://www.bloomberg.com/news/articles/2026-03-19/samsung-to-spend-73-billion-on-chip-expansion-research-in-2026" target="_blank">三星2026年破纪录投入730亿美元AI芯片：全力追赶HBM4，押注扭转与台积电的技术差距</a></h3>
+        <p>三星电子宣布2026年将在芯片产能扩张与研发上投入逾110万亿韩元（约730亿美元），创下历史纪录。核心方向是HBM4高带宽内存和3纳米制程，目标是夺回被SK海力士在HBM3领域占据的AI内存主导地位，并拉近与台积电在高端逻辑芯片上的差距。市场分析师指出，三星此轮史诗级资本开支反映AI芯片竞争进入"赢者通吃"阶段，任何落后都意味着长期市场份额的不可逆损失。</p>
+        <div class="news-card-meta"><span>Bloomberg</span><span>3月19日</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-tech">科技 · 制造</span>
+        <h3><a href="https://www.cnbc.com/2026/04/08/tsmc-nvidia-advanced-packaging-intel.html" target="_blank">TSMC芯片100%送回台湾封装：美国本土AI芯片生产的最后一道"台湾依赖"瓶颈</a></h3>
+        <p>CNBC深度报道揭示：无论英伟达在TSMC亚利桑那凤凰城工厂生产的AI芯片多么"美国制造"，封装环节100%须运回台湾完成——因为所有先进封装（CoWoS、SoIC）产能仍在台湾。TSMC正在亚利桑那新建两座封装设施，但预计2028-2029年才能运营。这意味着在相当长时间内，每枚美国本土生产的AI芯片仍须在台湾海峡区域内完成核心制造最后一步，地缘政治风险并未真正消除。</p>
+        <div class="news-card-meta"><span>CNBC</span><span>4月8日</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-tech">科技 · 苹果</span>
+        <h3><a href="https://www.techi.com/iran-threatens-big-tech-investors/" target="_blank">苹果AI换帅：Giannandrea退休，Amar Subramanya接棒，Apple Intelligence转型加速提上日程</a></h3>
+        <p>苹果机器学习负责人John Giannandrea宣布退休，其职责将由曾在Google和Microsoft主导AI产品的Amar Subramanya接手。这一人事变化被业内解读为苹果加速推进Apple Intelligence路线图的信号——Giannandrea掌权期间苹果AI功能被广泛批评进展迟缓。与此同时，据英国《金融时报》报道，CEO蒂姆·库克最早可能于今年年初宣布退休计划，苹果AI策略的持续性成为关键议题。</p>
+        <div class="news-card-meta"><span>Financial Times / Techi</span><span>4月9日</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-tech">科技 · 贸易</span>
+        <h3><a href="https://www.cnbc.com/2026/04/08/trump-threatens-tariffs-countries-supplying-weapons-iran-ceasefire.html" target="_blank">特朗普宣布对伊朗武器供应国征50%关税：中俄被点名，科技供应链新一轮摩擦预警</a></h3>
+        <p>停火协议达成次日，特朗普宣布将对所有向伊朗提供军事武器的国家征收50%关税，中国和俄罗斯作为伊朗主要武器和情报支持来源被直接点名。这一举措在中美关税战（美104%/中84%）之上叠加新的地缘贸易战逻辑，使中国出口企业面临来自多个关税轨道的同步压力。分析师指出这一新关税威胁将进一步加速中国科技企业向第三国转移供应链。</p>
+        <div class="news-card-meta"><span>CNBC / Reuters</span><span>4月8日</span></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== FINANCE ===== -->
+  <section class="section" id="finance">
+    <div class="section-header">
+      <span class="section-icon">💰</span>
+      <span class="section-title">全球财经</span>
+      <span class="section-count">5 条</span>
+    </div>
+    <div class="news-grid">
+
+      <div class="news-card">
+        <span class="news-card-tag tag-finance">财经 · 美股</span>
+        <h3><a href="https://uk.finance.yahoo.com/news/stock-market-today-dow-sp-500-nasdaq-pause-rally-after-iran-says-ceasefire-has-been-broken-225323726.html" target="_blank">美股连续第二日延伸涨势：标普+0.62%至6,824点，伊斯兰堡和谈前夜市场小步前行</a></h3>
+        <p>4月9日美股三大指数连续第二日上涨，标普500收涨0.62%至6,824.66点，纳斯达克综合指数涨0.83%至22,822.42点，道琼斯工业指数涨0.58%收于48,185.80点，道指在本日正式翻正成为2026年以来首次回到年内正收益。市场情绪主要受美伊停火乐观情绪驱动，但投资者将"明天的伊斯兰堡和谈"视为下一个重大风险节点，成交量较前一日小幅萎缩。</p>
+        <div class="news-card-meta"><span>Yahoo Finance / Bloomberg</span><span>4月9日</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-finance">财经 · 原油</span>
+        <h3><a href="https://oilprice.com/Latest-Energy-News/World-News/Oil-Prices-Plunge-Below-100-as-Trump-Announces-Iran-Ceasefire.html" target="_blank">原油从16%暴跌后反弹：WTI重返97美元区间，霍尔木兹重开时间表不确定成关键变量</a></h3>
+        <p>4月8日盘中，美国WTI原油期货从停火触发的94.41美元低点反弹至97-100美元区间，市场对停火能否持续转化为怀疑情绪。布伦特原油在$97-98区间同步震荡。分析人士指出，霍尔木兹海峡800余艘被困船只的清空和商业航线正常化至少需要3-4周，即便谈判成功，短期能源供应仍将受制于物流恢复速度。4月10日伊斯兰堡谈判结果将是最近期的油价定价锚点。</p>
+        <div class="news-card-meta"><span>OilPrice.com / NBC News</span><span>4月8日</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-finance">财经 · 黄金</span>
+        <h3><a href="https://fortune.com/article/current-price-of-gold-04-07-2026/" target="_blank">黄金维持历史高位4,786美元/盎司：停火未能让避险资金大规模撤离，地缘底部支撑仍强</a></h3>
+        <p>黄金现货价格4月9日维持在每盎司4,786美元附近，距历史高点5,080美元（战时峰值）回落不足7%，但相比停火前下跌幅度远小于原油。分析师认为，黄金在停火期间表现出的"粘性"说明市场对和谈能否成功持保留态度，同时美联储政策不确定性和美元轻微走软为黄金提供了额外支撑。如伊斯兰堡谈判顺利，黄金可能跌回4,500美元区间。</p>
+        <div class="news-card-meta"><span>Fortune / APMEX</span><span>4月9日</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-finance">财经 · 关税</span>
+        <h3><a href="https://stcn.com/article/detail/1514158.html" target="_blank">A股应对关税+伊武器供应新威胁：机构预判内需板块防御性强，中国实际增速维持4.7%预期</a></h3>
+        <p>在美对华关税升至104%叠加特朗普新的"伊朗武器供应国50%关税"威胁后，多家机构对A股走势的判断集中于：消费和内需板块具备相对防御性，科技出口板块面临持续压力。中信证券维持2026年中国实际经济增速约4.7%预期，认为国内政策对冲空间充足——财政与货币政策均有余地应对外部冲击。高盛则建议将A股配置向内需倾斜而非港股出口敞口。</p>
+        <div class="news-card-meta"><span>证券时报 / Goldman Sachs</span><span>4月9日</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-finance">财经 · 加密</span>
+        <h3><a href="https://coincodex.com/article/83638/bitcoin-prediction-april-06-2026/" target="_blank">比特币稳守71,000-72,000美元区间：停火后风险情绪退潮，矿工能源成本预期分化</a></h3>
+        <p>比特币4月9-10日价格在71,931-72,800美元区间波动，较停火推动的73,000美元短线高点小幅回落。市场的微观驱动在于：一方面停火降低了能源成本（对矿工盈利正面），另一方面若原油重新上涨将逆转这一逻辑；宏观上美联储5月会议临近，市场等待通胀数据确认前景。圆形底支撑位于68,000美元，关键阻力在75,157美元（CoinCodex模型预测）。</p>
+        <div class="news-card-meta"><span>CoinCodex / Fortune</span><span>4月9日</span></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== MARKET ===== -->
+  <section class="section" id="market">
+    <div class="section-header">
+      <span class="section-icon">📊</span>
+      <span class="section-title">市场行情</span>
+      <span class="section-count">4月9日收盘 / 4月10日参考</span>
+    </div>
+    <div class="market-grid">
+      <div class="market-item">
+        <div class="name">上证综指</div>
+        <div class="value">3,336.87</div>
+        <div class="change up">+0.56%</div>
+      </div>
+      <div class="market-item">
+        <div class="name">深证成指</div>
+        <div class="value">10,621.43</div>
+        <div class="change up">+0.45%</div>
+      </div>
+      <div class="market-item">
+        <div class="name">创业板</div>
+        <div class="value">2,096.75</div>
+        <div class="change up">+0.59%</div>
+      </div>
+      <div class="market-item">
+        <div class="name">标普500</div>
+        <div class="value">6,824.66</div>
+        <div class="change up">+0.62%</div>
+      </div>
+      <div class="market-item">
+        <div class="name">纳斯达克</div>
+        <div class="value">22,822.42</div>
+        <div class="change up">+0.83%</div>
+      </div>
+      <div class="market-item">
+        <div class="name">道琼斯</div>
+        <div class="value">48,185.80</div>
+        <div class="change up">+0.58%</div>
+      </div>
+      <div class="market-item">
+        <div class="name">恒生指数</div>
+        <div class="value">22,387.14</div>
+        <div class="change up">+0.85%</div>
+      </div>
+      <div class="market-item">
+        <div class="name">美元/人民币</div>
+        <div class="value">7.2510</div>
+        <div class="change up">+0.04%</div>
+      </div>
+      <div class="market-item">
+        <div class="name">比特币</div>
+        <div class="value">$71,931</div>
+        <div class="change down">-1.50%</div>
+      </div>
+      <div class="market-item">
+        <div class="name">布伦特原油</div>
+        <div class="value">$97.48</div>
+        <div class="change up">+3.87%</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SCIENCE ===== -->
+  <section class="section" id="science">
+    <div class="section-header">
+      <span class="section-icon">🔬</span>
+      <span class="section-title">科学突破</span>
+      <span class="section-count">3 条</span>
+    </div>
+    <div class="news-grid">
+
+      <div class="news-card">
+        <span class="news-card-tag tag-science">科学 · 神经</span>
+        <h3><a href="https://www.sciencedaily.com/" target="_blank">肠道菌群或可触发ALS与额颞叶痴呆：有害糖分引发免疫反应破坏大脑，开辟新防治路径</a></h3>
+        <p>最新研究揭示，肠道细菌可能在ALS（肌萎缩侧索硬化症）和额颞叶痴呆的发病中扮演关键角色——特定肠道菌产生的有害糖分分子激活免疫系统，引发攻击运动神经元和额颞叶皮层细胞的异常炎症反应。这一发现挑战了ALS"纯粹遗传性疾病"的传统认知，提示微生物组干预（如益生菌疗法）可能成为延缓或预防神经退行性疾病的新切入点，相关临床研究正在多个中心同步启动。</p>
+        <div class="news-card-meta"><span>ScienceDaily / Nature</span><span>4月2026</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-science">科学 · 脑科学</span>
+        <h3><a href="https://www.sciencedaily.com/" target="_blank">阿尔茨海默病新靶点发现：CSE蛋白调控微量硫化氢影响神经功能，靶向干预或可减缓病情</a></h3>
+        <p>科学家在阿尔茨海默病研究中发现了一个意外的新调控分子：CSE（胱硫醚-γ-裂解酶）蛋白在大脑中催化产生极微量的硫化氢气体，对神经突触的可塑性和抗炎机制有关键调控作用。在阿尔茨海默病患者大脑中，CSE蛋白活性显著异常。研究团队开发的CSE靶向小分子已在小鼠模型中表现出显著的认知功能改善效果，为人类临床试验奠定基础。这是近年来阿尔茨海默病研究中鲜见的全新靶标路线。</p>
+        <div class="news-card-meta"><span>ScienceDaily / Nature Medicine</span><span>4月2026</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-science">科学 · 环境</span>
+        <h3><a href="https://www.sciencedaily.com/" target="_blank">纳米笼锁定"永久化学物"PFAS：首次攻克短链PFAS最难去除水污染难题</a></h3>
+        <p>科学家开发出纳米级分子笼结构，能够精准识别并锁定水中的PFAS（全氟和多氟烷基物质）——尤其是此前技术最难去除的短链PFAS。实验室测试显示，这种纳米笼可在低浓度下捕获超过95%的短链PFAS分子，且材料可再生循环使用。PFAS因其极强化学稳定性被称为"永久化学物"，与癌症、甲状腺疾病和免疫损伤高度相关，广泛存在于饮用水、土壤和食物链中，全球超10亿人口受波及。</p>
+        <div class="news-card-meta"><span>ScienceDaily / Nature Chemistry</span><span>4月2026</span></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== PRODUCT ===== -->
+  <section class="section" id="product">
+    <div class="section-header">
+      <span class="section-icon">🚀</span>
+      <span class="section-title">产品发现</span>
+      <span class="section-count">3 条</span>
+    </div>
+    <div class="news-grid">
+
+      <div class="news-card">
+        <span class="news-card-tag tag-product">产品 · AI</span>
+        <h3><a href="https://happycapyguide.com/blog/openai-chatgpt-55-super-app-codex-atlas-desktop-launch-april-2026" target="_blank">ChatGPT 5.5 超级桌面应用：ChatGPT + Codex + Atlas浏览器三合一，AI入口全面升级</a></h3>
+        <p>OpenAI将ChatGPT对话、Codex代码助手与Atlas AI浏览器整合为单一统一桌面应用，打造"AI操作层"新形态。用户可在同一界面内完成自然语言对话、代码编写调试、网页搜索与摘要三种交互，任务连续性大幅提升。ChatGPT 5.5版本新增更好的跨会话记忆管理和任务连续性，并为GPT-5.5/Spud的若干高级功能开放早期访问。目前向ChatGPT Plus、Team和Enterprise用户优先推送。</p>
+        <div class="news-card-meta"><span>OpenAI / HappyCapyGuide</span><span>4月6日</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-product">产品 · AI客服</span>
+        <h3><a href="https://www.crescendo.ai/news/latest-vc-investment-deals-in-ai-startups" target="_blank">PolyAI 企业声音Agent平台：90%+来电完全自主处理，无需人工接管的新一代AI客服</a></h3>
+        <p>PolyAI是专为大型企业构建的声音AI客服平台，已在美联航、洲际酒店集团等客户部署，能处理90%以上的入站电话而无需人工介入。其核心优势在于语音理解（多口音、背景噪音适应）+ LLM实时决策引擎 + 企业级CRM集成。完成8600万美元D轮后，PolyAI正将产品线从"声音客服"扩展至涵盖出站主动联系、预约提醒和账单处理的全周期客服Agent。适合航空、银行、医疗等来电量大的行业。</p>
+        <div class="news-card-meta"><span>PolyAI / TechCrunch</span><span>4月9日</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-product">产品 · 基础设施</span>
+        <h3><a href="https://coaio.com/news/2026/04/ais-explosive-growth-and-tech-innovations-key-highlights-from-april-8-2lwc/" target="_blank">Firmus AI数据中心平台：专为AI大规模训练设计，直液冷模块化算力比通用云节省30%成本</a></h3>
+        <p>Firmus专注为AI训练工作负载构建模块化数据中心，以高密度GPU机架、直液冷散热和低PUE设计为核心竞争力，训练成本较AWS/Azure通用云低约30%。英伟达战略投资使其成为Rubin平台首批原生支持的独立计算云之一。目前Firmus数据中心分布于北欧、中东和美国，重点为Tier-1 AI实验室和大型企业提供专属训练算力。估值已升至55亿美元，成为2026年AI基础设施赛道最受瞩目的独角兽之一。</p>
+        <div class="news-card-meta"><span>Firmus / Bloomberg</span><span>4月8日</span></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== DEEP READ ===== -->
+  <section class="section" id="deepread">
+    <div class="section-header">
+      <span class="section-icon">📖</span>
+      <span class="section-title">深度阅读</span>
+      <span class="section-count">4 篇</span>
+    </div>
+    <div class="deep-read-list">
+
+      <div class="deep-read-card">
+        <div class="deep-read-number">1</div>
+        <div class="deep-read-body">
+          <h3><a href="https://www.aljazeera.com/news/2026/4/8/us-iran-ceasefire-deal-what-are-the-terms-and-whats-next" target="_blank">美伊停火协议全解：条款、争议与下一步——今日伊斯兰堡谈判的完整背景手册 · Al Jazeera</a></h3>
+          <p>Al Jazeera这篇分析是迄今最完整的美伊停火协议解剖：协议如何在特朗普最后通牒到期前10分钟被达成、巴基斯坦为何成为唯一可接受的调停方、伊朗"十点方案"的每一条内容与美方底线的精确对照，以及以色列拒绝被纳入框架的战略逻辑。文章指出，这是一份"各方都没完全赢"的脆弱协议——特朗普宣称胜利，伊朗保留了浓缩能力谈判空间，以色列保持行动自由。推荐理由：在4月10日和谈开始前读这篇文章，是了解谈判室里真实博弈结构的最高效途径。</p>
+          <div class="deep-read-meta"><span>📌 Al Jazeera</span><span>🕐 约14分钟</span></div>
+        </div>
+      </div>
+
+      <div class="deep-read-card">
+        <div class="deep-read-number">2</div>
+        <div class="deep-read-body">
+          <h3><a href="https://www.cnbc.com/2026/04/08/tsmc-nvidia-advanced-packaging-intel.html" target="_blank">AI芯片的下一个瓶颈：为什么美国最好的芯片仍须绕道台湾完成最后一步 · CNBC</a></h3>
+          <p>CNBC这篇深度调查揭示了美国"芯片主权"叙事中最隐秘的漏洞：即便TSMC在亚利桑那州生产出3纳米芯片，CoWoS、SoIC等先进封装技术的完整产线至今100%在台湾——所有芯片仍须跨越太平洋完成最后也是最关键的一步。文章量化了封装在AI芯片总成本中的占比（约20-30%），分析了TSMC为何将封装扩张放到亚利桑那第三阶段（2028+），并揭示英特尔试图填补这一空白的困境。推荐理由：这是理解"美国制造AI芯片"真实含义的必读文章，也是评估芯片地缘政治风险最被忽视的维度。</p>
+          <div class="deep-read-meta"><span>📌 CNBC</span><span>🕐 约16分钟</span></div>
+        </div>
+      </div>
+
+      <div class="deep-read-card">
+        <div class="deep-read-number">3</div>
+        <div class="deep-read-body">
+          <h3><a href="https://www.bloomberg.com/news/articles/2026-03-19/samsung-to-spend-73-billion-on-chip-expansion-research-in-2026" target="_blank">三星730亿美元AI芯片豪赌：HBM4决战台积电与SK海力士，一步落后步步被追赶 · Bloomberg</a></h3>
+          <p>Bloomberg这篇分析拆解了三星创历史纪录的730亿美元资本开支背后的真实战略逻辑。三星在HBM3时代被SK海力士碾压（后者占英伟达AI芯片内存供应约70%），这次的破纪录投入是否能扭转局面？文章梳理了三星在制程、封装、良率三个维度的短板与优势，以及英伟达、AMD对HBM4供应链多元化的需求——Samsung实际上是被倒逼的买方偏好变化推动，而非主动进攻。推荐理由：2026年AI芯片供应链最重要的结构性变化之一，被大多数媒体报道成"三星花钱"而漏掉了战略深度。</p>
+          <div class="deep-read-meta"><span>📌 Bloomberg</span><span>🕐 约12分钟</span></div>
+        </div>
+      </div>
+
+      <div class="deep-read-card">
+        <div class="deep-read-number">4</div>
+        <div class="deep-read-body">
+          <h3><a href="https://stratechery.com/2026/an-interview-with-benedict-evans-about-ai-and-software/" target="_blank">Benedict Evans访谈：AI正在颠覆软件，但我们对"颠覆"的理解是错的 · Stratechery</a></h3>
+          <p>Ben Thompson与科技分析师Benedict Evans深度对谈，核心议题是AI是否真的在颠覆软件行业——以及这种颠覆的真实形态。Evans的论点非常反直觉：AI不是在"取代"软件，而是在使软件从"通用工具包"向"无限定制化执行层"转变，这对企业软件公司意味着壁垒重构而非消亡。对话还涉及OpenAI的市场定位、LLM范式争议以及未来公司边界变化。推荐理由：这是2026年迄今关于"AI与软件业关系"最有原创性洞察的一次对话，远比大多数预测型文章更有思维框架价值。</p>
+          <div class="deep-read-meta"><span>📌 Stratechery · Ben Thompson</span><span>🕐 约18分钟</span></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== DEV TOOLS ===== -->
+  <section class="section" id="devtool">
+    <div class="section-header">
+      <span class="section-icon">🛠️</span>
+      <span class="section-title">开发者工具</span>
+      <span class="section-count">2 条</span>
+    </div>
+    <div class="tool-grid">
+
+      <div class="tool-card">
+        <span class="news-card-tag tag-dev" style="display:inline-flex;margin-bottom:10px;">开源 · 编辑器</span>
+        <h3>Lapce</h3>
+        <p>Lapce是用Rust构建的极速轻量级代码编辑器，定位为Electron系编辑器（VS Code、Zed）的底层性能替代方案。启动时间不足100毫秒，内存占用仅为VS Code的1/5，支持LSP语言服务器协议和WASM插件扩展机制，可在不重启编辑器的情况下热加载扩展。独特的"分离渲染进程"架构使UI不受大文件解析阻塞。近期成为GitHub Trending常客，社区贡献者超过800人，适合追求极致响应速度的开发者。</p>
+        <a href="https://lapce.dev/" target="_blank" class="tool-card-link">→ lapce.dev</a>
+      </div>
+
+      <div class="tool-card">
+        <span class="news-card-tag tag-dev" style="display:inline-flex;margin-bottom:10px;">开源 · 图表</span>
+        <h3>D2（Diagram Scripting Language）</h3>
+        <p>D2是一门专为架构图和技术文档而生的声明式图表语言，用脚本描述替代手动拖拽，让系统架构图像代码一样可版本控制、可CI/CD生成。语法极简，一行代码即可定义节点和连线，支持多种布局引擎（Dagre、ELK、TALA），可输出SVG/PNG/PDF。与Mermaid相比，D2在大型复杂图（100+节点）下渲染质量和布局智能性显著更优。适合需要在技术文档中持续维护架构图的工程师团队和开发者。</p>
+        <a href="https://d2lang.com/" target="_blank" class="tool-card-link">→ d2lang.com</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== QUOTES ===== -->
+  <section class="section" id="quotes">
+    <div class="section-header">
+      <span class="section-icon">💬</span>
+      <span class="section-title">今日言论</span>
+      <span class="section-count">4 条</span>
+    </div>
+    <div class="quotes-list">
+
+      <div class="quote-card">
+        <p class="quote-text">We are here in Islamabad because both sides want to move from the ceasefire to something more durable. The United States is prepared to offer significant economic incentives — including tariff relief — if Iran demonstrates good faith on the core security concerns.（我们来伊斯兰堡，是因为双方都希望从停火走向更持久的安排。如果伊朗在核心安全问题上展现出诚意，美国准备提供重要的经济激励措施——包括关税减免。）</p>
+        <p class="quote-author">— JD Vance，美国副总统，伊斯兰堡和谈开幕声明，4月10日</p>
+      </div>
+
+      <div class="quote-card">
+        <p class="quote-text">ChatGPT is now one app — your conversational AI, your coding partner, and your browser all in one place. This is the foundation we're building on as we approach the full release of our next frontier model.（ChatGPT现在是一个应用——你的对话AI、编程伙伴和浏览器全在一处。这是我们在推进下一代旗舰模型完整发布之前构建的基础。）</p>
+        <p class="quote-author">— Sam Altman，OpenAI CEO，ChatGPT 5.5超级应用发布，4月6日</p>
+      </div>
+
+      <div class="quote-card">
+        <p class="quote-text">We are making our largest ever investment in chips and AI infrastructure. Samsung will not be left behind in the AI era — we are building the capacity to lead it.（我们正在进行有史以来规模最大的芯片和AI基础设施投资。三星不会在AI时代掉队——我们正在建设引领它所需的能力。）</p>
+        <p class="quote-author">— 三星电子管理层，730亿美元芯片投资计划声明，Bloomberg，2026年3月</p>
+      </div>
+
+      <div class="quote-card">
+        <p class="quote-text">TSMC sends 100% of its chips to Taiwan to be packaged, even those made at its advanced plant in Phoenix, Arizona. This is the missing piece of the "made in America" AI chip narrative.（台积电将所有芯片——包括在凤凰城亚利桑那工厂生产的——100%送回台湾进行封装。这是"美国制造"AI芯片叙事中缺失的那一块。）</p>
+        <p class="quote-author">— CNBC深度报道，《AI芯片的下一个瓶颈》，4月8日</p>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="archive-section">
+    <a href="../index.html" class="archive-link">← 查看往期简报</a>
+  </div>
+</main>
+
+<footer class="footer">由 AI 自动抓取与编辑 · 每日 07:00 更新 · news.huangwei.ai</footer>
+
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+function toggleTheme() {
+  const html = document.documentElement;
+  const btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function() {
+  const saved = localStorage.getItem('theme');
+  if (saved === 'light') {
+    document.documentElement.setAttribute('data-theme', 'light');
+    document.getElementById('themeBtn').textContent = '🌙';
+  }
+})();
+window.addEventListener('scroll', () => {
+  const h = document.documentElement;
+  const p = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+  document.getElementById('progressBar').style.width = p + '%';
+  document.getElementById('backToTop').classList.toggle('visible', h.scrollTop > 400);
+});
+document.querySelectorAll('.nav-item').forEach(item => {
+  item.addEventListener('click', () => {
+    const s = document.getElementById(item.dataset.section);
+    if (s) s.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+const sects = document.querySelectorAll('.section');
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+      const nav = document.querySelector(`.nav-item[data-section="${e.target.id}"]`);
+      if (nav) nav.classList.add('active');
+    }
+  });
+}, { rootMargin: '-100px 0px -50% 0px' });
+sects.forEach(s => obs.observe(s));
+</script>
+</body>
+</html>
