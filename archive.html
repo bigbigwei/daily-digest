@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>往期归档 — Daily Digest</title>
+<meta name="description" content="每日简报全部往期归档，AI · 科技 · 财经">
+<style>
+:root[data-theme="dark"] {
+  --bg: #000000;
+  --bg-card: #111111;
+  --bg-card-hover: #1a1a1a;
+  --text: #f0f0f0;
+  --text-secondary: #999999;
+  --text-muted: #555555;
+  --border: #222222;
+  --accent: #00d4ff;
+  --accent-glow: rgba(0,212,255,0.15);
+  --shadow-hover: 0 8px 40px rgba(0,212,255,0.06), 0 0 0 1px rgba(255,255,255,0.08);
+  --input-bg: #0d0d0d;
+}
+:root[data-theme="light"] {
+  --bg: #fafafa;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f5f5f5;
+  --text: #111111;
+  --text-secondary: #666666;
+  --text-muted: #999999;
+  --border: #e8e8e8;
+  --accent: #0066ff;
+  --accent-glow: rgba(0,102,255,0.08);
+  --shadow-hover: 0 8px 30px rgba(0,0,0,0.08);
+  --input-bg: #f5f5f5;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", "Segoe UI", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  transition: background 0.4s, color 0.4s;
+}
+a { color: inherit; text-decoration: none; }
+
+/* Topbar */
+.topbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 14px 32px;
+  display: flex; justify-content: space-between; align-items: center;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+[data-theme="light"] .topbar { background: rgba(255,255,255,0.9); }
+.topbar-left { display: flex; align-items: center; gap: 16px; }
+.topbar-brand { font-size: 13px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--text-secondary); }
+.topbar-back { font-size: 13px; color: var(--accent); }
+.theme-toggle {
+  background: none; border: 1px solid var(--border); color: var(--text-secondary);
+  width: 34px; height: 34px; border-radius: 50%; cursor: pointer; font-size: 15px;
+  display: flex; align-items: center; justify-content: center; transition: all 0.2s;
+}
+.theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
+
+/* Page */
+.page { max-width: 860px; margin: 0 auto; padding: 100px 32px 80px; }
+
+/* Header */
+.page-header { margin-bottom: 48px; }
+.page-header h1 { font-size: 40px; font-weight: 800; letter-spacing: -1.5px; margin-bottom: 10px; }
+.page-header p { font-size: 16px; color: var(--text-secondary); }
+.stats-row {
+  display: flex; gap: 24px; margin-top: 20px; flex-wrap: wrap;
+}
+.stat { font-size: 13px; color: var(--text-muted); }
+.stat span { color: var(--accent); font-weight: 700; font-size: 22px; display: block; margin-bottom: 2px; }
+
+/* Search */
+.search-wrap { position: relative; margin-bottom: 40px; }
+.search-input {
+  width: 100%;
+  background: var(--input-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 20px 14px 48px;
+  font-size: 15px;
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.2s;
+  font-family: inherit;
+}
+.search-input::placeholder { color: var(--text-muted); }
+.search-input:focus { border-color: var(--accent); }
+.search-icon {
+  position: absolute; left: 16px; top: 50%; transform: translateY(-50%);
+  color: var(--text-muted); font-size: 16px; pointer-events: none;
+}
+.search-count {
+  position: absolute; right: 16px; top: 50%; transform: translateY(-50%);
+  font-size: 12px; color: var(--text-muted);
+}
+
+/* Month group */
+.month-group { margin-bottom: 48px; }
+.month-label {
+  font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--text-muted); margin-bottom: 16px;
+  display: flex; align-items: center; gap: 12px;
+}
+.month-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+/* Archive item */
+.archive-item {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-bottom: 10px;
+  transition: all 0.25s;
+  cursor: pointer;
+}
+.archive-item:hover {
+  background: var(--bg-card-hover);
+  border-color: rgba(0,212,255,0.25);
+  box-shadow: var(--shadow-hover);
+  transform: translateX(4px);
+}
+.archive-item.hidden { display: none; }
+.issue-num {
+  font-size: 13px; font-weight: 700; color: var(--accent);
+  opacity: 0.5; min-width: 52px; font-variant-numeric: tabular-nums;
+  letter-spacing: -0.5px;
+}
+.issue-body { flex: 1; min-width: 0; }
+.issue-title {
+  font-size: 16px; font-weight: 600; line-height: 1.45;
+  margin-bottom: 4px; letter-spacing: -0.2px;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.issue-meta { font-size: 12px; color: var(--text-muted); }
+.issue-right {
+  text-align: right; flex-shrink: 0; margin-left: 20px;
+}
+.issue-date {
+  font-size: 13px; color: var(--text-secondary);
+  font-variant-numeric: tabular-nums; margin-bottom: 4px;
+}
+.issue-arrow {
+  font-size: 13px; color: var(--accent); opacity: 0;
+  transition: opacity 0.2s;
+}
+.archive-item:hover .issue-arrow { opacity: 1; }
+
+/* No results */
+.no-results {
+  text-align: center; padding: 60px 0; color: var(--text-muted); display: none;
+}
+.no-results.visible { display: block; }
+
+/* Back to top */
+.back-to-top {
+  position: fixed; bottom: 24px; right: 24px;
+  width: 42px; height: 42px; border-radius: 50%;
+  background: var(--bg-card); border: 1px solid var(--border);
+  color: var(--accent); cursor: pointer; font-size: 18px;
+  opacity: 0; transform: translateY(20px); transition: all 0.3s; z-index: 99;
+}
+.back-to-top.visible { opacity: 1; transform: translateY(0); }
+.back-to-top:hover { background: var(--accent); color: #000; border-color: var(--accent); }
+
+/* Footer */
+.footer { text-align: center; padding: 32px; font-size: 13px; color: var(--text-muted); border-top: 1px solid var(--border); }
+
+/* Responsive */
+@media (max-width: 640px) {
+  .page { padding: 88px 20px 60px; }
+  .page-header h1 { font-size: 28px; }
+  .issue-title { font-size: 14px; }
+  .topbar { padding: 12px 20px; }
+  .archive-item { padding: 16px 18px; }
+  .issue-num { min-width: 40px; font-size: 12px; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .archive-item { animation: fadeUp 0.35s ease backwards; }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-left">
+    <a href="index.html" class="topbar-back">← 首页</a>
+    <span class="topbar-brand">Daily Digest</span>
+  </div>
+  <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">☀️</button>
+</div>
+
+<div class="page">
+  <div class="page-header">
+    <h1>往期归档</h1>
+    <p>每日 07:00 自动生成 · AI · 科技 · 财经</p>
+    <div class="stats-row">
+      <div class="stat"><span id="totalIssues">13</span>期简报</div>
+      <div class="stat"><span>2</span>个月</div>
+      <div class="stat"><span>~450</span>条资讯</div>
+    </div>
+  </div>
+
+  <!-- Search -->
+  <div class="search-wrap">
+    <span class="search-icon">🔍</span>
+    <input
+      class="search-input"
+      type="text"
+      id="searchInput"
+      placeholder="搜索关键词，如「OpenAI」「芯片」「停火」…"
+      autocomplete="off"
+    />
+    <span class="search-count" id="searchCount"></span>
+  </div>
+
+  <!-- Archive list -->
+  <div id="archiveList">
+
+    <!-- ===== 2026年4月 ===== -->
+    <div class="month-group" data-month="2026-04">
+      <div class="month-label">2026年4月 · 11期</div>
+
+      <a class="archive-item" href="posts/2026-04-11.html"
+         data-title="Anthropic年化营收破300亿·AI监管联邦博弈·Cursor估值飙至600亿"
+         data-keywords="Anthropic CoreWeave 芯片 监管 Cursor Anysphere ElevenLabs">
+        <div class="issue-num">No.13</div>
+        <div class="issue-body">
+          <div class="issue-title">Anthropic年化营收破300亿·AI监管联邦博弈·Cursor估值飙至600亿</div>
+          <div class="issue-meta">34条资讯 · 4篇深度 · 18个信源</div>
+        </div>
+        <div class="issue-right">
+          <div class="issue-date">2026.04.11</div>
+          <div class="issue-arrow">→</div>
+        </div>
+      </a>
+
+      <a class="archive-item" href="posts/2026-04-10.html"
+         data-title="伊斯兰堡和谈开幕·ChatGPT 5.5超级应用·三星730亿AI芯片豪赌"
+         data-keywords="伊斯兰堡 和谈 ChatGPT 5.5 三星 芯片 Spirit AI 机器人">
+        <div class="issue-num">No.12</div>
+        <div class="issue-body">
+          <div class="issue-title">伊斯兰堡和谈开幕·ChatGPT 5.5超级应用·三星730亿AI芯片豪赌</div>
+          <div class="issue-meta">34条资讯 · 4篇深度 · 19个信源</div>
+        </div>
+        <div class="issue-right">
+          <div class="issue-date">2026.04.10</div>
+          <div class="issue-arrow">→</div>
+        </div>
+      </a>
+
+      <a class="archive-item" href="posts/2026-04-09.html"
+         data-title="停火余波·Meta超智能首炮·Mythos网络安全专属"
+         data-keywords="停火 Meta Muse Spark Mythos Project Glasswing 网络安全 Legora">
+        <div class="issue-num">No.11</div>
+        <div class="issue-body">
+          <div class="issue-title">停火余波·Meta超智能首炮·Mythos网络安全专属</div>
+          <div class="issue-meta">33条资讯 · 4篇深度 · 20个信源</div>
+        </div>
+        <div class="issue-right">
+          <div class="issue-date">2026.04.09</div>
+          <div class="issue-arrow">→</div>
+        </div>
+      </a>
+
+      <a class="archive-item" href="posts/2026-04-08.html"
+         data-title="美伊最终摊牌·AI战机独角兽·编码基准趋同"
+         data-keywords="美伊 停火 Shield AI 战机 编码 Claude Opus Chatbot Arena">
+        <div class="issue-num">No.10</div>
+        <div class="issue-body">
+          <div class="issue-title">美伊最终摊牌·AI战机独角兽·编码基准趋同</div>
+          <div class="issue-meta">32条资讯 · 4篇深度 · 16个信源</div>
+        </div>
+        <div class="issue-right">
+          <div class="issue-date">2026.04.08</div>
+          <div class="issue-arrow">→</div>
+        </div>
+      </a>
+
+      <a class="archive-item" href="posts/2026-04-07.html"
+         data-title="Sora终结·停火博弈·AI就业警报"
+         data-keywords="Sora OpenAI 停火 就业 霍尔木兹 地缘">
+        <div class="issue-num">No.9</div>
+        <div class="issue-body">
+          <div class="issue-title">Sora终结·停火博弈·AI就业警报</div>
+          <div class="issue-meta">35条资讯 · 5篇深度 · 17个信源</div>
+        </div>
+        <div class="issue-right">
+          <div class="issue-date">2026.04.07</div>
+          <div class="issue-arrow">→</div>
+        </div>
+      </a>
+
+      <a class="archive-item" href="posts/2026-04-06.html"
+         data-title="OpenAI倡议机器人税，宇航员打破距离纪录飞越月球"
+         data-keywords="OpenAI 机器人税 宇航员 月球 Artemis 就业 经济">
+        <div class="issue-num">No.8</div>
+        <div class="issue-body">
+          <div class="issue-title">OpenAI倡议机器人税，宇航员打破距离纪录飞越月球</div>
+          <div class="issue-meta">30条资讯 · 4篇深度 · 16个信源</div>
+        </div>
+        <div class="issue-right">
+          <div class="issue-date">2026.04.06</div>
+          <div class="issue-arrow">→</div>
+        </div>
+      </a>
+
+      <a class="archive-item" href="posts/2026-04-05.html"
+         data-title="特朗普伊朗最后通牒，Artemis II奔月在途"
+         data-keywords="特朗普 伊朗 最后通牒 Artemis 月球 油价 制裁">
+        <div class="issue-num">No.7</div>
+        <div class="issue-body">
+          <div class="issue-title">特朗普伊朗最后通牒，Artemis II奔月在途</div>
+          <div class="issue-meta">32条资讯 · 4篇深度 · 15个信源</div>
+        </div>
+        <div class="issue-right">
+          <div class="issue-date">2026.04.05</div>
+          <div class="issue-arrow">→</div>
+        </div>
+      </a>
+
+      <a class="archive-item" href="posts/2026-04-04.html"
+         data-title="就业强势超预期，微软押注AI自主权"
+         data-keywords="就业 非农 微软 MAI 模型 AI自主权 经济">
+        <div class="issue-num">No.6</div>
+        <div class="issue-body">
+          <div class="issue-title">就业强势超预期，微软押注AI自主权</div>
+          <div class="issue-meta">34条资讯 · 4篇深度 · 16个信源</div>
+        </div>
+        <div class="issue-right">
+          <div class="issue-date">2026.04.04</div>
+          <div class="issue-arrow">→</div>
+        </div>
+      </a>
+
+      <a class="archive-item" href="posts/2026-04-03.html"
+         data-title="霍尔木兹危机倒计时，Cursor 3重塑AI编程格局"
+         data-keywords="霍尔木兹 油价 危机 Cursor Glass AI编程 代码">
+        <div class="issue-num">No.5</div>
+        <div class="issue-body">
+          <div class="issue-title">霍尔木兹危机倒计时，Cursor 3重塑AI编程格局</div>
+          <div class="issue-meta">33条资讯 · 4篇深度 · 18个信源</div>
+        </div>
+        <div class="issue-right">
+          <div class="issue-date">2026.04.03</div>
+          <div class="issue-arrow">→</div>
+        </div>
+      </a>
+
+      <a class="archive-item" href="posts/2026-04-02.html"
+         data-title="Perplexity隐私丑闻震动AI行业，苹果庆祝50岁生日"
+         data-keywords="Perplexity 隐私 苹果 Apple 50周年 数据 AI">
+        <div class="issue-num">No.4</div>
+        <div class="issue-body">
+          <div class="issue-title">Perplexity隐私丑闻震动AI行业，苹果庆祝50岁生日</div>
+          <div class="issue-meta">35条资讯 · 4篇深度 · 17个信源</div>
+        </div>
+        <div class="issue-right">
+          <div class="issue-date">2026.04.02</div>
+          <div class="issue-arrow">→</div>
+        </div>
+      </a>
+
+      <a class="archive-item" href="posts/2026-04-01.html"
+         data-title="伊朗向美科技巨头发最后通牒，OpenAI完成史上最大融资"
+         data-keywords="伊朗 科技巨头 OpenAI 融资 122亿 最后通牒 制裁">
+        <div class="issue-num">No.3</div>
+        <div class="issue-body">
+          <div class="issue-title">伊朗向美科技巨头发最后通牒，OpenAI完成史上最大融资</div>
+          <div class="issue-meta">36条资讯 · 5篇深度 · 18个信源</div>
+        </div>
+        <div class="issue-right">
+          <div class="issue-date">2026.04.01</div>
+          <div class="issue-arrow">→</div>
+        </div>
+      </a>
+    </div>
+
+    <!-- ===== 2026年3月 ===== -->
+    <div class="month-group" data-month="2026-03">
+      <div class="month-label">2026年3月 · 2期</div>
+
+      <a class="archive-item" href="posts/2026-03-31.html"
+         data-title="油价飙升与AI军备竞赛"
+         data-keywords="油价 AI 军备 竞赛 能源 算力">
+        <div class="issue-num">No.2</div>
+        <div class="issue-body">
+          <div class="issue-title">油价飙升与AI军备竞赛</div>
+          <div class="issue-meta">35条资讯 · 4篇深度 · 18个信源</div>
+        </div>
+        <div class="issue-right">
+          <div class="issue-date">2026.03.31</div>
+          <div class="issue-arrow">→</div>
+        </div>
+      </a>
+
+      <a class="archive-item" href="posts/2026-03-30.html"
+         data-title="算力回流应用"
+         data-keywords="算力 应用 AI 大模型 推理">
+        <div class="issue-num">No.1</div>
+        <div class="issue-body">
+          <div class="issue-title">算力回流应用</div>
+          <div class="issue-meta">首期 · 2026年3月30日</div>
+        </div>
+        <div class="issue-right">
+          <div class="issue-date">2026.03.30</div>
+          <div class="issue-arrow">→</div>
+        </div>
+      </a>
+    </div>
+
+  </div><!-- end archiveList -->
+
+  <div class="no-results" id="noResults">
+    <p style="font-size:32px;margin-bottom:12px">🔍</p>
+    <p>没有找到匹配的期次</p>
+    <p style="font-size:13px;margin-top:8px;color:var(--text-muted)">试试其他关键词</p>
+  </div>
+
+</div>
+
+<footer class="footer">由 AI 自动抓取与编辑 · 每日 07:00 更新 · news.huangwei.ai</footer>
+
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+// Theme
+function toggleTheme() {
+  const html = document.documentElement;
+  const btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function() {
+  const saved = localStorage.getItem('theme');
+  if (saved === 'light') {
+    document.documentElement.setAttribute('data-theme', 'light');
+    document.getElementById('themeBtn').textContent = '🌙';
+  }
+})();
+
+// Back to top
+window.addEventListener('scroll', () => {
+  document.getElementById('backToTop').classList.toggle('visible', window.scrollY > 300);
+});
+
+// Search
+const searchInput = document.getElementById('searchInput');
+const searchCount = document.getElementById('searchCount');
+const noResults = document.getElementById('noResults');
+const items = document.querySelectorAll('.archive-item');
+const monthGroups = document.querySelectorAll('.month-group');
+
+searchInput.addEventListener('input', function() {
+  const q = this.value.trim().toLowerCase();
+  let visible = 0;
+
+  items.forEach(item => {
+    const title = (item.dataset.title || '').toLowerCase();
+    const keywords = (item.dataset.keywords || '').toLowerCase();
+    const issueNum = item.querySelector('.issue-num').textContent.toLowerCase();
+    const match = !q || title.includes(q) || keywords.includes(q) || issueNum.includes(q);
+    item.classList.toggle('hidden', !match);
+    if (match) visible++;
+  });
+
+  // Hide month groups with no visible items
+  monthGroups.forEach(group => {
+    const anyVisible = [...group.querySelectorAll('.archive-item')].some(i => !i.classList.contains('hidden'));
+    group.style.display = anyVisible ? '' : 'none';
+  });
+
+  if (q) {
+    searchCount.textContent = `${visible} 条结果`;
+    noResults.classList.toggle('visible', visible === 0);
+  } else {
+    searchCount.textContent = '';
+    noResults.classList.remove('visible');
+    monthGroups.forEach(g => g.style.display = '');
+  }
+});
+</script>
+</body>
+</html>
