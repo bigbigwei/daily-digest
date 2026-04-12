@@ -33,7 +33,10 @@
     "Temporal 2.0",
     "TurboQuant",
     "oh-my-codex (OMX)",
-    "tinyGPU（Tiny Corp）"
+    "tinyGPU（Tiny Corp）",
+    "Hermes Agent（Nous Research）",
+    "Graphify（GraphRAG知识图谱技能）",
+    "Claudoscope"
   ],
   "used_products": [
     "AI营销Agent：自动化全链路网红营销，Product Hunt 4月热门",
@@ -80,7 +83,10 @@
     "WarClaw by Edgerunner：军事专属AI Agent，拒绝通用大模型",
     "WideframeAI Coworker：AI视频编辑协作伙伴，支持多人异步AI协作创作",
     "Wispr Flow for Android：100+语言AI自然语音输入，全设备重塑输入体验",
-    "traceAI：开源LLM链路追踪工具，专为生成式AI而生而非HTTP日志"
+    "traceAI：开源LLM链路追踪工具，专为生成式AI而生而非HTTP日志",
+    "Exa AI搜索引擎：专为AI Agent设计的神经语义搜索，$8500万B轮$7亿估值",
+    "Claudoscope：macOS菜单栏Claude Code全景仪表盘，零遥测本地运行MIT开源",
+    "Graphify：代码库GraphRAG知识图谱技能，让AI编程助手理解跨模块依赖"
   ],
   "used_deepreads": [
     "100x Less Power: The Breakthrough That Could Solve AI's Massive Energy Crisis — SciTechDaily",
@@ -138,7 +144,11 @@
     "霍尔木兹关闭：历史上最大能源冲击的量化解析 — Bloomberg Graphics",
     "量子+AI的安全时间炸弹：世界还没准备好 · Time Magazine",
     "AI芯片的下一个瓶颈：为什么美国最好的芯片仍须绕道台湾完成最后一步 · CNBC",
-    "三星730亿美元AI芯片豪赌：HBM4决战台积电与SK海力士 · Bloomberg"
+    "三星730亿美元AI芯片豪赌：HBM4决战台积电与SK海力士 · Bloomberg",
+    "台积电Q1 2026 $357亿营收全解析：AI芯片需求如何独撑一个产业穿越战争 — Analytics Drift",
+    "3月CPI通胀拆解：能源的战争溢价有多深，核心通胀告诉我们什么 — CNBC",
+    "Hermes Agent v0.7.0深度解读：自我进化的开源AI Agent框架，真正意义上的持久记忆与技能自写 — DEV Community",
+    "UNCTAD全球贸易4月更新：增长持续但脆弱性上升——全球供应链碎片化的量化代价 — UNCTAD"
   ],
   "recent_topics": [
     "苹果AI换帅Giannandrea退休，Amar Subramanya接棒Apple Intelligence",
@@ -163,6 +173,21 @@
     "Q1 2026全球VC融资3000亿美元创历史纪录，AI独揽绝对多数",
     "A股创业板大涨5.91%，深圳国际电子展科技板块催化",
     "Poke AI Agent通过iMessage/SMS接入，消费者AI助手新入口",
-    "NeuBird获1930万融资，AI消灭SRE工程师告警疲劳"
+    "NeuBird获1930万融资，AI消灭SRE工程师告警疲劳",
+    "美国3月CPI同比3.3%通胀反弹能源价格伊朗战争",
+    "TSMC台积电Q1营收357亿同比35%创纪录AI芯片",
+    "GPT-5.5 Spud OpenAI发布倒计时Polymarket 78%",
+    "美联储零降息政策分歧利率3.5%",
+    "Exa AI搜索引擎8500万B轮700M估值Agent",
+    "Hermes Agent v0.7.0 Nous Research自进化框架",
+    "Graphify GraphRAG代码库知识图谱编程工具",
+    "Claudoscope macOS Claude Code仪表盘",
+    "Claude Mythos Project Glasswing零日漏洞",
+    "NVIDIA TSMC CoWoS封装产能美国AI主权",
+    "Terafab Tesla SpaceX xAI Intel 1TW算力",
+    "Google Workspace Gemini Veo 3.1 Gmail E2EE",
+    "UNCTAD全球贸易碎片化脆弱性上升",
+    "美股周度标普3.6%纳指4.7%停火CPI震荡",
+    "英国临床试验法规改革单一申请加速审批"
   ]
 }
