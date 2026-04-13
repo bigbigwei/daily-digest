@@ -39,7 +39,9 @@
     "Claudoscope",
     "OpenCode",
     "markitdown（Microsoft）",
-    "DevToys 2.0"
+    "DevToys 2.0",
+    "Archon（AI编码Harness构建器）",
+    "Rowboat（rowboatlabs）"
   ],
   "used_products": [
     "AI营销Agent：自动化全链路网红营销，Product Hunt 4月热门",
@@ -92,7 +94,10 @@
     "Graphify：代码库GraphRAG知识图谱技能，让AI编程助手理解跨模块依赖",
     "Linear Asks Web Forms：将团队申请无缝带入Linear工作流的零摩擦协作工具",
     "Google Antigravity IDE：Agent原生开发环境，多Agent并行构建应用",
-    "Kagi Search Assistant：订阅制零广告搜索引擎，AI摘要与来源可信度评分"
+    "Kagi Search Assistant：订阅制零广告搜索引擎，AI摘要与来源可信度评分",
+    "Rowboat：开源AI工作搭档，知识图谱记忆让AI真正记住工作历史",
+    "Customer.io：AI驱动的多渠道消息自动化平台，统一Email/SMS/Push/In-App全链路",
+    "Baton：AI编码Agent编排工具，多Agent并行执行复杂任务的可视化调度平台"
   ],
   "used_deepreads": [
     "100x Less Power: The Breakthrough That Could Solve AI's Massive Energy Crisis — SciTechDaily",
@@ -158,22 +163,13 @@
     "Meta牺牲了它的开源身份换取竞争力吗？Muse Spark背后的代价与赌注 — AI News",
     "国家机器人周深度报告：物理AI从实验室走向工厂的真实路径与距离 — NVIDIA Blog",
     "Cerebras IPO解析：晶圆级AI芯片如何用延迟优势挑战NVIDIA H100推理霸权 — MarketWise",
-    "中美进入脆弱休战期：北京峰会后供应链重组机会与下一次摩擦的引爆点 — Bloomberg"
+    "中美进入脆弱休战期：北京峰会后供应链重组机会与下一次摩擦的引爆点 — Bloomberg",
+    "2026.15: Myth and Mythos — Stratechery · Ben Thompson",
+    "Spotify Earnings, Individualized Networks, AI and Aggregation — Stratechery · Ben Thompson",
+    "Harness Engineering: The Future of AI Coding Workflows — Frank's World of Data Science & AI",
+    "Apple's 2026 Executive Shuffle Is Only the Beginning as Cook Nears Retirement — AppleInsider"
   ],
   "recent_topics": [
-    "Anthropic与CoreWeave签多年GPU云协议，年化营收突破300亿美元",
-    "Anthropic探索自研AI芯片，算力主权竞赛蔓延至模型公司",
-    "Google Gemini API推出Flex与Priority推理定价分层",
-    "OpenAI正式退役GPT-4o，全平台切换GPT-5.x系列",
-    "美国AI监管联邦-州级博弈加剧，600+州级AI法案与特朗普行政令正面冲突",
-    "Cursor（Anysphere）ARR破20亿美元，估值冲击500-600亿",
-    "ElevenLabs完成5亿美元D轮融资，估值110亿，声音AI赛道独角兽化",
-    "Q1 2026全球VC融资3000亿美元创历史纪录，AI独揽绝对多数",
-    "A股创业板大涨5.91%，深圳国际电子展科技板块催化",
-    "Poke AI Agent通过iMessage/SMS接入，消费者AI助手新入口",
-    "NeuBird获1930万融资，AI消灭SRE工程师告警疲劳",
-    "美国3月CPI同比3.3%通胀反弹能源价格伊朗战争",
-    "TSMC台积电Q1营收357亿同比35%创纪录AI芯片",
     "GPT-5.5 Spud OpenAI发布倒计时Polymarket 78%",
     "美联储零降息政策分歧利率3.5%",
     "Exa AI搜索引擎8500万B轮700M估值Agent",
@@ -194,7 +190,15 @@
     "科技裁员78557人AI驱动自动化近半数",
     "中美贸易休战北京峰会关税30%稀土出口管制暂停",
     "标普500跌1.03%纳斯达克微涨比特币黄金双杀",
-    "纳米圆盘HIV埃博拉疫苗抗原抗体结构",
-    "哈勃张力宇宙膨胀速率5个标准差精确测量"
+    "霍尔木兹封锁令美国海军4月14日生效布伦特原油103美元",
+    "高盛警告布伦特全年百美元欧央行滞胀风险",
+    "OpenAI Spud GPT-5.5发布窗口4月14日核心期Polymarket 90%",
+    "Microsoft MAI-Image-2文生图Arena.ai第三",
+    "Anthropic Claude Managed Agents控制台CLI Agent部署",
+    "Spirit AI中国具身智能42亿融资雷军马云",
+    "Apple高管洗牌Giannandrea出走John Ternus接班",
+    "Oracle Customer Edge Summit Opower AI 3.69亿美元节省",
+    "英国临床试验监管改革统一审批20年最大变革",
+    "费米实验室Mu2e探测器μ子转变电子粒子物理标准模型"
   ]
 }

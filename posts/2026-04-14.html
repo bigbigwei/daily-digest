@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>霍尔木兹封锁令生效·布伦特突破103美元·Spud发布窗口今日开启 · 每日简报</title>
+<style>
+:root[data-theme="dark"] {
+  --bg: #000000; --bg-elevated: #0a0a0a; --bg-card: #111111; --bg-card-hover: #1a1a1a;
+  --text: #f0f0f0; --text-secondary: #999999; --text-muted: #555555; --border: #222222;
+  --accent: #00d4ff; --accent-dim: rgba(0,212,255,0.1); --accent-glow: rgba(0,212,255,0.15);
+  --tag-ai: #a78bfa; --tag-ai-bg: rgba(167,139,250,0.12);
+  --tag-tech: #22d3ee; --tag-tech-bg: rgba(34,211,238,0.1);
+  --tag-finance: #fbbf24; --tag-finance-bg: rgba(251,191,36,0.1);
+  --tag-science: #34d399; --tag-science-bg: rgba(52,211,153,0.1);
+  --tag-product: #fb7185; --tag-product-bg: rgba(251,113,133,0.1);
+  --tag-dev: #818cf8; --tag-dev-bg: rgba(129,140,248,0.1);
+  --up: #ef4444; --down: #22c55e;
+  --shadow: 0 0 0 1px rgba(255,255,255,0.04);
+  --shadow-hover: 0 8px 40px rgba(0,212,255,0.06), 0 0 0 1px rgba(255,255,255,0.08);
+  --radius: 12px;
+}
+:root[data-theme="light"] {
+  --bg: #fafafa; --bg-elevated: #ffffff; --bg-card: #ffffff; --bg-card-hover: #f5f5f5;
+  --text: #111111; --text-secondary: #666666; --text-muted: #999999; --border: #e8e8e8;
+  --accent: #0066ff; --accent-dim: rgba(0,102,255,0.06); --accent-glow: rgba(0,102,255,0.08);
+  --tag-ai: #7c3aed; --tag-ai-bg: rgba(124,58,237,0.08);
+  --tag-tech: #0891b2; --tag-tech-bg: rgba(8,145,178,0.08);
+  --tag-finance: #d97706; --tag-finance-bg: rgba(217,119,6,0.08);
+  --tag-science: #059669; --tag-science-bg: rgba(5,150,105,0.08);
+  --tag-product: #e11d48; --tag-product-bg: rgba(225,29,72,0.08);
+  --tag-dev: #4f46e5; --tag-dev-bg: rgba(79,70,229,0.08);
+  --up: #dc2626; --down: #16a34a;
+  --shadow: 0 1px 3px rgba(0,0,0,0.06); --shadow-hover: 0 8px 30px rgba(0,0,0,0.08);
+  --radius: 12px;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Inter","Segoe UI",sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;transition:background 0.4s,color 0.4s;}
+a{color:var(--accent);text-decoration:none;transition:opacity 0.2s;}
+a:hover{opacity:0.8;}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--accent);z-index:200;width:0%;transition:width 0.1s;}
+.topbar{position:fixed;top:0;left:0;right:0;z-index:100;padding:14px 32px;display:flex;justify-content:space-between;align-items:center;background:rgba(0,0,0,0.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:background 0.3s;}
+[data-theme="light"] .topbar{background:rgba(255,255,255,0.9);}
+.topbar-left{display:flex;align-items:center;gap:16px;}
+.topbar-brand{font-size:13px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--text-secondary);}
+.topbar-back{font-size:13px;color:var(--accent);display:flex;align-items:center;gap:4px;}
+.theme-toggle{background:none;border:1px solid var(--border);color:var(--text-secondary);width:34px;height:34px;border-radius:50%;cursor:pointer;font-size:15px;display:flex;align-items:center;justify-content:center;transition:all 0.2s;}
+.theme-toggle:hover{border-color:var(--accent);color:var(--accent);}
+.nav-bar{position:sticky;top:52px;z-index:90;background:var(--bg);border-bottom:1px solid var(--border);transition:background 0.3s;}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 32px;display:flex;gap:0;overflow-x:auto;scrollbar-width:none;}
+.nav-inner::-webkit-scrollbar{display:none;}
+.nav-item{padding:12px 16px;font-size:13px;font-weight:500;color:var(--text-muted);white-space:nowrap;cursor:pointer;border-bottom:2px solid transparent;transition:all 0.2s;}
+.nav-item:hover,.nav-item.active{color:var(--accent);border-bottom-color:var(--accent);}
+.hero{padding:100px 48px 60px;max-width:1200px;margin:0 auto;}
+.hero-issue{display:inline-block;font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--accent);border:1px solid var(--accent);padding:5px 12px;border-radius:4px;margin-bottom:20px;}
+.hero-date{font-size:14px;color:var(--text-muted);margin-bottom:16px;}
+.hero h1{font-size:clamp(32px,5vw,52px);font-weight:800;line-height:1.15;letter-spacing:-1.5px;margin-bottom:20px;}
+.hero-summary{font-size:17px;line-height:1.75;color:var(--text-secondary);max-width:720px;margin-bottom:28px;}
+.hero-stats{display:flex;gap:28px;flex-wrap:wrap;}
+.hero-stat-value{font-size:24px;font-weight:700;font-variant-numeric:tabular-nums;}
+.hero-stat-label{font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px;}
+.container{max-width:1200px;margin:0 auto;padding:0 48px 80px;}
+.section{margin-bottom:56px;}
+.section-header{display:flex;align-items:center;gap:12px;margin-bottom:24px;}
+.section-icon{font-size:20px;}
+.section-title{font-size:18px;font-weight:700;letter-spacing:-0.2px;}
+.section-count{margin-left:auto;font-size:12px;color:var(--text-muted);}
+.section-header::after{content:'';flex:1;height:1px;background:var(--border);order:99;}
+.section-count{order:98;}
+.news-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:14px;}
+.news-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:22px;transition:all 0.3s;display:flex;flex-direction:column;}
+.news-card:hover{background:var(--bg-card-hover);box-shadow:var(--shadow-hover);transform:translateY(-2px);}
+.news-card-tag{display:inline-flex;font-size:11px;font-weight:600;letter-spacing:0.5px;padding:3px 8px;border-radius:4px;margin-bottom:10px;width:fit-content;}
+.tag-ai{color:var(--tag-ai);background:var(--tag-ai-bg);}
+.tag-tech{color:var(--tag-tech);background:var(--tag-tech-bg);}
+.tag-finance{color:var(--tag-finance);background:var(--tag-finance-bg);}
+.tag-science{color:var(--tag-science);background:var(--tag-science-bg);}
+.tag-product{color:var(--tag-product);background:var(--tag-product-bg);}
+.tag-dev{color:var(--tag-dev);background:var(--tag-dev-bg);}
+.news-card h3{font-size:16px;font-weight:600;margin-bottom:8px;line-height:1.5;letter-spacing:-0.2px;}
+.news-card h3 a{color:var(--text);}
+.news-card h3 a:hover{color:var(--accent);}
+.news-card p{font-size:14px;color:var(--text-secondary);line-height:1.65;flex:1;}
+.news-card-meta{display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding-top:14px;border-top:1px solid var(--border);font-size:12px;color:var(--text-muted);}
+.headline-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:32px;margin-bottom:20px;box-shadow:var(--shadow);}
+.headline-card h2{font-size:24px;font-weight:700;margin-bottom:16px;line-height:1.4;letter-spacing:-0.5px;}
+.headline-card p{font-size:16px;color:var(--text-secondary);line-height:1.8;}
+.headline-tag{display:inline-block;font-size:11px;font-weight:600;padding:3px 8px;border-radius:4px;margin-bottom:14px;}
+.market-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:12px;}
+.market-item{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:16px;text-align:center;transition:all 0.2s;}
+.market-item:hover{border-color:rgba(0,212,255,0.2);}
+.market-item .name{font-size:12px;color:var(--text-muted);margin-bottom:4px;}
+.market-item .value{font-size:20px;font-weight:700;margin-bottom:2px;font-variant-numeric:tabular-nums;}
+.market-item .change{font-size:14px;font-weight:600;}
+.up{color:var(--up);}
+.down{color:var(--down);}
+.deep-read-list{display:flex;flex-direction:column;gap:14px;}
+.deep-read-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;display:flex;transition:all 0.3s;}
+.deep-read-card:hover{background:var(--bg-card-hover);box-shadow:var(--shadow-hover);transform:translateY(-2px);}
+.deep-read-number{display:flex;align-items:center;justify-content:center;min-width:64px;font-size:32px;font-weight:800;color:var(--accent);opacity:0.2;}
+.deep-read-body{padding:20px 24px 20px 0;flex:1;}
+.deep-read-body h3{font-size:17px;font-weight:600;margin-bottom:8px;line-height:1.5;}
+.deep-read-body h3 a{color:var(--text);}
+.deep-read-body h3 a:hover{color:var(--accent);}
+.deep-read-body p{font-size:14px;color:var(--text-secondary);line-height:1.65;margin-bottom:10px;}
+.deep-read-meta{display:flex;gap:16px;font-size:12px;color:var(--text-muted);}
+.quotes-list{display:flex;flex-direction:column;gap:14px;}
+.quote-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:24px 28px;position:relative;}
+.quote-card::before{content:'"';position:absolute;top:16px;left:20px;font-size:40px;color:var(--accent);opacity:0.15;font-family:Georgia,serif;line-height:1;}
+.quote-text{font-size:15px;line-height:1.75;margin-bottom:10px;padding-left:4px;font-style:italic;}
+.quote-author{font-size:13px;color:var(--text-muted);font-weight:500;padding-left:4px;}
+.tool-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;}
+.tool-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:22px;transition:all 0.3s;}
+.tool-card:hover{background:var(--bg-card-hover);box-shadow:var(--shadow-hover);transform:translateY(-2px);}
+.tool-card h3{font-size:16px;font-weight:600;margin-bottom:6px;}
+.tool-card p{font-size:14px;color:var(--text-secondary);line-height:1.6;}
+.tool-card-link{display:inline-block;margin-top:10px;font-size:13px;font-weight:600;color:var(--accent);}
+.archive-section{text-align:center;padding:40px 0;border-top:1px solid var(--border);}
+.archive-link{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:500;color:var(--accent);padding:12px 24px;border-radius:8px;border:1px solid var(--accent);transition:all 0.2s;}
+.archive-link:hover{background:var(--accent);color:#000;}
+.footer{text-align:center;padding:32px;font-size:13px;color:var(--text-muted);border-top:1px solid var(--border);}
+.back-to-top{position:fixed;bottom:24px;right:24px;width:42px;height:42px;border-radius:50%;background:var(--bg-card);border:1px solid var(--border);color:var(--accent);cursor:pointer;font-size:18px;box-shadow:var(--shadow);opacity:0;transform:translateY(20px);transition:all 0.3s;z-index:99;}
+.back-to-top.visible{opacity:1;transform:translateY(0);}
+.back-to-top:hover{background:var(--accent);color:#000;border-color:var(--accent);}
+@media(max-width:768px){
+  .topbar{padding:12px 20px;} .hero{padding:80px 24px 40px;} .hero h1{font-size:28px;letter-spacing:-1px;}
+  .container{padding:0 24px 60px;} .news-grid{grid-template-columns:1fr;} .market-grid{grid-template-columns:repeat(2,1fr);}
+  .tool-grid{grid-template-columns:1fr;} .headline-card{padding:24px;} .headline-card h2{font-size:20px;}
+  .deep-read-card{flex-direction:column;} .deep-read-number{min-width:unset;padding:16px 20px 0;justify-content:flex-start;font-size:24px;}
+  .deep-read-body{padding:12px 20px 20px;} .nav-inner{padding:0 20px;} .nav-item{padding:10px 14px;font-size:12px;}
+}
+@media(prefers-reduced-motion:no-preference){
+  .news-card,.deep-read-card,.quote-card,.tool-card{animation:fadeIn 0.4s ease backwards;}
+  @keyframes fadeIn{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:translateY(0);}}
+}
+</style>
+</head>
+<body>
+<div class="progress-bar" id="progressBar"></div>
+<div class="topbar">
+  <div class="topbar-left">
+    <a href="../index.html" class="topbar-back">← 首页</a>
+    <span class="topbar-brand">Daily Digest</span>
+  </div>
+  <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn" aria-label="Toggle theme">☀️</button>
+</div>
+<nav class="nav-bar">
+  <div class="nav-inner">
+    <div class="nav-item active" data-section="headline">头条</div>
+    <div class="nav-item" data-section="ai">AI</div>
+    <div class="nav-item" data-section="tech">科技</div>
+    <div class="nav-item" data-section="finance">财经</div>
+    <div class="nav-item" data-section="market">行情</div>
+    <div class="nav-item" data-section="science">科学</div>
+    <div class="nav-item" data-section="product">产品</div>
+    <div class="nav-item" data-section="deepread">深度</div>
+    <div class="nav-item" data-section="devtool">工具</div>
+    <div class="nav-item" data-section="quotes">言论</div>
+  </div>
+</nav>
+<header class="hero">
+  <span class="hero-issue">第 15 期</span>
+  <div class="hero-date">2026年4月14日 · 星期二</div>
+  <h1>霍尔木兹封锁令生效·布伦特突破103美元·Spud发布窗口今日开启</h1>
+  <p class="hero-summary">今日三条主线同步爆发：美国海军霍尔木兹封锁令于4月14日北京时间22点正式生效，布伦特原油周内已累计上涨逾8%至103美元，高盛警告若封锁持续整月，全球油价将在2026年余下时间维持百美元以上——欧央行随即发出滞胀警告，全球经济面临1973年石油危机以来最严峻的能源供应冲击；与此同时，OpenAI代号"Spud"的下一代模型进入最核心的发布窗口期（4月14日至5月5日），Polymarket概率已升至90%+，Sam Altman内部评价为"可以真正加速经济"；科技产业格局持续演进：Microsoft MAI-Image-2图像模型发布Arena.ai实时第三，Anthropic Claude Managed Agents全面开放，Apple高管层大洗牌提速，AI能力竞赛与地缘政治双重压力交织成2026年最复杂的一天。</p>
+  <div class="hero-stats">
+    <div class="hero-stat"><span class="hero-stat-value">33</span><span class="hero-stat-label">资讯</span></div>
+    <div class="hero-stat"><span class="hero-stat-value">4</span><span class="hero-stat-label">深度</span></div>
+    <div class="hero-stat"><span class="hero-stat-value">22</span><span class="hero-stat-label">信源</span></div>
+    <div class="hero-stat"><span class="hero-stat-value">~14</span><span class="hero-stat-label">分钟</span></div>
+  </div>
+</header>
+<main class="container">
+
+<!-- ===== HEADLINE ===== -->
+<section class="section" id="headline">
+  <div class="section-header"><span class="section-icon">🔥</span><span class="section-title">头条聚焦</span></div>
+  <div class="headline-card">
+    <span class="headline-tag tag-finance">深度分析</span>
+    <h2>霍尔木兹封锁令：从外交失败到能源战争——全球经济正在经历的新一轮冲击波</h2>
+    <p>4月14日，美国海军霍尔木兹封锁令正式生效。这一刻，距离巴基斯坦伊斯兰堡谈判破裂不过72小时。此前，特朗普曾将4月13日设为最后期限，要求伊朗停止所有核浓缩活动并接受国际核查，伊朗方面拒绝。美国随即宣布对通往伊朗港口的所有船只实施海上封锁——尽管随后美国中央司令部澄清"仅封锁伊朗港口进出船只，不影响其他国家船运"，但仅这一澄清本身就显示局势的复杂与不稳定。</p>
+    <br>
+    <p><strong>能源市场的连锁反应。</strong>布伦特原油自4月12日宣布封锁以来已上涨逾8%至103美元以上——这是近四年来首次突破三位数。WTI则涨至104美元，较战前高出50%以上。霍尔木兹海峡承担全球约20%的石油运输，该通道受阻直接冲击油价，进而传导至通胀、汇率和全球供应链。高盛已发出警告：若封锁维持整月，布伦特将在2026年余下时间全程维持百美元以上运行。欧洲央行措辞罕见强硬——若冲突持续，德国和意大利等能源高度依赖国有可能在2026年年底前陷入技术性衰退。</p>
+    <br>
+    <p><strong>科技产业的深层影响。</strong>能源价格冲击对科技行业的影响是分层的：一是数据中心运营成本直接上升，Brent突破100美元将使AI推理成本曲线陡化，迫使云厂商重新审视能源合同结构；二是全球半导体供应链在中东拥有重要节点（多晶硅和部分稀土矿产经红海与波斯湾运输），封锁延长将提升这些材料的运输成本和不确定性；三是中东地区的科技基础设施——包括微软、谷歌、亚马逊在阿联酋和沙特的数据中心——面临安全态势升级，企业将加速制定B计划。</p>
+    <br>
+    <p><strong>外交格局与下一步。</strong>目前美伊之间的"脆弱休战"原定持续至4月22日，但封锁令的生效实际上已使这一休战名存实亡。伊朗军方将封锁定性为"海盗行为"，真主党宣布拒绝以色列谈判要求。接下来72小时将是关键观察窗口：若伊朗采取反制行动（如水雷布设或导弹威胁商船），局势将进一步升级；若双方保持克制，外交窗口仍有理论上可能。这是2026年地缘政治最危险的一个拐点。</p>
+  </div>
+</section>
+
+<!-- ===== AI ===== -->
+<section class="section" id="ai">
+  <div class="section-header"><span class="section-icon">🤖</span><span class="section-title">人工智能</span><span class="section-count">7 条</span></div>
+  <div class="news-grid">
+
+    <div class="news-card">
+      <span class="news-card-tag tag-ai">OpenAI</span>
+      <h3><a href="https://lumichats.com/blog/gpt-5-5-spud-openai-release-date-features-april-2026-complete-guide" target="_blank">OpenAI"Spud"今日进入最核心发布窗口：Polymarket升至90%+，名称仍悬而未决</a></h3>
+      <p>OpenAI代号"Spud"的下一代模型预训练已于3月24日完成，依据近期模型3-6周安全评估与红队测试周期，4月14日至5月5日是最核心的发布窗口。Polymarket对6月底前发布的概率已升至90%以上。Sam Altman内部评价其为"非常强大、可以真正加速经济的模型"，Greg Brockman称之为"代表两年研究成果"。最终名称将取决于性能提升幅度——超越GPT-5.4一代则命名GPT-6，增量式进步则为GPT-5.5。截至今日，OpenAI尚未发布任何官方公告。</p>
+      <div class="news-card-meta"><span>LumiChats · Polymarket</span><span>4月14日</span></div>
+    </div>
+
+    <div class="news-card">
+      <span class="news-card-tag tag-ai">Anthropic</span>
+      <h3><a href="https://blockchain.news/ainews/anthropic-launches-claude-managed-agents-build-and-deploy-via-console-claude-code-and-new-cli-2026-analysis" target="_blank">Anthropic Claude Managed Agents全面开放：控制台、Claude Code与新CLI三通道AI Agent生产部署</a></h3>
+      <p>Anthropic于4月8日发布全新工具链，允许开发者通过Claude Console（可视化界面）、Claude Code（集成开发环境）或新推出的独立CLI三种方式构建和部署AI Agent。新工具链统一了Agent管理、监控和生命周期控制，支持多步工作流、工具调用和持久状态管理。结合Anthropic MCP生态跨越9700万装机量的里程碑，这标志着Anthropic从模型提供商向"AI Agent基础设施平台"的战略跃升，与OpenAI Codex和Google ADK形成三角竞争格局。</p>
+      <div class="news-card-meta"><span>Blockchain.news · Anthropic</span><span>4月8日</span></div>
+    </div>
+
+    <div class="news-card">
+      <span class="news-card-tag tag-ai">微软</span>
+      <h3><a href="https://microsoft.ai/news/introducing-mai-image-2/" target="_blank">Microsoft MAI-Image-2发布：文生图速度翻倍，Arena.ai实时榜单排名第三</a></h3>
+      <p>微软于4月2日发布旗舰文生图模型MAI-Image-2，生成速度是上代的两倍以上，在Arena.ai图像模型家族排行榜上即时冲至第三位。MAI-Image-2支持最高1024×1024分辨率，在图像内文字渲染、复杂布局和电影级视觉场景方面实现大幅提升，API起价5美元/百万文本token、33美元/百万图像token。目前已开放API接入并逐步向Bing和PowerPoint推出，是微软MAI系列模型矩阵（配合MAI-Transcribe-1和MAI-Voice-1）的视觉能力基础。</p>
+      <div class="news-card-meta"><span>Microsoft AI · SiliconAngle</span><span>4月2日</span></div>
+    </div>
+
+    <div class="news-card">
+      <span class="news-card-tag tag-ai">中国AI</span>
+      <h3><a href="https://theaiinsider.tech/2026/04/07/report-spirit-ai-raises-420m-usd-in-funding-backed-by-lei-jun-and-jack-ma-funds/" target="_blank">中国具身智能独角兽Spirit AI连续融资超42亿元：雷军与马云基金联手，机器人赛道白热化</a></h3>
+      <p>中国具身智能初创Spirit AI于2026年2月至4月间完成两轮共约42亿元人民币（约5.8亿美元）融资，最新一轮由顺为资本（雷军）和云锋基金（马云）联合领投，估值超过120亿元。Spirit AI由清华大学、北京大学和加州大学伯克利分校成员于2024年创立，已积累超过20万小时机器人交互数据，系统正在零售和工业场景中部署。这是中国具身智能赛道2026年迄今最大单一融资，标志着物理AI投资热从美国向中国全面蔓延。</p>
+      <div class="news-card-meta"><span>The AI Insider · Gasgoo</span><span>4月7日</span></div>
+    </div>
+
+    <div class="news-card">
+      <span class="news-card-tag tag-ai">模型基准</span>
+      <h3><a href="https://lmcouncil.ai/benchmarks" target="_blank">最新AI基准格局：GPT-5.4 SWE-bench领先74.9%，Gemini 3.1 Pro MMLU夺冠94.1%</a></h3>
+      <p>LM Council最新基准数据显示，GPT-5.4在SWE-bench Verified（软件工程）以74.9%领先，Gemini 3.1 Pro则以94.1%在MMLU（综合知识）问鼎，Claude Opus 4.6在创意写作和安全性场景仍具优势。GPT-5.2 Thinking已确定6月5日下线，使用者须迁移至GPT-5.4。三强鼎立格局下，Gemini 3.1 Pro凭约为GPT-5.4三分之一的API定价，正在成本敏感型企业客户中快速渗透——这将推动AI平台竞争从"最强模型"向"性价比最优方案"转移。</p>
+      <div class="news-card-meta"><span>LM Council · Artificial Analysis</span><span>4月近期</span></div>
+    </div>
+
+    <div class="news-card">
+      <span class="news-card-tag tag-ai">欧盟AI监管</span>
+      <h3><a href="https://www.holisticai.com/blog/ai-regulation-in-2026-navigating-an-uncertain-landscape" target="_blank">欧盟AI Act高危系统合规大限倒计时：8月2日截止，企业AI战略进入紧急调整期</a></h3>
+      <p>欧盟AI法案高危系统合规截止日期定于2026年8月2日，这是全球首个强制性AI监管框架对企业的真实施压点。高危类别涵盖招聘筛选、信用评分、关键基础设施AI控制等场景，不合规企业最高面临全球营收3%的罚款。欧盟委员会同时推进AI生成内容标识实践准则，预计6月定稿。在美国采取"去监管/促创新"联邦立场的背景下，EU-US之间的监管分歧正在迫使跨国企业构建"双轨合规"体系，增加约18-24%的合规运营成本。</p>
+      <div class="news-card-meta"><span>Holistic AI · OneTrust</span><span>4月近期</span></div>
+    </div>
+
+    <div class="news-card">
+      <span class="news-card-tag tag-ai">AI编码</span>
+      <h3><a href="https://dev.to/silvesterdivas/the-ai-coding-assistant-stack-that-actually-works-in-2026-9cd" target="_blank">Stripe每周合并1300+条全AI生成PR：企业AI编码从"辅助工具"升级为"生产主力"</a></h3>
+      <p>Stripe公开披露其内部"Minions"AI编码Agent系统每周自主生成并合并超过1300个Pull Request，其中零行人工代码。这些Agent在独立环境中并行运行，使用harness架构确保每次代码生成具备确定性和可重复性。这一数字代表着企业AI编码应用的全新里程碑——不再是辅助工程师，而是成为生产代码的主要来源。对于考量AI编码工具ROI的企业而言，Stripe案例提供了迄今最有说服力的规模化落地证据。</p>
+      <div class="news-card-meta"><span>DEV Community · Franks World</span><span>4月10日</span></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== TECH ===== -->
+<section class="section" id="tech">
+  <div class="section-header"><span class="section-icon">💻</span><span class="section-title">科技动态</span><span class="section-count">5 条</span></div>
+  <div class="news-grid">
+
+    <div class="news-card">
+      <span class="news-card-tag tag-tech">地缘科技</span>
+      <h3><a href="https://www.cnbc.com/2026/04/12/trump-iran-war-strait-of-hormuz.html" target="_blank">霍尔木兹封锁对科技产业的三重冲击：数据中心电费、半导体供应链与中东AI基础设施</a></h3>
+      <p>封锁令生效对科技产业带来三个层面的直接影响：一是数据中心能源成本——布伦特突破百美元将使AI超算集群运营成本显著上升，超大规模云厂商面临电价压力重定价；二是半导体供应链——多晶硅、氖气等芯片原材料部分经波斯湾与红海运输，封锁延长将推高运费和保险费率；三是中东科技基础设施——微软、谷歌、亚马逊在阿联酋和沙特的数据中心面临安全态势升级，多家科技公司已启动灾备方案评估。</p>
+      <div class="news-card-meta"><span>CNBC · Al Jazeera · Fortune</span><span>4月14日</span></div>
+    </div>
+
+    <div class="news-card">
+      <span class="news-card-tag tag-tech">资本市场</span>
+      <h3><a href="https://finance.yahoo.com/news/alphabet-overtakes-apple-as-worlds-second-most-valuable-company-behind-nvidia-154751861.html" target="_blank">Alphabet巩固全球市值第二：AI基本面驱动估值重构，"Magnificent 7"格局深度调整</a></h3>
+      <p>Alphabet市值稳定领先Apple坐稳全球第二（仅次于NVIDIA），持续印证AI驱动的科技格局重写。Alphabet 2025年股价大涨65%，是其2009年以来最强年度表现，核心驱动力是Gemini模型系列的竞争力提升和Google Cloud AI业务的爆发。与此形成对比，Apple在无AI战略突破且高管层动荡的背景下，市值被持续压制。NVIDIA、Alphabet、Apple构成的全球前三市值格局，已成为"物理世界AI基础设施+模型智能+消费硬件"三条AI价值链的最直观映射。</p>
+      <div class="news-card-meta"><span>Yahoo Finance · Bloomberg · CNBC</span><span>4月近期</span></div>
+    </div>
+
+    <div class="news-card">
+      <span class="news-card-tag tag-tech">Apple</span>
+      <h3><a href="https://appleinsider.com/articles/25/12/15/apples-2026-executive-shuffle-is-only-the-beginning-as-cook-nears-retirement" target="_blank">Apple高层大洗牌提速：AI负责人Giannandrea出走，库克接班图谱进入倒计时</a></h3>
+      <p>Apple正经历其史上最大规模的高管换血：AI与机器学习负责人John Giannandrea、法律总顾问Kate Adams、UI设计负责人Alan Dye（已跳槽Meta）相继离职，叠加Lisa Jackson等核心副总裁的退休计划。Bloomberg指认硬件工程高级副总裁John Ternus为最可能的库克接班人。库克虽公开否认近期退休计划，但接班架构已在加速成型。分析师普遍关注：在AI战略尚未形成核心竞争力的窗口期，高管流失是否会加速Apple的战略漂移。</p>
+      <div class="news-card-meta"><span>AppleInsider · Bloomberg · Fortune</span><span>4月近期</span></div>
+    </div>
+
+    <div class="news-card">
+      <span class="news-card-tag tag-tech">企业AI落地</span>
+      <h3><a href="https://www.oracle.com/customer-edge-summit/" target="_blank">Oracle Customer Edge Summit闭幕：Opower AI平台帮助电力用户节省3.69亿美元，真实ROI亮相</a></h3>
+      <p>Oracle Customer Edge Summit（4月12-14日，奥斯汀）今日闭幕，核心亮点是Oracle Utilities Opower AI驱动平台的真实商业数据：该平台2025年帮助住宅电力客户累计节省3.69亿美元，显著超越此前预期。Oracle股价本周因此消息上涨逾9%，成为本周科技股最大涨幅之一。此案例代表着AI从"降本工具"向"可量化价值交付"转变的企业级最佳实践，为正在评估AI投资回报的企业决策者提供了稀缺的真实基准数据。</p>
+      <div class="news-card-meta"><span>Oracle · CNBC</span><span>4月14日</span></div>
+    </div>
+
+    <div class="news-card">
+      <span class="news-card-tag tag-tech">开发者生态</span>
+      <h3><a href="https://www.infoq.com/news/2026/03/ai-reshapes-language-choice/" target="_blank">TypeScript成GitHub最受欢迎语言：AI编码工具的"便利循环"正在重塑开发者技术选型</a></h3>
+      <p>GitHub最新数据显示TypeScript年增速同比达66%，跃居最受欢迎语言榜首。InfoQ将这一现象归因于AI编码工具创造的"便利循环"——Copilot、Cursor等AI工具对TypeScript的支持质量最佳，使用TypeScript的开发者能获得更精准的AI补全和更少的调试迭代，进而吸引更多开发者迁移至TypeScript，反过来促使AI工具进一步优化TypeScript能力。这一循环正在显著压缩Python（脚本场景）、PHP（Web场景）等语言在新项目中的份额。</p>
+      <div class="news-card-meta"><span>InfoQ · GitHub</span><span>4月近期</span></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== FINANCE ===== -->
+<section class="section" id="finance">
+  <div class="section-header"><span class="section-icon">💰</span><span class="section-title">全球财经</span><span class="section-count">5 条</span></div>
+  <div class="news-grid">
+
+    <div class="news-card">
+      <span class="news-card-tag tag-finance">能源冲击</span>
+      <h3><a href="https://www.aljazeera.com/economy/2026/4/13/oil-prices-surge-past-103-a-barrel-after-us-announces-blockade-of-iran" target="_blank">美海军霍尔木兹封锁令生效：布伦特突破103美元，全球经济进入新一轮能源冲击</a></h3>
+      <p>随着美国海军霍尔木兹封锁令于4月14日生效，布伦特原油周内累计上涨逾8%至103美元以上，WTI涨至104美元——已较战前高出50%以上。霍尔木兹日通行船只由战前约130艘骤降至仅17艘，全球20%的石油供应受到威胁。联合国粮农组织警告，若通道长期受阻，全球粮食危机将快速发酵，因为大量化肥和农业能源原材料依赖该通道运输。这是2026年全球经济面临的最大系统性风险事件。</p>
+      <div class="news-card-meta"><span>Al Jazeera · CNBC · CNN</span><span>4月13-14日</span></div>
+    </div>
+
+    <div class="news-card">
+      <span class="news-card-tag tag-finance">宏观警告</span>
+      <h3><a href="https://oilprice.com/Latest-Energy-News/World-News/Goldman-Another-Month-of-Hormuz-Closure-Means-Over-100-Brent-Throughout-2026.html" target="_blank">高盛警告：霍尔木兹若再封一个月，布伦特将在2026年全年维持百美元以上</a></h3>
+      <p>高盛大宗商品研究团队警告，若霍尔木兹封锁持续整个4月，布伦特原油将在2026年余下约8个月时间全程维持100美元以上运行，对全球通胀形成持续上行压力。欧洲央行随即发出滞胀警告：若封锁持续，能源高度依赖的德国和意大利有可能在2026年底前陷入技术性衰退，欧元区整体面临低增长+高通胀的双重困境。这将直接挑战欧央行的降息节奏，使欧洲货币政策陷入"增长与通胀两难"的经典滞胀困境。</p>
+      <div class="news-card-meta"><span>Goldman Sachs · OilPrice · Bloomberg</span><span>4月近期</span></div>
+    </div>
+
+    <div class="news-card">
+      <span class="news-card-tag tag-finance">美股行情</span>
+      <h3><a href="https://www.cnbc.com/2026/04/12/stock-market-today-live-updates.html" target="_blank">美股4月13日小幅反弹：S&P 500涨1.02%收6886，封锁令生效前市场押注和平仍有余地</a></h3>
+      <p>4月13日（周一），美国股市在封锁令宣布后短暂反弹：S&P 500上涨1.02%至6,886，为战争爆发以来最高收盘点位；纳斯达克涨1.23%至23,184；道琼斯涨0.63%至48,218。软件股表现突出，Oracle单日涨超9%，Palantir涨逾3%。市场此前已完全定价了封锁令，反弹逻辑是投资者认为双方仍在隐秘外交通道中运作。然而4月14日封锁正式生效后，市场情绪或再度分化，能源与国防板块将面临重新定价窗口。</p>
+      <div class="news-card-meta"><span>CNBC · Yahoo Finance</span><span>4月13日</span></div>
+    </div>
+
+    <div class="news-card">
+      <span class="news-card-tag tag-finance">加密资产</span>
+      <h3><a href="https://fortune.com/article/price-of-bitcoin-04-10-2026/" target="_blank">比特币维持7.2万美元区间：能源冲击下加密市场双向博弈，避险叙事与流动性压力并存</a></h3>
+      <p>截至4月10日，比特币报价约72,204美元，较和平谈判破裂前的高点回调约8%，但仍守住70,000美元关键支撑。市场正在博弈两种叙事：支撑方认为地缘风险上升有利于比特币作为"数字黄金"的避险价值；压制方则担忧全球通胀和流动性收紧会降低机构对风险资产的配置意愿。Polymarket数据显示，比特币在4月底前突破80,000美元的概率约为34%。能源价格与全球信心的走向，将是比特币下一个关键波动的核心触发器。</p>
+      <div class="news-card-meta"><span>Fortune · CoinDesk</span><span>4月10日</span></div>
+    </div>
+
+    <div class="news-card">
+      <span class="news-card-tag tag-finance">AI融资</span>
+      <h3><a href="https://news.crunchbase.com/venture/record-breaking-funding-ai-global-q1-2026/" target="_blank">Q1 2026全球VC投资突破3000亿美元：AI融资总额独占绝大多数，历史纪录再度刷新</a></h3>
+      <p>Crunchbase数据显示，2026年Q1全球创投融资总额超过3000亿美元、覆盖6000家初创公司，较2025年同期暴增150%以上。AI赛道的集中度创历史新高，其中仅OpenAI（1220亿美元）、Anthropic、xAI等基础模型公司便合计吸纳了Q1基础模型融资总量，较2025年全年翻倍。与此同时，物理AI（机器人、制造）、AI医疗、AI网络安全成为2026年Q2开始升温的新方向，VC正从"大模型军备竞赛"转向"落地应用变现"阶段性投资主题。</p>
+      <div class="news-card-meta"><span>Crunchbase · TechCrunch</span><span>4月近期</span></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== MARKET ===== -->
+<section class="section" id="market">
+  <div class="section-header"><span class="section-icon">📈</span><span class="section-title">市场行情</span><span class="section-count">数据截至4月13日收盘</span></div>
+  <div class="market-grid">
+    <div class="market-item"><div class="name">上证指数</div><div class="value up">4,123</div><div class="change up">▲ 1.41%</div></div>
+    <div class="market-item"><div class="name">深证成指</div><div class="value up">14,115</div><div class="change up">▲ 1.28%</div></div>
+    <div class="market-item"><div class="name">创业板指</div><div class="value up">2,856</div><div class="change up">▲ 0.94%</div></div>
+    <div class="market-item"><div class="name">标普 500</div><div class="value up">6,886</div><div class="change up">▲ 1.02%</div></div>
+    <div class="market-item"><div class="name">纳斯达克</div><div class="value up">23,184</div><div class="change up">▲ 1.23%</div></div>
+    <div class="market-item"><div class="name">道琼斯</div><div class="value up">48,218</div><div class="change up">▲ 0.63%</div></div>
+    <div class="market-item"><div class="name">恒生指数</div><div class="value up">24,182</div><div class="change up">▲ 1.51%</div></div>
+    <div class="market-item"><div class="name">美元/人民币</div><div class="value">7.28</div><div class="change up">▲ 0.22%</div></div>
+    <div class="market-item"><div class="name">比特币</div><div class="value">$72,204</div><div class="change down">▼ 2.14%</div></div>
+    <div class="market-item"><div class="name">布伦特原油</div><div class="value up">$103.2</div><div class="change up">▲ 8.1%</div></div>
+    <div class="market-item"><div class="name">黄金现货</div><div class="value up">$4,751</div><div class="change up">▲ 1.24%</div></div>
+  </div>
+</section>
+
+<!-- ===== SCIENCE ===== -->
+<section class="section" id="science">
+  <div class="section-header"><span class="section-icon">🔬</span><span class="section-title">科学前沿</span><span class="section-count">2 条</span></div>
+  <div class="news-grid">
+
+    <div class="news-card">
+      <span class="news-card-tag tag-science">监管医学</span>
+      <h3><a href="https://www.nature.com/articles/d41586-025-04114-0" target="_blank">英国临床试验监管4月迎来20年最大改革：统一审批路径将大幅提速新药上市进程</a></h3>
+      <p>英国将于2026年4月正式实施史上最大规模临床试验监管改革，核心变化是将伦理委员会审批与监管机构审批合并为单一申请流程，结束了过去同一临床试验须经历两次独立漫长审批的历史。这一改革预计将新药从研究到市场的时间缩短约18-24个月，正值英国脱欧后力图以监管效率重建生物医药竞争力的战略窗口。对制药公司和生物科技初创而言，英国正成为"监管友好型创新环境"的全球标杆，预计将吸引更多早期临床试验优先在英国启动。</p>
+      <div class="news-card-meta"><span>Nature · UK MHRA</span><span>4月</span></div>
+    </div>
+
+    <div class="news-card">
+      <span class="news-card-tag tag-science">粒子物理</span>
+      <h3><a href="https://www.huxley.media/en/scientific-forecast-2026-the-year-of-major-experiments/" target="_blank">费米实验室Mu2e探测器建设接近完工：首次直接寻找μ子→电子转变，挑战粒子物理标准模型</a></h3>
+      <p>费米国家加速器实验室预计于2026年4月完成Mu2e探测器建设，该实验旨在直接寻找μ子在不产生中微子的情况下转变为电子的事件。在粒子物理标准模型中，这种转变在理论上被禁止；若Mu2e观测到信号，将是50年来最重大的基础物理突破，意味着标准模型之外存在新粒子或新相互作用。探测器的灵敏度比之前任何同类实验高出约10,000倍，将把实验搜寻精度推进至前所未有的量级，是2026年全球最受期待的基础科学实验之一。</p>
+      <div class="news-card-meta"><span>Fermilab · Huxley Media</span><span>4月</span></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== PRODUCT ===== -->
+<section class="section" id="product">
+  <div class="section-header"><span class="section-icon">🚀</span><span class="section-title">产品发现</span><span class="section-count">3 条</span></div>
+  <div class="news-grid">
+
+    <div class="news-card">
+      <span class="news-card-tag tag-product">AI协作</span>
+      <h3><a href="https://github.com/rowboatlabs/rowboat" target="_blank">Rowboat：开源AI工作搭档，知识图谱记忆让AI真正"记住"你的工作历史</a></h3>
+      <p>Rowboat是一款开源AI协作工具，区别于所有会话结束即清空记忆的AI助手——它维护一个基于知识图谱的持久工作记忆，将邮件、会议记录、文档整合为不断积累的工作知识库，支持跨会话检索和协作。架构透明：所有记忆以Obsidian兼容的Markdown文件存储，完全本地可审计可编辑。通过MCP协议接入Exa搜索、Slack、GitHub、Linear等外部工具，支持本地Ollama/LM Studio及云端模型混用。对重视隐私且希望AI真正成为"同事"的开发者，是本周最值得关注的开源项目。</p>
+      <div class="news-card-meta"><span>GitHub · OpenClaw Radar</span><span>4月近期</span></div>
+    </div>
+
+    <div class="news-card">
+      <span class="news-card-tag tag-product">消息自动化</span>
+      <h3><a href="https://customer.io/" target="_blank">Customer.io：AI驱动的多渠道消息自动化平台，统一Email/SMS/Push/In-App全链路</a></h3>
+      <p>Customer.io是面向技术驱动团队的消息自动化平台，4月8日在Product Hunt以"Automate Messaging Everywhere"主题重磅亮相并提供初创优惠。核心差异点：支持基于实时行为触发的高度个性化消息发送，整合Email、SMS、推送通知、In-App消息和Webhook，并内置AI辅助的消息内容优化和A/B测试。相比Braze等竞品，Customer.io以开发者友好的数据模型和灵活API著称，适合对消息策略有深度定制需求的B2C SaaS和移动应用团队。</p>
+      <div class="news-card-meta"><span>Product Hunt</span><span>4月8日</span></div>
+    </div>
+
+    <div class="news-card">
+      <span class="news-card-tag tag-product">AI编码</span>
+      <h3><a href="https://github.com/coleam00/Archon" target="_blank">Baton：AI编码Agent编排工具，多Agent并行执行复杂任务的可视化调度平台</a></h3>
+      <p>Baton是本月Product Hunt上线的AI编码Agent编排工具，专为需要多Agent协作的复杂编程任务设计，提供可视化工作流画布，支持拖拽式定义Agent之间的依赖关系与执行顺序。与Claude Code、OpenAI Codex等单Agent工具不同，Baton专注于"编排层"——管理多个AI编码Agent的并发调度、错误恢复和结果聚合，适合需要同时处理规划、实现、测试和文档生成的大型工程任务。对已在使用AI编码工具但面临复杂多步骤项目的工程团队，是当前最值得尝试的Agent管理方案。</p>
+      <div class="news-card-meta"><span>Product Hunt</span><span>4月1日</span></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== DEEP READ ===== -->
+<section class="section" id="deepread">
+  <div class="section-header"><span class="section-icon">📚</span><span class="section-title">深度阅读</span><span class="section-count">4 篇</span></div>
+  <div class="deep-read-list">
+
+    <div class="deep-read-card">
+      <div class="deep-read-number">1</div>
+      <div class="deep-read-body">
+        <h3><a href="https://stratechery.com/2026/myth-and-mythos/" target="_blank">2026.15: Myth and Mythos — Stratechery · Ben Thompson</a></h3>
+        <p>本期Stratechery的核心命题是：Anthropic现在坐拥全球最强大的AI模型，强大到无法公开发布——这到底是"狼来了"式的过度谨慎，还是真实的存在性威胁？Thompson援引"男孩喊狼"寓言的反转结局：每个人都记得男孩喊错了，但所有人都忘了——狼最终还是来了。文章梳理了Anthropic的战略逻辑：以极限安全测试为护城河，既维持"负责任的AI领导者"品牌，又借Project Glasswing将最强模型的访问权转化为与AWS、Apple、Google、微软等战略伙伴的深度绑定。对关注AI安全与商业化之间张力的读者，这是本周最值得深读的一篇分析。</p>
+        <div class="deep-read-meta"><span>Stratechery</span><span>⏱ 约12分钟</span><span>推荐指数 ★★★★★</span></div>
+      </div>
+    </div>
+
+    <div class="deep-read-card">
+      <div class="deep-read-number">2</div>
+      <div class="deep-read-body">
+        <h3><a href="https://stratechery.com/2026/spotify-earnings-individualized-networks-ai-and-aggregation/" target="_blank">Spotify Earnings, Individualized Networks, AI and Aggregation — Stratechery · Ben Thompson</a></h3>
+        <p>Thompson从Spotify创始人Daniel Ek的最后一次财报电话会提取出一个深刻洞察：Spotify之所以是AI时代最受益的聚合者之一，恰恰因为它的内容网络从一开始就是"个性化的"——每个用户的体验都不同，没有通用的"正确答案"供AI直接替代。这与传统搜索不同：Google Search正被AI摘要侵蚀，因为很多查询有明确答案；而Spotify的推荐引擎本来就是个性化的，AI只会让它更好。文章同时延伸讨论了AI对不同类型聚合者的差异化影响，是理解AI如何重塑媒体与平台竞争的框架性文章。</p>
+        <div class="deep-read-meta"><span>Stratechery</span><span>⏱ 约10分钟</span><span>推荐指数 ★★★★★</span></div>
+      </div>
+    </div>
+
+    <div class="deep-read-card">
+      <div class="deep-read-number">3</div>
+      <div class="deep-read-body">
+        <h3><a href="https://www.franksworld.com/2026/04/10/harness-engineering-the-future-of-ai-coding-workflows/" target="_blank">Harness Engineering: The Future of AI Coding Workflows — Frank's World of Data Science & AI</a></h3>
+        <p>这篇文章从Archon工具的架构出发，系统阐述了"harness engineering"（AI编码约束框架工程）这一2026年崛起的新工程学科。核心论点：随着AI编码能力逼近人类工程师水准，真正的挑战不再是"让AI写出更好的代码"，而是"让AI编码过程变得确定性、可审计和可版本控制"。Stripe、Figma等公司的内部实践表明，没有harness的AI编码会产生高度不可重现的输出，难以在生产环境中大规模部署。文章详解了YAML工作流、git worktree隔离、DAG任务图等关键工程模式，是AI编码从"实验玩具"走向"工程基础设施"的必读参考。</p>
+        <div class="deep-read-meta"><span>Frank's World · DEV Community</span><span>⏱ 约10分钟</span><span>推荐指数 ★★★★☆</span></div>
+      </div>
+    </div>
+
+    <div class="deep-read-card">
+      <div class="deep-read-number">4</div>
+      <div class="deep-read-body">
+        <h3><a href="https://appleinsider.com/articles/25/12/15/apples-2026-executive-shuffle-is-only-the-beginning-as-cook-nears-retirement" target="_blank">Apple's 2026 Executive Shuffle Is Only the Beginning as Cook Nears Retirement — AppleInsider</a></h3>
+        <p>这篇深度报道是理解Apple当前处境最全面的背景材料之一。它梳理了过去12个月Apple高层的系统性出走——不是一两个高管的正常流动，而是覆盖AI/ML、法律、设计、环境政策等核心职能的整体换血。分析认为，库克已进入"交接模式"，部分高管的离职正是库克主动清理"接班人不会用的旧团队"的结果，而不是简单的人才流失。John Ternus接班的可能性被详细拆解，包括他与库克的关系、在重大产品决策中的角色，以及他在AI战略上是否有清晰路线图。对任何跟踪Apple长期战略的读者，这是本月不可错过的深度文章。</p>
+        <div class="deep-read-meta"><span>AppleInsider · Bloomberg</span><span>⏱ 约10分钟</span><span>推荐指数 ★★★★☆</span></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== DEV TOOLS ===== -->
+<section class="section" id="devtool">
+  <div class="section-header"><span class="section-icon">🛠️</span><span class="section-title">开发者工具</span><span class="section-count">2 条</span></div>
+  <div class="tool-grid">
+
+    <div class="tool-card">
+      <span class="news-card-tag tag-dev">AI编码框架</span>
+      <h3>Archon</h3>
+      <p>Archon是GitHub本周热榜第二的开源项目（15,600+ Stars），由coleam00构建，是目前唯一专为AI编码工作流设计的开源harness框架。Archon于4月7日完成从Python任务管理器到TypeScript工作流引擎的完整重写，核心机制是用YAML定义AI编码流程——规划、实现、验证、代码审查、PR创建——让AI编码从不确定的"提示-输出"循环，变为版本化、可重现、可审计的工程流水线。内置git worktree隔离机制确保每次AI编码任务在独立环境中运行互不干扰，已被多个生产级AI编码团队采用。MIT License开源。</p>
+      <a href="https://github.com/coleam00/Archon" target="_blank" class="tool-card-link">→ github.com/coleam00/Archon</a>
+    </div>
+
+    <div class="tool-card">
+      <span class="news-card-tag tag-dev">AI多Agent系统</span>
+      <h3>Rowboat（rowboatlabs）</h3>
+      <p>Rowboat Labs推出的开源多Agent系统构建器，集成持久知识图谱记忆架构，让构建的AI Agent不只是执行单次任务，而是能跨会话积累和调用工作上下文。开发者可通过可视化拖拽界面定义多Agent之间的数据流和调用关系，支持Claude、GPT-5、Gemini等主流云端模型以及Ollama本地模型。通过MCP协议扩展工具接入（GitHub、Slack、Jira等），所有记忆数据存储为本地Markdown文件，隐私完全可控。MIT License，适合构建需要持续上下文感知能力的AI助手和工作流自动化系统。</p>
+      <a href="https://github.com/rowboatlabs/rowboat" target="_blank" class="tool-card-link">→ github.com/rowboatlabs/rowboat</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== QUOTES ===== -->
+<section class="section" id="quotes">
+  <div class="section-header"><span class="section-icon">💬</span><span class="section-title">今日言论</span><span class="section-count">4 条</span></div>
+  <div class="quotes-list">
+
+    <div class="quote-card">
+      <p class="quote-text">美国海军，世界上最强大的，将立即开始封锁任何试图进入或离开霍尔木兹海峡的船只。任何违抗这一命令的船只将被击沉。</p>
+      <div class="quote-author">— 特朗普，Truth Social发文，宣布霍尔木兹封锁令，2026年4月13日</div>
+    </div>
+
+    <div class="quote-card">
+      <p class="quote-text">Spud 代表着我们两年的研究成果，它有一种大模型的感觉——这不只是对现有系统的改进，而是感觉像是全新的一代。</p>
+      <div class="quote-author">— Greg Brockman，OpenAI 总裁，内部员工通报，关于代号"Spud"的下一代模型，2026年4月</div>
+    </div>
+
+    <div class="quote-card">
+      <p class="quote-text">我深爱我所做的事。二十八年前我走进苹果，此后每一天我都充满热情。我真的无法想象没有苹果的生活。</p>
+      <div class="quote-author">— Tim Cook，Apple CEO，《早安美国》节目，否认近期退休计划，2026年3月17日</div>
+    </div>
+
+    <div class="quote-card">
+      <p class="quote-text">如果霍尔木兹封锁再持续一个月，2026年余下时间布伦特将全程保持在每桶100美元以上——这将是对全球经济和货币政策的系统性冲击，任何政策制定者都不能轻视它。</p>
+      <div class="quote-author">— Goldman Sachs大宗商品研究团队，能源市场紧急报告，2026年4月</div>
+    </div>
+
+  </div>
+</section>
+
+  <div class="archive-section">
+    <a href="../index.html" class="archive-link">← 查看往期简报</a>
+  </div>
+</main>
+
+<footer class="footer">由 AI 自动抓取与编辑 · 每日 07:00 更新 · news.huangwei.ai</footer>
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+function toggleTheme() {
+  const html = document.documentElement;
+  const btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function() {
+  const saved = localStorage.getItem('theme');
+  if (saved === 'light') {
+    document.documentElement.setAttribute('data-theme', 'light');
+    document.getElementById('themeBtn').textContent = '🌙';
+  }
+})();
+window.addEventListener('scroll', () => {
+  const h = document.documentElement;
+  const p = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+  document.getElementById('progressBar').style.width = p + '%';
+  document.getElementById('backToTop').classList.toggle('visible', h.scrollTop > 400);
+});
+document.querySelectorAll('.nav-item').forEach(item => {
+  item.addEventListener('click', () => {
+    const s = document.getElementById(item.dataset.section);
+    if (s) s.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+const sects = document.querySelectorAll('.section');
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+      const nav = document.querySelector('.nav-item[data-section="' + e.target.id + '"]');
+      if (nav) nav.classList.add('active');
+    }
+  });
+}, { rootMargin: '-100px 0px -50% 0px' });
+sects.forEach(s => obs.observe(s));
+</script>
+</body>
+</html>
