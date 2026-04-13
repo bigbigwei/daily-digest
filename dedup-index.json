@@ -36,7 +36,10 @@
     "tinyGPU（Tiny Corp）",
     "Hermes Agent（Nous Research）",
     "Graphify（GraphRAG知识图谱技能）",
-    "Claudoscope"
+    "Claudoscope",
+    "OpenCode",
+    "markitdown（Microsoft）",
+    "DevToys 2.0"
   ],
   "used_products": [
     "AI营销Agent：自动化全链路网红营销，Product Hunt 4月热门",
@@ -86,7 +89,10 @@
     "traceAI：开源LLM链路追踪工具，专为生成式AI而生而非HTTP日志",
     "Exa AI搜索引擎：专为AI Agent设计的神经语义搜索，$8500万B轮$7亿估值",
     "Claudoscope：macOS菜单栏Claude Code全景仪表盘，零遥测本地运行MIT开源",
-    "Graphify：代码库GraphRAG知识图谱技能，让AI编程助手理解跨模块依赖"
+    "Graphify：代码库GraphRAG知识图谱技能，让AI编程助手理解跨模块依赖",
+    "Linear Asks Web Forms：将团队申请无缝带入Linear工作流的零摩擦协作工具",
+    "Google Antigravity IDE：Agent原生开发环境，多Agent并行构建应用",
+    "Kagi Search Assistant：订阅制零广告搜索引擎，AI摘要与来源可信度评分"
   ],
   "used_deepreads": [
     "100x Less Power: The Breakthrough That Could Solve AI's Massive Energy Crisis — SciTechDaily",
@@ -148,21 +154,13 @@
     "台积电Q1 2026 $357亿营收全解析：AI芯片需求如何独撑一个产业穿越战争 — Analytics Drift",
     "3月CPI通胀拆解：能源的战争溢价有多深，核心通胀告诉我们什么 — CNBC",
     "Hermes Agent v0.7.0深度解读：自我进化的开源AI Agent框架，真正意义上的持久记忆与技能自写 — DEV Community",
-    "UNCTAD全球贸易4月更新：增长持续但脆弱性上升——全球供应链碎片化的量化代价 — UNCTAD"
+    "UNCTAD全球贸易4月更新：增长持续但脆弱性上升——全球供应链碎片化的量化代价 — UNCTAD",
+    "Meta牺牲了它的开源身份换取竞争力吗？Muse Spark背后的代价与赌注 — AI News",
+    "国家机器人周深度报告：物理AI从实验室走向工厂的真实路径与距离 — NVIDIA Blog",
+    "Cerebras IPO解析：晶圆级AI芯片如何用延迟优势挑战NVIDIA H100推理霸权 — MarketWise",
+    "中美进入脆弱休战期：北京峰会后供应链重组机会与下一次摩擦的引爆点 — Bloomberg"
   ],
   "recent_topics": [
-    "苹果AI换帅Giannandrea退休，Amar Subramanya接棒Apple Intelligence",
-    "特朗普宣布对伊朗武器供应国征50%关税，中俄被点名",
-    "美股标普500+0.62%至6824点，纳斯达克+0.83%，停火乐观情绪延续",
-    "PolyAI完成8600万D轮，声音AI Agent进入企业级完全自主客服时代",
-    "Legora法律AI完成5.5亿美元D轮估值55亿，瑞典法律科技全球扩张",
-    "NVIDIA发布物理AI数据工厂开源蓝图，机器人与视觉AI开发加速",
-    "肠道菌群可能触发ALS，新研究开辟运动神经元病防治路径",
-    "CSE蛋白硫化氢调控发现，阿尔茨海默病获全新治疗靶点",
-    "纳米笼锁定PFAS永久化学物，短链PFAS水污染难题首次突破",
-    "Firmus AI数据中心估值55亿获英伟达战略投资，AI训练基础设施独立化",
-    "黄金维持历史高位4786美元，停火后避险资金未大规模撤离",
-    "比特币稳守71000-72000美元区间，矿工能源成本预期分化",
     "Anthropic与CoreWeave签多年GPU云协议，年化营收突破300亿美元",
     "Anthropic探索自研AI芯片，算力主权竞赛蔓延至模型公司",
     "Google Gemini API推出Flex与Priority推理定价分层",
@@ -183,15 +181,20 @@
     "Graphify GraphRAG代码库知识图谱编程工具",
     "Claudoscope macOS Claude Code仪表盘",
     "Claude Mythos Project Glasswing零日漏洞",
-    "NVIDIA TSMC CoWoS封装产能美国AI主权",
-    "Terafab Tesla SpaceX xAI Intel 1TW算力",
-    "Google Workspace Gemini Veo 3.1 Gmail E2EE",
-    "UNCTAD全球贸易碎片化脆弱性上升",
-    "美股周度标普3.6%纳指4.7%停火CPI震荡",
-    "英国临床试验法规改革单一申请加速审批",
-    "Anthropic CoreWeave多年GPU云协议年化营收300亿美元",
-    "Cursor Anysphere ARR 20亿美元估值600亿AI编码工具",
-    "美国AI监管联邦州级博弈600州级法案特朗普行政令",
-    "ElevenLabs 5亿D轮融资声音AI赛道独角兽"
+    "Meta Muse Spark闭源转型Llama开源路线终结Superintelligence Labs",
+    "GPT-5.5 Spud预训练完成发布窗口4月14日5月5日Polymarket 90%",
+    "Gemini 3.1 Pro 13/16基准领跑SWE-bench GPQA",
+    "微软日本100亿美元AI基础设施SoftBank Sakura Internet",
+    "NVIDIA Isaac GR00T物理AI机器人国家机器人周",
+    "USGS AI干旱预测提前90天精确度85%",
+    "Amazon Trainium Graviton芯片200亿美元年化规模",
+    "Cerebras IPO Q2纳斯达克220亿估值Morgan Stanley",
+    "Adobe Acrobat Reader 0day CVE-2026-34621野外利用",
+    "Marimo Python笔记本CVE-2026-39987 CVSS 9.3",
+    "科技裁员78557人AI驱动自动化近半数",
+    "中美贸易休战北京峰会关税30%稀土出口管制暂停",
+    "标普500跌1.03%纳斯达克微涨比特币黄金双杀",
+    "纳米圆盘HIV埃博拉疫苗抗原抗体结构",
+    "哈勃张力宇宙膨胀速率5个标准差精确测量"
   ]
 }
