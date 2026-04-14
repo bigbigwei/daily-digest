@@ -41,7 +41,10 @@
     "markitdown（Microsoft）",
     "DevToys 2.0",
     "Archon（AI编码Harness构建器）",
-    "Rowboat（rowboatlabs）"
+    "Rowboat（rowboatlabs）",
+    "Llama Stack（Meta）",
+    "smolagents（HuggingFace）",
+    "openai/codex-cli"
   ],
   "used_products": [
     "AI营销Agent：自动化全链路网红营销，Product Hunt 4月热门",
@@ -97,7 +100,10 @@
     "Kagi Search Assistant：订阅制零广告搜索引擎，AI摘要与来源可信度评分",
     "Rowboat：开源AI工作搭档，知识图谱记忆让AI真正记住工作历史",
     "Customer.io：AI驱动的多渠道消息自动化平台，统一Email/SMS/Push/In-App全链路",
-    "Baton：AI编码Agent编排工具，多Agent并行执行复杂任务的可视化调度平台"
+    "Baton：AI编码Agent编排工具，多Agent并行执行复杂任务的可视化调度平台",
+    "Claude Code Voice Mode：解放双手的AI编程，Product Hunt 4月4日榜首377票",
+    "Rebar：AI驱动商业建筑机电预算系统，6周ARR翻倍，1400万美元A轮",
+    "Denovo：对话式AI需求文档生成器，从需求会议直接输出可执行PRD"
   ],
   "used_deepreads": [
     "100x Less Power: The Breakthrough That Could Solve AI's Massive Energy Crisis — SciTechDaily",
@@ -167,7 +173,11 @@
     "2026.15: Myth and Mythos — Stratechery · Ben Thompson",
     "Spotify Earnings, Individualized Networks, AI and Aggregation — Stratechery · Ben Thompson",
     "Harness Engineering: The Future of AI Coding Workflows — Frank's World of Data Science & AI",
-    "Apple's 2026 Executive Shuffle Is Only the Beginning as Cook Nears Retirement — AppleInsider"
+    "Apple's 2026 Executive Shuffle Is Only the Beginning as Cook Nears Retirement — AppleInsider",
+    "The 2026 AI Index Report · Stanford HAI",
+    "PwC 2026 AI Performance Study: 74% of AI's Economic Gains Go to 20% of Companies · PwC Global",
+    "World Economic Outlook, April 2026: Global Economy in Fragile Territory · IMF",
+    "The Real Reason OpenAI Shut Sora Down Is a Warning to Every AI Startup · Futurism"
   ],
   "recent_topics": [
     "GPT-5.5 Spud OpenAI发布倒计时Polymarket 78%",
@@ -185,11 +195,6 @@
     "USGS AI干旱预测提前90天精确度85%",
     "Amazon Trainium Graviton芯片200亿美元年化规模",
     "Cerebras IPO Q2纳斯达克220亿估值Morgan Stanley",
-    "Adobe Acrobat Reader 0day CVE-2026-34621野外利用",
-    "Marimo Python笔记本CVE-2026-39987 CVSS 9.3",
-    "科技裁员78557人AI驱动自动化近半数",
-    "中美贸易休战北京峰会关税30%稀土出口管制暂停",
-    "标普500跌1.03%纳斯达克微涨比特币黄金双杀",
     "霍尔木兹封锁令美国海军4月14日生效布伦特原油103美元",
     "高盛警告布伦特全年百美元欧央行滞胀风险",
     "OpenAI Spud GPT-5.5发布窗口4月14日核心期Polymarket 90%",
@@ -199,6 +204,17 @@
     "Apple高管洗牌Giannandrea出走John Ternus接班",
     "Oracle Customer Edge Summit Opower AI 3.69亿美元节省",
     "英国临床试验监管改革统一审批20年最大变革",
-    "费米实验室Mu2e探测器μ子转变电子粒子物理标准模型"
+    "费米实验室Mu2e探测器μ子转变电子粒子物理标准模型",
+    "Stanford AI Index 2026中美模型性能差距9.26%→1.70%",
+    "AI透明度基础模型FMTI指数从58分跌至40分",
+    "SWE-bench代码基准60%→100%Humanity's Last Exam 50%",
+    "IMF世界经济展望2026全球增长3.1%伊朗战争外生冲击",
+    "OpenAI Sora停服4月26日视频AI赛道洗牌",
+    "AWS Amazon AI年化营收150亿美元云计算AI变现",
+    "PwC AI绩效研究74%经济价值20%企业马太效应",
+    "美国各州AI伴侣机器人监管华盛顿纽约缅因立法",
+    "银行财报季Q1摩根大通高盛花旗FactSet 19%盈利增速",
+    "中国A股创业板4年新高Q1 GDP 4.8%预期4月16日公布",
+    "Anthropic G轮300亿美元估值3800亿Claude Code ARR 25亿"
   ]
 }
