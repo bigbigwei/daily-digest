@@ -44,7 +44,10 @@
     "Rowboat（rowboatlabs）",
     "Llama Stack（Meta）",
     "smolagents（HuggingFace）",
-    "openai/codex-cli"
+    "openai/codex-cli",
+    "OpenScreen",
+    "Boneyard",
+    "Google TimesFM 2.5"
   ],
   "used_products": [
     "AI营销Agent：自动化全链路网红营销，Product Hunt 4月热门",
@@ -103,7 +106,10 @@
     "Baton：AI编码Agent编排工具，多Agent并行执行复杂任务的可视化调度平台",
     "Claude Code Voice Mode：解放双手的AI编程，Product Hunt 4月4日榜首377票",
     "Rebar：AI驱动商业建筑机电预算系统，6周ARR翻倍，1400万美元A轮",
-    "Denovo：对话式AI需求文档生成器，从需求会议直接输出可执行PRD"
+    "Denovo：对话式AI需求文档生成器，从需求会议直接输出可执行PRD",
+    "Luma Agents：文本/图像/视频/音频全链路AI创意代理，Luma统一智能模型驱动",
+    "Naoma AI Demo Agent：AI自动生成互动产品演示，减少销售Demo准备时间90%",
+    "WarClaw（Edgerunner）：退伍军人建造的军事专属AI Agent，拒绝通用大模型"
   ],
   "used_deepreads": [
     "100x Less Power: The Breakthrough That Could Solve AI's Massive Energy Crisis — SciTechDaily",
@@ -177,34 +183,13 @@
     "The 2026 AI Index Report · Stanford HAI",
     "PwC 2026 AI Performance Study: 74% of AI's Economic Gains Go to 20% of Companies · PwC Global",
     "World Economic Outlook, April 2026: Global Economy in Fragile Territory · IMF",
-    "The Real Reason OpenAI Shut Sora Down Is a Warning to Every AI Startup · Futurism"
+    "The Real Reason OpenAI Shut Sora Down Is a Warning to Every AI Startup · Futurism",
+    "AI现状深度结构分析（2024—2026）：从训练主导到推理主导的底层迁移 — Medium · Amy Zhang",
+    "NASA官方技术报告：Perseverance首次AI规划火星驾驶的完整技术路径 — NASA JPL",
+    "Snap与迪士尼同日裁员：AI效率浪潮第二波正在袭来，谁是下一个？ — HeyGoTrade"
   ],
   "recent_topics": [
-    "GPT-5.5 Spud OpenAI发布倒计时Polymarket 78%",
-    "美联储零降息政策分歧利率3.5%",
-    "Exa AI搜索引擎8500万B轮700M估值Agent",
-    "Hermes Agent v0.7.0 Nous Research自进化框架",
-    "Graphify GraphRAG代码库知识图谱编程工具",
-    "Claudoscope macOS Claude Code仪表盘",
-    "Claude Mythos Project Glasswing零日漏洞",
-    "Meta Muse Spark闭源转型Llama开源路线终结Superintelligence Labs",
-    "GPT-5.5 Spud预训练完成发布窗口4月14日5月5日Polymarket 90%",
-    "Gemini 3.1 Pro 13/16基准领跑SWE-bench GPQA",
-    "微软日本100亿美元AI基础设施SoftBank Sakura Internet",
-    "NVIDIA Isaac GR00T物理AI机器人国家机器人周",
-    "USGS AI干旱预测提前90天精确度85%",
-    "Amazon Trainium Graviton芯片200亿美元年化规模",
-    "Cerebras IPO Q2纳斯达克220亿估值Morgan Stanley",
-    "霍尔木兹封锁令美国海军4月14日生效布伦特原油103美元",
-    "高盛警告布伦特全年百美元欧央行滞胀风险",
-    "OpenAI Spud GPT-5.5发布窗口4月14日核心期Polymarket 90%",
-    "Microsoft MAI-Image-2文生图Arena.ai第三",
-    "Anthropic Claude Managed Agents控制台CLI Agent部署",
-    "Spirit AI中国具身智能42亿融资雷军马云",
-    "Apple高管洗牌Giannandrea出走John Ternus接班",
-    "Oracle Customer Edge Summit Opower AI 3.69亿美元节省",
-    "英国临床试验监管改革统一审批20年最大变革",
-    "费米实验室Mu2e探测器μ子转变电子粒子物理标准模型",
+    "Anthropic G轮300亿美元估值3800亿Claude Code ARR 25亿",
     "Stanford AI Index 2026中美模型性能差距9.26%→1.70%",
     "AI透明度基础模型FMTI指数从58分跌至40分",
     "SWE-bench代码基准60%→100%Humanity's Last Exam 50%",
@@ -212,9 +197,17 @@
     "OpenAI Sora停服4月26日视频AI赛道洗牌",
     "AWS Amazon AI年化营收150亿美元云计算AI变现",
     "PwC AI绩效研究74%经济价值20%企业马太效应",
-    "美国各州AI伴侣机器人监管华盛顿纽约缅因立法",
     "银行财报季Q1摩根大通高盛花旗FactSet 19%盈利增速",
-    "中国A股创业板4年新高Q1 GDP 4.8%预期4月16日公布",
-    "Anthropic G轮300亿美元估值3800亿Claude Code ARR 25亿"
+    "Snap裁员1000人16%员工AI效率革命职场重组tokenmaxxing",
+    "NASA Perseverance火星探测器首次AI规划驾驶Claude Anthropic",
+    "Meta Llama4 Scout Maverick MoE多模态开源IBM watsonx",
+    "Reid Hoffman tokenmaxxing AI令牌使用量员工考核指标",
+    "Claude HumanX大会最热议AI助手旧金山Moscone",
+    "Stanford AI认知鸿沟公众焦虑AI专家乐观中美竞争",
+    "Apple智能眼镜四款设计2027上市",
+    "Meta广告收入超谷歌2026年数字广告格局",
+    "中国Q1 GDP 4.8%增速4月16日发布",
+    "全球VC Q1 3000亿破纪录AI占80%OpenAI Anthropic xAI",
+    "钙钛矿太阳能电池27.98%效率中国世界纪录"
   ]
 }

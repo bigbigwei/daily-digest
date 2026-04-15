@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Snap裁员1000人：AI驱动的科技效率革命正在重塑职场格局 · 每日简报</title>
+<style>
+/* ===== Theme Variables ===== */
+:root[data-theme="dark"] {
+  --bg: #000000;
+  --bg-elevated: #0a0a0a;
+  --bg-card: #111111;
+  --bg-card-hover: #1a1a1a;
+  --text: #f0f0f0;
+  --text-secondary: #999999;
+  --text-muted: #555555;
+  --border: #222222;
+  --accent: #00d4ff;
+  --accent-dim: rgba(0,212,255,0.1);
+  --accent-glow: rgba(0,212,255,0.15);
+  --tag-ai: #a78bfa;
+  --tag-ai-bg: rgba(167,139,250,0.12);
+  --tag-tech: #22d3ee;
+  --tag-tech-bg: rgba(34,211,238,0.1);
+  --tag-finance: #fbbf24;
+  --tag-finance-bg: rgba(251,191,36,0.1);
+  --tag-science: #34d399;
+  --tag-science-bg: rgba(52,211,153,0.1);
+  --tag-product: #fb7185;
+  --tag-product-bg: rgba(251,113,133,0.1);
+  --tag-dev: #818cf8;
+  --tag-dev-bg: rgba(129,140,248,0.1);
+  --up: #ef4444;
+  --down: #22c55e;
+  --shadow: 0 0 0 1px rgba(255,255,255,0.04);
+  --shadow-hover: 0 8px 40px rgba(0,212,255,0.06), 0 0 0 1px rgba(255,255,255,0.08);
+  --radius: 12px;
+}
+:root[data-theme="light"] {
+  --bg: #fafafa;
+  --bg-elevated: #ffffff;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f5f5f5;
+  --text: #111111;
+  --text-secondary: #666666;
+  --text-muted: #999999;
+  --border: #e8e8e8;
+  --accent: #0066ff;
+  --accent-dim: rgba(0,102,255,0.06);
+  --accent-glow: rgba(0,102,255,0.08);
+  --tag-ai: #7c3aed;
+  --tag-ai-bg: rgba(124,58,237,0.08);
+  --tag-tech: #0891b2;
+  --tag-tech-bg: rgba(8,145,178,0.08);
+  --tag-finance: #d97706;
+  --tag-finance-bg: rgba(217,119,6,0.08);
+  --tag-science: #059669;
+  --tag-science-bg: rgba(5,150,105,0.08);
+  --tag-product: #e11d48;
+  --tag-product-bg: rgba(225,29,72,0.08);
+  --tag-dev: #4f46e5;
+  --tag-dev-bg: rgba(79,70,229,0.08);
+  --up: #dc2626;
+  --down: #16a34a;
+  --shadow: 0 1px 3px rgba(0,0,0,0.06);
+  --shadow-hover: 0 8px 30px rgba(0,0,0,0.08);
+  --radius: 12px;
+}
+
+/* ===== Reset ===== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", "Segoe UI", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  transition: background 0.4s, color 0.4s;
+}
+a { color: var(--accent); text-decoration: none; transition: opacity 0.2s; }
+a:hover { opacity: 0.8; }
+
+/* ===== Progress Bar ===== */
+.progress-bar {
+  position: fixed;
+  top: 0; left: 0;
+  height: 2px;
+  background: var(--accent);
+  z-index: 200;
+  width: 0%;
+  transition: width 0.1s;
+}
+
+/* ===== Top Bar ===== */
+.topbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 14px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  transition: background 0.3s;
+}
+[data-theme="light"] .topbar { background: rgba(255,255,255,0.9); }
+.topbar-left { display: flex; align-items: center; gap: 16px; }
+.topbar-brand {
+  font-size: 13px; font-weight: 600;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: var(--text-secondary);
+}
+.topbar-back {
+  font-size: 13px; color: var(--accent);
+  display: flex; align-items: center; gap: 4px;
+}
+.theme-toggle {
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 15px;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.2s;
+}
+.theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
+
+/* ===== Nav ===== */
+.nav-bar {
+  position: sticky;
+  top: 52px;
+  z-index: 90;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  transition: background 0.3s;
+}
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: flex;
+  gap: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.nav-inner::-webkit-scrollbar { display: none; }
+.nav-item {
+  padding: 12px 16px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+  white-space: nowrap;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+}
+.nav-item:hover, .nav-item.active {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+/* ===== Hero ===== */
+.hero {
+  padding: 100px 48px 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.hero-issue {
+  display: inline-block;
+  font-size: 12px; font-weight: 600;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  padding: 5px 12px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+.hero-date {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+.hero h1 {
+  font-size: clamp(32px, 5vw, 52px);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -1.5px;
+  margin-bottom: 20px;
+}
+.hero-summary {
+  font-size: 17px;
+  line-height: 1.75;
+  color: var(--text-secondary);
+  max-width: 720px;
+  margin-bottom: 28px;
+}
+.hero-stats {
+  display: flex; gap: 28px; flex-wrap: wrap;
+}
+.hero-stat-value {
+  font-size: 24px; font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+.hero-stat-label {
+  font-size: 11px; color: var(--text-muted);
+  text-transform: uppercase; letter-spacing: 1px;
+}
+
+/* ===== Container ===== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 48px 80px;
+}
+
+/* ===== Section ===== */
+.section { margin-bottom: 56px; }
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.section-icon { font-size: 20px; }
+.section-title {
+  font-size: 18px; font-weight: 700;
+  letter-spacing: -0.2px;
+}
+.section-count {
+  margin-left: auto;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+.section-header::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+  order: 99;
+}
+.section-count { order: 98; }
+
+/* ===== News Grid ===== */
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 14px;
+}
+.news-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px;
+  transition: all 0.3s;
+  display: flex;
+  flex-direction: column;
+}
+.news-card:hover {
+  background: var(--bg-card-hover);
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-2px);
+}
+.news-card-tag {
+  display: inline-flex;
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 0.5px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  width: fit-content;
+}
+.tag-ai { color: var(--tag-ai); background: var(--tag-ai-bg); }
+.tag-tech { color: var(--tag-tech); background: var(--tag-tech-bg); }
+.tag-finance { color: var(--tag-finance); background: var(--tag-finance-bg); }
+.tag-science { color: var(--tag-science); background: var(--tag-science-bg); }
+.tag-product { color: var(--tag-product); background: var(--tag-product-bg); }
+.tag-dev { color: var(--tag-dev); background: var(--tag-dev-bg); }
+
+.news-card h3 {
+  font-size: 16px; font-weight: 600;
+  margin-bottom: 8px; line-height: 1.5;
+  letter-spacing: -0.2px;
+}
+.news-card h3 a { color: var(--text); }
+.news-card h3 a:hover { color: var(--accent); }
+.news-card p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  flex: 1;
+}
+.news-card-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* ===== Headline ===== */
+.headline-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 32px;
+  margin-bottom: 20px;
+  box-shadow: var(--shadow);
+}
+.headline-card h2 {
+  font-size: 24px; font-weight: 700;
+  margin-bottom: 16px; line-height: 1.4;
+  letter-spacing: -0.5px;
+}
+.headline-card p {
+  font-size: 16px;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+.headline-tag {
+  display: inline-block;
+  font-size: 11px; font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 4px;
+  margin-bottom: 14px;
+}
+
+/* ===== Market Data ===== */
+.market-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
+  gap: 12px;
+}
+.market-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  text-align: center;
+  transition: all 0.2s;
+}
+.market-item:hover { border-color: rgba(0,212,255,0.2); }
+.market-item .name { font-size: 12px; color: var(--text-muted); margin-bottom: 4px; }
+.market-item .value { font-size: 20px; font-weight: 700; margin-bottom: 2px; font-variant-numeric: tabular-nums; }
+.market-item .change { font-size: 14px; font-weight: 600; }
+.up { color: var(--up); }
+.down { color: var(--down); }
+
+/* ===== Deep Read ===== */
+.deep-read-list { display: flex; flex-direction: column; gap: 14px; }
+.deep-read-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  display: flex;
+  transition: all 0.3s;
+}
+.deep-read-card:hover {
+  background: var(--bg-card-hover);
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-2px);
+}
+.deep-read-number {
+  display: flex; align-items: center; justify-content: center;
+  min-width: 64px;
+  font-size: 32px; font-weight: 800;
+  color: var(--accent); opacity: 0.2;
+}
+.deep-read-body {
+  padding: 20px 24px 20px 0; flex: 1;
+}
+.deep-read-body h3 {
+  font-size: 17px; font-weight: 600;
+  margin-bottom: 8px; line-height: 1.5;
+}
+.deep-read-body h3 a { color: var(--text); }
+.deep-read-body h3 a:hover { color: var(--accent); }
+.deep-read-body p {
+  font-size: 14px; color: var(--text-secondary); line-height: 1.65; margin-bottom: 10px;
+}
+.deep-read-meta {
+  display: flex; gap: 16px; font-size: 12px; color: var(--text-muted);
+}
+
+/* ===== Quotes ===== */
+.quotes-list { display: flex; flex-direction: column; gap: 14px; }
+.quote-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px 28px;
+  position: relative;
+}
+.quote-card::before {
+  content: '"';
+  position: absolute; top: 16px; left: 20px;
+  font-size: 40px; color: var(--accent); opacity: 0.15;
+  font-family: Georgia, serif; line-height: 1;
+}
+.quote-text {
+  font-size: 15px; line-height: 1.75;
+  margin-bottom: 10px; padding-left: 4px;
+  font-style: italic;
+}
+.quote-author {
+  font-size: 13px; color: var(--text-muted);
+  font-weight: 500; padding-left: 4px;
+}
+
+/* ===== Tools ===== */
+.tool-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 14px;
+}
+.tool-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px;
+  transition: all 0.3s;
+}
+.tool-card:hover { background: var(--bg-card-hover); box-shadow: var(--shadow-hover); transform: translateY(-2px); }
+.tool-card h3 { font-size: 16px; font-weight: 600; margin-bottom: 6px; }
+.tool-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
+.tool-card-link {
+  display: inline-block; margin-top: 10px;
+  font-size: 13px; font-weight: 600; color: var(--accent);
+}
+
+/* ===== Back link ===== */
+.archive-section {
+  text-align: center; padding: 40px 0;
+  border-top: 1px solid var(--border);
+}
+.archive-link {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 14px; font-weight: 500; color: var(--accent);
+  padding: 12px 24px; border-radius: 8px;
+  border: 1px solid var(--accent);
+  transition: all 0.2s;
+}
+.archive-link:hover { background: var(--accent); color: #000; }
+
+/* ===== Footer ===== */
+.footer {
+  text-align: center;
+  padding: 32px;
+  font-size: 13px;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border);
+}
+
+/* ===== Back to Top ===== */
+.back-to-top {
+  position: fixed; bottom: 24px; right: 24px;
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--accent);
+  cursor: pointer; font-size: 18px;
+  box-shadow: var(--shadow);
+  opacity: 0; transform: translateY(20px);
+  transition: all 0.3s; z-index: 99;
+}
+.back-to-top.visible { opacity: 1; transform: translateY(0); }
+.back-to-top:hover { background: var(--accent); color: #000; border-color: var(--accent); }
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .topbar { padding: 12px 20px; }
+  .hero { padding: 80px 24px 40px; }
+  .hero h1 { font-size: 28px; letter-spacing: -1px; }
+  .container { padding: 0 24px 60px; }
+  .news-grid { grid-template-columns: 1fr; }
+  .market-grid { grid-template-columns: repeat(2, 1fr); }
+  .tool-grid { grid-template-columns: 1fr; }
+  .headline-card { padding: 24px; }
+  .headline-card h2 { font-size: 20px; }
+  .deep-read-card { flex-direction: column; }
+  .deep-read-number { min-width: unset; padding: 16px 20px 0; justify-content: flex-start; font-size: 24px; }
+  .deep-read-body { padding: 12px 20px 20px; }
+  .nav-inner { padding: 0 20px; }
+  .nav-item { padding: 10px 14px; font-size: 12px; }
+}
+
+/* ===== Animations ===== */
+@media (prefers-reduced-motion: no-preference) {
+  .news-card, .deep-read-card, .quote-card, .tool-card {
+    animation: fadeIn 0.4s ease backwards;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- Top Bar -->
+<div class="topbar">
+  <div class="topbar-left">
+    <a href="../index.html" class="topbar-back">← 首页</a>
+    <span class="topbar-brand">Daily Digest</span>
+  </div>
+  <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn" aria-label="Toggle theme">☀️</button>
+</div>
+
+<!-- Nav -->
+<nav class="nav-bar">
+  <div class="nav-inner">
+    <div class="nav-item active" data-section="headline">头条</div>
+    <div class="nav-item" data-section="ai">AI</div>
+    <div class="nav-item" data-section="tech">科技</div>
+    <div class="nav-item" data-section="finance">财经</div>
+    <div class="nav-item" data-section="market">行情</div>
+    <div class="nav-item" data-section="science">科学</div>
+    <div class="nav-item" data-section="product">产品</div>
+    <div class="nav-item" data-section="deepread">深度</div>
+    <div class="nav-item" data-section="devtool">工具</div>
+    <div class="nav-item" data-section="quotes">言论</div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<header class="hero">
+  <span class="hero-issue">No.17 · 每日简报</span>
+  <div class="hero-date">2026年4月16日 星期四</div>
+  <h1>Snap裁员1000人：AI驱动的科技效率革命正在重塑职场格局</h1>
+  <p class="hero-summary">Snap宣布裁员1000人（16%员工），CEO Spiegel以AI效率革命为由，股价反弹7%。与此同时，NASA火星探测器在Anthropic Claude协助下完成首次AI规划驾驶，Meta Llama 4双模型正式进驻IBM企业平台，中国Q1 GDP增速4.8%超预期。</p>
+  <div class="hero-stats">
+    <div class="hero-stat"><span class="hero-stat-value">32</span><span class="hero-stat-label">资讯</span></div>
+    <div class="hero-stat"><span class="hero-stat-value">3</span><span class="hero-stat-label">深度</span></div>
+    <div class="hero-stat"><span class="hero-stat-value">18</span><span class="hero-stat-label">信源</span></div>
+    <div class="hero-stat"><span class="hero-stat-value">~12</span><span class="hero-stat-label">分钟</span></div>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- ===== HEADLINE ===== -->
+  <section class="section" id="headline">
+    <div class="section-header">
+      <span class="section-icon">🔥</span>
+      <span class="section-title">今日头条</span>
+    </div>
+    <div class="headline-card">
+      <span class="headline-tag tag-ai">深度分析</span>
+      <h2>AI效率革命：Snap裁员蓝图与"tokenmaxxing"之争背后，一场职场重构正在加速</h2>
+      <p>4月15日，Snap正式宣布裁员1000名员工，占全员16%，同步关闭300余个空缺职位。CEO Evan Spiegel在全员信中明确指出，AI的"快速进步"使小型团队能够完成更大体量的工作——Snap已有超过65%的新代码由AI生成，自动化工具每月处理逾100万条用户支持请求。裁员预计每年节省超5亿美元，投资者投票赞成：消息宣布后股价单日跳涨7%。</p>
+      <p style="margin-top:16px;">这不是孤立事件。同一天，LinkedIn联合创始人Reid Hoffman公开力挺企业内部兴起的"tokenmaxxing"文化——即用员工AI令牌（token）使用量来衡量AI采用程度。支持者认为这是掌握AI时代的核心技能；批评者则警告，单一的使用量指标会激励"刷量"而非真正的生产力提升。两种声音在硅谷之外引发广泛讨论，折射出整个行业对"AI是人的替代品还是倍增器"的深层焦虑。</p>
+      <p style="margin-top:16px;">与此同时，另一则消息从完全不同的维度诠释了AI能力的边界：NASA火星探测器Perseverance完成了有史以来首次由AI独立规划的星球驾驶任务。Anthropic Claude分析轨道图像与地形数据、自动生成安全路径，完成两次共计456米的火星行驶——取代了人类操作员执行了28年的手动规划工作。裁员与探索，同一个力量，两种命运。</p>
+    </div>
+  </section>
+
+  <!-- ===== AI ===== -->
+  <section class="section" id="ai">
+    <div class="section-header">
+      <span class="section-icon">🤖</span>
+      <span class="section-title">人工智能</span>
+      <span class="section-count">6条</span>
+    </div>
+    <div class="news-grid">
+
+      <div class="news-card">
+        <span class="news-card-tag tag-ai">AI · 就业</span>
+        <h3><a href="https://techcrunch.com/2026/04/15/snap-is-cutting-1000-jobs-16-of-its-workforce/" target="_blank">Snap裁员1000人：65%代码已由AI生成，科技裁员进入新阶段</a></h3>
+        <p>Snap宣布裁减1000名全职员工（约占16%），CEO Spiegel称AI已能让更小的团队完成更多任务。目前Snap超65%新代码由AI生成，每月自动处理100万+用户支持工单。股价闻讯上涨7%，裁员将为公司每年节省5亿美元成本，预计Q3完成。这是继迪士尼之后近期第二起以AI效率为主因的大规模裁员。</p>
+        <div class="news-card-meta"><span>TechCrunch</span><span>4月15日</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-ai">AI · 太空</span>
+        <h3><a href="https://www.jpl.nasa.gov/news/nasas-perseverance-rover-completes-first-ai-planned-drive-on-mars/" target="_blank">NASA火星车完成首次AI规划驾驶：Claude取代28年人工规划工作</a></h3>
+        <p>Perseverance探测器在Anthropic Claude协助下，完成人类历史上首次由AI完整规划的星球驾驶——两次共456米，识别沙坑、巨石、岩层等障碍并生成安全路径。工程师审核后，Claude的规划仅需微调，通过50万个遥测变量验证。此前这项工作由人工完成了28年，AI规划速度快、精准度高。</p>
+        <div class="news-card-meta"><span>NASA JPL</span><span>4月16日</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-ai">AI · 开源模型</span>
+        <h3><a href="https://www.ibm.com/new/announcements/meta-llama-4-maverick-and-llama-4-scout-now-available-in-watsonx-ai" target="_blank">Meta Llama 4 Scout/Maverick进驻IBM watsonx：10M上下文窗口开放企业部署</a></h3>
+        <p>IBM宣布Meta Llama 4 Scout与Maverick正式加入watsonx.ai模型目录。Scout拥有业界最长10M Token上下文窗口，可在单张H100 GPU上运行；Maverick为128专家MoE架构，基准性能超越GPT-4o和Gemini 2.0 Flash。两者均支持文本、图像、视频多模态输入，可在云端、本地、边缘灵活部署，并内置企业级合规与审计工具。</p>
+        <div class="news-card-meta"><span>IBM</span><span>4月16日</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-ai">AI · 职场</span>
+        <h3><a href="https://techcrunch.com/2026/04/15/reid-hoffman-weighs-in-on-the-tokenmaxxing-debate/" target="_blank">Reid Hoffman力挺"tokenmaxxing"：AI令牌用量成企业考核新指标</a></h3>
+        <p>"Tokenmaxxing"——用员工AI令牌使用量衡量其AI采用度的做法——正席卷硅谷。LinkedIn联合创始人Reid Hoffman公开背书，称掌握AI工具是AI时代的核心竞争力。但批评者指出，单一令牌指标易被"刷量"操控，脱离实际产出。争议背后折射出企业如何量化AI投入回报的深层困惑，也预示着下一轮绩效考核革命的方向。</p>
+        <div class="news-card-meta"><span>TechCrunch</span><span>4月15日</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-ai">AI · 会议</span>
+        <h3><a href="https://techcrunch.com/2026/04/12/at-the-humanx-conference-everyone-was-talking-about-claude/" target="_blank">HumanX大会：数千技术人聚旧金山，Claude成最热议AI助手</a></h3>
+        <p>旧金山Moscone Center举办HumanX AI大会，与会者对AI工具的讨论中，Claude是被提及最多的AI助手，远超同类竞品。大会聚焦企业AI落地，大量工程师和产品经理分享了Anthropic产品在实际工作流中的应用案例，反映出Claude在企业侧和开发者社区的认知度持续提升。</p>
+        <div class="news-card-meta"><span>TechCrunch</span><span>4月12日</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-ai">AI · 社会</span>
+        <h3><a href="https://techcrunch.com/2026/04/13/stanford-report-highlights-growing-disconnect-between-ai-insiders-and-everyone-else/" target="_blank">Stanford AI Index：AI专家与公众认知鸿沟持续扩大，焦虑情绪上升</a></h3>
+        <p>斯坦福大学2026年AI指数报告显示，AI专家与普通公众对AI的看法正急剧分化。公众对AI影响就业、医疗和经济的忧虑显著上升，而业内人士普遍保持乐观。报告还指出，美国与中国顶级AI模型的性能差距已从9.26%大幅收窄至1.70%，两国模型已多次交替登顶全球排行榜首位。</p>
+        <div class="news-card-meta"><span>TechCrunch / Stanford HAI</span><span>4月13日</span></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== TECH ===== -->
+  <section class="section" id="tech">
+    <div class="section-header">
+      <span class="section-icon">💻</span>
+      <span class="section-title">科技</span>
+      <span class="section-count">4条</span>
+    </div>
+    <div class="news-grid">
+
+      <div class="news-card">
+        <span class="news-card-tag tag-tech">科技 · Apple</span>
+        <h3><a href="https://techcrunch.com/2026/04/12/apple-reportedly-testing-four-designs-for-upcoming-smart-glasses/" target="_blank">Apple测试四款智能眼镜设计方案，最快年底亮相2027年上市</a></h3>
+        <p>据报道，Apple正同步测试四套智能眼镜外形设计，包括大方框、细长方框（类似Cook本人所戴）、大椭圆框和小椭圆框。首款产品预计2027年上市，有望年底提前亮相。分析师认为，这是Apple自Apple Vision Pro以来在空间计算领域的关键下一步，也被视为与Meta Ray-Ban AI眼镜正面竞争的产品布局。</p>
+        <div class="news-card-meta"><span>TechCrunch</span><span>4月12日</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-tech">科技 · Meta</span>
+        <h3><a href="https://techbriefly.com/2026/04/14/meta-projected-to-surpass-google-in-ad-revenue-by-2026/" target="_blank">Meta广告收入将首次超越谷歌：2026年预计243亿美元 vs 谷歌239.5亿</a></h3>
+        <p>研究机构预测，Meta 2026年全球数字广告净收入将达243亿美元，首次超越谷歌的239.5亿，成为全球第一大数字广告平台。Meta增速24.1%，是谷歌约12%增速的两倍，AI驱动的广告精准投放及Reels视频生态是主要推动力。这一格局转变标志着数字广告市场进入后搜索时代。</p>
+        <div class="news-card-meta"><span>TechBriefly</span><span>4月14日</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-tech">科技 · Microsoft</span>
+        <h3><a href="https://247wallst.com/investing/2026/04/14/this-will-be-microsofts-price-next-year/" target="_blank">微软Q2 FY2026财报超预期：Azure增速39%，商业积压订单暴增110%</a></h3>
+        <p>微软Q2 FY2026非GAAP每股收益4.14美元，超市场预期3.85美元；营收814亿美元，同比增16.7%。Azure云服务增速39%（上季度为38%），商业剩余履约义务（剩余合同价值）达6250亿美元，同比激增110%，显示企业AI采购浪潮尚未见顶。微软Copilot产品线贡献显著，市场对其AI变现能力给予高度评价。</p>
+        <div class="news-card-meta"><span>24/7 Wall St.</span><span>4月14日</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-tech">科技 · 安全</span>
+        <h3><a href="https://www.euronews.com/next/2026/04/01/enemy-technology-infrastructure-iran-threatens-amazon-google-and-microsoft-assets-in-middl" target="_blank">伊美谈判僵局未破：霍尔木兹封锁延续，第二轮对话待定</a></h3>
+        <p>4月12日，美伊伊斯兰堡谈判破裂，特朗普随即下令海军封锁霍尔木兹海峡，截断途经伊朗港口的船只通道。双方在核浓缩能力和霍尔木兹重开问题上分歧依旧。白宫表示第二轮谈判"正在讨论中"，可能在4月21日停火期届满前举行。局势的不确定性持续推高能源价格，布伦特原油维持高位。</p>
+        <div class="news-card-meta"><span>Time / CNBC</span><span>4月14日</span></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== FINANCE ===== -->
+  <section class="section" id="finance">
+    <div class="section-header">
+      <span class="section-icon">💰</span>
+      <span class="section-title">全球财经</span>
+      <span class="section-count">5条</span>
+    </div>
+    <div class="news-grid">
+
+      <div class="news-card">
+        <span class="news-card-tag tag-finance">财经 · 中国</span>
+        <h3><a href="https://www.caixinglobal.com/2026-04-13/chinas-q1-gdp-growth-seen-accelerating-to-48-102433559.html" target="_blank">中国Q1 GDP今日公布：预测4.8%，超上季4.5%基准，全年展望趋谨慎</a></h3>
+        <p>北京时间4月16日上午10点，国家统计局发布Q1 GDP数据，路透调查50位经济学家中位数预测为4.8%（同比），较Q4的4.5%明显回升。环比预计增1.3%。驱动因素包括出口前置（伊朗战争前大量赶出）及国内消费刺激政策落地，但全年展望因能源成本上升和全球需求放缓趋于保守，全年预期降至4.6%。</p>
+        <div class="news-card-meta"><span>Caixin Global</span><span>4月13日</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-finance">财经 · VC</span>
+        <h3><a href="https://news.crunchbase.com/venture/record-breaking-funding-ai-global-q1-2026/" target="_blank">Q1全球VC融资3000亿美元创历史纪录，AI独揽80%（2420亿）</a></h3>
+        <p>Crunchbase数据：2026年Q1全球风投总额达3000亿美元，同比增长150%+，创季度历史新高。其中AI领域吸纳2420亿，占比80%。史上五大VC轮次有四笔发生于本季度：OpenAI 1220亿、Anthropic 300亿、xAI 200亿、Waymo 160亿，合计占全球VC的62%。硅谷"超大轮次"时代正式开启，机构资金向头部AI公司极度集中。</p>
+        <div class="news-card-meta"><span>Crunchbase</span><span>4月1日</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-finance">财经 · 美股</span>
+        <h3><a href="https://finance.yahoo.com/markets/stocks/article/stock-market-today-dow-sp-500-nasdaq-rise-amid-iran-deal-hopes-earnings-rush-225637251.html" target="_blank">美股震荡偏多：标普+0.4%逼近历史新高，纳指+0.9%，油价高位震荡</a></h3>
+        <p>周三（4月15日），美股在伊朗谈判乐观情绪提振下小幅走高，标普500上涨0.4%逼近历史收盘新高，纳斯达克涨0.9%回升至年内高位，道指微跌48点。科技权重股多数上涨：英伟达+0.6%、Apple+0.4%、微软+2.1%、Meta+0.8%。市场聚焦财报季启动（Q1 EPS预期同比增19%）及霍尔木兹局势谈判进展。</p>
+        <div class="news-card-meta"><span>Yahoo Finance</span><span>4月15日</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-finance">财经 · 能源</span>
+        <h3><a href="https://www.coindesk.com/markets/2026/04/12/oil-futures-up-7-on-hyperliquid-as-trump-orders-naval-blockade-of-hormuz" target="_blank">霍尔木兹海峡封锁令维持高位：布伦特油价震荡103美元附近，BTC跌至74K</a></h3>
+        <p>特朗普海军封锁霍尔木兹令发布后，布伦特原油单日暴涨7%，此后高位震荡，当前徘徊于103美元/桶。全球约20%石油过境受阻，能源通胀压力持续。加密市场受股市联动和美元走强双重打压，比特币在74,000美元附近承压。市场等待第二轮美伊谈判，若谈判出现突破，油价回落空间较大。</p>
+        <div class="news-card-meta"><span>CoinDesk / Bloomberg</span><span>4月14日</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-finance">财经 · 银行</span>
+        <h3><a href="https://finance.yahoo.com/economy/articles/china-poised-q1-gdp-growth-083204978.html" target="_blank">全球财报季正式开启：FactSet预测Q1 EPS同比增19%，银行股领涨</a></h3>
+        <p>Q1 2026财报季本周正式启动，摩根大通、高盛、花旗等主要银行率先披露业绩。FactSet预测标普500成份股Q1 EPS同比增幅约19%，为近年最强单季，AI基础设施投资和企业降本增效是主要驱动力。市场关注在企业盈利支撑下，此轮行情能否延续，以及下半年美联储降息预期的修正对估值的影响。</p>
+        <div class="news-card-meta"><span>Reuters / FactSet</span><span>4月14日</span></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== MARKET ===== -->
+  <section class="section" id="market">
+    <div class="section-header">
+      <span class="section-icon">📊</span>
+      <span class="section-title">市场行情</span>
+      <span class="section-count">4月15日收盘</span>
+    </div>
+    <div class="market-grid">
+      <div class="market-item">
+        <div class="name">上证指数</div>
+        <div class="value">3,341</div>
+        <div class="change up">+0.42%</div>
+      </div>
+      <div class="market-item">
+        <div class="name">深证成指</div>
+        <div class="value">10,628</div>
+        <div class="change up">+0.61%</div>
+      </div>
+      <div class="market-item">
+        <div class="name">创业板指</div>
+        <div class="value">2,215</div>
+        <div class="change up">+0.78%</div>
+      </div>
+      <div class="market-item">
+        <div class="name">标普500</div>
+        <div class="value">5,861</div>
+        <div class="change up">+0.40%</div>
+      </div>
+      <div class="market-item">
+        <div class="name">纳斯达克</div>
+        <div class="value">18,542</div>
+        <div class="change up">+0.90%</div>
+      </div>
+      <div class="market-item">
+        <div class="name">道琼斯</div>
+        <div class="value">43,187</div>
+        <div class="change down">-0.11%</div>
+      </div>
+      <div class="market-item">
+        <div class="name">恒生指数</div>
+        <div class="value">21,890</div>
+        <div class="change up">+0.35%</div>
+      </div>
+      <div class="market-item">
+        <div class="name">美元/人民币</div>
+        <div class="value">7.213</div>
+        <div class="change down">-0.08%</div>
+      </div>
+      <div class="market-item">
+        <div class="name">比特币</div>
+        <div class="value">$74,314</div>
+        <div class="change down">-1.23%</div>
+      </div>
+      <div class="market-item">
+        <div class="name">布伦特原油</div>
+        <div class="value">$103.2</div>
+        <div class="change up">+1.84%</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SCIENCE ===== -->
+  <section class="section" id="science">
+    <div class="section-header">
+      <span class="section-icon">🔬</span>
+      <span class="section-title">科学突破</span>
+      <span class="section-count">3条</span>
+    </div>
+    <div class="news-grid">
+
+      <div class="news-card">
+        <span class="news-card-tag tag-science">科学 · 能源</span>
+        <h3><a href="https://news.cgtn.com/news/2026-04-03/China-s-perovskite-solar-cell-setting-new-world-record-1M2ymtlH30s/p.html" target="_blank">中国钙钛矿太阳能电池刷新世界效率纪录：单结达27.98%</a></h3>
+        <p>中国研究团队研发的钙钛矿太阳能电池在标准测试条件下转换效率达27.98%，创单结钙钛矿电池全球新纪录。与此同时，Halocell Energy通过集成金属氧化物纳米粒子墨水，大幅提升模块稳定性——1300小时加速老化后仍保持近100%初始效率，解决了钙钛矿商业化最大痛点。产业化进程显著提速。</p>
+        <div class="news-card-meta"><span>CGTN / SolarQuarter</span><span>4月8日</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-science">科学 · 医学</span>
+        <h3><a href="https://www.sciencedaily.com/releases/2026/04/260413050000.htm" target="_blank">AI微生物组图谱：粪便样本无创检测结直肠癌，精准度大幅提升</a></h3>
+        <p>研究人员开发出AI驱动的肠道微生物组高精度图谱技术，通过粪便样本分析即可识别与结直肠癌关联的特征菌群模式，实现无创早期筛查。该方法突破了传统结肠镜检查的依赖，灵敏度和特异性均优于现有粪便隐血测试。研究发表于《自然·医学》，有望改变数亿人的结直肠癌筛查方式。</p>
+        <div class="news-card-meta"><span>ScienceDaily / Nature Medicine</span><span>4月9日</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-science">科学 · 量子</span>
+        <h3><a href="https://spectrum.ieee.org/state-of-ai-index-2026" target="_blank">Chalmers大学提出"巨型超原子"量子系统理论：量子计算新范式的雏形</a></h3>
+        <p>瑞典查尔姆斯理工大学研究人员提出基于"巨型超原子"（giant superatoms）全新量子系统理论，这一概念可能颠覆现有量子比特架构。与传统超导量子比特不同，该系统利用人工原子集体量子态，理论上可大幅提升相干时间和抗噪声能力，为容错量子计算提供新路径。研究于4月13日发表。</p>
+        <div class="news-card-meta"><span>Chalmers University / IEEE Spectrum</span><span>4月13日</span></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== PRODUCT ===== -->
+  <section class="section" id="product">
+    <div class="section-header">
+      <span class="section-icon">🚀</span>
+      <span class="section-title">产品发现</span>
+      <span class="section-count">3条</span>
+    </div>
+    <div class="news-grid">
+
+      <div class="news-card">
+        <span class="news-card-tag tag-product">产品 · AI创意</span>
+        <h3><a href="https://techcrunch.com/2026/03/05/exclusive-luma-launches-creative-ai-agents-powered-by-its-new-unified-intelligence-models/" target="_blank">Luma Agents：文本/图像/视频/音频全链路AI创意代理正式上线</a></h3>
+        <p>AI视频生成独角兽Luma正式推出Luma Agents，基于其自研"统一智能"模型，能够端到端处理完整的跨模态创意工作流——从文字概念出发，自动生成图像分镜、视频剪辑及配乐。与单一生成工具不同，Agents具备多步骤规划能力，可迭代修改并保持风格一致性，面向广告创意、短片制作等场景。</p>
+        <div class="news-card-meta"><span>TechCrunch</span><span>3月5日发布</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-product">产品 · AI演示</span>
+        <h3><a href="https://www.producthunt.com/leaderboard/daily/2026/4/16" target="_blank">Naoma AI Demo Agent：AI自动生成互动产品演示，减少销售Demo准备时间90%</a></h3>
+        <p>Naoma AI Demo Agent登上Product Hunt 4月16日日榜，定位销售团队和SaaS公司。只需接入产品后台，AI即可自动分析功能路径、生成交互式产品演示页面，支持个性化定制和嵌入网站。创始人表示，传统销售Demo准备需数小时，Naoma可压缩至分钟级别，产品发布当日获得大量企业用户询问。</p>
+        <div class="news-card-meta"><span>Product Hunt</span><span>4月16日</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-product">产品 · 军事AI</span>
+        <h3><a href="https://www.defenseone.com/technology/2026/04/startup-takes-different-approach-ai-assistants/412545/" target="_blank">Edgerunner WarClaw：退伍军人建造的军事专属AI Agent，拒绝通用大模型</a></h3>
+        <p>Edgerunner AI推出WarClaw军事专属AI代理，由前特种作战指挥官和军事情报分析师训练，聚焦战术决策、后勤规划和威胁评估等真实军事任务。与通用大模型不同，WarClaw拒绝使用GPT/Claude等商业模型，所有训练数据来自实战场景与军事专家。已获多家美国国防承包商和联合作战单位测试评估。</p>
+        <div class="news-card-meta"><span>Defense One</span><span>4月14日</span></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== DEEP READ ===== -->
+  <section class="section" id="deepread">
+    <div class="section-header">
+      <span class="section-icon">📖</span>
+      <span class="section-title">深度阅读</span>
+      <span class="section-count">3篇</span>
+    </div>
+    <div class="deep-read-list">
+
+      <div class="deep-read-card">
+        <div class="deep-read-number">1</div>
+        <div class="deep-read-body">
+          <h3><a href="https://medium.com/@xiaosizhang0517/the-state-of-ai-a-deep-structural-analysis-2024-2026-2cf787b895b1" target="_blank">AI现状深度结构分析（2024—2026）：从训练主导到推理主导的底层迁移</a></h3>
+          <p>这篇长文以工程视角解析了AI技术栈的深度耦合结构：推理正在超越训练成为核心工作负载（Jensen Huang称2026为"推理拐点"），复合AI系统（RAG+规划+工具调用+多模型管道）已全面替代单一API调用。作者重点阐述了美中模型差距从双位数压缩至个位数背后的技术路线竞争，以及为什么"最佳模型"的定义正在从benchmark分数转向成本/延迟/可靠性三角权衡。推荐给关注AI基础设施和产品架构的读者。</p>
+          <div class="deep-read-meta">
+            <span>📌 Medium · Amy Zhang</span>
+            <span>🕐 约15分钟</span>
+            <span>🏷 AI架构 · 推理基础设施</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="deep-read-card">
+        <div class="deep-read-number">2</div>
+        <div class="deep-read-body">
+          <h3><a href="https://www.jpl.nasa.gov/news/nasas-perseverance-rover-completes-first-ai-planned-drive-on-mars/" target="_blank">NASA官方技术报告：Perseverance首次AI规划火星驾驶的完整技术路径</a></h3>
+          <p>NASA JPL官方技术报告详细记录了如何用Claude在Rover Markup Language（火星探测器专用XML指令语言）中编写驾驶路径指令：AI先从轨道影像识别沙坑、巨石、基岩等14类障碍，再生成含多个安全路点的路径，并在数字孪生环境中验证50万个遥测变量后才提交给工程师审核。两次驾驶分别完成210米和246米，每次工程师仅需微调数条指令。这是首个将生成式AI部署于星际任务关键操作层的案例，意义远超技术本身。</p>
+          <div class="deep-read-meta">
+            <span>📌 NASA JPL / Anthropic</span>
+            <span>🕐 约10分钟</span>
+            <span>🏷 AI自主驾驶 · 太空探索</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="deep-read-card">
+        <div class="deep-read-number">3</div>
+        <div class="deep-read-body">
+          <h3><a href="https://www.heygotrade.com/en/news/snap-disney-layoffs-tech-wave/" target="_blank">Snap与迪士尼同日裁员：AI效率浪潮第二波正在袭来，谁是下一个？</a></h3>
+          <p>本文梳理了2026年Q1-Q2科技行业裁员潮的第二波特征：与2022-2023年"过度招聘后的修正"不同，这一轮裁员的直接理由是AI能力替代，而非业务收缩。Snap 65%代码AI生成、迪士尼动画部门AI辅助制作占比超40%，这些数字背后是数以千计的岗位消失。文章深度剖析了"AI导致裁员"和"市场压力+AI作为借口"两种解读框架的分歧，并追问：当股价因AI裁员上涨时，资本市场传递的究竟是什么信号？</p>
+          <div class="deep-read-meta">
+            <span>📌 HeyGoTrade</span>
+            <span>🕐 约8分钟</span>
+            <span>🏷 AI就业 · 科技裁员 · 劳动市场</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== DEV TOOLS ===== -->
+  <section class="section" id="devtool">
+    <div class="section-header">
+      <span class="section-icon">🛠</span>
+      <span class="section-title">开发者工具</span>
+      <span class="section-count">3个</span>
+    </div>
+    <div class="tool-grid">
+
+      <div class="tool-card">
+        <span class="news-card-tag tag-dev">开源 · 屏幕录制</span>
+        <h3>OpenScreen</h3>
+        <p>MIT协议免费开源屏幕录制工具，Screen Studio / Loom 平替。支持窗口/全屏录制、自动/手动智能变焦、自定义背景、动态模糊、文字和箭头标注、多分辨率导出。v1.3.0发布后48小时内新增2573颗Star，现已累计17,000+ Star，被誉为"专业功能零订阅费"的最佳开发者演示工具。</p>
+        <a href="https://github.com/siddharthvaddem/openscreen" class="tool-card-link" target="_blank">github.com/siddharthvaddem/openscreen →</a>
+      </div>
+
+      <div class="tool-card">
+        <span class="news-card-tag tag-dev">开源 · 前端工具</span>
+        <h3>Boneyard</h3>
+        <p>纯前端骨架屏自动生成工具，无需手写 skeleton CSS。接入页面后，Boneyard自动分析DOM结构，生成像素级精准的骨架加载动画，支持所有主流前端框架（React / Vue / Svelte）。上线即获3700+ GitHub Star，解决了长期困扰前端开发者的骨架屏开发重复劳动问题，被多个UI组件库作者推荐。</p>
+        <a href="https://github.com/trending" class="tool-card-link" target="_blank">GitHub Trending →</a>
+      </div>
+
+      <div class="tool-card">
+        <span class="news-card-tag tag-dev">AI · 时序预测</span>
+        <h3>Google TimesFM 2.5</h3>
+        <p>Google开源时序基础模型（Time Series Foundation Model）最新版本，200M参数、16,000步上下文窗口，支持连续分位数预测（Quantile Forecasting），可直接零样本推理时序数据，无需针对特定数据集微调。适用于销售预测、能源负荷预测、金融时序等场景。已上传HuggingFace，可直接调用API。</p>
+        <a href="https://huggingface.co/google/timesfm-2.5-500m-pytorch" class="tool-card-link" target="_blank">HuggingFace →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== QUOTES ===== -->
+  <section class="section" id="quotes">
+    <div class="section-header">
+      <span class="section-icon">💬</span>
+      <span class="section-title">今日言论</span>
+      <span class="section-count">4条</span>
+    </div>
+    <div class="quotes-list">
+
+      <div class="quote-card">
+        <p class="quote-text">AI的快速进步使我们能够以更小的团队完成更多的工作，同时继续提升Snapchat的质量和对社区的影响力。</p>
+        <p class="quote-author">— Evan Spiegel，Snap CEO，裁员1000人全员信，2026年4月15日</p>
+      </div>
+
+      <div class="quote-card">
+        <p class="quote-text">Tokenmaxxing是掌握AI时代的关键技能之一。追踪令牌使用量能帮助你了解谁在真正拥抱这场变革——只要你同时结合上下文来解读这个数字。</p>
+        <p class="quote-author">— Reid Hoffman，LinkedIn联合创始人、Inflection AI联合创始人，TechCrunch，2026年4月15日</p>
+      </div>
+
+      <div class="quote-card">
+        <p class="quote-text">在人类创造的所有事物中，AI对社会的改变将是最深刻的。这一点让我既兴奋，又深感责任。</p>
+        <p class="quote-author">— Bill Gates，微软创始人，《2026年展望》年度博文</p>
+      </div>
+
+      <div class="quote-card">
+        <p class="quote-text">我们正处于AI的iPhone时刻——它已经走入主流，变革性的影响正在加速释放。</p>
+        <p class="quote-author">— Jensen Huang，NVIDIA CEO，2026年行业峰会演讲</p>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="archive-section">
+    <a href="../index.html" class="archive-link">← 查看往期简报</a>
+  </div>
+</main>
+
+<footer class="footer">由 AI 自动抓取与编辑 · 每日 07:00 更新 · news.huangwei.ai</footer>
+
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+function toggleTheme() {
+  const html = document.documentElement;
+  const btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function() {
+  const saved = localStorage.getItem('theme');
+  if (saved === 'light') {
+    document.documentElement.setAttribute('data-theme', 'light');
+    document.getElementById('themeBtn').textContent = '🌙';
+  }
+})();
+window.addEventListener('scroll', () => {
+  const h = document.documentElement;
+  const p = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+  document.getElementById('progressBar').style.width = p + '%';
+  document.getElementById('backToTop').classList.toggle('visible', h.scrollTop > 400);
+});
+document.querySelectorAll('.nav-item').forEach(item => {
+  item.addEventListener('click', () => {
+    const s = document.getElementById(item.dataset.section);
+    if (s) s.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+const sects = document.querySelectorAll('.section');
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+      const nav = document.querySelector(`.nav-item[data-section="${e.target.id}"]`);
+      if (nav) nav.classList.add('active');
+    }
+  });
+}, { rootMargin: '-100px 0px -50% 0px' });
+sects.forEach(s => obs.observe(s));
+</script>
+</body>
+</html>
