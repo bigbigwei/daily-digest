@@ -47,7 +47,10 @@
     "openai/codex-cli",
     "OpenScreen",
     "Boneyard",
-    "Google TimesFM 2.5"
+    "Google TimesFM 2.5",
+    "OpenAI Agents SDK v2（Harness & Sandbox）",
+    "GitHub Copilot Remote CLI Sessions",
+    "Cloudflare Workers AI（边缘推理平台）"
   ],
   "used_products": [
     "AI营销Agent：自动化全链路网红营销，Product Hunt 4月热门",
@@ -109,7 +112,10 @@
     "Denovo：对话式AI需求文档生成器，从需求会议直接输出可执行PRD",
     "Luma Agents：文本/图像/视频/音频全链路AI创意代理，Luma统一智能模型驱动",
     "Naoma AI Demo Agent：AI自动生成互动产品演示，减少销售Demo准备时间90%",
-    "WarClaw（Edgerunner）：退伍军人建造的军事专属AI Agent，拒绝通用大模型"
+    "WarClaw（Edgerunner）：退伍军人建造的军事专属AI Agent，拒绝通用大模型",
+    "APImage：零提示词AI图像创作平台，Product Hunt本周设计类热门榜首",
+    "Klick AI Camera Assistant：实时AI相机助手，边拍边教摄影构图技巧，iOS首发",
+    "Fluently：为YouTube视频自动生成AI字幕与多语言翻译的Chrome插件"
   ],
   "used_deepreads": [
     "100x Less Power: The Breakthrough That Could Solve AI's Massive Energy Crisis — SciTechDaily",
@@ -186,28 +192,31 @@
     "The Real Reason OpenAI Shut Sora Down Is a Warning to Every AI Startup · Futurism",
     "AI现状深度结构分析（2024—2026）：从训练主导到推理主导的底层迁移 — Medium · Amy Zhang",
     "NASA官方技术报告：Perseverance首次AI规划火星驾驶的完整技术路径 — NASA JPL",
-    "Snap与迪士尼同日裁员：AI效率浪潮第二波正在袭来，谁是下一个？ — HeyGoTrade"
+    "Snap与迪士尼同日裁员：AI效率浪潮第二波正在袭来，谁是下一个？ — HeyGoTrade",
+    "Mythos, Muse, and the Opportunity Cost of Compute — Stratechery · Ben Thompson",
+    "Human Scientists Trounce the Best AI Agents on Complex Tasks — Nature",
+    "OpenAI's Memos, Frontier, Amazon and Anthropic — Stratechery · Ben Thompson"
   ],
   "recent_topics": [
-    "Anthropic G轮300亿美元估值3800亿Claude Code ARR 25亿",
-    "Stanford AI Index 2026中美模型性能差距9.26%→1.70%",
-    "AI透明度基础模型FMTI指数从58分跌至40分",
-    "SWE-bench代码基准60%→100%Humanity's Last Exam 50%",
-    "IMF世界经济展望2026全球增长3.1%伊朗战争外生冲击",
-    "OpenAI Sora停服4月26日视频AI赛道洗牌",
-    "AWS Amazon AI年化营收150亿美元云计算AI变现",
-    "PwC AI绩效研究74%经济价值20%企业马太效应",
-    "银行财报季Q1摩根大通高盛花旗FactSet 19%盈利增速",
-    "Snap裁员1000人16%员工AI效率革命职场重组tokenmaxxing",
+    "Snap裁员1000人16%员工AI效率革命tokenmaxxing Reid Hoffman",
     "NASA Perseverance火星探测器首次AI规划驾驶Claude Anthropic",
     "Meta Llama4 Scout Maverick MoE多模态开源IBM watsonx",
-    "Reid Hoffman tokenmaxxing AI令牌使用量员工考核指标",
     "Claude HumanX大会最热议AI助手旧金山Moscone",
-    "Stanford AI认知鸿沟公众焦虑AI专家乐观中美竞争",
-    "Apple智能眼镜四款设计2027上市",
-    "Meta广告收入超谷歌2026年数字广告格局",
     "中国Q1 GDP 4.8%增速4月16日发布",
-    "全球VC Q1 3000亿破纪录AI占80%OpenAI Anthropic xAI",
-    "钙钛矿太阳能电池27.98%效率中国世界纪录"
+    "GPT-6正式发布$2.50/$12定价原生多模态超级应用整合",
+    "Claude Mythos Preview零日漏洞安全门禁50家机构Project Glasswing",
+    "Alibaba Qwen3.6-Plus 100万Token上下文Agentic编码",
+    "OpenAI Anthropic Google联合打击中国AI盗版Frontier Model Forum",
+    "OpenAI Agents SDK v2沙箱执行持久化记忆可移植工作空间",
+    "SiFive 4亿美元G轮融资RISC-V芯片NVIDIA Apollo IPO前最终轮",
+    "纳指12连涨2009年最长纪录停火预期财报季",
+    "布伦特原油从103美元回落91美元美伊停火通胀压力松动",
+    "比特币74786美元黄金4810美元地缘风险溢价缓释",
+    "A股科创50年内新高AI政策红利十五五规划",
+    "斯坦福天然分子Ozempic减重副作用更少",
+    "RNA条形码技术单突触精度神经连接图谱",
+    "细胞内风场蛋白质定向运输癌症扩散",
+    "APImage Klick AI Camera Fluently Product Hunt",
+    "Samsung Galaxy Z Trifold三折屏Adobe Summit 2026"
   ]
 }
