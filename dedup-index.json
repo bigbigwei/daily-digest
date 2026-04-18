@@ -52,12 +52,15 @@
     "Google TimesFM 2.5",
     "OpenAI Agents SDK v2（Harness & Sandbox）",
     "GitHub Copilot Remote CLI Sessions",
-    "Cloudflare Workers AI（边缘推理平台）"
+    "Cloudflare Workers AI（边缘推理平台）",
+    "DeepTutor（HKUDS）",
+    "Multica（multica-ai）",
+    "NVIDIA Personaplex"
   ],
   "used_products": [
     "AI营销Agent：自动化全链路网红营销，Product Hunt 4月热门",
     "Agentic AI Foundation（AAIF）：Anthropic捐赠MCP后的新开源治理组织",
-    "AlphaGenome（Google DeepMind）：解码基因组"暗物质"的非编码DNA AI，加速疾病机制研究",
+    "AlphaGenome（Google DeepMind）：解码基因组“暗物质”的非编码DNA AI，加速疾病机制研究",
     "Apple Business：苹果免费企业一站式平台，4月14日全球开放",
     "BudgetWise：AI驱动个人财务管理，自动归类支出并生成可视化储蓄路线图",
     "CapCut视频工作室AI升级：一句话生成专业级短视频，多平台一键发布",
@@ -120,7 +123,11 @@
     "WarClaw（Edgerunner）：退伍军人建造的军事专属AI Agent，拒绝通用大模型",
     "APImage：零提示词AI图像创作平台，Product Hunt本周设计类热门榜首",
     "Klick AI Camera Assistant：实时AI相机助手，边拍边教摄影构图技巧，iOS首发",
-    "Fluently：为YouTube视频自动生成AI字幕与多语言翻译的Chrome插件"
+    "Fluently：为YouTube视频自动生成AI字幕与多语言翻译的Chrome插件",
+    "Claude Design by Anthropic Labs：对话式设计工具，挑战Figma/Canva",
+    "Notebooks in Gemini：项目、对话与文件的统一智能工作空间",
+    "CraftBot：完全本地运行的主动式AI助手，零云端依赖",
+    "Is Your Site Agent-Ready? by Cloudflare：一键扫描网站AI Agent兼容性"
   ],
   "used_deepreads": [
     "100x Less Power: The Breakthrough That Could Solve AI's Massive Energy Crisis — SciTechDaily",
@@ -204,7 +211,11 @@
     "Snap与迪士尼同日裁员：AI效率浪潮第二波正在袭来，谁是下一个？ — HeyGoTrade",
     "Mythos, Muse, and the Opportunity Cost of Compute — Stratechery · Ben Thompson",
     "Human Scientists Trounce the Best AI Agents on Complex Tasks — Nature",
-    "OpenAI's Memos, Frontier, Amazon and Anthropic — Stratechery · Ben Thompson"
+    "OpenAI's Memos, Frontier, Amazon and Anthropic — Stratechery · Ben Thompson",
+    "Anthropic Claude Design全解析：从语言模型到设计工具的战略跃迁 · VentureBeat",
+    "SpaceX 2万亿IPO全面解读：史上最大上市背后的每个关键数字 · 24/7 Wall St.",
+    "Adobe Summit 2026深度报道：从工具公司到创意AI平台的身份转型 · Computerworld",
+    "MIT Technology Review：首届「当今AI最重要10件事」榜单将于4月21日揭榜 · MIT Technology Review"
   ],
   "recent_topics": [
     "GPT-6正式发布$2.50/$12定价原生多模态超级应用整合",
@@ -226,6 +237,22 @@
     "Forbes AI 50 2026 Gamma Cognition Lovable Physical Intelligence商业化转型",
     "斯坦福AI指数2026中美差距2.7%透明度骤降53%全球采用率",
     "Emergent Wingman SoftBank印度vibe编码AI Agent执行层",
-    "伊朗霍尔木兹完全开放油价暴跌10%道指1000点标普7146关税衰退45%男性避孕Ant2 EmDash Boneyard Hoppscotch Accel AlphaGenome Fluidstack Genesis"
+    "伊朗霍尔木兹完全开放油价暴跌10%道指1000点标普7146关税衰退45%男性避孕Ant2 EmDash Boneyard Hoppscotch Accel AlphaGenome Fluidstack Genesis",
+    "Claude Design Anthropic Labs对话式设计原型Figma股价跌7%",
+    "Adobe Firefly AI助手Summit Creative Cloud多步骤工作流",
+    "SpaceX IPO 1.75万亿 2万亿 Grok Starlink轨道AI算力",
+    "Avid Google Cloud Agentic AI媒体制作NAB Show",
+    "Cadence NVIDIA仿真机器人物理AI sim-to-real",
+    "Loop 9500万C轮供应链AI预测性处方Valor Equity",
+    "DeepTutor Multica Personaplex GitHub trending",
+    "Q1 2026创投2970亿历史纪录AI吞噬81%",
+    "PwC AI经济收益74%流向20%企业马太效应",
+    "美股S&P 7126纳斯达克24468道琼斯49447",
+    "比特币77319布伦特原油96人民币6.8622",
+    "石墨烯无摩擦液态电子流量子水动力学",
+    "肠道微生物AI图谱结直肠癌无需结肠镜",
+    "页岩黄铁矿隐藏锂矿电池材料供应链",
+    "MIT Technology Review EmTech十大AI议题",
+    "CraftBot Cloudflare Agent-Ready Vercel Flags Notebooks Gemini"
   ]
 }

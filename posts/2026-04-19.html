@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>创意AI决战：Claude Design登场，Firefly重塑创作流水线 · 每日简报</title>
+<style>
+/* ===== Theme Variables ===== */
+:root[data-theme="dark"] {
+  --bg: #000000;
+  --bg-elevated: #0a0a0a;
+  --bg-card: #111111;
+  --bg-card-hover: #1a1a1a;
+  --text: #f0f0f0;
+  --text-secondary: #999999;
+  --text-muted: #555555;
+  --border: #222222;
+  --accent: #00d4ff;
+  --accent-dim: rgba(0,212,255,0.1);
+  --accent-glow: rgba(0,212,255,0.15);
+  --tag-ai: #a78bfa;
+  --tag-ai-bg: rgba(167,139,250,0.12);
+  --tag-tech: #22d3ee;
+  --tag-tech-bg: rgba(34,211,238,0.1);
+  --tag-finance: #fbbf24;
+  --tag-finance-bg: rgba(251,191,36,0.1);
+  --tag-science: #34d399;
+  --tag-science-bg: rgba(52,211,153,0.1);
+  --tag-product: #fb7185;
+  --tag-product-bg: rgba(251,113,133,0.1);
+  --tag-dev: #818cf8;
+  --tag-dev-bg: rgba(129,140,248,0.1);
+  --up: #ef4444;
+  --down: #22c55e;
+  --shadow: 0 0 0 1px rgba(255,255,255,0.04);
+  --shadow-hover: 0 8px 40px rgba(0,212,255,0.06), 0 0 0 1px rgba(255,255,255,0.08);
+  --radius: 12px;
+}
+:root[data-theme="light"] {
+  --bg: #fafafa;
+  --bg-elevated: #ffffff;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f5f5f5;
+  --text: #111111;
+  --text-secondary: #666666;
+  --text-muted: #999999;
+  --border: #e8e8e8;
+  --accent: #0066ff;
+  --accent-dim: rgba(0,102,255,0.06);
+  --accent-glow: rgba(0,102,255,0.08);
+  --tag-ai: #7c3aed;
+  --tag-ai-bg: rgba(124,58,237,0.08);
+  --tag-tech: #0891b2;
+  --tag-tech-bg: rgba(8,145,178,0.08);
+  --tag-finance: #d97706;
+  --tag-finance-bg: rgba(217,119,6,0.08);
+  --tag-science: #059669;
+  --tag-science-bg: rgba(5,150,105,0.08);
+  --tag-product: #e11d48;
+  --tag-product-bg: rgba(225,29,72,0.08);
+  --tag-dev: #4f46e5;
+  --tag-dev-bg: rgba(79,70,229,0.08);
+  --up: #dc2626;
+  --down: #16a34a;
+  --shadow: 0 1px 3px rgba(0,0,0,0.06);
+  --shadow-hover: 0 8px 30px rgba(0,0,0,0.08);
+  --radius: 12px;
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", "Segoe UI", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  transition: background 0.4s, color 0.4s;
+}
+a { color: var(--accent); text-decoration: none; transition: opacity 0.2s; }
+a:hover { opacity: 0.8; }
+.progress-bar { position: fixed; top: 0; left: 0; height: 2px; background: var(--accent); z-index: 200; width: 0%; transition: width 0.1s; }
+.topbar { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; background: rgba(0,0,0,0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); transition: background 0.3s; }
+[data-theme="light"] .topbar { background: rgba(255,255,255,0.9); }
+.topbar-left { display: flex; align-items: center; gap: 16px; }
+.topbar-brand { font-size: 13px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--text-secondary); }
+.topbar-back { font-size: 13px; color: var(--accent); display: flex; align-items: center; gap: 4px; }
+.theme-toggle { background: none; border: 1px solid var(--border); color: var(--text-secondary); width: 34px; height: 34px; border-radius: 50%; cursor: pointer; font-size: 15px; display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
+.theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
+.nav-bar { position: sticky; top: 52px; z-index: 90; background: var(--bg); border-bottom: 1px solid var(--border); transition: background 0.3s; }
+.nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 32px; display: flex; gap: 0; overflow-x: auto; scrollbar-width: none; }
+.nav-inner::-webkit-scrollbar { display: none; }
+.nav-item { padding: 12px 16px; font-size: 13px; font-weight: 500; color: var(--text-muted); white-space: nowrap; cursor: pointer; border-bottom: 2px solid transparent; transition: all 0.2s; }
+.nav-item:hover, .nav-item.active { color: var(--accent); border-bottom-color: var(--accent); }
+.hero { padding: 100px 48px 60px; max-width: 1200px; margin: 0 auto; }
+.hero-issue { display: inline-block; font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); border: 1px solid var(--accent); padding: 5px 12px; border-radius: 4px; margin-bottom: 20px; }
+.hero-date { font-size: 14px; color: var(--text-muted); margin-bottom: 16px; }
+.hero h1 { font-size: clamp(32px, 5vw, 52px); font-weight: 800; line-height: 1.15; letter-spacing: -1.5px; margin-bottom: 20px; }
+.hero-summary { font-size: 17px; line-height: 1.75; color: var(--text-secondary); max-width: 720px; margin-bottom: 28px; }
+.hero-stats { display: flex; gap: 28px; flex-wrap: wrap; }
+.hero-stat-value { font-size: 24px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.hero-stat-label { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 48px 80px; }
+.section { margin-bottom: 56px; }
+.section-header { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; }
+.section-icon { font-size: 20px; }
+.section-title { font-size: 18px; font-weight: 700; letter-spacing: -0.2px; }
+.section-count { margin-left: auto; font-size: 12px; color: var(--text-muted); }
+.section-header::after { content: ''; flex: 1; height: 1px; background: var(--border); order: 99; }
+.section-count { order: 98; }
+.news-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 14px; }
+.news-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px; transition: all 0.3s; display: flex; flex-direction: column; }
+.news-card:hover { background: var(--bg-card-hover); box-shadow: var(--shadow-hover); transform: translateY(-2px); }
+.news-card-tag { display: inline-flex; font-size: 11px; font-weight: 600; letter-spacing: 0.5px; padding: 3px 8px; border-radius: 4px; margin-bottom: 10px; width: fit-content; }
+.tag-ai { color: var(--tag-ai); background: var(--tag-ai-bg); }
+.tag-tech { color: var(--tag-tech); background: var(--tag-tech-bg); }
+.tag-finance { color: var(--tag-finance); background: var(--tag-finance-bg); }
+.tag-science { color: var(--tag-science); background: var(--tag-science-bg); }
+.tag-product { color: var(--tag-product); background: var(--tag-product-bg); }
+.tag-dev { color: var(--tag-dev); background: var(--tag-dev-bg); }
+.news-card h3 { font-size: 16px; font-weight: 600; margin-bottom: 8px; line-height: 1.5; letter-spacing: -0.2px; }
+.news-card h3 a { color: var(--text); }
+.news-card h3 a:hover { color: var(--accent); }
+.news-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.65; flex: 1; }
+.news-card-meta { display: flex; justify-content: space-between; align-items: center; margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--border); font-size: 12px; color: var(--text-muted); }
+.headline-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 32px; margin-bottom: 20px; box-shadow: var(--shadow); }
+.headline-card h2 { font-size: 24px; font-weight: 700; margin-bottom: 16px; line-height: 1.4; letter-spacing: -0.5px; }
+.headline-card p { font-size: 16px; color: var(--text-secondary); line-height: 1.8; }
+.headline-tag { display: inline-block; font-size: 11px; font-weight: 600; padding: 3px 8px; border-radius: 4px; margin-bottom: 14px; }
+.market-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(155px, 1fr)); gap: 12px; }
+.market-item { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; text-align: center; transition: all 0.2s; }
+.market-item:hover { border-color: rgba(0,212,255,0.2); }
+.market-item .name { font-size: 12px; color: var(--text-muted); margin-bottom: 4px; }
+.market-item .value { font-size: 20px; font-weight: 700; margin-bottom: 2px; font-variant-numeric: tabular-nums; }
+.market-item .change { font-size: 14px; font-weight: 600; }
+.up { color: var(--up); }
+.down { color: var(--down); }
+.deep-read-list { display: flex; flex-direction: column; gap: 14px; }
+.deep-read-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; display: flex; transition: all 0.3s; }
+.deep-read-card:hover { background: var(--bg-card-hover); box-shadow: var(--shadow-hover); transform: translateY(-2px); }
+.deep-read-number { display: flex; align-items: center; justify-content: center; min-width: 64px; font-size: 32px; font-weight: 800; color: var(--accent); opacity: 0.2; }
+.deep-read-body { padding: 20px 24px 20px 0; flex: 1; }
+.deep-read-body h3 { font-size: 17px; font-weight: 600; margin-bottom: 8px; line-height: 1.5; }
+.deep-read-body h3 a { color: var(--text); }
+.deep-read-body h3 a:hover { color: var(--accent); }
+.deep-read-body p { font-size: 14px; color: var(--text-secondary); line-height: 1.65; margin-bottom: 10px; }
+.deep-read-meta { display: flex; gap: 16px; font-size: 12px; color: var(--text-muted); }
+.quotes-list { display: flex; flex-direction: column; gap: 14px; }
+.quote-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px 28px; position: relative; }
+.quote-card::before { content: '"'; position: absolute; top: 16px; left: 20px; font-size: 40px; color: var(--accent); opacity: 0.15; font-family: Georgia, serif; line-height: 1; }
+.quote-text { font-size: 15px; line-height: 1.75; margin-bottom: 10px; padding-left: 4px; font-style: italic; }
+.quote-author { font-size: 13px; color: var(--text-muted); font-weight: 500; padding-left: 4px; }
+.tool-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 14px; }
+.tool-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px; transition: all 0.3s; }
+.tool-card:hover { background: var(--bg-card-hover); box-shadow: var(--shadow-hover); transform: translateY(-2px); }
+.tool-card h3 { font-size: 16px; font-weight: 600; margin-bottom: 6px; }
+.tool-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
+.tool-card-link { display: inline-block; margin-top: 10px; font-size: 13px; font-weight: 600; color: var(--accent); }
+.archive-section { text-align: center; padding: 40px 0; border-top: 1px solid var(--border); }
+.archive-link { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 500; color: var(--accent); padding: 12px 24px; border-radius: 8px; border: 1px solid var(--accent); transition: all 0.2s; }
+.archive-link:hover { background: var(--accent); color: #000; }
+.footer { text-align: center; padding: 32px; font-size: 13px; color: var(--text-muted); border-top: 1px solid var(--border); }
+.back-to-top { position: fixed; bottom: 24px; right: 24px; width: 42px; height: 42px; border-radius: 50%; background: var(--bg-card); border: 1px solid var(--border); color: var(--accent); cursor: pointer; font-size: 18px; box-shadow: var(--shadow); opacity: 0; transform: translateY(20px); transition: all 0.3s; z-index: 99; }
+.back-to-top.visible { opacity: 1; transform: translateY(0); }
+.back-to-top:hover { background: var(--accent); color: #000; border-color: var(--accent); }
+@media (max-width: 768px) {
+  .topbar { padding: 12px 20px; }
+  .hero { padding: 80px 24px 40px; }
+  .hero h1 { font-size: 28px; letter-spacing: -1px; }
+  .container { padding: 0 24px 60px; }
+  .news-grid { grid-template-columns: 1fr; }
+  .market-grid { grid-template-columns: repeat(2, 1fr); }
+  .tool-grid { grid-template-columns: 1fr; }
+  .headline-card { padding: 24px; }
+  .headline-card h2 { font-size: 20px; }
+  .deep-read-card { flex-direction: column; }
+  .deep-read-number { min-width: unset; padding: 16px 20px 0; justify-content: flex-start; font-size: 24px; }
+  .deep-read-body { padding: 12px 20px 20px; }
+  .nav-inner { padding: 0 20px; }
+  .nav-item { padding: 10px 14px; font-size: 12px; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .news-card, .deep-read-card, .quote-card, .tool-card { animation: fadeIn 0.4s ease backwards; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+}
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<div class="topbar">
+  <div class="topbar-left">
+    <a href="../index.html" class="topbar-back">← 首页</a>
+    <span class="topbar-brand">Daily Digest</span>
+  </div>
+  <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn" aria-label="Toggle theme">☀️</button>
+</div>
+
+<nav class="nav-bar">
+  <div class="nav-inner">
+    <div class="nav-item active" data-section="headline">头条</div>
+    <div class="nav-item" data-section="ai">AI</div>
+    <div class="nav-item" data-section="tech">科技</div>
+    <div class="nav-item" data-section="finance">财经</div>
+    <div class="nav-item" data-section="market">行情</div>
+    <div class="nav-item" data-section="science">科学</div>
+    <div class="nav-item" data-section="product">产品</div>
+    <div class="nav-item" data-section="deepread">深度</div>
+    <div class="nav-item" data-section="devtool">工具</div>
+    <div class="nav-item" data-section="quotes">言论</div>
+  </div>
+</nav>
+
+<header class="hero">
+  <span class="hero-issue">第 20 期</span>
+  <div class="hero-date">2026年4月19日 · 周日</div>
+  <h1>创意AI决战：Claude Design登场，Firefly重塑创作流水线</h1>
+  <p class="hero-summary">Anthropic正式发布Claude Design，以对话式原型工具直接挑战Figma与Canva；Adobe在Summit首日推出Firefly AI助手，打通Creative Cloud全套应用的多步骤自动工作流。与此同时，SpaceX估值从1.75万亿攀升至2万亿美元争议升温，Grok与Starlink协同战略浮现。GitHub本周最热工具DeepTutor与Multica刷新AI编码协作范式，石墨烯"超流电子"发现震惊物理学界。</p>
+  <div class="hero-stats">
+    <div class="hero-stat"><span class="hero-stat-value">35</span><span class="hero-stat-label">资讯</span></div>
+    <div class="hero-stat"><span class="hero-stat-value">4</span><span class="hero-stat-label">深度</span></div>
+    <div class="hero-stat"><span class="hero-stat-value">21</span><span class="hero-stat-label">信源</span></div>
+    <div class="hero-stat"><span class="hero-stat-value">~18</span><span class="hero-stat-label">分钟</span></div>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- ===== HEADLINE ===== -->
+  <section class="section" id="headline">
+    <div class="section-header">
+      <span class="section-icon">🔥</span>
+      <h2 class="section-title">今日头条</h2>
+      <span class="section-count">深度解读</span>
+    </div>
+    <div class="headline-card">
+      <span class="headline-tag tag-ai">头条</span>
+      <h2>创意AI双雄同日出击：Claude Design vs Firefly，设计工具市场的颠覆时刻</h2>
+      <p>2026年4月的第三个周末，创意软件行业在两个方向同时被引爆。4月17日，Anthropic在官网正式发布Claude Design——一款基于Claude Opus 4.7的对话式视觉创作工具，用户只需用自然语言描述需求，即可生成可交互的原型、幻灯片与单页文档，并支持导出至Canva、PDF、PPTX或独立HTML。这款工具对Figma的直接冲击立竿见影：Figma股价当日下跌7%。</p>
+      <p style="margin-top:14px;">与此同时，Adobe在其年度Summit（4月19日至22日，拉斯维加斯）首日推出Firefly AI助手，打通Photoshop、Premiere、Lightroom、Illustrator等全套Creative Cloud应用，支持多步骤跨应用工作流。用户说一句"将这组照片处理成品牌手册风格"，AI便完成图像调色、版式排列与导出——无需在应用间切换。</p>
+      <p style="margin-top:14px;">两大产品在同一周末登场，并非巧合。这是AI从"辅助工具"跃升为"创意代理"的历史节点：Claude Design代表语言模型公司向应用层的进攻，而Firefly AI助手则是传统创意软件巨头的反击。未来六个月，Figma、Canva是否会被迫加速AI转型，将是最值得观察的行业指标。</p>
+      <p style="margin-top:14px;">第三条主线是SpaceX的$2万亿估值争议。继2月完成与xAI的历史性合并（$1.25万亿）后，SpaceX于4月1日向SEC机密申报IPO，目标估值从$1.75万亿在24小时内升至$2万亿。Grok模型正被嵌入Starlink基础设施，构建"轨道AI计算"能力——这使SpaceX不再只是火箭公司，而是一个融合卫星宽带、AI算力与航天工程的三合一超级平台。IPO路演预计5月启动，6月挂牌纳斯达克，将成为史上规模最大的公开发行。</p>
+    </div>
+  </section>
+
+  <!-- ===== AI ===== -->
+  <section class="section" id="ai">
+    <div class="section-header">
+      <span class="section-icon">🤖</span>
+      <h2 class="section-title">AI · 人工智能</h2>
+      <span class="section-count">7条</span>
+    </div>
+    <div class="news-grid">
+
+      <div class="news-card">
+        <span class="news-card-tag tag-ai">AI · 官方发布</span>
+        <h3><a href="https://www.anthropic.com/news/claude-design-anthropic-labs" target="_blank">Anthropic发布Claude Design：对话生成原型与幻灯片，Figma股价跌7%</a></h3>
+        <p>Anthropic正式推出Claude Design，基于Claude Opus 4.7，用户用自然语言描述即可生成可交互原型、幻灯片与单页文档，支持内联注释微调和自定义滑块实时调整。可导出至Canva、PDF、PPTX或独立HTML，已向Claude Pro/Max/Team/Enterprise用户开放研究预览。</p>
+        <div class="news-card-meta"><span>anthropic.com</span><span>4月17日</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-ai">AI · 模型</span>
+        <h3><a href="https://www.anthropic.com/news/claude-opus-4-7" target="_blank">Claude Opus 4.7驱动Claude Design：推理与视觉创作一体化</a></h3>
+        <p>Anthropic同步发布支撑Claude Design的底层模型Claude Opus 4.7，在视觉理解、布局推理与设计系统应用方面大幅提升。企业用户授权后，模型可自动调用团队设计系统，确保每次输出与公司品牌规范一致，标志着Claude从文本助手进化为具备视觉输出能力的创意代理。</p>
+        <div class="news-card-meta"><span>anthropic.com</span><span>4月17日</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-ai">AI · 创意工具</span>
+        <h3><a href="https://techcrunch.com/2026/04/15/adobes-new-firefly-ai-assistant-can-use-creative-cloud-apps-to-complete-tasks/" target="_blank">Adobe Firefly AI助手亮相Summit：跨应用创意工作流实现全自动</a></h3>
+        <p>Adobe在Summit首日发布Firefly AI助手，打通Firefly、Photoshop、Premiere、Lightroom、Illustrator等全套Creative Cloud应用，支持多步骤跨应用自动化。用户用自然语言下达指令，AI助手协调多个应用完成图像调色、版式排列、视频编辑等复杂任务，已开放公测报名。来源：TechCrunch报道，blog.adobe.com官方公告确认。</p>
+        <div class="news-card-meta"><span>techcrunch.com · blog.adobe.com</span><span>4月15日发布</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-ai">AI · 媒体制作</span>
+        <h3><a href="https://www.prnewswire.com/news-releases/avid-and-google-cloud-announce-partnership-to-bring-agentic-ai-to-media-production-302743196.html" target="_blank">Avid与Google Cloud携手：Agentic AI进入专业视频剪辑工作台</a></h3>
+        <p>Avid与Google Cloud宣布多年战略合作，将Gemini模型与Vertex AI嵌入Media Composer和Content Core平台。AI可基于视觉动作、对话或情感线索自然搜索海量素材库，将原本需要数周的手动归档工作压缩至秒级完成。合作将在NAB Show 2026（拉斯维加斯，4月19至22日）现场演示。</p>
+        <div class="news-card-meta"><span>prnewswire.com</span><span>4月16日</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-ai">AI · 工程仿真</span>
+        <h3><a href="https://www.businesswire.com/news/home/20260415332711/en/Cadence-and-NVIDIA-Expand-Partnership-to-Reinvent-Engineering-for-the-Age-of-AI-and-Accelerated-Computing" target="_blank">Cadence × NVIDIA：联合攻克机器人"仿真到现实"鸿沟</a></h3>
+        <p>Cadence在CadenceLIVE Silicon Valley 2026宣布扩大与NVIDIA的合作，将Cadence物理AI堆栈与NVIDIA Isaac仿真库和Cosmos世界模型深度融合，为机器人与自主机器提供端到端Agent驱动的仿真-验证-部署工作流。同时引入Omniverse DSX Blueprint构建AI工厂数字孪生，核心指标聚焦"每瓦tokens"。</p>
+        <div class="news-card-meta"><span>businesswire.com</span><span>4月15日</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-ai">AI · 竞争格局</span>
+        <h3><a href="https://www.cnbc.com/2026/04/08/meta-debuts-first-major-ai-model-since-14-billion-deal-to-bring-in-alexandr-wang.html" target="_blank">Meta Muse Spark上线全平台后：AI三强竞争进入白刃战阶段</a></h3>
+        <p>斯坦福AI指数2026显示，截至2026年3月，全球顶尖模型排名中Anthropic领先，xAI、Google、OpenAI紧随其后，最强美国模型与中国Dola-Seed 2.0差距仅剩39分（Arena points）。Meta在完成140亿美元引入Alexandr Wang后推出Muse Spark，全面进入顶级竞争。AI能力同质化趋势下，成本、可靠性与垂直整合将成为新竞争维度。</p>
+        <div class="news-card-meta"><span>cnbc.com · spectrum.ieee.org</span><span>4月8日 / 4月16日</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-ai">AI · 监管政策</span>
+        <h3><a href="https://www.alston.com/en/insights/publications/2026/04/ai-quarterly-april-2026" target="_blank">全球AI监管2026年Q1综述：600+立法提案，企业合规进入双轨博弈期</a></h3>
+        <p>Alston & Bird的AI季度监管综述显示，2026年第一季度全球新增超600项AI相关立法提案，美国联邦与各州双轨立法博弈加剧，欧盟AI法案执行时间线逐步明确。企业合规部门正面临"以最严格管辖地为基准"的成本压力，AI治理正从外部顾问报告转变为可运行的内部合规流水线。</p>
+        <div class="news-card-meta"><span>alston.com</span><span>4月2026</span></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== TECH ===== -->
+  <section class="section" id="tech">
+    <div class="section-header">
+      <span class="section-icon">💻</span>
+      <h2 class="section-title">科技 · Technology</h2>
+      <span class="section-count">5条</span>
+    </div>
+    <div class="news-grid">
+
+      <div class="news-card">
+        <span class="news-card-tag tag-tech">科技 · 广播传媒</span>
+        <h3><a href="https://www.globenewswire.com/news-release/2026/04/17/3276436/0/en/2026-NAB-Show-Opens-Tomorrow-Uniting-Global-Media-Leaders-to-Shape-the-Future-of-Storytelling.html" target="_blank">NAB Show 2026开幕：1100家展商同台，AI重塑广播与内容生产</a></h3>
+        <p>2026年NAB Show于4月19日至22日在拉斯维加斯开幕，吸引索尼、佳能、Adobe、Google Cloud、AWS等1100家展商及来自18000家企业的参会者，围绕AI、流媒体、云端制作与创作者经济展开550个场次。今年最受关注的议题是生成AI与Agentic工作流在专业广播级工具中的落地实践。</p>
+        <div class="news-card-meta"><span>globenewswire.com</span><span>4月17日</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-tech">科技 · 融资</span>
+        <h3><a href="https://techcrunch.com/2026/04/17/loop-raises-95m-to-build-supply-chain-ai-that-predicts-disruptions/" target="_blank">Loop完成9500万美元C轮：AI供应链从"诊断"升级为"预测性处方"</a></h3>
+        <p>供应链AI平台Loop完成9500万美元C轮，由Valor Equity Partners领投，8VC、Founders Fund、Index Ventures及J.P. Morgan Growth Equity参与。Loop利用AI协调多个模型处理PDF、纸质单据等非结构化数据，将供应链风险预测从事后诊断转变为主动处方。联合创始人McKinney与Liu曾同在Uber共事，强调停运期AI布局将带来复合竞争优势。</p>
+        <div class="news-card-meta"><span>techcrunch.com</span><span>4月17日</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-tech">科技 · 航天</span>
+        <h3><a href="https://www.cnbc.com/2026/04/01/spacex-confidentially-files-for-ipo-setting-stage-for-record-offering.html" target="_blank">SpaceX机密申报IPO，目标估值在24小时内从1.75万亿升破2万亿美元</a></h3>
+        <p>SpaceX已于4月1日向SEC机密提交S-1申报，正式启动史上规模最大的IPO进程。目标估值从1.75万亿美元在24小时内因市场热情被推高至2万亿以上，路演预计5月启动，纳斯达克挂牌目标6月。公司计划将约30%的发行股份分配给散户投资者，是华尔街惯例的三倍。Starlink全球订阅用户突破1000万，2025年收入达100亿美元。</p>
+        <div class="news-card-meta"><span>cnbc.com · 247wallst.com</span><span>4月1日申报 / 持续更新</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-tech">科技 · AI评测</span>
+        <h3><a href="https://www.technologyreview.com/2026/04/14/1135298/coming-soon-10-things-that-matter-in-ai-right-now/" target="_blank">MIT Technology Review：首届"当今AI最重要10件事"榜单将于4月21日揭榜</a></h3>
+        <p>MIT Technology Review将于4月21日在EmTech AI大会（MIT校园）首次发布全新年度榜单"10 Things That Matter in AI Right Now"，聚焦AI编码、机制可解释性、AI伴侣与超大规模数据中心等领域，并声称本年度候选项之多"前所未有"。榜单将代表编辑团队对未来12个月最值得追踪AI议题的集体判断。</p>
+        <div class="news-card-meta"><span>technologyreview.com</span><span>4月14日预告</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-tech">科技 · 半导体</span>
+        <h3><a href="https://www.digitimes.com/news/a20260416VL200/cadence-nvidia-eda-partnership-ai-agent-robotics.html" target="_blank">Cadence-NVIDIA扩展合作：EDA工具与机器人仿真深度融合，剑指"AI工厂数字孪生"</a></h3>
+        <p>在芯片设计领域，Cadence将其仿真引擎与NVIDIA加速计算融合，为半导体设计流程引入Agent驱动的多物理场仿真。在机器人领域，双方整合高保真多物理场仿真与NVIDIA Isaac/Cosmos系统，以"每瓦tokens"为核心指标优化AI工厂效能。这标志EDA工具商正快速向物理AI基础设施提供商转型。</p>
+        <div class="news-card-meta"><span>digitimes.com</span><span>4月16日</span></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== FINANCE ===== -->
+  <section class="section" id="finance">
+    <div class="section-header">
+      <span class="section-icon">📈</span>
+      <h2 class="section-title">财经 · Finance</h2>
+      <span class="section-count">5条</span>
+    </div>
+    <div class="news-grid">
+
+      <div class="news-card">
+        <span class="news-card-tag tag-finance">财经 · 创投</span>
+        <h3><a href="https://news.crunchbase.com/venture/record-breaking-funding-ai-global-q1-2026/" target="_blank">Q1 2026全球创投刷新历史：2970亿美元入场，AI吞噬81%份额</a></h3>
+        <p>Crunchbase数据显示，2026年第一季度全球创投融资达2970亿美元，较上年同期增超150%，创历史纪录。其中OpenAI单轮1220亿美元占主导，AI赛道总计吸引逾2400亿美元，占全球风险融资81%。这一集中度标志着AI已从高增长赛道演变为独立的资本黑洞，传统科技投资受到严重挤压。</p>
+        <div class="news-card-meta"><span>crunchbase.com</span><span>4月2026</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-finance">财经 · AI经济</span>
+        <h3><a href="https://www.pwc.com/gx/en/news-room/press-releases/2026/pwc-2026-ai-performance-study.html" target="_blank">PwC 2026 AI绩效研究：AI经济收益74%流向最顶尖的20%企业</a></h3>
+        <p>普华永道发布2026年AI绩效研究报告，分析全球5000家企业后发现，AI带来的经济收益中约74%集中在排名前20%的企业手中。领先企业共同特征是将AI用于增长而非单纯提效，并在数据基础设施、AI人才与企业文化上同步投入。AI经济红利高度集中的现实，正在加速行业马太效应。</p>
+        <div class="news-card-meta"><span>pwc.com</span><span>4月2026</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-finance">财经 · 股市</span>
+        <h3><a href="https://www.cnbc.com/2026/04/15/stock-market-today-live-updates.html" target="_blank">美股4月17日再创新高：停火预期与财报季驱动三大指数全线收涨</a></h3>
+        <p>4月17日（周五）美股收盘，标普500涨1.20%报7126.06点，纳斯达克涨1.52%报24468.48点，道琼斯涨1.79%报49447.43点。中东局势缓和预期与科技股财报超预期是核心驱动力。纳斯达克已录得连续多日上涨，市场情绪维持乐观，但分析师警示AI股估值泡沫风险仍需关注。</p>
+        <div class="news-card-meta"><span>cnbc.com</span><span>4月17日收盘</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-finance">财经 · 科技股</span>
+        <h3><a href="https://markets.financialcontent.com/stocks/article/marketminute-2026-4-10-the-musk-megalith-spacex-and-xai-merge-to-form-125-trillion-star-intelligence-empire" target="_blank">SpaceX-xAI：史上最大合并后的下一步——轨道AI算力与IPO前最后布局</a></h3>
+        <p>2月完成的$1.25万亿SpaceX-xAI合并已进入深度整合期：Grok模型正被嵌入Starlink基础设施，构建"Grok-Sat"轨道AI算力节点，绕过地面数据中心的电力与冷却限制。马斯克同时要求SpaceX IPO承销行购买Grok订阅，借助$1.75万亿估值IPO进一步锁定企业客户黏性。这一多维策略被分析师称为"史上最复杂的上市前商业整合"。</p>
+        <div class="news-card-meta"><span>financialcontent.com · cnbc.com</span><span>4月10日 / 4月4日</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-finance">财经 · 供应链</span>
+        <h3><a href="https://techcrunch.com/2026/04/01/startup-funding-shatters-all-records-in-q1/" target="_blank">Q1 2026风险投资结构分析：少数超大轮次占主导，传统SaaS投资持续萎缩</a></h3>
+        <p>TechCrunch对Q1 2026融资数据的分析显示，本轮纪录主要由OpenAI($1220亿)等少数超大轮次支撑，若剔除头部10笔融资，行业中位数与2025年持平甚至微降。资本呈现极端集中特征：AI基础设施与前沿模型层获得最大份额，传统SaaS、B2C消费应用融资均出现年同比萎缩，独立软件公司的融资窗口正在快速收窄。</p>
+        <div class="news-card-meta"><span>techcrunch.com</span><span>4月1日</span></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== MARKET ===== -->
+  <section class="section" id="market">
+    <div class="section-header">
+      <span class="section-icon">📊</span>
+      <h2 class="section-title">市场行情</h2>
+      <span class="section-count">截至4月17-18日</span>
+    </div>
+    <div class="market-grid">
+      <div class="market-item">
+        <div class="name">标普 500</div>
+        <div class="value">7,126</div>
+        <div class="change up">+1.20%</div>
+      </div>
+      <div class="market-item">
+        <div class="name">纳斯达克</div>
+        <div class="value">24,468</div>
+        <div class="change up">+1.52%</div>
+      </div>
+      <div class="market-item">
+        <div class="name">道琼斯</div>
+        <div class="value">49,447</div>
+        <div class="change up">+1.79%</div>
+      </div>
+      <div class="market-item">
+        <div class="name">上证指数</div>
+        <div class="value">4,055</div>
+        <div class="change up">+0.70%</div>
+      </div>
+      <div class="market-item">
+        <div class="name">深证成指</div>
+        <div class="value">14,796</div>
+        <div class="change up">+2.05%</div>
+      </div>
+      <div class="market-item">
+        <div class="name">创业板指</div>
+        <div class="value">3,626</div>
+        <div class="change up">+3.17%</div>
+      </div>
+      <div class="market-item">
+        <div class="name">恒生指数</div>
+        <div class="value">~26,000</div>
+        <div class="change" style="color:var(--text-muted);">数据截至4月17日</div>
+      </div>
+      <div class="market-item">
+        <div class="name">美元/人民币</div>
+        <div class="value">6.8622</div>
+        <div class="change down">-6基点</div>
+      </div>
+      <div class="market-item">
+        <div class="name">比特币</div>
+        <div class="value">$77,319</div>
+        <div class="change up">+3.42%</div>
+      </div>
+      <div class="market-item">
+        <div class="name">布伦特原油</div>
+        <div class="value">$96</div>
+        <div class="change up">停火后回升</div>
+      </div>
+    </div>
+    <p style="font-size:12px;color:var(--text-muted);margin-top:12px;">注：美股/A股数据截至4月17日（周五）收盘；比特币与布伦特原油价格截至4月18日；A股数据来自新浪财经，美股来自CNBC，人民币中间价来自中新网。</p>
+  </section>
+
+  <!-- ===== SCIENCE ===== -->
+  <section class="section" id="science">
+    <div class="section-header">
+      <span class="section-icon">🔬</span>
+      <h2 class="section-title">科学突破</h2>
+      <span class="section-count">3条</span>
+    </div>
+    <div class="news-grid">
+
+      <div class="news-card">
+        <span class="news-card-tag tag-science">科学 · 物理</span>
+        <h3><a href="https://www.sciencedaily.com/" target="_blank">石墨烯中电子呈现"无摩擦液态流动"：违反物理定律的量子观测</a></h3>
+        <p>研究人员在石墨烯中观测到电子以近乎无摩擦的液体方式流动，行为违反传统欧姆定律——电阻不随温度升高而增大，而是呈现出类似黏性流体的集体运动。这一量子水动力学现象此前仅在理论中被预测，实验确认将为超高效导体与量子计算器件的新型架构提供材料基础。研究处于基础实验验证阶段。</p>
+        <div class="news-card-meta"><span>sciencedaily.com</span><span>4月2026</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-science">科学 · 医学</span>
+        <h3><a href="https://www.sciencedaily.com/news/" target="_blank">肠道微生物AI图谱：无需结肠镜即可筛查结直肠癌的新路径</a></h3>
+        <p>科学家利用AI对肠道微生物组进行前所未有精度的图谱绘制，识别出与结直肠癌相关的微妙微生物模式。这一方法通过粪便样本分析即可完成癌症风险筛查，无需侵入性结肠镜检查。该技术处于临床前验证阶段，若进入临床应用，有望大幅提升结直肠癌的早期筛查覆盖率，尤其对医疗资源欠发达地区意义重大。</p>
+        <div class="news-card-meta"><span>sciencedaily.com</span><span>4月2026</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-science">科学 · 材料</span>
+        <h3><a href="https://www.sciencedaily.com/news/" target="_blank">古老页岩黄铁矿中发现隐藏锂矿：或重塑关键电池材料供应格局</a></h3>
+        <p>研究人员在古老页岩岩层的黄铁矿（FeS₂）矿物中发现了此前未曾预期的锂元素储量。这一意外发现表明，被忽视的沉积岩地层可能蕴含大量可提取锂，为全球电动汽车和储能产业紧缺的锂资源开辟了全新勘探方向。研究正在进行可行性提取测试，商业化前景有待评估。研究结果已发表于同行评审期刊。</p>
+        <div class="news-card-meta"><span>sciencedaily.com</span><span>4月2026</span></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== PRODUCT ===== -->
+  <section class="section" id="product">
+    <div class="section-header">
+      <span class="section-icon">🚀</span>
+      <h2 class="section-title">产品发现</h2>
+      <span class="section-count">4款</span>
+    </div>
+    <div class="news-grid">
+
+      <div class="news-card">
+        <span class="news-card-tag tag-product">产品 · 设计工具</span>
+        <h3><a href="https://www.anthropic.com/news/claude-design-anthropic-labs" target="_blank">Claude Design by Anthropic Labs：对话式设计工具，Product Hunt 4月18日榜首369票</a></h3>
+        <p>Anthropic旗下首款视觉创作工具，让用户通过自然语言与Claude协作生成原型、幻灯片与单页文档。支持内联注释微调与自定义调节滑块，可导出为Canva、PDF、PPTX或HTML。Figma股价当日下跌7%。已向所有付费Claude用户开放研究预览，标志Anthropic正式进军应用层设计市场。</p>
+        <div class="news-card-meta"><span>producthunt.com · anthropic.com</span><span>4月18日 · 369票</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-product">产品 · AI工作台</span>
+        <h3><a href="https://producthunt.com" target="_blank">Notebooks in Gemini：项目、对话与文件的统一智能工作空间</a></h3>
+        <p>Google推出的Gemini Notebooks功能将项目相关的对话、文件与知识整合进一个聚焦空间，类似于Notion与AI助手的深度融合。用户可在笔记本内与Gemini就项目内容持续对话，AI记忆上下文并跨对话保持项目连贯性。Product Hunt 4月18日排名第二，221票。</p>
+        <div class="news-card-meta"><span>producthunt.com</span><span>4月18日 · 221票</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-product">产品 · 隐私AI</span>
+        <h3><a href="https://producthunt.com" target="_blank">CraftBot：完全本地运行的主动式AI助手，零云端依赖</a></h3>
+        <p>开源自托管AI助手，所有数据与推理完全在本机运行，无需云端API。CraftBot自动在后台主动完成任务、整理信息与准备摘要，而不是等用户发问。面向对隐私敏感的个人用户和企业内网场景，适合处理不愿上传云端的敏感文档。Product Hunt 4月18日第三位，216票。</p>
+        <div class="news-card-meta"><span>producthunt.com</span><span>4月18日 · 216票</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-product">产品 · 开发者工具</span>
+        <h3><a href="https://producthunt.com" target="_blank">Is Your Site Agent-Ready? by Cloudflare：一键扫描网站AI Agent兼容性</a></h3>
+        <p>Cloudflare推出的免费诊断工具，帮助网站所有者了解其网站对AI Agent的友好程度——包括robots.txt配置、结构化数据标注、API端点可发现性等维度。随着AI Agent正成为主要流量入口，网站的"Agent-Ready"程度将直接影响曝光度与交互效率。Product Hunt 4月18日第四位，195票。</p>
+        <div class="news-card-meta"><span>producthunt.com · cloudflare.com</span><span>4月18日 · 195票</span></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== DEEP READ ===== -->
+  <section class="section" id="deepread">
+    <div class="section-header">
+      <span class="section-icon">📚</span>
+      <h2 class="section-title">深度阅读</h2>
+      <span class="section-count">4篇</span>
+    </div>
+    <div class="deep-read-list">
+
+      <div class="deep-read-card">
+        <div class="deep-read-number">1</div>
+        <div class="deep-read-body">
+          <h3><a href="https://venturebeat.com/technology/anthropic-just-launched-claude-design-an-ai-tool-that-turns-prompts-into-prototypes-and-challenges-figma/" target="_blank">Anthropic Claude Design全解析：从语言模型到设计工具的战略跃迁 · VentureBeat</a></h3>
+          <p>深度分析Claude Design发布背后的战略逻辑：Anthropic为何选择现在进攻设计应用层？对Figma、Canva与Adobe三家公司意味着什么？文章拆解了Claude Opus 4.7在视觉推理方面的具体提升，以及"对话即设计系统"模式对传统设计工作流的颠覆路径。值得关注的是"品牌设计系统集成"功能——企业级客户将成为Claude Design最重要的差异化场景。</p>
+          <div class="deep-read-meta"><span>VentureBeat</span><span>推荐理由：理解AI向应用层渗透的最佳分析视角</span><span>约10分钟</span></div>
+        </div>
+      </div>
+
+      <div class="deep-read-card">
+        <div class="deep-read-number">2</div>
+        <div class="deep-read-body">
+          <h3><a href="https://247wallst.com/market-news/2026/04/15/spacex-ipo-what-investors-need-to-know/" target="_blank">SpaceX $2万亿IPO全面解读：史上最大上市背后的每个关键数字 · 24/7 Wall St.</a></h3>
+          <p>这篇全面指引拆解SpaceX IPO的核心数据：87倍市销率估值在公开市场是否可持续？S-1中被红线标注的国防合同部分隐藏了什么？Starlink 10亿美元收入能否支撑Grok轨道AI算力的资本开支？文章同时梳理了散户获配30%股份背后的政治逻辑，以及历史上"最热IPO"的最终命运规律。中肯且不夸张，适合所有关注SpaceX IPO的读者。</p>
+          <div class="deep-read-meta"><span>24/7 Wall St.</span><span>推荐理由：投资决策前必读的风险图谱</span><span>约12分钟</span></div>
+        </div>
+      </div>
+
+      <div class="deep-read-card">
+        <div class="deep-read-number">3</div>
+        <div class="deep-read-body">
+          <h3><a href="https://www.computerworld.com/article/4146823/adobe-summit-2026-how-adobe-hopes-to-redesign-marketing-and-creativity-with-ai.html" target="_blank">Adobe Summit 2026深度报道：从工具公司到创意AI平台的身份转型 · Computerworld</a></h3>
+          <p>Computerworld从Summit现场发回的深度报告，分析Adobe如何通过Firefly AI助手重新定义自身在AI时代的角色。核心命题：当Claude Design可以生成幻灯片、Canva拥有AI布局工具时，Adobe的护城河是什么？答案在于30多个创意AI模型的统一调度能力、专业级工作流的深度整合，以及Firefly对Anthropic Claude的第三方接入。文章同时评估了Creative Cloud订阅定价策略的合理性。</p>
+          <div class="deep-read-meta"><span>Computerworld</span><span>推荐理由：创意AI格局最完整的现场观察</span><span>约9分钟</span></div>
+        </div>
+      </div>
+
+      <div class="deep-read-card">
+        <div class="deep-read-number">4</div>
+        <div class="deep-read-body">
+          <h3><a href="https://www.technologyreview.com/2026/04/14/1135298/coming-soon-10-things-that-matter-in-ai-right-now/" target="_blank">MIT Technology Review："当今AI最重要的10件事"——编辑室的集体判断 · MIT Technology Review</a></h3>
+          <p>这篇文章预告了将于4月21日发布的全新AI年度榜单，透露了评选背后的决策逻辑：今年候选项太多，"AI伴侣、机制可解释性、生成编码与超大规模数据中心"均入榜。值得关注的是MIT Technology Review明确表示，这份榜单代表的不是"最前沿"，而是"最值得长期追踪"——两者的差别，正是区分信息噪音与真实趋势的核心能力。</p>
+          <div class="deep-read-meta"><span>MIT Technology Review</span><span>推荐理由：建立AI议题优先级框架的参考文本</span><span>约7分钟</span></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== DEV TOOLS ===== -->
+  <section class="section" id="devtool">
+    <div class="section-header">
+      <span class="section-icon">🛠️</span>
+      <h2 class="section-title">开发者工具</h2>
+      <span class="section-count">3款</span>
+    </div>
+    <div class="tool-grid">
+
+      <div class="tool-card">
+        <h3>DeepTutor（HKUDS）</h3>
+        <p>GitHub 本周新增 5560 星，总计 17213 星。Agent原生的个人化学习助手，集成聊天、解题、测验生成与数学动画于统一工作空间，并持久记忆学习进度。Python 实现，支持多学科与自定义知识库，面向自学、在校学生与企业培训场景。</p>
+        <a href="https://github.com/HKUDS/DeepTutor" class="tool-card-link" target="_blank">查看项目 →</a>
+      </div>
+
+      <div class="tool-card">
+        <h3>Multica（multica-ai）</h3>
+        <p>GitHub 本周新增 5362 星，总计 9286 星。多Agent编码协作平台，将多个AI编码Agent组织为有共享技能、任务分工与进度追踪的"团队"，代码执行本地完成，服务器仅管理任务状态。TypeScript实现，专为大型代码库的并行AI协作而设计。</p>
+        <a href="https://github.com/multica-ai/multica" class="tool-card-link" target="_blank">查看项目 →</a>
+      </div>
+
+      <div class="tool-card">
+        <h3>NVIDIA Personaplex</h3>
+        <p>GitHub 本周新增 2905 星，总计 9079 星。全双工语音AI框架，同时支持说话与倾听，打断响应延迟仅0.07秒，远优于现有语音对话系统。内置persona控制（文字与语音），支持情感感知。Python实现，适用于实时客服、教育辅导与语音交互产品构建。</p>
+        <a href="https://github.com/NVIDIA/personaplex" class="tool-card-link" target="_blank">查看项目 →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== QUOTES ===== -->
+  <section class="section" id="quotes">
+    <div class="section-header">
+      <span class="section-icon">💬</span>
+      <h2 class="section-title">今日言论</h2>
+      <span class="section-count">4条</span>
+    </div>
+    <div class="quotes-list">
+
+      <div class="quote-card">
+        <p class="quote-text">Claude Design代表了Anthropic最激进的一次跨界扩张——它不再满足于做后台引擎，而是直接站到了用户面前，抢占Figma与Canva的市场。这是语言模型公司第一次在设计工具市场公开宣战。</p>
+        <p class="quote-author">— VentureBeat 评论 · 来源：Anthropic Claude Design分析报道 · 4月17日</p>
+      </div>
+
+      <div class="quote-card">
+        <p class="quote-text">我们不是在让设计师被AI取代，而是在让创意总监的角色变得更强大。Firefly AI助手是协作者，不是替代者——它处理繁复操作，创意人聚焦创意决策。</p>
+        <p class="quote-author">— Adobe官方博客 · 来源：blog.adobe.com "The age of creative agents" · 4月15日</p>
+      </div>
+
+      <div class="quote-card">
+        <p class="quote-text">AI经济正在创造一个新的马太效应：领先企业因AI获益越多，就越有资源继续投入AI，拉大与跟随者的差距。74%的收益流向20%的企业，这不是短期现象，而是结构性分化。</p>
+        <p class="quote-author">— PwC 2026 AI绩效研究报告 · 来源：pwc.com · 4月2026</p>
+      </div>
+
+      <div class="quote-card">
+        <p class="quote-text">将仿真的高保真物理引擎与NVIDIA Cosmos开放世界模型结合，是解决机器人"仿真到现实"鸿沟的关键。我们正在为物理AI的工厂化部署构建完整的数字基础设施。</p>
+        <p class="quote-author">— Cadence x NVIDIA 联合声明摘录 · 来源：businesswire.com · 4月15日</p>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="archive-section">
+    <a href="../index.html" class="archive-link">← 查看往期简报</a>
+  </div>
+
+</main>
+
+<footer class="footer">由 AI 自动抓取与编辑 · 每日 07:00 更新 · news.huangwei.ai</footer>
+
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+function toggleTheme() {
+  const html = document.documentElement;
+  const btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function() {
+  const saved = localStorage.getItem('theme');
+  if (saved === 'light') {
+    document.documentElement.setAttribute('data-theme', 'light');
+    document.getElementById('themeBtn').textContent = '🌙';
+  }
+})();
+window.addEventListener('scroll', () => {
+  const h = document.documentElement;
+  const p = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+  document.getElementById('progressBar').style.width = p + '%';
+  document.getElementById('backToTop').classList.toggle('visible', h.scrollTop > 400);
+});
+document.querySelectorAll('.nav-item').forEach(item => {
+  item.addEventListener('click', () => {
+    const s = document.getElementById(item.dataset.section);
+    if (s) s.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+const sects = document.querySelectorAll('.section');
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+      const nav = document.querySelector(`.nav-item[data-section="${e.target.id}"]`);
+      if (nav) nav.classList.add('active');
+    }
+  });
+}, { rootMargin: '-100px 0px -50% 0px' });
+sects.forEach(s => obs.observe(s));
+</script>
+</body>
+</html>
