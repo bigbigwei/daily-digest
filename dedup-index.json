@@ -55,7 +55,10 @@
     "Cloudflare Workers AI（边缘推理平台）",
     "DeepTutor（HKUDS）",
     "Multica（multica-ai）",
-    "NVIDIA Personaplex"
+    "NVIDIA Personaplex",
+    "Voicebox（jamiepine）",
+    "MemPalace",
+    "ConventionsBot"
   ],
   "used_products": [
     "AI营销Agent：自动化全链路网红营销，Product Hunt 4月热门",
@@ -127,7 +130,10 @@
     "Claude Design by Anthropic Labs：对话式设计工具，挑战Figma/Canva",
     "Notebooks in Gemini：项目、对话与文件的统一智能工作空间",
     "CraftBot：完全本地运行的主动式AI助手，零云端依赖",
-    "Is Your Site Agent-Ready? by Cloudflare：一键扫描网站AI Agent兼容性"
+    "Is Your Site Agent-Ready? by Cloudflare：一键扫描网站AI Agent兼容性",
+    "AirPods Max 2：Apple全新旗舰头戴耳机，H2芯片重塑降噪体验",
+    "DeepL Voice：企业级语音实时翻译，Zoom与Teams会议的语言边界终结者",
+    "Gemini for Mac：Google桌面AI战略落地，屏幕感知+快捷键+多模态全支持"
   ],
   "used_deepreads": [
     "100x Less Power: The Breakthrough That Could Solve AI's Massive Energy Crisis — SciTechDaily",
@@ -215,24 +221,13 @@
     "Anthropic Claude Design全解析：从语言模型到设计工具的战略跃迁 · VentureBeat",
     "SpaceX 2万亿IPO全面解读：史上最大上市背后的每个关键数字 · 24/7 Wall St.",
     "Adobe Summit 2026深度报道：从工具公司到创意AI平台的身份转型 · Computerworld",
-    "MIT Technology Review：首届「当今AI最重要10件事」榜单将于4月21日揭榜 · MIT Technology Review"
+    "MIT Technology Review：首届「当今AI最重要10件事」榜单将于4月21日揭榜 · MIT Technology Review",
+    "AI Power, Now and In 100 Years — Stratechery · Ben Thompson",
+    "将企业AI视为操作层，而非工具层 — MIT Technology Review",
+    "重新定义软件工程的未来 — MIT Technology Review",
+    "The 12-Month Window：AI繁荣期创始人如何识别「卖出」时机 — TechCrunch"
   ],
   "recent_topics": [
-    "GPT-6正式发布$2.50/$12定价原生多模态超级应用整合",
-    "Claude Mythos Preview零日漏洞安全门禁50家机构Project Glasswing",
-    "Alibaba Qwen3.6-Plus 100万Token上下文Agentic编码",
-    "OpenAI Anthropic Google联合打击中国AI盗版Frontier Model Forum",
-    "OpenAI Agents SDK v2沙箱执行持久化记忆可移植工作空间",
-    "SiFive 4亿美元G轮融资RISC-V芯片NVIDIA Apollo IPO前最终轮",
-    "纳指12连涨2009年最长纪录停火预期财报季",
-    "布伦特原油从103美元回落91美元美伊停火通胀压力松动",
-    "比特币74786美元黄金4810美元地缘风险溢价缓释",
-    "A股科创50年内新高AI政策红利十五五规划",
-    "斯坦福天然分子Ozempic减重副作用更少",
-    "RNA条形码技术单突触精度神经连接图谱",
-    "细胞内风场蛋白质定向运输癌症扩散",
-    "APImage Klick AI Camera Fluently Product Hunt",
-    "Samsung Galaxy Z Trifold三折屏Adobe Summit 2026",
     "Cursor 500亿估值融资20亿a16z英伟达Thrive Anysphere AR20亿",
     "Forbes AI 50 2026 Gamma Cognition Lovable Physical Intelligence商业化转型",
     "斯坦福AI指数2026中美差距2.7%透明度骤降53%全球采用率",
@@ -253,6 +248,19 @@
     "肠道微生物AI图谱结直肠癌无需结肠镜",
     "页岩黄铁矿隐藏锂矿电池材料供应链",
     "MIT Technology Review EmTech十大AI议题",
-    "CraftBot Cloudflare Agent-Ready Vercel Flags Notebooks Gemini"
+    "CraftBot Cloudflare Agent-Ready Vercel Flags Notebooks Gemini",
+    "Factory AI 1.5亿C轮独角兽Khosla Sequoia企业编程代理Droids摩根士丹利安永",
+    "Uber资产最大化百亿自动驾驶Lucid Rivian WeRide Nuro Wayve机器人出租车旧金山迈阿密",
+    "App Store Q1爆发Appfigures AI编程工具Claude Code Replit发布量同比60%80%",
+    "Mustafa Suleyman算力千倍增长2028年H100当量全球AI不触墙",
+    "Netflix竖屏视频TikTok式推荐Q1营收122亿净利52亿同比83%",
+    "Google Gemini macOS原生应用屏幕共享快捷键多模态",
+    "DeepL语音实时翻译Zoom Teams B2B早期访问企业会议",
+    "AMOC大西洋洋流51%减弱Science Advances欧洲冬季东海岸海平面",
+    "突破奖2026生命科学量子纠错mRNA癌症靶向数学庞加莱",
+    "关税解放日一周年最高法院IEEPA推翻核心通胀3.1%传导滞后",
+    "Elad Gil 12个月窗口AI繁荣期退出时机Lotus AOL Broadcast.com",
+    "AirPods Max 2 H2芯片降噪空间音频DeepL Voice Gemini桌面",
+    "Voicebox MemPalace ConventionsBot GitHub trending开源语音克隆AI记忆"
   ]
 }

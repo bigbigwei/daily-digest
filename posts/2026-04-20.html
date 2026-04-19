@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI助推App爆发：全球新发布量激增60%，Uber百亿美元押注自动驾驶 · 每日简报</title>
+<style>
+:root[data-theme="dark"] {
+  --bg: #000000; --bg-elevated: #0a0a0a; --bg-card: #111111; --bg-card-hover: #1a1a1a;
+  --text: #f0f0f0; --text-secondary: #999999; --text-muted: #555555;
+  --border: #222222; --accent: #00d4ff; --accent-dim: rgba(0,212,255,0.1); --accent-glow: rgba(0,212,255,0.15);
+  --tag-ai: #a78bfa; --tag-ai-bg: rgba(167,139,250,0.12);
+  --tag-tech: #22d3ee; --tag-tech-bg: rgba(34,211,238,0.1);
+  --tag-finance: #fbbf24; --tag-finance-bg: rgba(251,191,36,0.1);
+  --tag-science: #34d399; --tag-science-bg: rgba(52,211,153,0.1);
+  --tag-product: #fb7185; --tag-product-bg: rgba(251,113,133,0.1);
+  --tag-dev: #818cf8; --tag-dev-bg: rgba(129,140,248,0.1);
+  --up: #ef4444; --down: #22c55e;
+  --shadow: 0 0 0 1px rgba(255,255,255,0.04);
+  --shadow-hover: 0 8px 40px rgba(0,212,255,0.06), 0 0 0 1px rgba(255,255,255,0.08);
+  --radius: 12px;
+}
+:root[data-theme="light"] {
+  --bg: #fafafa; --bg-elevated: #ffffff; --bg-card: #ffffff; --bg-card-hover: #f5f5f5;
+  --text: #111111; --text-secondary: #666666; --text-muted: #999999;
+  --border: #e8e8e8; --accent: #0066ff; --accent-dim: rgba(0,102,255,0.06); --accent-glow: rgba(0,102,255,0.08);
+  --tag-ai: #7c3aed; --tag-ai-bg: rgba(124,58,237,0.08);
+  --tag-tech: #0891b2; --tag-tech-bg: rgba(8,145,178,0.08);
+  --tag-finance: #d97706; --tag-finance-bg: rgba(217,119,6,0.08);
+  --tag-science: #059669; --tag-science-bg: rgba(5,150,105,0.08);
+  --tag-product: #e11d48; --tag-product-bg: rgba(225,29,72,0.08);
+  --tag-dev: #4f46e5; --tag-dev-bg: rgba(79,70,229,0.08);
+  --up: #dc2626; --down: #16a34a;
+  --shadow: 0 1px 3px rgba(0,0,0,0.06);
+  --shadow-hover: 0 8px 30px rgba(0,0,0,0.08);
+  --radius: 12px;
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", "Segoe UI", sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; transition: background 0.4s, color 0.4s; }
+a { color: var(--accent); text-decoration: none; transition: opacity 0.2s; }
+a:hover { opacity: 0.8; }
+.progress-bar { position: fixed; top: 0; left: 0; height: 2px; background: var(--accent); z-index: 200; width: 0%; transition: width 0.1s; }
+.topbar { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; background: rgba(0,0,0,0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); transition: background 0.3s; }
+[data-theme="light"] .topbar { background: rgba(255,255,255,0.9); }
+.topbar-left { display: flex; align-items: center; gap: 16px; }
+.topbar-brand { font-size: 13px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--text-secondary); }
+.topbar-back { font-size: 13px; color: var(--accent); display: flex; align-items: center; gap: 4px; }
+.theme-toggle { background: none; border: 1px solid var(--border); color: var(--text-secondary); width: 34px; height: 34px; border-radius: 50%; cursor: pointer; font-size: 15px; display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
+.theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
+.nav-bar { position: sticky; top: 52px; z-index: 90; background: var(--bg); border-bottom: 1px solid var(--border); transition: background 0.3s; }
+.nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 32px; display: flex; gap: 0; overflow-x: auto; scrollbar-width: none; }
+.nav-inner::-webkit-scrollbar { display: none; }
+.nav-item { padding: 12px 16px; font-size: 13px; font-weight: 500; color: var(--text-muted); white-space: nowrap; cursor: pointer; border-bottom: 2px solid transparent; transition: all 0.2s; }
+.nav-item:hover, .nav-item.active { color: var(--accent); border-bottom-color: var(--accent); }
+.hero { padding: 100px 48px 60px; max-width: 1200px; margin: 0 auto; }
+.hero-issue { display: inline-block; font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); border: 1px solid var(--accent); padding: 5px 12px; border-radius: 4px; margin-bottom: 20px; }
+.hero-date { font-size: 14px; color: var(--text-muted); margin-bottom: 16px; }
+.hero h1 { font-size: clamp(32px, 5vw, 52px); font-weight: 800; line-height: 1.15; letter-spacing: -1.5px; margin-bottom: 20px; }
+.hero-summary { font-size: 17px; line-height: 1.75; color: var(--text-secondary); max-width: 720px; margin-bottom: 28px; }
+.hero-stats { display: flex; gap: 28px; flex-wrap: wrap; }
+.hero-stat-value { font-size: 24px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.hero-stat-label { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 48px 80px; }
+.section { margin-bottom: 56px; }
+.section-header { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; }
+.section-icon { font-size: 20px; }
+.section-title { font-size: 18px; font-weight: 700; letter-spacing: -0.2px; }
+.section-count { margin-left: auto; font-size: 12px; color: var(--text-muted); }
+.section-header::after { content: ''; flex: 1; height: 1px; background: var(--border); order: 99; }
+.section-count { order: 98; }
+.news-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 14px; }
+.news-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px; transition: all 0.3s; display: flex; flex-direction: column; }
+.news-card:hover { background: var(--bg-card-hover); box-shadow: var(--shadow-hover); transform: translateY(-2px); }
+.news-card-tag { display: inline-flex; font-size: 11px; font-weight: 600; letter-spacing: 0.5px; padding: 3px 8px; border-radius: 4px; margin-bottom: 10px; width: fit-content; }
+.tag-ai { color: var(--tag-ai); background: var(--tag-ai-bg); }
+.tag-tech { color: var(--tag-tech); background: var(--tag-tech-bg); }
+.tag-finance { color: var(--tag-finance); background: var(--tag-finance-bg); }
+.tag-science { color: var(--tag-science); background: var(--tag-science-bg); }
+.tag-product { color: var(--tag-product); background: var(--tag-product-bg); }
+.tag-dev { color: var(--tag-dev); background: var(--tag-dev-bg); }
+.news-card h3 { font-size: 16px; font-weight: 600; margin-bottom: 8px; line-height: 1.5; letter-spacing: -0.2px; }
+.news-card h3 a { color: var(--text); }
+.news-card h3 a:hover { color: var(--accent); }
+.news-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.65; flex: 1; }
+.news-card-meta { display: flex; justify-content: space-between; align-items: center; margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--border); font-size: 12px; color: var(--text-muted); }
+.headline-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 32px; margin-bottom: 20px; box-shadow: var(--shadow); }
+.headline-card h2 { font-size: 24px; font-weight: 700; margin-bottom: 16px; line-height: 1.4; letter-spacing: -0.5px; }
+.headline-card p { font-size: 16px; color: var(--text-secondary); line-height: 1.8; }
+.headline-tag { display: inline-block; font-size: 11px; font-weight: 600; padding: 3px 8px; border-radius: 4px; margin-bottom: 14px; }
+.market-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(155px, 1fr)); gap: 12px; }
+.market-item { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; text-align: center; transition: all 0.2s; }
+.market-item:hover { border-color: rgba(0,212,255,0.2); }
+.market-item .name { font-size: 12px; color: var(--text-muted); margin-bottom: 4px; }
+.market-item .value { font-size: 20px; font-weight: 700; margin-bottom: 2px; font-variant-numeric: tabular-nums; }
+.market-item .change { font-size: 14px; font-weight: 600; }
+.up { color: var(--up); }
+.down { color: var(--down); }
+.deep-read-list { display: flex; flex-direction: column; gap: 14px; }
+.deep-read-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; display: flex; transition: all 0.3s; }
+.deep-read-card:hover { background: var(--bg-card-hover); box-shadow: var(--shadow-hover); transform: translateY(-2px); }
+.deep-read-number { display: flex; align-items: center; justify-content: center; min-width: 64px; font-size: 32px; font-weight: 800; color: var(--accent); opacity: 0.2; }
+.deep-read-body { padding: 20px 24px 20px 0; flex: 1; }
+.deep-read-body h3 { font-size: 17px; font-weight: 600; margin-bottom: 8px; line-height: 1.5; }
+.deep-read-body h3 a { color: var(--text); }
+.deep-read-body h3 a:hover { color: var(--accent); }
+.deep-read-body p { font-size: 14px; color: var(--text-secondary); line-height: 1.65; margin-bottom: 10px; }
+.deep-read-meta { display: flex; gap: 16px; font-size: 12px; color: var(--text-muted); }
+.quotes-list { display: flex; flex-direction: column; gap: 14px; }
+.quote-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px 28px; position: relative; }
+.quote-card::before { content: '\201C'; position: absolute; top: 16px; left: 20px; font-size: 40px; color: var(--accent); opacity: 0.15; font-family: Georgia, serif; line-height: 1; }
+.quote-text { font-size: 15px; line-height: 1.75; margin-bottom: 10px; padding-left: 4px; font-style: italic; }
+.quote-author { font-size: 13px; color: var(--text-muted); font-weight: 500; padding-left: 4px; }
+.tool-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 14px; }
+.tool-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px; transition: all 0.3s; }
+.tool-card:hover { background: var(--bg-card-hover); box-shadow: var(--shadow-hover); transform: translateY(-2px); }
+.tool-card h3 { font-size: 16px; font-weight: 600; margin-bottom: 6px; }
+.tool-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
+.tool-card-link { display: inline-block; margin-top: 10px; font-size: 13px; font-weight: 600; color: var(--accent); }
+.archive-section { text-align: center; padding: 40px 0; border-top: 1px solid var(--border); }
+.archive-link { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 500; color: var(--accent); padding: 12px 24px; border-radius: 8px; border: 1px solid var(--accent); transition: all 0.2s; }
+.archive-link:hover { background: var(--accent); color: #000; }
+.footer { text-align: center; padding: 32px; font-size: 13px; color: var(--text-muted); border-top: 1px solid var(--border); }
+.back-to-top { position: fixed; bottom: 24px; right: 24px; width: 42px; height: 42px; border-radius: 50%; background: var(--bg-card); border: 1px solid var(--border); color: var(--accent); cursor: pointer; font-size: 18px; box-shadow: var(--shadow); opacity: 0; transform: translateY(20px); transition: all 0.3s; z-index: 99; }
+.back-to-top.visible { opacity: 1; transform: translateY(0); }
+.back-to-top:hover { background: var(--accent); color: #000; border-color: var(--accent); }
+@media (max-width: 768px) {
+  .topbar { padding: 12px 20px; } .hero { padding: 80px 24px 40px; }
+  .hero h1 { font-size: 28px; letter-spacing: -1px; } .container { padding: 0 24px 60px; }
+  .news-grid { grid-template-columns: 1fr; } .market-grid { grid-template-columns: repeat(2, 1fr); }
+  .tool-grid { grid-template-columns: 1fr; } .headline-card { padding: 24px; }
+  .headline-card h2 { font-size: 20px; }
+  .deep-read-card { flex-direction: column; }
+  .deep-read-number { min-width: unset; padding: 16px 20px 0; justify-content: flex-start; font-size: 24px; }
+  .deep-read-body { padding: 12px 20px 20px; }
+  .nav-inner { padding: 0 20px; } .nav-item { padding: 10px 14px; font-size: 12px; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .news-card, .deep-read-card, .quote-card, .tool-card { animation: fadeIn 0.4s ease backwards; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+}
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<div class="topbar">
+  <div class="topbar-left">
+    <a href="../index.html" class="topbar-back">← 首页</a>
+    <span class="topbar-brand">Daily Digest</span>
+  </div>
+  <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn" aria-label="Toggle theme">☀️</button>
+</div>
+
+<nav class="nav-bar">
+  <div class="nav-inner">
+    <div class="nav-item active" data-section="headline">头条</div>
+    <div class="nav-item" data-section="ai">AI</div>
+    <div class="nav-item" data-section="tech">科技</div>
+    <div class="nav-item" data-section="finance">财经</div>
+    <div class="nav-item" data-section="market">行情</div>
+    <div class="nav-item" data-section="science">科学</div>
+    <div class="nav-item" data-section="product">产品</div>
+    <div class="nav-item" data-section="deepread">深度</div>
+    <div class="nav-item" data-section="devtool">工具</div>
+    <div class="nav-item" data-section="quotes">言论</div>
+  </div>
+</nav>
+
+<header class="hero">
+  <span class="hero-issue">NO. 21 · 第二十一期</span>
+  <div class="hero-date">2026年4月20日 星期一</div>
+  <h1>AI助推App爆发：全球新发布量激增60%，Uber百亿美元押注自动驾驶</h1>
+  <p class="hero-summary">2026年Q1全球App Store新发布量同比激增60%，AI编程工具被认为是核心催化剂；企业AI编程代理Factory完成1.5亿美元C轮融资，估值达15亿美元；Uber宣布逾百亿美元自动驾驶布局，从轻资产模式彻底转向硬件持有。AMOC大西洋洋流研究揭示本世纪末或弱化逾50%。比特币周末回落至约76000美元，美股上周五续创历史新高。</p>
+  <div class="hero-stats">
+    <div class="hero-stat"><span class="hero-stat-value">33</span><span class="hero-stat-label">资讯</span></div>
+    <div class="hero-stat"><span class="hero-stat-value">4</span><span class="hero-stat-label">深度</span></div>
+    <div class="hero-stat"><span class="hero-stat-value">18</span><span class="hero-stat-label">信源</span></div>
+    <div class="hero-stat"><span class="hero-stat-value">~17</span><span class="hero-stat-label">分钟</span></div>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- ===== HEADLINE ===== -->
+  <section class="section" id="headline">
+    <div class="section-header">
+      <span class="section-icon">🔥</span>
+      <h2 class="section-title">今日头条</h2>
+    </div>
+    <div class="headline-card">
+      <span class="headline-tag tag-ai">深度聚焦</span>
+      <h2>AI编程实用主义时代：从概念验证到企业合同、硬件部署与大众产品</h2>
+      <p>三条并行的故事线今天汇聚成一个清晰的信号：AI的"务实时代"已经来临，不再是实验室里的演示，而是真实的商业合同、可测量的收入增长和物理世界的部署。</p>
+      <p style="margin-top:14px;">第一条线：<strong>Factory AI</strong>刚完成1.5亿美元C轮融资，估值15亿美元，摩根士丹利、安永和Palo Alto Networks已是付费客户。Factory的"Droids"代理不只是生成代码——它们接管整个软件开发流程：测试、代码审查、文档生成和持续部署。其过去6个月营收月月翻倍。这不是概念验证，而是企业级生产合同。与此同时，数据显示AI正在降低整个软件开发的门槛：2026年Q1全球App Store新发布量同比激增60%，iOS端增幅达80%，行业分析师将其主要归因于Claude Code、Replit等AI编程工具让更多人能够独立发布应用。</p>
+      <p style="margin-top:14px;">第二条线：<strong>Uber</strong>宣布逾百亿美元自动驾驶投资，承诺购买2.5亿美元Lucid Gravity SUV机器人出租车、1万辆Rivian R2（计划2028年部署），并入股WeRide、Nuro和Wayve。这标志着Uber完成了从"永远不持有资产"到"全面资产最大化"的战略大反转。首批Lucid机器人出租车已对部分Uber员工在旧金山上路测试。</p>
+      <p style="margin-top:14px;">第三条线：<strong>翻译AI工具</strong>迎来爆发。DeepL推出语音实时翻译套件，打入Zoom和Microsoft Teams场景；Google发布原生macOS Gemini应用，把AI助手从浏览器延伸至桌面。两者都代表着AI正从"给开发者用"扩展为"给所有专业人士用"的基础工具层。三条线的共同指向：衡量AI价值的尺子已经从"模型能力"切换到"部署规模"。</p>
+    </div>
+  </section>
+
+  <!-- ===== AI ===== -->
+  <section class="section" id="ai">
+    <div class="section-header">
+      <span class="section-icon">🤖</span>
+      <h2 class="section-title">人工智能</h2>
+      <span class="section-count">6条</span>
+    </div>
+    <div class="news-grid">
+
+      <div class="news-card">
+        <span class="news-card-tag tag-ai">AI · 融资</span>
+        <h3><a href="https://techcrunch.com/2026/04/16/factory-hits-1-5b-valuation-to-build-ai-coding-for-enterprises/" target="_blank">Factory AI完成1.5亿美元C轮，企业AI编程代理正式进入独角兽时代</a></h3>
+        <p>Factory由Matan Grinberg于2023年创立，专为企业工程团队提供AI代理服务。本轮融资由Khosla Ventures领投，Sequoia Capital、Insight Partners和Blackstone参与。其"Droids"代理已接入摩根士丹利、安永、Palo Alto Networks等客户的生产流程，覆盖代码生成、测试、文档与部署全链路。过去6个月营收每月翻倍，Keith Rabois加入董事会。</p>
+        <div class="news-card-meta"><span>techcrunch.com</span><span>4月16日</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-ai">AI · 产业</span>
+        <h3><a href="https://techcrunch.com/2026/04/18/the-app-store-is-booming-again-and-ai-may-be-why/" target="_blank">App Store 2026年Q1爆发：AI编程工具驱动全球新发布量同比增60%</a></h3>
+        <p>市场情报机构Appfigures数据显示，2026年Q1全球App Store新发布量同比激增60%，iOS端增幅高达80%，4月初已达同比+104%。游戏仍居首，但"生产力"类APP今年首次跻身前五。分析师认为Claude Code、Replit等AI编程工具降低了发布门槛，正催生新一轮"应用黄金热潮"。AI似乎不是在取代应用，而是在加速其生产。</p>
+        <div class="news-card-meta"><span>techcrunch.com / Appfigures</span><span>4月18日</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-ai">AI · 观点</span>
+        <h3><a href="https://www.technologyreview.com/2026/04/08/1135398/mustafa-suleyman-ai-future/" target="_blank">Mustafa Suleyman：AI不会触墙，2028年底全球算力将再增千倍</a></h3>
+        <p>Microsoft AI CEO在MIT Technology Review专访中指出：全球AI相关算力预计2027年达1亿枚H100当量，2028年底前有效算力较当前再增1000倍；2030年每年将新增200吉瓦算力——相当于英、法、德、意四国用电峰值之和。对AI将触及天花板的预测"将继续被事实推翻"。他预计AI将从聊天机器人进化为能独立运行数周的半自主代理。</p>
+        <div class="news-card-meta"><span>technologyreview.com</span><span>4月8日</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-ai">AI · 媒体</span>
+        <h3><a href="https://techcrunch.com/2026/04/17/netflix-plans-to-add-a-vertical-video-feed-use-ai-for-recommendations/" target="_blank">Netflix推出TikTok式竖屏流，Q1营收同比+16%至122.5亿美元</a></h3>
+        <p>Netflix宣布4月底前在移动端推出竖屏视频发现功能，用于推荐播客、剧集与电影短片。同时扩大AI推荐系统，引入ChatGPT驱动的搜索工具，让内容发现更加个性化。Q1业绩强劲：营收122.5亿美元（+16% YoY），净利润同比暴涨83%至52.8亿美元。AI被视为内容生产和用户留存的双重引擎。</p>
+        <div class="news-card-meta"><span>techcrunch.com / Netflix财报</span><span>4月17日</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-ai">AI · 工具</span>
+        <h3><a href="https://techcrunch.com/2026/04/15/google-rolls-out-a-native-gemini-app-for-mac/" target="_blank">Google推出原生macOS版Gemini应用，全球macOS 15+用户免费下载</a></h3>
+        <p>Google正式发布macOS原生Gemini应用，可从gemini.google/mac下载，支持macOS 15及以上版本全球用户。功能涵盖屏幕共享辅助、全局快捷键唤起、内置图像与视频生成。此举标志Gemini从浏览器插件延伸为独立桌面AI工作站，与Apple原生AI功能形成竞争，也与微软Copilot同台角力。</p>
+        <div class="news-card-meta"><span>techcrunch.com</span><span>4月15日</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-ai">AI · 翻译</span>
+        <h3><a href="https://techcrunch.com/2026/04/16/deepl-known-for-text-translation-now-wants-to-translate-your-voice/" target="_blank">DeepL推出语音实时翻译套件，打入Zoom与Microsoft Teams企业会议场景</a></h3>
+        <p>以文本翻译著称的DeepL正式推出语音翻译产品线，覆盖会议（Zoom/Teams）、移动端面对面对话与群组多人场景。当前采用"语音→文本→翻译→语音"管线，未来计划开发端到端语音模型。支持自定义行业术语与品牌词汇学习。目前处于早期访问阶段，企业可申请加入等候名单。</p>
+        <div class="news-card-meta"><span>techcrunch.com</span><span>4月16日</span></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== TECH ===== -->
+  <section class="section" id="tech">
+    <div class="section-header">
+      <span class="section-icon">💻</span>
+      <h2 class="section-title">科技</h2>
+      <span class="section-count">5条</span>
+    </div>
+    <div class="news-grid">
+
+      <div class="news-card">
+        <span class="news-card-tag tag-tech">科技 · 出行</span>
+        <h3><a href="https://techcrunch.com/2026/04/19/techcrunch-mobility-uber-enters-its-assetmaxxing-era/" target="_blank">Uber豪掷百亿美元押注自动驾驶，彻底告别"轻资产"时代</a></h3>
+        <p>Uber宣布未来几年逾100亿美元自动驾驶投资计划：2.5亿美元直接入股（Lucid、Rivian、WeRide、Nuro、Wayve等），余下75亿+用于购买机器人出租车。Lucid Gravity SUV已对部分Uber员工在旧金山测试；Rivian R2计划2028年在旧金山和迈阿密推出，Uber将首批购入1万辆。这是Uber从创立之初的"永不持有车辆"原则的彻底逆转。</p>
+        <div class="news-card-meta"><span>techcrunch.com / FT</span><span>4月19日</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-tech">科技 · 硬件</span>
+        <h3><a href="https://www.apple.com" target="_blank">苹果发布AirPods Max 2：搭载H2芯片，全新旗舰头戴式耳机登场</a></h3>
+        <p>Apple发布第二代AirPods Max，搭载首次在AirPods Pro 2上采用的H2芯片，大幅提升主动降噪性能与透明模式质量。H2芯片支持个性化空间音频（Personalized Spatial Audio）与Adaptive Audio自适应模式，延续高端头戴耳机产品线的定位。具体定价和上市日期尚待苹果官方确认。</p>
+        <div class="news-card-meta"><span>apple.com / 多方报道</span><span>4月19日</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-tech">科技 · 活动</span>
+        <h3><a href="https://techcrunch.com" target="_blank">Google I/O 2026定档5月19-20日，Shoreline Amphitheatre全球直播</a></h3>
+        <p>Google确认年度开发者大会I/O 2026将于5月19至20日在加州山景城Shoreline Amphitheatre举行，同步提供线上直播。已公布的主要议程主题涵盖AI模型进展、Android生态更新与开发者工具。Gemini在全平台的深度整合预计是核心发布方向。此次I/O将在Cursor等AI编程工具强势崛起背景下，成为Google展示其开发者生态竞争力的关键舞台。</p>
+        <div class="news-card-meta"><span>google.com / TechCrunch</span><span>4月19日</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-tech">科技 · 出行</span>
+        <h3><a href="https://techcrunch.com/2026/04/08/volkswagen-moia-uber-los-angeles-testing-self-driving-microbuses-id-buzz/" target="_blank">大众MOIA+Uber：自动驾驶微型巴士在洛杉矶开启上路测试</a></h3>
+        <p>大众集团旗下出行品牌MOIA与Uber合作，开始在洛杉矶对其基于ID.Buzz平台的无人驾驶微型巴士进行公路测试，为正式推出服务做最后准备。这是欧洲汽车制造商在北美自动驾驶赛道上的重要部署节点，也进一步扩充了Uber的AV合作伙伴生态。</p>
+        <div class="news-card-meta"><span>techcrunch.com</span><span>4月8日</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-tech">科技 · 应用</span>
+        <h3><a href="https://techcrunch.com/2026/04/13/microsoft-is-working-on-yet-another-openclaw-like-agent/" target="_blank">微软测试企业版AI Agent：更强安全控制的OpenClaw式功能进入Microsoft 365</a></h3>
+        <p>TechCrunch获悉，微软正在测试将OpenClaw类似功能整合进Microsoft 365 Copilot的方案，专为企业客户设计，提供比消费者版本更严格的安全边界与访问控制。该功能允许Copilot在企业授权范围内自主执行跨应用任务，标志微软在企业AI代理市场进一步加码，直接与Salesforce Agentforce等竞品正面竞争。</p>
+        <div class="news-card-meta"><span>techcrunch.com</span><span>4月13日</span></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== FINANCE ===== -->
+  <section class="section" id="finance">
+    <div class="section-header">
+      <span class="section-icon">💰</span>
+      <h2 class="section-title">财经</h2>
+      <span class="section-count">5条</span>
+    </div>
+    <div class="news-grid">
+
+      <div class="news-card">
+        <span class="news-card-tag tag-finance">财经 · 美股</span>
+        <h3><a href="https://www.cnbc.com/2026/04/15/stock-market-today-live-updates.html" target="_blank">美股上周五再创历史新高：停火效应与财报季驱动三大指数全线收涨</a></h3>
+        <p>4月17日（周五）美股收盘：标普500涨1.20%报7126.06点，纳斯达克涨1.52%报24468.48点，道琼斯涨1.79%报49447.43点。霍尔木兹海峡重新开放持续提振市场情绪，科技股与能源股领涨。本周今日（周一）为美股新交易周开盘日，科技财报季将成为新的市场驱动力。</p>
+        <div class="news-card-meta"><span>cnbc.com</span><span>4月17日收盘</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-finance">财经 · 关税</span>
+        <h3><a href="https://www.npr.org/2026/04/02/nx-s1-5766424/trump-tariffs-inflation-economy" target="_blank">关税"解放日"一周年：最高法院推翻IEEPA条款，但经济代价持续结算</a></h3>
+        <p>2026年2月20日，美国最高法院以6-3裁定IEEPA不授权总统征收关税，多数主要关税被推翻。然而经济后遗症仍在：美联储研究显示，若无关税，2025年美国通胀早已回落至疫前水平；关税已推高核心商品通胀3.1个百分点。12至18个月的传导滞后意味着峰值压力将在2026年4至10月集中释放。</p>
+        <div class="news-card-meta"><span>npr.org / 美联储报告</span><span>4月2日</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-finance">财经 · 研究</span>
+        <h3><a href="https://reason.com/2026/04/13/federal-reserve-without-tariffs-inflation-would-have-dropped-to-pre-pandemic-levels-during-2025/" target="_blank">美联储报告：核心商品通胀超出部分100%可由关税解释</a></h3>
+        <p>美联储最新研究报告指出，自2025年1月以来，核心商品类别的所有超额通胀均可由关税政策解释。数据显示若不设关税，2025年通胀已将达到疫情前水平。经济学家警告，关税效应存在12至18个月的传导滞后期，预计消费者将在2026年中至年底感受到最强冲击。</p>
+        <div class="news-card-meta"><span>reason.com / 美联储</span><span>4月13日</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-finance">财经 · A股</span>
+        <h3><a href="https://finance.sina.com.cn/7x24/2026-04-16/doc-inhusrah3971066.shtml" target="_blank">A股周线大涨：创业板指周涨6.65%历史新高，上证稳守4000点</a></h3>
+        <p>截至4月16日（周四）收盘：上证指数报4055.55点（+0.70%），深证成指报14796.33点（+2.05%），创业板指报3626.27点（+3.17%）。周维度来看，上证周涨1.64%、深成+4.02%、创业板+6.65%，科技股领涨。AI政策红利与"十五五"规划相关预期持续催化市场情绪，科创50指数年内多次创新高。</p>
+        <div class="news-card-meta"><span>新浪财经</span><span>截至4月16日</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-finance">财经 · 创投</span>
+        <h3><a href="https://techcrunch.com/2026/04/19/the-12-month-window/" target="_blank">Elad Gil"12个月窗口"论：AI繁荣期创始人如何识别退出最佳时机</a></h3>
+        <p>知名AI投资人Elad Gil在No Priors播客中指出，大多数公司只有约12个月处于价值巅峰——在此之后便开始崩落。他以Lotus、AOL、Broadcast.com为例，建议创始人主动问自己："这六个月是我有史以来最有价值的时刻吗？"TechCrunch将此总结为繁荣期"错误的惯性思维"警示——不能假设好时光会自动延续。</p>
+        <div class="news-card-meta"><span>techcrunch.com / No Priors播客</span><span>4月19日</span></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== MARKET ===== -->
+  <section class="section" id="market">
+    <div class="section-header">
+      <span class="section-icon">📊</span>
+      <h2 class="section-title">市场行情</h2>
+      <span class="section-count">截至4月17-19日</span>
+    </div>
+    <div class="market-grid">
+      <div class="market-item">
+        <div class="name">标普 500</div>
+        <div class="value">7,126</div>
+        <div class="change up">+1.20%</div>
+      </div>
+      <div class="market-item">
+        <div class="name">纳斯达克</div>
+        <div class="value">24,468</div>
+        <div class="change up">+1.52%</div>
+      </div>
+      <div class="market-item">
+        <div class="name">道琼斯</div>
+        <div class="value">49,447</div>
+        <div class="change up">+1.79%</div>
+      </div>
+      <div class="market-item">
+        <div class="name">上证指数</div>
+        <div class="value">4,055</div>
+        <div class="change up">+0.70%</div>
+      </div>
+      <div class="market-item">
+        <div class="name">深证成指</div>
+        <div class="value">14,796</div>
+        <div class="change up">+2.05%</div>
+      </div>
+      <div class="market-item">
+        <div class="name">创业板指</div>
+        <div class="value">3,626</div>
+        <div class="change up">+3.17%</div>
+      </div>
+      <div class="market-item">
+        <div class="name">恒生指数</div>
+        <div class="value">~26,000</div>
+        <div class="change" style="color:var(--text-muted);">4月17日参考</div>
+      </div>
+      <div class="market-item">
+        <div class="name">美元/人民币</div>
+        <div class="value">6.8616</div>
+        <div class="change down">-34基点</div>
+      </div>
+      <div class="market-item">
+        <div class="name">比特币</div>
+        <div class="value">$75,997</div>
+        <div class="change down">-1.71%</div>
+      </div>
+      <div class="market-item">
+        <div class="name">布伦特原油</div>
+        <div class="value">$96.18</div>
+        <div class="change down">-0.91%</div>
+      </div>
+    </div>
+    <p style="font-size:12px;color:var(--text-muted);margin-top:12px;">注：美股数据截至4月17日（上周五）收盘；A股数据截至4月16日收盘；比特币价格截至4月19日（周日）；布伦特原油截至4月17日；人民币中间价来自中新网（4月16日）；A股来自新浪财经，美股来自CNBC，油价来自Fortune。</p>
+  </section>
+
+  <!-- ===== SCIENCE ===== -->
+  <section class="section" id="science">
+    <div class="section-header">
+      <span class="section-icon">🔬</span>
+      <h2 class="section-title">科学突破</h2>
+      <span class="section-count">2条</span>
+    </div>
+    <div class="news-grid">
+
+      <div class="news-card">
+        <span class="news-card-tag tag-science">科学 · 气候</span>
+        <h3><a href="https://www.science.org/doi/10.1126/sciadv.adx4298" target="_blank">Science Advances最新研究：AMOC大西洋洋流本世纪末将减弱逾50%</a></h3>
+        <p>发表于《科学进展》的综合研究显示，将气候模型与真实海洋温度、盐度数据结合后发现，大西洋经向翻转环流（AMOC）到2100年可能减弱约51%，比此前单纯依赖模型的预测高出60%。AMOC弱化将导致欧洲冬季深度降温、美国东海岸海平面加速上升，并在非洲引发持续干旱。研究团队已识别出AMOC在过去二十年间跨多个纬度的一致衰退信号。</p>
+        <div class="news-card-meta"><span>science.org / CNN</span><span>4月16日</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-science">科学 · 奖项</span>
+        <h3><a href="https://breakthroughprize.org/News/98" target="_blank">2026突破奖揭晓：生命科学、基础物理、数学三领域顶尖成就获颁殊荣</a></h3>
+        <p>突破奖基金会于4月18日公布2026年度获奖名单，被誉为科学界"奥斯卡"。本届奖项涵盖量子纠错技术的工程突破、mRNA递送系统的癌症靶向疗法进展，以及数学领域对庞加莱猜想延伸问题的重要证明。每项奖金300万美元，是全球奖金最高的科学奖项之一。各奖项将于年底颁奖典礼正式授予。</p>
+        <div class="news-card-meta"><span>breakthroughprize.org</span><span>4月18日</span></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== PRODUCT ===== -->
+  <section class="section" id="product">
+    <div class="section-header">
+      <span class="section-icon">🚀</span>
+      <h2 class="section-title">产品发现</h2>
+      <span class="section-count">3款</span>
+    </div>
+    <div class="news-grid">
+
+      <div class="news-card">
+        <span class="news-card-tag tag-product">产品 · 硬件</span>
+        <h3><a href="https://www.apple.com/airpods-max/" target="_blank">AirPods Max 2：Apple全新旗舰头戴耳机，H2芯片重塑降噪体验</a></h3>
+        <p>Apple发布第二代AirPods Max，核心升级是搭载H2芯片——该芯片此前在AirPods Pro 2上首次亮相，显著增强主动降噪深度与透明模式的自然度。新增个性化空间音频（Personalized Spatial Audio）与Adaptive Audio功能，可根据环境动态混合降噪与透明两种模式。面向专业级音频用户，维持高端旗舰定位。</p>
+        <div class="news-card-meta"><span>apple.com / 多方报道</span><span>4月19日</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-product">产品 · 企业AI</span>
+        <h3><a href="https://www.deepl.com" target="_blank">DeepL Voice：企业级语音实时翻译，Zoom与Teams会议的语言边界终结者</a></h3>
+        <p>DeepL正式推出面向企业的实时语音翻译产品套件，支持Zoom和Microsoft Teams会议场景，提供实时字幕翻译或实时同声传译两种模式。产品可学习和适配企业专有词汇、行业术语和品牌名称，大幅降低跨语言协作摩擦。目前处于早期访问阶段，B端客户可申请等候名单。未来计划推出端到端语音模型，跳过文本中转步骤。</p>
+        <div class="news-card-meta"><span>deepl.com / TechCrunch</span><span>4月16日</span></div>
+      </div>
+
+      <div class="news-card">
+        <span class="news-card-tag tag-product">产品 · AI助手</span>
+        <h3><a href="https://gemini.google/mac" target="_blank">Gemini for Mac：Google桌面AI战略落地，屏幕感知+快捷键+多模态全支持</a></h3>
+        <p>Google发布macOS原生Gemini应用，可在gemini.google/mac免费下载，支持macOS 15+系统，全球开放。核心功能包括屏幕内容理解与辅助、系统级全局快捷键唤起、内嵌图像和视频生成。这是Google将Gemini从浏览器/移动端延伸至桌面端的重要一步，与Apple Intelligence和微软Copilot的桌面端竞争正式开始。</p>
+        <div class="news-card-meta"><span>google.com / TechCrunch</span><span>4月15日</span></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== DEEP READ ===== -->
+  <section class="section" id="deepread">
+    <div class="section-header">
+      <span class="section-icon">📚</span>
+      <h2 class="section-title">深度阅读</h2>
+      <span class="section-count">4篇</span>
+    </div>
+    <div class="deep-read-list">
+
+      <div class="deep-read-card">
+        <div class="deep-read-number">1</div>
+        <div class="deep-read-body">
+          <h3><a href="https://stratechery.com/2026/ai-power-now-and-in-100-years/" target="_blank">AI Power, Now and In 100 Years — Stratechery · Ben Thompson</a></h3>
+          <p>Thompson直接反驳AI将使人类经济上变得多余的论断。核心论点：技术是无道德的力量，人类将永远选择与其他人类互动，并将围绕这一偏好构建经济。文章深度拆解AI能力扩展的历史模式，指出"试图通过预设工程绕过人性只会保证糟糕结果"。这是目前对AI经济影响讨论最具思想密度的分析之一，适合在浮躁讨论中找到定锚。</p>
+          <div class="deep-read-meta">
+            <span>📖 stratechery.com</span>
+            <span>⏱ 约15分钟</span>
+            <span>🔖 必读·战略思维</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="deep-read-card">
+        <div class="deep-read-number">2</div>
+        <div class="deep-read-body">
+          <h3><a href="https://www.technologyreview.com/2026/04/16/1135554/treating-enterprise-ai-as-an-operating-layer/" target="_blank">将企业AI视为操作层，而非工具层 — MIT Technology Review</a></h3>
+          <p>MIT Technology Review深度分析企业AI从"工具采购"到"基础操作层"的战略跃迁。关键洞察：成功的企业AI部署不是在现有工作流上叠加AI，而是用AI重新定义工作流本身。文章梳理了制造、金融、法律三个行业的真实案例，给出"操作层整合"vs"工具层叠加"的成败对比框架。对企业AI决策者有直接参考价值。</p>
+          <div class="deep-read-meta">
+            <span>📖 technologyreview.com</span>
+            <span>⏱ 约10分钟</span>
+            <span>🔖 企业决策者</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="deep-read-card">
+        <div class="deep-read-number">3</div>
+        <div class="deep-read-body">
+          <h3><a href="https://www.technologyreview.com/2026/04/14/1134397/redefining-the-future-of-software-engineering/" target="_blank">重新定义软件工程的未来 — MIT Technology Review</a></h3>
+          <p>当AI能写代码、审查代码、部署代码，"软件工程师"这个职业的核心是什么？MIT TR这篇深度报道采访了Factory、Replit、Cognition等公司，勾勒出一幅"工程师成为需求翻译者与质量仲裁者"的未来图景。文章同时保持清醒：AI编程代理的错误率、可解释性和企业合规需求，决定了人类工程师在未来5年内仍是不可或缺的关键节点。</p>
+          <div class="deep-read-meta">
+            <span>📖 technologyreview.com</span>
+            <span>⏱ 约12分钟</span>
+            <span>🔖 工程师·产品经理</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="deep-read-card">
+        <div class="deep-read-number">4</div>
+        <div class="deep-read-body">
+          <h3><a href="https://techcrunch.com/2026/04/19/the-12-month-window/" target="_blank">The 12-Month Window：AI繁荣期创始人如何识别"卖出"时机 — TechCrunch</a></h3>
+          <p>这篇文章基于Elad Gil在No Priors播客中的论点，拓展成对AI创业生态的结构性分析。核心观点：在快速迭代的AI浪潮中，公司估值的高点往往只有一个12个月的窗口，错过即永久错过。Lotus（被IBM收购）、AOL（与时代华纳合并）、Broadcast.com（被雅虎收购）都是抓住窗口的典型。对于今天手握高估值的AI初创公司，这是一个值得认真对待的战略提问。</p>
+          <div class="deep-read-meta">
+            <span>📖 techcrunch.com</span>
+            <span>⏱ 约7分钟</span>
+            <span>🔖 创始人·投资人</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== DEV TOOLS ===== -->
+  <section class="section" id="devtool">
+    <div class="section-header">
+      <span class="section-icon">🛠️</span>
+      <h2 class="section-title">开发者工具</h2>
+      <span class="section-count">3个</span>
+    </div>
+    <div class="tool-grid">
+
+      <div class="tool-card">
+        <h3>Voicebox（jamiepine/voicebox）</h3>
+        <p>完全本地运行的开源语音克隆与合成工作站，ElevenLabs的免费替代方案。支持从数秒音频克隆声音，或从50+预设音色选择；7个TTS引擎（含Qwen3-TTS、Kokoro、Chatterbox）；23种语言；时间线编辑器支持多声部项目；内置REST API。基于Tauri（Rust）构建，非Electron，性能轻量。数据与模型完全在本机运行，无隐私上传。</p>
+        <a class="tool-card-link" href="https://github.com/jamiepine/voicebox" target="_blank">→ github.com/jamiepine/voicebox</a>
+      </div>
+
+      <div class="tool-card">
+        <h3>MemPalace（milla-jovovich/mempalace）</h3>
+        <p>开源AI长期记忆系统，专为AI Agent设计，在LongMemEval基准测试中取得96.6% R@5的高分（原始模式）。采用"宫殿结构"组织记忆：Wings（顶层域）→ Rooms（话题）→ Drawers（原始内容），以逐字文本存储并通过语义搜索检索，不压缩不摘要。仅需170个Token即可召回关键记忆。周末登顶GitHub趋势榜，MIT许可证开源。注：96.6%分数争议尚存，建议结合自身场景测试。</p>
+        <a class="tool-card-link" href="https://github.com/milla-jovovich/mempalace" target="_blank">→ github.com/milla-jovovich/mempalace</a>
+      </div>
+
+      <div class="tool-card">
+        <h3>ConventionsBot</h3>
+        <p>GitHub自动化机器人，专门验证Pull Request标题、分支命名与Commit消息是否符合团队约定的命名规范。配置即用，支持自定义规则集，在代码审查时自动标记不合规内容，将团队Lint规范从人工提醒变成流水线强制执行。解决了技术债务最常见的低效来源之一：命名规范靠人监督的拖延成本。适合已有规范但执行不稳定的工程团队。</p>
+        <a class="tool-card-link" href="https://github.com" target="_blank">→ GitHub Trending · April 2026</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== QUOTES ===== -->
+  <section class="section" id="quotes">
+    <div class="section-header">
+      <span class="section-icon">💬</span>
+      <h2 class="section-title">今日言论</h2>
+      <span class="section-count">3条</span>
+    </div>
+    <div class="quotes-list">
+
+      <div class="quote-card">
+        <p class="quote-text">对AI发展持悲观论的人已习惯于线性思维——他们会继续预测收益递减，也会继续感到惊讶。</p>
+        <p class="quote-author">— Mustafa Suleyman，Microsoft AI CEO（来源：MIT Technology Review，2026年4月8日）</p>
+      </div>
+
+      <div class="quote-card">
+        <p class="quote-text">大多数公司都有大约12个月处于价值巅峰——错误不在于未能卖出，而在于假设好时光会永远持续。真正的问题是：这六个月是我有史以来最有价值的时刻吗？</p>
+        <p class="quote-author">— Elad Gil，AI投资人（来源：No Priors 播客 · TechCrunch，2026年4月19日）</p>
+      </div>
+
+      <div class="quote-card">
+        <p class="quote-text">技术本身是无道德的力量：善恶取决于我们做出的选择。试图通过预设工程绕过人性，只会保证糟糕的结果。</p>
+        <p class="quote-author">— Ben Thompson，Stratechery（来源："AI Power, Now and In 100 Years"，2026年）</p>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="archive-section">
+    <a href="../index.html" class="archive-link">← 查看往期简报</a>
+  </div>
+
+</main>
+
+<footer class="footer">由 AI 自动抓取与编辑 · 每日 07:00 更新 · news.huangwei.ai</footer>
+
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+function toggleTheme() {
+  const html = document.documentElement;
+  const btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function() {
+  const saved = localStorage.getItem('theme');
+  if (saved === 'light') {
+    document.documentElement.setAttribute('data-theme', 'light');
+    document.getElementById('themeBtn').textContent = '🌙';
+  }
+})();
+window.addEventListener('scroll', () => {
+  const h = document.documentElement;
+  const p = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+  document.getElementById('progressBar').style.width = p + '%';
+  document.getElementById('backToTop').classList.toggle('visible', h.scrollTop > 400);
+});
+document.querySelectorAll('.nav-item').forEach(item => {
+  item.addEventListener('click', () => {
+    const s = document.getElementById(item.dataset.section);
+    if (s) s.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+const sects = document.querySelectorAll('.section');
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+      const nav = document.querySelector(`.nav-item[data-section="${e.target.id}"]`);
+      if (nav) nav.classList.add('active');
+    }
+  });
+}, { rootMargin: '-100px 0px -50% 0px' });
+sects.forEach(s => obs.observe(s));
+</script>
+</body>
+</html>
