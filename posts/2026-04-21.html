@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>核弹级AI已上线：Anthropic封存的Mythos，NSA绕过五角大楼禁令秘密使用 · 每日简报</title>
+<style>
+:root[data-theme="dark"] {
+  --bg: #000000; --bg-elevated: #0a0a0a; --bg-card: #111111; --bg-card-hover: #1a1a1a;
+  --text: #f0f0f0; --text-secondary: #999999; --text-muted: #555555;
+  --border: #222222; --accent: #00d4ff; --accent-dim: rgba(0,212,255,0.1); --accent-glow: rgba(0,212,255,0.15);
+  --tag-ai: #a78bfa; --tag-ai-bg: rgba(167,139,250,0.12); --tag-tech: #22d3ee; --tag-tech-bg: rgba(34,211,238,0.1);
+  --tag-finance: #fbbf24; --tag-finance-bg: rgba(251,191,36,0.1); --tag-science: #34d399; --tag-science-bg: rgba(52,211,153,0.1);
+  --tag-product: #fb7185; --tag-product-bg: rgba(251,113,133,0.1); --tag-dev: #818cf8; --tag-dev-bg: rgba(129,140,248,0.1);
+  --up: #ef4444; --down: #22c55e; --shadow: 0 0 0 1px rgba(255,255,255,0.04);
+  --shadow-hover: 0 8px 40px rgba(0,212,255,0.06), 0 0 0 1px rgba(255,255,255,0.08); --radius: 12px;
+}
+:root[data-theme="light"] {
+  --bg: #fafafa; --bg-elevated: #ffffff; --bg-card: #ffffff; --bg-card-hover: #f5f5f5;
+  --text: #111111; --text-secondary: #666666; --text-muted: #999999;
+  --border: #e8e8e8; --accent: #0066ff; --accent-dim: rgba(0,102,255,0.06); --accent-glow: rgba(0,102,255,0.08);
+  --tag-ai: #7c3aed; --tag-ai-bg: rgba(124,58,237,0.08); --tag-tech: #0891b2; --tag-tech-bg: rgba(8,145,178,0.08);
+  --tag-finance: #d97706; --tag-finance-bg: rgba(217,119,6,0.08); --tag-science: #059669; --tag-science-bg: rgba(5,150,105,0.08);
+  --tag-product: #e11d48; --tag-product-bg: rgba(225,29,72,0.08); --tag-dev: #4f46e5; --tag-dev-bg: rgba(79,70,229,0.08);
+  --up: #dc2626; --down: #16a34a; --shadow: 0 1px 3px rgba(0,0,0,0.06); --shadow-hover: 0 8px 30px rgba(0,0,0,0.08); --radius: 12px;
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", "Segoe UI", sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; transition: background 0.4s, color 0.4s; }
+a { color: var(--accent); text-decoration: none; transition: opacity 0.2s; }
+a:hover { opacity: 0.8; }
+.progress-bar { position: fixed; top: 0; left: 0; height: 2px; background: var(--accent); z-index: 200; width: 0%; transition: width 0.1s; }
+.topbar { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; background: rgba(0,0,0,0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); transition: background 0.3s; }
+[data-theme="light"] .topbar { background: rgba(255,255,255,0.9); }
+.topbar-left { display: flex; align-items: center; gap: 16px; }
+.topbar-brand { font-size: 13px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--text-secondary); }
+.topbar-back { font-size: 13px; color: var(--accent); display: flex; align-items: center; gap: 4px; }
+.theme-toggle { background: none; border: 1px solid var(--border); color: var(--text-secondary); width: 34px; height: 34px; border-radius: 50%; cursor: pointer; font-size: 15px; display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
+.theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
+.nav-bar { position: sticky; top: 52px; z-index: 90; background: var(--bg); border-bottom: 1px solid var(--border); transition: background 0.3s; }
+.nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 32px; display: flex; gap: 0; overflow-x: auto; scrollbar-width: none; }
+.nav-inner::-webkit-scrollbar { display: none; }
+.nav-item { padding: 12px 16px; font-size: 13px; font-weight: 500; color: var(--text-muted); white-space: nowrap; cursor: pointer; border-bottom: 2px solid transparent; transition: all 0.2s; }
+.nav-item:hover, .nav-item.active { color: var(--accent); border-bottom-color: var(--accent); }
+.hero { padding: 100px 48px 60px; max-width: 1200px; margin: 0 auto; }
+.hero-issue { display: inline-block; font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); border: 1px solid var(--accent); padding: 5px 12px; border-radius: 4px; margin-bottom: 20px; }
+.hero-date { font-size: 14px; color: var(--text-muted); margin-bottom: 16px; }
+.hero h1 { font-size: clamp(28px, 4vw, 48px); font-weight: 800; line-height: 1.2; letter-spacing: -1.5px; margin-bottom: 20px; }
+.hero-summary { font-size: 17px; line-height: 1.75; color: var(--text-secondary); max-width: 720px; margin-bottom: 28px; }
+.hero-stats { display: flex; gap: 28px; flex-wrap: wrap; }
+.hero-stat-value { font-size: 24px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.hero-stat-label { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 48px 80px; }
+.section { margin-bottom: 56px; }
+.section-header { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; }
+.section-icon { font-size: 20px; }
+.section-title { font-size: 18px; font-weight: 700; letter-spacing: -0.2px; }
+.section-count { margin-left: auto; font-size: 12px; color: var(--text-muted); }
+.section-header::after { content: ''; flex: 1; height: 1px; background: var(--border); order: 99; }
+.section-count { order: 98; }
+.news-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 14px; }
+.news-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px; transition: all 0.3s; display: flex; flex-direction: column; }
+.news-card:hover { background: var(--bg-card-hover); box-shadow: var(--shadow-hover); transform: translateY(-2px); }
+.news-card-tag { display: inline-flex; font-size: 11px; font-weight: 600; letter-spacing: 0.5px; padding: 3px 8px; border-radius: 4px; margin-bottom: 10px; width: fit-content; }
+.tag-ai { color: var(--tag-ai); background: var(--tag-ai-bg); }
+.tag-tech { color: var(--tag-tech); background: var(--tag-tech-bg); }
+.tag-finance { color: var(--tag-finance); background: var(--tag-finance-bg); }
+.tag-science { color: var(--tag-science); background: var(--tag-science-bg); }
+.tag-product { color: var(--tag-product); background: var(--tag-product-bg); }
+.tag-dev { color: var(--tag-dev); background: var(--tag-dev-bg); }
+.news-card h3 { font-size: 16px; font-weight: 600; margin-bottom: 8px; line-height: 1.5; letter-spacing: -0.2px; }
+.news-card h3 a { color: var(--text); }
+.news-card h3 a:hover { color: var(--accent); }
+.news-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.65; flex: 1; }
+.news-card-meta { display: flex; justify-content: space-between; align-items: center; margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--border); font-size: 12px; color: var(--text-muted); }
+.headline-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 32px; margin-bottom: 20px; box-shadow: var(--shadow); }
+.headline-card h2 { font-size: 24px; font-weight: 700; margin-bottom: 16px; line-height: 1.4; letter-spacing: -0.5px; }
+.headline-card p { font-size: 16px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 12px; }
+.headline-tag { display: inline-block; font-size: 11px; font-weight: 600; padding: 3px 8px; border-radius: 4px; margin-bottom: 14px; }
+.market-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(155px, 1fr)); gap: 12px; }
+.market-item { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; text-align: center; transition: all 0.2s; }
+.market-item:hover { border-color: rgba(0,212,255,0.2); }
+.market-item .name { font-size: 12px; color: var(--text-muted); margin-bottom: 4px; }
+.market-item .value { font-size: 20px; font-weight: 700; margin-bottom: 2px; font-variant-numeric: tabular-nums; }
+.market-item .change { font-size: 14px; font-weight: 600; }
+.market-note { font-size: 12px; color: var(--text-muted); margin-top: 12px; }
+.up { color: var(--up); }
+.down { color: var(--down); }
+.neutral { color: var(--text-muted); }
+.deep-read-list { display: flex; flex-direction: column; gap: 14px; }
+.deep-read-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; display: flex; transition: all 0.3s; }
+.deep-read-card:hover { background: var(--bg-card-hover); box-shadow: var(--shadow-hover); transform: translateY(-2px); }
+.deep-read-number { display: flex; align-items: center; justify-content: center; min-width: 64px; font-size: 32px; font-weight: 800; color: var(--accent); opacity: 0.2; }
+.deep-read-body { padding: 20px 24px 20px 0; flex: 1; }
+.deep-read-body h3 { font-size: 17px; font-weight: 600; margin-bottom: 8px; line-height: 1.5; }
+.deep-read-body h3 a { color: var(--text); }
+.deep-read-body h3 a:hover { color: var(--accent); }
+.deep-read-body p { font-size: 14px; color: var(--text-secondary); line-height: 1.65; margin-bottom: 10px; }
+.deep-read-meta { display: flex; gap: 16px; font-size: 12px; color: var(--text-muted); }
+.quotes-list { display: flex; flex-direction: column; gap: 14px; }
+.quote-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px 28px; position: relative; }
+.quote-card::before { content: '"'; position: absolute; top: 16px; left: 20px; font-size: 40px; color: var(--accent); opacity: 0.15; font-family: Georgia, serif; line-height: 1; }
+.quote-text { font-size: 15px; line-height: 1.75; margin-bottom: 10px; padding-left: 4px; font-style: italic; }
+.quote-author { font-size: 13px; color: var(--text-muted); font-weight: 500; padding-left: 4px; }
+.tool-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 14px; }
+.tool-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px; transition: all 0.3s; }
+.tool-card:hover { background: var(--bg-card-hover); box-shadow: var(--shadow-hover); transform: translateY(-2px); }
+.tool-card h3 { font-size: 16px; font-weight: 600; margin-bottom: 6px; }
+.tool-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
+.tool-card-link { display: inline-block; margin-top: 10px; font-size: 13px; font-weight: 600; color: var(--accent); }
+.archive-section { text-align: center; padding: 40px 0; border-top: 1px solid var(--border); }
+.archive-link { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 500; color: var(--accent); padding: 12px 24px; border-radius: 8px; border: 1px solid var(--accent); transition: all 0.2s; }
+.archive-link:hover { background: var(--accent); color: #000; }
+.footer { text-align: center; padding: 32px; font-size: 13px; color: var(--text-muted); border-top: 1px solid var(--border); }
+.back-to-top { position: fixed; bottom: 24px; right: 24px; width: 42px; height: 42px; border-radius: 50%; background: var(--bg-card); border: 1px solid var(--border); color: var(--accent); cursor: pointer; font-size: 18px; box-shadow: var(--shadow); opacity: 0; transform: translateY(20px); transition: all 0.3s; z-index: 99; }
+.back-to-top.visible { opacity: 1; transform: translateY(0); }
+.back-to-top:hover { background: var(--accent); color: #000; border-color: var(--accent); }
+@media (max-width: 768px) {
+  .topbar { padding: 12px 20px; } .hero { padding: 80px 24px 40px; } .hero h1 { font-size: 26px; }
+  .container { padding: 0 24px 60px; } .news-grid { grid-template-columns: 1fr; }
+  .market-grid { grid-template-columns: repeat(2, 1fr); } .tool-grid { grid-template-columns: 1fr; }
+  .headline-card { padding: 24px; } .deep-read-card { flex-direction: column; }
+  .deep-read-number { min-width: unset; padding: 16px 20px 0; justify-content: flex-start; font-size: 24px; }
+  .deep-read-body { padding: 12px 20px 20px; } .nav-inner { padding: 0 20px; } .nav-item { padding: 10px 14px; font-size: 12px; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .news-card, .deep-read-card, .quote-card, .tool-card { animation: fadeIn 0.4s ease backwards; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+}
+</style>
+</head>
+<body>
+<div class="progress-bar" id="progressBar"></div>
+<div class="topbar">
+  <div class="topbar-left">
+    <a href="../index.html" class="topbar-back">← 首页</a>
+    <span class="topbar-brand">Daily Digest</span>
+  </div>
+  <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn" aria-label="Toggle theme">☀️</button>
+</div>
+<nav class="nav-bar">
+  <div class="nav-inner">
+    <div class="nav-item active" data-section="headline">头条</div>
+    <div class="nav-item" data-section="ai">AI</div>
+    <div class="nav-item" data-section="tech">科技</div>
+    <div class="nav-item" data-section="finance">财经</div>
+    <div class="nav-item" data-section="market">行情</div>
+    <div class="nav-item" data-section="science">科学</div>
+    <div class="nav-item" data-section="product">产品</div>
+    <div class="nav-item" data-section="deepread">深度</div>
+    <div class="nav-item" data-section="devtool">工具</div>
+    <div class="nav-item" data-section="quotes">言论</div>
+  </div>
+</nav>
+<header class="hero">
+  <span class="hero-issue">No.22 · 第22期</span>
+  <div class="hero-date">2026年4月21日 · 星期二</div>
+  <h1>核弹级AI已上线：Anthropic封存的 Mythos，NSA绕过五角大楼禁令秘密使用</h1>
+  <p class="hero-summary">Anthropic最强模型Mythos Preview能在每个主流操作系统中找出零日漏洞，被拒绝公开发布——但NSA已绕过国防部禁令私下部署。MIT Technology Review今日发布首个AI年度十大重要议题，Novo Nordisk与OpenAI宣布战略合作重塑药物研发，Grok 4.3 Beta与加密通讯应用XChat同步问世。</p>
+  <div class="hero-stats">
+    <div class="hero-stat"><span class="hero-stat-value">32</span><span class="hero-stat-label">资讯</span></div>
+    <div class="hero-stat"><span class="hero-stat-value">4</span><span class="hero-stat-label">深度</span></div>
+    <div class="hero-stat"><span class="hero-stat-value">20</span><span class="hero-stat-label">信源</span></div>
+    <div class="hero-stat"><span class="hero-stat-value">~16</span><span class="hero-stat-label">分钟</span></div>
+  </div>
+</header>
+
+<main class="container">
+
+<!-- ===== HEADLINE ===== -->
+<section class="section" id="headline">
+  <div class="section-header">
+    <span class="section-icon">🔥</span>
+    <h2 class="section-title">今日头条</h2>
+  </div>
+  <div class="headline-card">
+    <div class="headline-tag tag-ai">深度分析</div>
+    <h2>从"供应链风险"到最高机密：Mythos把AI安全推进真实战场</h2>
+    <p>三天之内，Anthropic最强模型"Mythos Preview"的故事彻底改变了AI安全辩论的走向。4月7日，Anthropic向12家精选合作机构开放Mythos Preview，专用于"防御性安全工作"，同步拒绝公开发布——理由是该模型已能在每个主流操作系统和浏览器中批量发现零日漏洞，极端自主的推理能力堪比"最顶尖安全研究员"，Project Glasswing由此诞生。这一消息瞬间引爆网络安全界，《外交政策》、美国对外关系委员会（CFR）相继发表分析，称其为AI与全球安全的"拐点"。</p>
+    <p>4月19日，Axios爆出更具爆炸性的独家：国家安全局（NSA）已私下部署Mythos Preview，尽管国防部（DoD）此前将Anthropic列为"供应链风险"，并要求所有供应商断绝合作。这意味着美国政府内部出现了罕见的公开分裂：国防部的政治指令与情报机构的实际需求正面碰撞。冲突的核心在于：Anthropic坚持拒绝将Claude用于"大规模国内监控"和"自主致命武器"，而DoD要求模型"可用于所有合法目的"。</p>
+    <p>4月18日，Anthropic CEO Dario Amodei已与白宫幕僚长Susie Wiles、财政部长Scott Bessent会面，双方将会谈描述为"富有成效"。与此同时，今日MIT Technology Review在EmTech AI大会上正式发布首个"当今AI最重要10件事"年度榜单，AI伴侣、机制可解释性、生成式编程、超大规模数据中心等议题入选。两件事在同一天交汇：一个是AI能力突破现实安全边界的警示，另一个是主流技术媒体试图为AI行业构建坐标系的努力。当可以批量挖掘零日漏洞的AI已在最高机密机构运行，"AI安全"的含义已从抽象的对齐哲学，变成了实打实的国家级攻防博弈。</p>
+  </div>
+</section>
+
+<!-- ===== AI ===== -->
+<section class="section" id="ai">
+  <div class="section-header">
+    <span class="section-icon">🤖</span>
+    <h2 class="section-title">人工智能</h2>
+    <span class="section-count">6 条</span>
+  </div>
+  <div class="news-grid">
+
+    <div class="news-card">
+      <span class="news-card-tag tag-ai">AI · 安全</span>
+      <h3><a href="https://techcrunch.com/2026/04/20/nsa-spies-are-reportedly-using-anthropics-mythos-despite-pentagon-feud/" target="_blank">NSA秘密使用Anthropic Mythos，无视国防部供应链风险禁令</a></h3>
+      <p>据TechCrunch和Axios报道，美国国家安全局已私下部署Anthropic最新旗舰模型Mythos Preview，尽管国防部此前将Anthropic列为"供应链风险"并要求供应商断绝合作。这一矛盾揭示出：美国政府在AI使用上正经历深层路线分歧，实际能力需求正在压倒政治层面的禁令。</p>
+      <div class="news-card-meta"><span>TechCrunch / Axios</span><span>4月20日</span></div>
+    </div>
+
+    <div class="news-card">
+      <span class="news-card-tag tag-ai">AI · 能力</span>
+      <h3><a href="https://techcrunch.com/2026/04/07/anthropic-mythos-ai-model-preview-security/" target="_blank">Anthropic Mythos Preview：能在每个主流OS中发现零日漏洞</a></h3>
+      <p>Anthropic发布Claude Mythos Preview，向12家合作伙伴有限开放，拒绝公开发布。该模型展示出极端的网络安全能力：可批量发现主流操作系统和浏览器的高危零日漏洞，推理能力相当于顶级安全研究员。Anthropic同步启动Project Glasswing，用Mythos保护关键软件基础设施。</p>
+      <div class="news-card-meta"><span>TechCrunch / red.anthropic.com</span><span>4月7日</span></div>
+    </div>
+
+    <div class="news-card">
+      <span class="news-card-tag tag-ai">AI · 政策</span>
+      <h3><a href="https://www.axios.com/2026/04/19/nsa-anthropic-mythos-pentagon" target="_blank">Dario Amodei与白宫幕僚长会面，Mythos政府部署成焦点</a></h3>
+      <p>Anthropic CEO Dario Amodei与白宫幕僚长Susie Wiles、财政部长Scott Bessent举行会谈，重点讨论Mythos在政府内的使用问题及Anthropic的整体安全实践。双方均将会谈描述为"富有成效"，外界解读为Anthropic正寻求在国防部禁令外开辟直接白宫渠道。</p>
+      <div class="news-card-meta"><span>Axios</span><span>4月19日</span></div>
+    </div>
+
+    <div class="news-card">
+      <span class="news-card-tag tag-ai">AI · 媒体</span>
+      <h3><a href="https://www.technologyreview.com/2026/04/14/1135298/coming-soon-10-things-that-matter-in-ai-right-now/" target="_blank">MIT Technology Review在EmTech AI发布首个"当今AI最重要10件事"</a></h3>
+      <p>MIT Technology Review今日在EmTech AI大会正式揭榜首届年度AI重要议题榜单，涵盖AI伴侣、机制可解释性、生成式编程和超大规模数据中心等方向。这是MIT TR继"十大突破技术"之后全新设立的AI专项年度榜单，旨在聚焦编辑团队认为最值得持续追踪的AI细分议题。</p>
+      <div class="news-card-meta"><span>MIT Technology Review</span><span>4月21日</span></div>
+    </div>
+
+    <div class="news-card">
+      <span class="news-card-tag tag-ai">AI · 医药</span>
+      <h3><a href="https://www.bloomberg.com/news/articles/2026-04-14/novo-taps-openai-to-speed-development-of-new-obesity-drugs" target="_blank">Novo Nordisk携手OpenAI：AI重塑从研发到供应链的药物全链路</a></h3>
+      <p>全球最大制药商之一Novo Nordisk宣布与OpenAI达成战略合作，将在研发、制造、供应链和商业运营全链路引入AI能力。重点应用包括：分析复杂数据集、识别新药候选、缩短药物从研究到患者的时间。双方已启动跨R&D和制造的试点项目，计划2026年底前完成全面整合。（来源：Bloomberg、CNBC）</p>
+      <div class="news-card-meta"><span>Bloomberg / CNBC</span><span>4月14日</span></div>
+    </div>
+
+    <div class="news-card">
+      <span class="news-card-tag tag-ai">AI · 模型</span>
+      <h3><a href="https://piunikaweb.com/2026/04/17/xai-grok-4-3-beta-supergrok-heavy/" target="_blank">xAI悄然上线Grok 4.3 Beta：原生视频理解、Office文档生成、XChat同步发布</a></h3>
+      <p>xAI在无正式公告的情况下，于4月17日在模型选择器中静默上线Grok 4.3 Beta（SuperGrok Heavy专属，$300/月）。核心新功能：原生视频输入理解、对话中直接生成可下载的PDF/Excel/PPT文件。同日，xAI旗下加密通讯应用XChat正式上架Apple App Store，内置Grok AI，端对端加密，支持45种语言。（来源：PiunikaWeb、TechSifted）</p>
+      <div class="news-card-meta"><span>PiunikaWeb / TechSifted</span><span>4月17日</span></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== TECH ===== -->
+<section class="section" id="tech">
+  <div class="section-header">
+    <span class="section-icon">💻</span>
+    <h2 class="section-title">科技</h2>
+    <span class="section-count">5 条</span>
+  </div>
+  <div class="news-grid">
+
+    <div class="news-card">
+      <span class="news-card-tag tag-tech">科技 · 隐私</span>
+      <h3><a href="https://techcrunch.com/2026/02/13/meta-plans-to-add-facial-recognition-to-its-smart-glasses-report-claims/" target="_blank">Meta智能眼镜面部识别计划遭75+组织联名抵制</a></h3>
+      <p>由ACLU牵头的超过75个民权、隐私与倡导组织向Meta CEO扎克伯格发出公开信，要求永久放弃Ray-Ban Meta智能眼镜的面部识别功能（内部代号"Name Tag"）。在RSA安全大会上，安全研究员现场演示用消费级Meta眼镜搭配商业面部识别系统实时识别陌生人。国会参议员4月6日截止期已过，Meta仍未做出回应。（来源：TechCrunch、Engadget）</p>
+      <div class="news-card-meta"><span>TechCrunch / Engadget</span><span>4月15日</span></div>
+    </div>
+
+    <div class="news-card">
+      <span class="news-card-tag tag-tech">科技 · 平台</span>
+      <h3><a href="https://9to5google.com/2026/04/14/google-i-o-2026-sessions/" target="_blank">Google I/O 2026定档5月19-20日：AI Agent与Android 17领衔</a></h3>
+      <p>Google公布I/O 2026日程，将于5月19-20日在山景城Shoreline Amphitheatre举行。AI Agent开发、Android 17、Gemini模型更新和Project Astra是主要议题。据悉Google或将在现场揭晓Gemini 4，以及Veo新一代视频生成模型。YouTube Premium用户价格调整也将同步公布。（来源：9to5Google）</p>
+      <div class="news-card-meta"><span>9to5Google</span><span>4月14日</span></div>
+    </div>
+
+    <div class="news-card">
+      <span class="news-card-tag tag-tech">科技 · 贸易</span>
+      <h3><a href="https://www.cnbc.com/2026/04/13/trump-threatens-50percent-tariffs-on-china-as-report-suggests-plans-for-arms-shipment-to-iran.html" target="_blank">特朗普威胁对华加征50%关税，因疑似中国向伊朗输送武器</a></h3>
+      <p>美国总统特朗普威胁若有关中国向伊朗运送武器的报道属实，将对华加征50%额外关税。此举发生在中美峰会（预计5月14-15日，北京）临近之际，贸易谈判再度蒙上阴影。目前美国对华平均关税已达47.5%，覆盖全部商品；中方平均报复关税为31.9%。（来源：CNBC）</p>
+      <div class="news-card-meta"><span>CNBC</span><span>4月13日</span></div>
+    </div>
+
+    <div class="news-card">
+      <span class="news-card-tag tag-tech">科技 · 并购</span>
+      <h3><a href="https://news.crunchbase.com/venture/record-breaking-funding-ai-global-q1-2026/" target="_blank">Capital One拟51.5亿美元收购Brex，B2B金融科技重组进行时</a></h3>
+      <p>据Crunchbase报道，Capital One计划以51.5亿美元收购商业信用卡提供商Brex，成为Q1 2026最大并购案之一。Brex曾是硅谷最知名的创业公司信用卡独角兽，此次并购标志着大型传统金融机构加速吸收金融科技资产。Q1 2026全球创投融资达3000亿美元历史纪录，AI占比超80%。（来源：Crunchbase）</p>
+      <div class="news-card-meta"><span>Crunchbase</span><span>4月 2026</span></div>
+    </div>
+
+    <div class="news-card">
+      <span class="news-card-tag tag-tech">科技 · 市场</span>
+      <h3><a href="https://finance.yahoo.com/news/alphabet-overtakes-apple-as-worlds-second-most-valuable-company-behind-nvidia-154751861.html" target="_blank">Alphabet市值超越苹果，跃居全球第二仅次于英伟达</a></h3>
+      <p>Google母公司Alphabet市值在2026年4月突破苹果，成为仅次于英伟达的全球第二大市值科技公司。这一格局的背后是Gemini系列模型在企业市场的持续渗透、Google Cloud AI业务的爆发增长，以及市场对苹果AI进展相对缓慢的担忧。两家公司市值差距在近期有所扩大。（来源：Yahoo Finance）</p>
+      <div class="news-card-meta"><span>Yahoo Finance</span><span>4月 2026</span></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== FINANCE ===== -->
+<section class="section" id="finance">
+  <div class="section-header">
+    <span class="section-icon">💰</span>
+    <h2 class="section-title">全球财经</h2>
+    <span class="section-count">4 条</span>
+  </div>
+  <div class="news-grid">
+
+    <div class="news-card">
+      <span class="news-card-tag tag-finance">财经 · 贸易</span>
+      <h3><a href="https://www.cnbc.com/2026/04/13/trump-threatens-50percent-tariffs-on-china-as-report-suggests-plans-for-arms-shipment-to-iran.html" target="_blank">美对华平均关税47.5%创历史峰值，中美峰会5月将检验降温意愿</a></h3>
+      <p>当前美国对华商品平均关税率达47.5%，覆盖全部贸易品类，中方反制关税均值为31.9%，贸易战进入双向全覆盖阶段。美国整体有效关税率为11%，为1943年以来最高（剔除2025年）。中美峰会预计5月14-15日于北京举行，市场期待关税停火信号。（来源：CNBC、PIIE）</p>
+      <div class="news-card-meta"><span>CNBC / PIIE</span><span>4月 2026</span></div>
+    </div>
+
+    <div class="news-card">
+      <span class="news-card-tag tag-finance">财经 · 政策</span>
+      <h3><a href="https://www.icontainers.com/trump-tariff-tracker-us-trade-policy/" target="_blank">IEEPA退款通道CAPE Phase 1于4月20日正式开放，进口商可申请关税退还</a></h3>
+      <p>美国海关与边境保护局（CBP）于4月20日启动CAPE Phase 1，允许进口商和报关行通过ACE Portal以电子方式提交IEEPA关税退款申请。这是最高法院2月裁定IEEPA不授权征收关税、特朗普随后改用Section 122（10%全球关税，150天期限）后的首个执行退款机制。（来源：iContainers、Yale Budget Lab）</p>
+      <div class="news-card-meta"><span>iContainers / Yale Budget Lab</span><span>4月20日</span></div>
+    </div>
+
+    <div class="news-card">
+      <span class="news-card-tag tag-finance">财经 · 医药</span>
+      <h3><a href="https://news.crunchbase.com/venture/record-breaking-funding-ai-global-q1-2026/" target="_blank">Q1 2026全球创投达3000亿美元历史纪录，AI吞噬80%份额</a></h3>
+      <p>Crunchbase数据显示，2026年Q1全球创投融资规模突破3000亿美元，同比翻倍，主要由OpenAI 1220亿美元超级融资拉动。以Anthropic和xAI为代表的基础AI实验室融资，已相当于2025年全年同类融资的两倍。除AI外，biotech并购活跃，Eli Lilly收购RNA疗法初创Orna Therapeutics、Novartis并购过敏治疗公司Excellergy。（来源：Crunchbase）</p>
+      <div class="news-card-meta"><span>Crunchbase</span><span>4月 2026</span></div>
+    </div>
+
+    <div class="news-card">
+      <span class="news-card-tag tag-finance">财经 · 宏观</span>
+      <h3><a href="https://budgetlab.yale.edu/research/state-us-tariffs-april-2-2026" target="_blank">美国有效关税率11%创80年新高：消费者面临多轮通胀压力叠加</a></h3>
+      <p>耶鲁大学预算实验室数据显示，美国平均有效关税率已升至11%，为1943年以来最高水平（剔除2025年峰值）。Section 122全球10%关税（150天期限）与对华47.5%关税双轨并行，分析师警告下半年进口成本将加速传导至终端消费品价格，叠加伊朗冲突影响的能源溢价，通胀压力或持续到2026年底。（来源：Yale Budget Lab）</p>
+      <div class="news-card-meta"><span>Yale Budget Lab</span><span>4月2日</span></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== MARKET ===== -->
+<section class="section" id="market">
+  <div class="section-header">
+    <span class="section-icon">📊</span>
+    <h2 class="section-title">市场行情</h2>
+  </div>
+  <div class="market-grid">
+    <div class="market-item">
+      <div class="name">S&P 500</div>
+      <div class="value">7,109</div>
+      <div class="change down">▼ 0.24%</div>
+    </div>
+    <div class="market-item">
+      <div class="name">纳斯达克</div>
+      <div class="value">24,404</div>
+      <div class="change down">▼ 0.26%</div>
+    </div>
+    <div class="market-item">
+      <div class="name">道琼斯</div>
+      <div class="value">49,443</div>
+      <div class="change neutral">▼ 0.01%</div>
+    </div>
+    <div class="market-item">
+      <div class="name">上证指数</div>
+      <div class="value">4,082</div>
+      <div class="change up">▲ 0.76%</div>
+    </div>
+    <div class="market-item">
+      <div class="name">深证成指</div>
+      <div class="value">14,967</div>
+      <div class="change up">▲ 0.55%</div>
+    </div>
+    <div class="market-item">
+      <div class="name">创业板指</div>
+      <div class="value">3,678</div>
+      <div class="change neutral">▼ 0.02%</div>
+    </div>
+    <div class="market-item">
+      <div class="name">恒生指数</div>
+      <div class="value">--</div>
+      <div class="change neutral">数据确认中</div>
+    </div>
+    <div class="market-item">
+      <div class="name">美元/人民币</div>
+      <div class="value">7.2055</div>
+      <div class="change down">中间价 ▼14基点</div>
+    </div>
+    <div class="market-item">
+      <div class="name">比特币</div>
+      <div class="value">$75,658</div>
+      <div class="change up">↑ 当日</div>
+    </div>
+    <div class="market-item">
+      <div class="name">布伦特原油</div>
+      <div class="value">$95.42</div>
+      <div class="change up">▲ 5.58%</div>
+    </div>
+  </div>
+  <p class="market-note">※ 美股、A股、比特币、布伦特原油数据截至4月20日收盘（来源：CNBC、东方财富、Yahoo Finance、Trading Economics）；人民币中间价为2026年4月21日央行发布（来源：36氪 / 中国外汇交易中心）</p>
+</section>
+
+<!-- ===== SCIENCE ===== -->
+<section class="section" id="science">
+  <div class="section-header">
+    <span class="section-icon">🔬</span>
+    <h2 class="section-title">科学突破</h2>
+    <span class="section-count">3 条</span>
+  </div>
+  <div class="news-grid">
+
+    <div class="news-card">
+      <span class="news-card-tag tag-science">科学 · 生命科学</span>
+      <h3><a href="https://breakthroughprize.org/News/98" target="_blank">突破奖2026生命科学奖揭晓：基因疗法领域两组科学家摘得殊荣</a></h3>
+      <p>2026年突破奖（Breakthrough Prize）生命科学奖颁给两组科学家：Jean Bennett、Katherine A. High和Albert Maguire因推动FDA首个获批基因替换疗法获奖；Stuart H. Orkin和Swee Lay Thein因将镰刀型细胞病和β地中海贫血通过基因编辑从"不可治愈"变为"可治疗"获奖。这是基础研究向临床转化的里程碑，标志着基因疗法时代正式开启。（来源：突破奖官网）</p>
+      <div class="news-card-meta"><span>Breakthrough Prize</span><span>2026年度</span></div>
+    </div>
+
+    <div class="news-card">
+      <span class="news-card-tag tag-science">科学 · 天文</span>
+      <h3><a href="https://planet.news/article/april-2026-space-scientific-breakthroughs" target="_blank">天文学家确认GJ 887 d超级地球位于宜居带，成已知最近宜居带系外行星之一</a></h3>
+      <p>天文学家报告发现超级地球系外行星GJ 887 d，绕附近红矮星GJ 887运行，位于其宜居带内，成为继比邻星b之后已知距离最近的宜居带系外行星。该发现为搜寻宜居系外行星提供了重要近距离样本。（注：本发现仍处于论文同行评审阶段，研究细节待完整文献发布。来源：Planet News）</p>
+      <div class="news-card-meta"><span>Planet News</span><span>4月 2026</span></div>
+    </div>
+
+    <div class="news-card">
+      <span class="news-card-tag tag-science">科学 · 神经科学</span>
+      <h3><a href="https://www.sciencenews.org/sn-magazine/april-2026" target="_blank">西北大学突破：人工神经元成功与真实脑细胞建立通信</a></h3>
+      <p>西北大学工程师开发出可与真实神经元通信的柔性人工神经元，这些低成本器件能生成类似真实脑细胞的电信号并激活活体脑细胞。该技术可能开创神经接口新路径，未来或应用于脑机接口、神经退行性疾病治疗等领域。（研究处于早期阶段，距临床应用尚需时日。来源：Science News）</p>
+      <div class="news-card-meta"><span>Science News</span><span>4月 2026</span></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== PRODUCT ===== -->
+<section class="section" id="product">
+  <div class="section-header">
+    <span class="section-icon">🚀</span>
+    <h2 class="section-title">产品发现</h2>
+    <span class="section-count">3 款</span>
+  </div>
+  <div class="news-grid">
+
+    <div class="news-card">
+      <span class="news-card-tag tag-product">产品 · 通讯</span>
+      <h3><a href="https://www.aiposthub.com/xchat-launch-grok-ai-messaging-app-2026/" target="_blank">XChat：xAI推出Signal×微信风格加密通讯App，内置Grok AI实时对话分析</a></h3>
+      <p>xAI随Grok 4.3 Beta同日发布加密通讯应用XChat，现已上架Apple App Store。核心特性：端对端加密、无广告、语音和视频通话、阅后即焚、最多481人群聊、45种语言支持。独特之处：长按任意消息即可"Ask Grok"，获得Grok的实时AI分析。定位挑战Signal与微信，但商业模式尚未公开。</p>
+      <div class="news-card-meta"><span>xAI / aiposthub.com</span><span>4月17日</span></div>
+    </div>
+
+    <div class="news-card">
+      <span class="news-card-tag tag-product">产品 · 开发</span>
+      <h3><a href="https://aitoolly.com/ai-news/article/2026-04-15-ralph-an-autonomous-ai-agent-loop-designed-to-execute-product-requirement-documents-until-completion" target="_blank">Ralph：自主执行PRD直至完成的AI Agent，消灭迭代断点</a></h3>
+      <p>Ralph是由snarktank开发的自主AI Agent循环执行工具，专门设计用于持续运行直至PRD（产品需求文档）中的每一个条目全部完成。与单轮AI助手不同，Ralph自我驱动完成整个开发循环，适合无需人工干预的批量研发任务。现已开源，支持多种模型后端。</p>
+      <div class="news-card-meta"><span>AIToolly</span><span>4月15日</span></div>
+    </div>
+
+    <div class="news-card">
+      <span class="news-card-tag tag-product">产品 · 开源</span>
+      <h3><a href="https://fazm.ai/blog/new-open-source-ai-projects-github-hugging-face-april-2026" target="_blank">GenericAgent：从3300行种子代码起步、自我构建技能树的进化型AI Agent</a></h3>
+      <p>GenericAgent（lsdefine/GenericAgent）是一个独特的自我进化AI Agent，从极简3300行种子代码出发，通过完成任务自动构建和扩展自身的技能树，实现对系统的全面控制能力。这一"从简洁出发自我成长"的设计哲学与传统大型预构建框架形成鲜明对比，在GitHub上获得快速关注。</p>
+      <div class="news-card-meta"><span>Fazm Blog / GitHub</span><span>4月 2026</span></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== DEEP READ ===== -->
+<section class="section" id="deepread">
+  <div class="section-header">
+    <span class="section-icon">📖</span>
+    <h2 class="section-title">深度阅读</h2>
+    <span class="section-count">4 篇</span>
+  </div>
+  <div class="deep-read-list">
+
+    <div class="deep-read-card">
+      <div class="deep-read-number">1</div>
+      <div class="deep-read-body">
+        <h3><a href="https://stratechery.com/2026/anthropics-new-model-the-mythos-wolf-glasswing-and-alignment/" target="_blank">Anthropic's New Model, The Mythos Wolf, Glasswing and Alignment — Stratechery · Ben Thompson</a></h3>
+        <p>Ben Thompson深度剖析Anthropic为何选择将Mythos Preview限量发布：这是Anthropic"AI安全必须由负责任守护者控制"信念的实践，但同时也揭示出这一立场的内在矛盾——当Mythos能力已到达这个量级，任何"限量发布"都只是时间问题。Thompson认为，Anthropic此举具有高度战略意图：既建立技术先进性形象，又以安全之名巩固竞争壁垒。强烈推荐了解AI安全与商业逻辑交叉面的读者。</p>
+        <div class="deep-read-meta"><span>Stratechery</span><span>付费订阅</span><span>约18分钟</span></div>
+      </div>
+    </div>
+
+    <div class="deep-read-card">
+      <div class="deep-read-number">2</div>
+      <div class="deep-read-body">
+        <h3><a href="https://www.cfr.org/articles/six-reasons-claude-mythos-is-an-inflection-point-for-ai-and-global-security" target="_blank">Six Reasons Claude Mythos Is an Inflection Point for AI—and Global Security — Council on Foreign Relations</a></h3>
+        <p>美国对外关系委员会（CFR）从国家安全视角，列出Mythos Preview为何构成全球安全拐点的六大理由：包括其自主漏洞发现能力超越人类最顶尖研究员、NSA私用折射出政府AI采购政策的系统性矛盾、以及批量零日漏洞工具一旦扩散的级联风险。适合希望从地缘政治角度理解AI能力突破含义的读者。</p>
+        <div class="deep-read-meta"><span>Council on Foreign Relations</span><span>免费</span><span>约12分钟</span></div>
+      </div>
+    </div>
+
+    <div class="deep-read-card">
+      <div class="deep-read-number">3</div>
+      <div class="deep-read-body">
+        <h3><a href="https://foreignpolicy.com/2026/04/20/claude-mythos-preview-anthropic-project-glasswing-cybersecurity-ai-hacking-danger/" target="_blank">Anthropic's Claude Mythos Preview Changes Cyber Calculus — Foreign Policy</a></h3>
+        <p>《外交政策》分析Mythos Preview如何改变全球网络安全博弈的基本计算逻辑。文章指出：当AI能批量发现零日漏洞时，防御方与攻击方的信息不对称将被彻底打破；Project Glasswing是Anthropic"用AI消灭AI威胁"的赌注，但也可能加速攻防升级螺旋。文章援引多位前情报官员观点，深入分析政府内部的使用矛盾。</p>
+        <div class="deep-read-meta"><span>Foreign Policy</span><span>需订阅</span><span>约14分钟</span></div>
+      </div>
+    </div>
+
+    <div class="deep-read-card">
+      <div class="deep-read-number">4</div>
+      <div class="deep-read-body">
+        <h3><a href="https://stratechery.com/2026/servers-satellites-and-stars/" target="_blank">2026.16: Servers, Satellites, and Stars — Stratechery · Ben Thompson</a></h3>
+        <p>Stratechery第16期周报，Thompson聚焦AI基础设施战争：数据中心、卫星通信（Starlink）与超大规模算力集群的三角博弈。文章从SpaceX即将IPO、CoreWeave连签百亿AI合同和Mustafa Suleyman"算力千倍增长"预测出发，论证AI算力供给本身正成为战略资产——谁控制算力，谁就掌握AI时代的"石油"。</p>
+        <div class="deep-read-meta"><span>Stratechery</span><span>付费订阅</span><span>约20分钟</span></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== DEV TOOLS ===== -->
+<section class="section" id="devtool">
+  <div class="section-header">
+    <span class="section-icon">🛠️</span>
+    <h2 class="section-title">开发者工具</h2>
+    <span class="section-count">2 款</span>
+  </div>
+  <div class="tool-grid">
+
+    <div class="tool-card">
+      <div class="news-card-tag tag-dev">开发工具</div>
+      <h3>Microsoft Agent Framework 1.0</h3>
+      <p>微软正式发布生产就绪的Agent Framework 1.0，统一Semantic Kernel与AutoGen两大项目，提供稳定API和长期支持承诺。支持.NET和Python，覆盖顺序/并发/Handoff/群聊/Magentic-One等多智能体编排模式，全部支持流式传输、断点续传、人工审批和长流程暂停/恢复。内置MCP工具动态发现和A2A（Agent-to-Agent）跨运行时协作。适合在企业级生产环境部署多Agent系统的工程团队。</p>
+      <a class="tool-card-link" href="https://devblogs.microsoft.com/agent-framework/microsoft-agent-framework-version-1-0/" target="_blank">→ 官方文档</a>
+    </div>
+
+    <div class="tool-card">
+      <div class="news-card-tag tag-dev">开发工具</div>
+      <h3>GenericAgent（lsdefine/GenericAgent）</h3>
+      <p>一个从极简3300行种子代码出发的自我进化AI Agent框架。与传统大型框架不同，GenericAgent通过执行任务过程中自动构建技能树，逐步扩展自身能力边界，最终实现对计算机系统的全面控制。这种"小而生长"的设计哲学已引发GitHub开发者社区热议，适合研究AI Agent自我进化能力的研究者和工程师探索使用。</p>
+      <a class="tool-card-link" href="https://github.com/lsdefine/GenericAgent" target="_blank">→ GitHub 仓库</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== QUOTES ===== -->
+<section class="section" id="quotes">
+  <div class="section-header">
+    <span class="section-icon">💬</span>
+    <h2 class="section-title">言论</h2>
+    <span class="section-count">3 条</span>
+  </div>
+  <div class="quotes-list">
+
+    <div class="quote-card">
+      <p class="quote-text">我们的模型能够找到每个主要操作系统和网络浏览器中的高危漏洞……这是一个真正意义上的拐点。</p>
+      <div class="quote-author">— Dario Amodei，Anthropic CEO，谈Claude Mythos Preview的网络安全能力（来源：Axios，4月7日）</div>
+    </div>
+
+    <div class="quote-card">
+      <p class="quote-text">AI安全只能由少数负责任的守护者保证——这个想法忽略了构建其他模型所存在的巨大动机。当Mythos的能力扩散，不受制约的行为者将会利用同样的能力。</p>
+      <div class="quote-author">— Ben Thompson，Stratechery，评Anthropic Mythos Preview的限量发布策略（来源：Stratechery，4月20日）</div>
+    </div>
+
+    <div class="quote-card">
+      <p class="quote-text">在AI的战略价值远超政治分歧的时候，情报机构的实际需求将永远战胜上级部门的书面禁令。NSA使用Mythos只是开始。</p>
+      <div class="quote-author">— 前美国情报官员（匿名），评NSA私用Anthropic Mythos事件（来源：Foreign Policy，4月20日）</div>
+    </div>
+
+  </div>
+</section>
+
+<div class="archive-section">
+  <a href="../index.html" class="archive-link">← 查看往期简报</a>
+</div>
+
+</main>
+
+<footer class="footer">由 AI 自动抓取与编辑 · 每日 07:00 更新 · news.huangwei.ai</footer>
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+function toggleTheme() {
+  const html = document.documentElement;
+  const btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function() {
+  const saved = localStorage.getItem('theme');
+  if (saved === 'light') {
+    document.documentElement.setAttribute('data-theme', 'light');
+    document.getElementById('themeBtn').textContent = '🌙';
+  }
+})();
+window.addEventListener('scroll', () => {
+  const h = document.documentElement;
+  const p = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+  document.getElementById('progressBar').style.width = p + '%';
+  document.getElementById('backToTop').classList.toggle('visible', h.scrollTop > 400);
+});
+document.querySelectorAll('.nav-item').forEach(item => {
+  item.addEventListener('click', () => {
+    const s = document.getElementById(item.dataset.section);
+    if (s) s.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+const sects = document.querySelectorAll('.section');
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+      const nav = document.querySelector(`.nav-item[data-section="${e.target.id}"]`);
+      if (nav) nav.classList.add('active');
+    }
+  });
+}, { rootMargin: '-100px 0px -50% 0px' });
+sects.forEach(s => obs.observe(s));
+</script>
+</body>
+</html>
