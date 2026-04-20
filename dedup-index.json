@@ -58,7 +58,9 @@
     "NVIDIA Personaplex",
     "Voicebox（jamiepine）",
     "MemPalace",
-    "ConventionsBot"
+    "ConventionsBot",
+    "Microsoft Agent Framework 1.0 (Semantic Kernel + AutoGen)",
+    "GenericAgent (lsdefine/GenericAgent)"
   ],
   "used_products": [
     "AI营销Agent：自动化全链路网红营销，Product Hunt 4月热门",
@@ -133,7 +135,10 @@
     "Is Your Site Agent-Ready? by Cloudflare：一键扫描网站AI Agent兼容性",
     "AirPods Max 2：Apple全新旗舰头戴耳机，H2芯片重塑降噪体验",
     "DeepL Voice：企业级语音实时翻译，Zoom与Teams会议的语言边界终结者",
-    "Gemini for Mac：Google桌面AI战略落地，屏幕感知+快捷键+多模态全支持"
+    "Gemini for Mac：Google桌面AI战略落地，屏幕感知+快捷键+多模态全支持",
+    "XChat (xAI加密通讯App内置Grok AI Signal微信风格)",
+    "Ralph (snarktank自主执行PRD循环AI Agent)",
+    "GenericAgent (lsdefine 3300行种子代码自我构建技能树进化型AI Agent)"
   ],
   "used_deepreads": [
     "100x Less Power: The Breakthrough That Could Solve AI's Massive Energy Crisis — SciTechDaily",
@@ -225,7 +230,11 @@
     "AI Power, Now and In 100 Years — Stratechery · Ben Thompson",
     "将企业AI视为操作层，而非工具层 — MIT Technology Review",
     "重新定义软件工程的未来 — MIT Technology Review",
-    "The 12-Month Window：AI繁荣期创始人如何识别「卖出」时机 — TechCrunch"
+    "The 12-Month Window：AI繁荣期创始人如何识别「卖出」时机 — TechCrunch",
+    "Anthropic New Model The Mythos Wolf Glasswing and Alignment - Stratechery Ben Thompson",
+    "Six Reasons Claude Mythos Is an Inflection Point for AI and Global Security - Council on Foreign Relations",
+    "Anthropic Claude Mythos Preview Changes Cyber Calculus - Foreign Policy",
+    "2026.16 Servers Satellites and Stars - Stratechery Ben Thompson"
   ],
   "recent_topics": [
     "Cursor 500亿估值融资20亿a16z英伟达Thrive Anysphere AR20亿",
@@ -261,6 +270,15 @@
     "关税解放日一周年最高法院IEEPA推翻核心通胀3.1%传导滞后",
     "Elad Gil 12个月窗口AI繁荣期退出时机Lotus AOL Broadcast.com",
     "AirPods Max 2 H2芯片降噪空间音频DeepL Voice Gemini桌面",
-    "Voicebox MemPalace ConventionsBot GitHub trending开源语音克隆AI记忆"
+    "Voicebox MemPalace ConventionsBot GitHub trending开源语音克隆AI记忆",
+    "Anthropic Mythos Preview NSA Pentagon Supply Chain Risk Cybersecurity Zero-Day Project Glasswing Dario White House",
+    "MIT Technology Review EmTech AI 10 Things AI Companions Mechanistic Interpretability Generative Coding Hyperscale",
+    "Novo Nordisk OpenAI Drug Discovery Manufacturing Supply Chain AI Full Chain Partnership 2026",
+    "Grok 4.3 Beta XChat xAI Encrypted Messaging Video Understanding PDF Generation SuperGrok Heavy",
+    "Meta Smart Glasses Facial Recognition Name Tag ACLU 75 Organizations Google IO 2026 Android 17",
+    "US China Tariff 47.5% IEEPA CAPE Phase 1 Refund Capital One Brex Acquisition 5.15B",
+    "Alphabet Surpasses Apple Second Market Cap S&P 7109 Nasdaq 24404 Brent 95 RMB 7.2055",
+    "Breakthrough Prize Gene Therapy FDA GJ887d Habitable Zone Super Earth Northwestern Artificial Neurons",
+    "Microsoft Agent Framework 1.0 Semantic Kernel AutoGen GenericAgent Ralph PRD Autonomous"
   ]
 }
