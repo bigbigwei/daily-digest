@@ -64,7 +64,9 @@
     "Google AI Edge Gallery",
     "Biome（ESLint/Prettier高速替代品）",
     "GLM-4.7（智谱AI）",
-    "NVIDIA Ising SDK（量子AI校准与纠错）"
+    "NVIDIA Ising SDK（量子AI校准与纠错）",
+    "Voxtral TTS（Mistral AI多语言TTS）",
+    "Mistral Small 4（119B统一基础模型256K上下文）"
   ],
   "used_products": [
     "AI营销Agent：自动化全链路网红营销，Product Hunt 4月热门",
@@ -145,7 +147,10 @@
     "GenericAgent (lsdefine 3300行种子代码自我构建技能树进化型AI Agent)",
     "Bond：没有Feed的AI记忆反刷屏社交平台",
     "ChatGPT Images 2.0（OpenAI图像推理Thinking Mode）",
-    "NVIDIA Ising开源量子计算AI模型族"
+    "NVIDIA Ising开源量子计算AI模型族",
+    "SpeakON（MagSafe AI语音交互设备后键盘时代）",
+    "Wafer Pass（一价订阅通吃多款主流LLM）",
+    "Mesh LLM（分布式算力众筹网络运行开源模型）"
   ],
   "used_deepreads": [
     "100x Less Power: The Breakthrough That Could Solve AI's Massive Energy Crisis — SciTechDaily",
@@ -245,7 +250,10 @@
     "Tim Cook's Impeccable Timing — Stratechery · Ben Thompson",
     "Anthropic and Alignment — Stratechery · Ben Thompson",
     "TSMC Risk — Stratechery · Ben Thompson",
-    "Want to Understand the Current State of AI? Check Out These Charts — MIT Technology Review"
+    "Want to Understand the Current State of AI? Check Out These Charts — MIT Technology Review",
+    "World Economic Outlook April 2026: Global Economy in the Shadow of War — IMF",
+    "Google Cloud Next 2026：真正的故事不是AI，而是控制面 — SiliconANGLE",
+    "2026年AI药物发现资本堆栈：技术路线真正有何不同 — On Healthcare Tech"
   ],
   "recent_topics": [
     "Cursor 500亿估值融资20亿a16z英伟达Thrive Anysphere AR20亿",
@@ -305,6 +313,21 @@
     "辣木种子微塑料98%去除 ACS Omega DOI UNESP",
     "RNA条形码神经元连接 单突触精度 脑图谱 突触追踪",
     "HOXD13黑色素瘤免疫逃逸 血管生成 T细胞抑制",
-    "Biome ESLint Prettier替代 100倍速 GLM-4.7智谱AI"
+    "Biome ESLint Prettier替代 100倍速 GLM-4.7智谱AI",
+    "Google Cloud Next 2026 TPU 8t 8i 训练推理芯片 NVIDIA挑战",
+    "Thinking Machines Lab Mira Murati Google Cloud 数十亿算力协议 GB300",
+    "SpaceX Cursor 600亿期权收购 Anysphere AI编程 xAI Colossus",
+    "Meta MCI 模型能力计划 员工键盘鼠标数据训练Agent",
+    "10x Science 480万种子轮 AI制药候选化合物表征 Stanford Bertozzi",
+    "Google Workspace Intelligence 语义层 Gemini Agent企业工作流",
+    "OpenAI Agents SDK April 2026 沙盒执行长周期任务子Agent生产环境",
+    "Mistral Voxtral TTS Small 4 256K多语言语音",
+    "IMF世界经济展望2026年4月 中东战争全球增速3.1% 通胀4.4%",
+    "关税退款系统 5.6万进口商127亿美元 Section 122违宪",
+    "上证指数 深证成指 创业板指 历史新高 A股4月22日",
+    "比特币79033美元 布伦特原油101 人民币中间价6.8635",
+    "Nature催化剂体氧溢出大连化物所 能源转化突破",
+    "白宫AI国家政策框架 联邦统一监管 科罗拉多州AI法案6月生效",
+    "美伊停火延期 全球增速下调 战争阴影宏观风险"
   ]
 }
