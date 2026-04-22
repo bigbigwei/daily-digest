@@ -60,7 +60,11 @@
     "MemPalace",
     "ConventionsBot",
     "Microsoft Agent Framework 1.0 (Semantic Kernel + AutoGen)",
-    "GenericAgent (lsdefine/GenericAgent)"
+    "GenericAgent (lsdefine/GenericAgent)",
+    "Google AI Edge Gallery",
+    "Biome（ESLint/Prettier高速替代品）",
+    "GLM-4.7（智谱AI）",
+    "NVIDIA Ising SDK（量子AI校准与纠错）"
   ],
   "used_products": [
     "AI营销Agent：自动化全链路网红营销，Product Hunt 4月热门",
@@ -138,7 +142,10 @@
     "Gemini for Mac：Google桌面AI战略落地，屏幕感知+快捷键+多模态全支持",
     "XChat (xAI加密通讯App内置Grok AI Signal微信风格)",
     "Ralph (snarktank自主执行PRD循环AI Agent)",
-    "GenericAgent (lsdefine 3300行种子代码自我构建技能树进化型AI Agent)"
+    "GenericAgent (lsdefine 3300行种子代码自我构建技能树进化型AI Agent)",
+    "Bond：没有Feed的AI记忆反刷屏社交平台",
+    "ChatGPT Images 2.0（OpenAI图像推理Thinking Mode）",
+    "NVIDIA Ising开源量子计算AI模型族"
   ],
   "used_deepreads": [
     "100x Less Power: The Breakthrough That Could Solve AI's Massive Energy Crisis — SciTechDaily",
@@ -234,7 +241,11 @@
     "Anthropic New Model The Mythos Wolf Glasswing and Alignment - Stratechery Ben Thompson",
     "Six Reasons Claude Mythos Is an Inflection Point for AI and Global Security - Council on Foreign Relations",
     "Anthropic Claude Mythos Preview Changes Cyber Calculus - Foreign Policy",
-    "2026.16 Servers Satellites and Stars - Stratechery Ben Thompson"
+    "2026.16 Servers Satellites and Stars - Stratechery Ben Thompson",
+    "Tim Cook's Impeccable Timing — Stratechery · Ben Thompson",
+    "Anthropic and Alignment — Stratechery · Ben Thompson",
+    "TSMC Risk — Stratechery · Ben Thompson",
+    "Want to Understand the Current State of AI? Check Out These Charts — MIT Technology Review"
   ],
   "recent_topics": [
     "Cursor 500亿估值融资20亿a16z英伟达Thrive Anysphere AR20亿",
@@ -279,6 +290,21 @@
     "US China Tariff 47.5% IEEPA CAPE Phase 1 Refund Capital One Brex Acquisition 5.15B",
     "Alphabet Surpasses Apple Second Market Cap S&P 7109 Nasdaq 24404 Brent 95 RMB 7.2055",
     "Breakthrough Prize Gene Therapy FDA GJ887d Habitable Zone Super Earth Northwestern Artificial Neurons",
-    "Microsoft Agent Framework 1.0 Semantic Kernel AutoGen GenericAgent Ralph PRD Autonomous"
+    "Microsoft Agent Framework 1.0 Semantic Kernel AutoGen GenericAgent Ralph PRD Autonomous",
+    "Apple Tim Cook CEO退位 John Ternus 接任 9月1日生效 硬件工程",
+    "OpenAI ChatGPT Images 2.0 思考模式 Thinking Mode 图像推理 联网搜索",
+    "Claude Opus 4.7 Anthropic 网络安全防护 生产级 软件工程提升",
+    "NVIDIA Ising 量子AI开源模型 量子校准 量子纠错 35B VLM",
+    "Deezer AI生成音乐44% 75000首每日 1-3%流量欺诈",
+    "Bond 反刷屏 反成瘾 AI记忆 社交平台 YC团队",
+    "Vercel 供应链攻击 Context.ai Lumma Stealer BreachForums 200万美元",
+    "Blue Origin 新格伦 NG-3 首次复用助推器 卫星错误轨道 AST SpaceMobile",
+    "Tesla Q1 2026财报 358023辆交付 22.3B营收预期 汽车毛利率 Cybercab",
+    "美伊停火延期 Vance巴基斯坦取消 Iran谈判僵局 霍尔木兹封锁",
+    "美股S&P 7064 纳斯达克24259 道琼斯49149 苹果CEO换帅施压",
+    "辣木种子微塑料98%去除 ACS Omega DOI UNESP",
+    "RNA条形码神经元连接 单突触精度 脑图谱 突触追踪",
+    "HOXD13黑色素瘤免疫逃逸 血管生成 T细胞抑制",
+    "Biome ESLint Prettier替代 100倍速 GLM-4.7智谱AI"
   ]
 }

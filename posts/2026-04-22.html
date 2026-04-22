@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apple 15年首次CEO换帅：Cook归、Ternus来；OpenAI图像推理大跃进 · 每日简报</title>
+<style>
+:root[data-theme="dark"] {
+  --bg: #000000; --bg-elevated: #0a0a0a; --bg-card: #111111; --bg-card-hover: #1a1a1a;
+  --text: #f0f0f0; --text-secondary: #999999; --text-muted: #555555;
+  --border: #222222; --accent: #00d4ff; --accent-dim: rgba(0,212,255,0.1); --accent-glow: rgba(0,212,255,0.15);
+  --tag-ai: #a78bfa; --tag-ai-bg: rgba(167,139,250,0.12); --tag-tech: #22d3ee; --tag-tech-bg: rgba(34,211,238,0.1);
+  --tag-finance: #fbbf24; --tag-finance-bg: rgba(251,191,36,0.1); --tag-science: #34d399; --tag-science-bg: rgba(52,211,153,0.1);
+  --tag-product: #fb7185; --tag-product-bg: rgba(251,113,133,0.1); --tag-dev: #818cf8; --tag-dev-bg: rgba(129,140,248,0.1);
+  --up: #ef4444; --down: #22c55e; --shadow: 0 0 0 1px rgba(255,255,255,0.04);
+  --shadow-hover: 0 8px 40px rgba(0,212,255,0.06), 0 0 0 1px rgba(255,255,255,0.08); --radius: 12px;
+}
+:root[data-theme="light"] {
+  --bg: #fafafa; --bg-elevated: #ffffff; --bg-card: #ffffff; --bg-card-hover: #f5f5f5;
+  --text: #111111; --text-secondary: #666666; --text-muted: #999999;
+  --border: #e8e8e8; --accent: #0066ff; --accent-dim: rgba(0,102,255,0.06); --accent-glow: rgba(0,102,255,0.08);
+  --tag-ai: #7c3aed; --tag-ai-bg: rgba(124,58,237,0.08); --tag-tech: #0891b2; --tag-tech-bg: rgba(8,145,178,0.08);
+  --tag-finance: #d97706; --tag-finance-bg: rgba(217,119,6,0.08); --tag-science: #059669; --tag-science-bg: rgba(5,150,105,0.08);
+  --tag-product: #e11d48; --tag-product-bg: rgba(225,29,72,0.08); --tag-dev: #4f46e5; --tag-dev-bg: rgba(79,70,229,0.08);
+  --up: #dc2626; --down: #16a34a; --shadow: 0 1px 3px rgba(0,0,0,0.06); --shadow-hover: 0 8px 30px rgba(0,0,0,0.08); --radius: 12px;
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", "Segoe UI", sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; transition: background 0.4s, color 0.4s; }
+a { color: var(--accent); text-decoration: none; transition: opacity 0.2s; }
+a:hover { opacity: 0.8; }
+.progress-bar { position: fixed; top: 0; left: 0; height: 2px; background: var(--accent); z-index: 200; width: 0%; transition: width 0.1s; }
+.topbar { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; background: rgba(0,0,0,0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); transition: background 0.3s; }
+[data-theme="light"] .topbar { background: rgba(255,255,255,0.9); }
+.topbar-left { display: flex; align-items: center; gap: 16px; }
+.topbar-brand { font-size: 13px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--text-secondary); }
+.topbar-back { font-size: 13px; color: var(--accent); display: flex; align-items: center; gap: 4px; }
+.theme-toggle { background: none; border: 1px solid var(--border); color: var(--text-secondary); width: 34px; height: 34px; border-radius: 50%; cursor: pointer; font-size: 15px; display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
+.theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
+.nav-bar { position: sticky; top: 52px; z-index: 90; background: var(--bg); border-bottom: 1px solid var(--border); transition: background 0.3s; }
+.nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 32px; display: flex; gap: 0; overflow-x: auto; scrollbar-width: none; }
+.nav-inner::-webkit-scrollbar { display: none; }
+.nav-item { padding: 12px 16px; font-size: 13px; font-weight: 500; color: var(--text-muted); white-space: nowrap; cursor: pointer; border-bottom: 2px solid transparent; transition: all 0.2s; }
+.nav-item:hover, .nav-item.active { color: var(--accent); border-bottom-color: var(--accent); }
+.hero { padding: 100px 48px 60px; max-width: 1200px; margin: 0 auto; }
+.hero-issue { display: inline-block; font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); border: 1px solid var(--accent); padding: 5px 12px; border-radius: 4px; margin-bottom: 20px; }
+.hero-date { font-size: 14px; color: var(--text-muted); margin-bottom: 16px; }
+.hero h1 { font-size: clamp(28px, 4vw, 48px); font-weight: 800; line-height: 1.2; letter-spacing: -1.5px; margin-bottom: 20px; }
+.hero-summary { font-size: 17px; line-height: 1.75; color: var(--text-secondary); max-width: 720px; margin-bottom: 28px; }
+.hero-stats { display: flex; gap: 28px; flex-wrap: wrap; }
+.hero-stat-value { font-size: 24px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.hero-stat-label { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 48px 80px; }
+.section { margin-bottom: 56px; }
+.section-header { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; }
+.section-icon { font-size: 20px; }
+.section-title { font-size: 18px; font-weight: 700; letter-spacing: -0.2px; }
+.section-count { margin-left: auto; font-size: 12px; color: var(--text-muted); }
+.section-header::after { content: ''; flex: 1; height: 1px; background: var(--border); order: 99; }
+.section-count { order: 98; }
+.news-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 14px; }
+.news-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px; transition: all 0.3s; display: flex; flex-direction: column; }
+.news-card:hover { background: var(--bg-card-hover); box-shadow: var(--shadow-hover); transform: translateY(-2px); }
+.news-card-tag { display: inline-flex; font-size: 11px; font-weight: 600; letter-spacing: 0.5px; padding: 3px 8px; border-radius: 4px; margin-bottom: 10px; width: fit-content; }
+.tag-ai { color: var(--tag-ai); background: var(--tag-ai-bg); }
+.tag-tech { color: var(--tag-tech); background: var(--tag-tech-bg); }
+.tag-finance { color: var(--tag-finance); background: var(--tag-finance-bg); }
+.tag-science { color: var(--tag-science); background: var(--tag-science-bg); }
+.tag-product { color: var(--tag-product); background: var(--tag-product-bg); }
+.tag-dev { color: var(--tag-dev); background: var(--tag-dev-bg); }
+.news-card h3 { font-size: 16px; font-weight: 600; margin-bottom: 8px; line-height: 1.5; letter-spacing: -0.2px; }
+.news-card h3 a { color: var(--text); }
+.news-card h3 a:hover { color: var(--accent); }
+.news-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.65; flex: 1; }
+.news-card-meta { display: flex; justify-content: space-between; align-items: center; margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--border); font-size: 12px; color: var(--text-muted); }
+.headline-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 32px; margin-bottom: 20px; box-shadow: var(--shadow); }
+.headline-card h2 { font-size: 24px; font-weight: 700; margin-bottom: 16px; line-height: 1.4; letter-spacing: -0.5px; }
+.headline-card p { font-size: 16px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 12px; }
+.headline-tag { display: inline-block; font-size: 11px; font-weight: 600; padding: 3px 8px; border-radius: 4px; margin-bottom: 14px; }
+.market-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(155px, 1fr)); gap: 12px; }
+.market-item { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; text-align: center; transition: all 0.2s; }
+.market-item:hover { border-color: rgba(0,212,255,0.2); }
+.market-item .name { font-size: 12px; color: var(--text-muted); margin-bottom: 4px; }
+.market-item .value { font-size: 20px; font-weight: 700; margin-bottom: 2px; font-variant-numeric: tabular-nums; }
+.market-item .change { font-size: 14px; font-weight: 600; }
+.market-note { font-size: 12px; color: var(--text-muted); margin-top: 12px; }
+.up { color: var(--up); }
+.down { color: var(--down); }
+.neutral { color: var(--text-muted); }
+.deep-read-list { display: flex; flex-direction: column; gap: 14px; }
+.deep-read-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; display: flex; transition: all 0.3s; }
+.deep-read-card:hover { background: var(--bg-card-hover); box-shadow: var(--shadow-hover); transform: translateY(-2px); }
+.deep-read-number { display: flex; align-items: center; justify-content: center; min-width: 64px; font-size: 32px; font-weight: 800; color: var(--accent); opacity: 0.2; }
+.deep-read-body { padding: 20px 24px 20px 0; flex: 1; }
+.deep-read-body h3 { font-size: 17px; font-weight: 600; margin-bottom: 8px; line-height: 1.5; }
+.deep-read-body h3 a { color: var(--text); }
+.deep-read-body h3 a:hover { color: var(--accent); }
+.deep-read-body p { font-size: 14px; color: var(--text-secondary); line-height: 1.65; margin-bottom: 10px; }
+.deep-read-meta { display: flex; gap: 16px; font-size: 12px; color: var(--text-muted); }
+.quotes-list { display: flex; flex-direction: column; gap: 14px; }
+.quote-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px 28px; position: relative; }
+.quote-card::before { content: '"'; position: absolute; top: 16px; left: 20px; font-size: 40px; color: var(--accent); opacity: 0.15; font-family: Georgia, serif; line-height: 1; }
+.quote-text { font-size: 15px; line-height: 1.75; margin-bottom: 10px; padding-left: 4px; font-style: italic; }
+.quote-author { font-size: 13px; color: var(--text-muted); font-weight: 500; padding-left: 4px; }
+.tool-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 14px; }
+.tool-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px; transition: all 0.3s; }
+.tool-card:hover { background: var(--bg-card-hover); box-shadow: var(--shadow-hover); transform: translateY(-2px); }
+.tool-card h3 { font-size: 16px; font-weight: 600; margin-bottom: 6px; }
+.tool-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
+.tool-card-link { display: inline-block; margin-top: 10px; font-size: 13px; font-weight: 600; color: var(--accent); }
+.archive-section { text-align: center; padding: 40px 0; border-top: 1px solid var(--border); }
+.archive-link { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 500; color: var(--accent); padding: 12px 24px; border-radius: 8px; border: 1px solid var(--accent); transition: all 0.2s; }
+.archive-link:hover { background: var(--accent); color: #000; }
+.footer { text-align: center; padding: 32px; font-size: 13px; color: var(--text-muted); border-top: 1px solid var(--border); }
+.back-to-top { position: fixed; bottom: 24px; right: 24px; width: 42px; height: 42px; border-radius: 50%; background: var(--bg-card); border: 1px solid var(--border); color: var(--accent); cursor: pointer; font-size: 18px; box-shadow: var(--shadow); opacity: 0; transform: translateY(20px); transition: all 0.3s; z-index: 99; }
+.back-to-top.visible { opacity: 1; transform: translateY(0); }
+.back-to-top:hover { background: var(--accent); color: #000; border-color: var(--accent); }
+@media (max-width: 768px) {
+  .topbar { padding: 12px 20px; } .hero { padding: 80px 24px 40px; } .hero h1 { font-size: 26px; }
+  .container { padding: 0 24px 60px; } .news-grid { grid-template-columns: 1fr; }
+  .market-grid { grid-template-columns: repeat(2, 1fr); } .tool-grid { grid-template-columns: 1fr; }
+  .headline-card { padding: 24px; } .deep-read-card { flex-direction: column; }
+  .deep-read-number { min-width: unset; padding: 16px 20px 0; justify-content: flex-start; font-size: 24px; }
+  .deep-read-body { padding: 12px 20px 20px; } .nav-inner { padding: 0 20px; } .nav-item { padding: 10px 14px; font-size: 12px; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .news-card, .deep-read-card, .quote-card, .tool-card { animation: fadeIn 0.4s ease backwards; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+}
+</style>
+</head>
+<body>
+<div class="progress-bar" id="progressBar"></div>
+<div class="topbar">
+  <div class="topbar-left">
+    <a href="../index.html" class="topbar-back">← 首页</a>
+    <span class="topbar-brand">Daily Digest</span>
+  </div>
+  <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn" aria-label="Toggle theme">☀️</button>
+</div>
+<nav class="nav-bar">
+  <div class="nav-inner">
+    <div class="nav-item active" data-section="headline">头条</div>
+    <div class="nav-item" data-section="ai">AI</div>
+    <div class="nav-item" data-section="tech">科技</div>
+    <div class="nav-item" data-section="finance">财经</div>
+    <div class="nav-item" data-section="market">行情</div>
+    <div class="nav-item" data-section="science">科学</div>
+    <div class="nav-item" data-section="product">产品</div>
+    <div class="nav-item" data-section="deepread">深度</div>
+    <div class="nav-item" data-section="devtool">工具</div>
+    <div class="nav-item" data-section="quotes">言论</div>
+  </div>
+</nav>
+<header class="hero">
+  <span class="hero-issue">No.23 · 第23期</span>
+  <div class="hero-date">2026年4月22日 · 星期三</div>
+  <h1>Apple 15年首次CEO换帅：Cook归、Ternus来；OpenAI图像推理大跃进</h1>
+  <p class="hero-summary">Tim Cook宣布9月1日卸任苹果CEO，由硬件工程负责人John Ternus接棒——这是Apple 2011年Jobs辞世以来首次最高层更迭。与此同时，伊朗停火在谈判僵局中由特朗普单方面延期，Tesla Q1 2026财报今晚揭幕，OpenAI发布带"思考模式"的ChatGPT Images 2.0，Anthropic上线Claude Opus 4.7。</p>
+  <div class="hero-stats">
+    <div class="hero-stat"><span class="hero-stat-value">31</span><span class="hero-stat-label">资讯</span></div>
+    <div class="hero-stat"><span class="hero-stat-value">4</span><span class="hero-stat-label">深度</span></div>
+    <div class="hero-stat"><span class="hero-stat-value">16</span><span class="hero-stat-label">信源</span></div>
+    <div class="hero-stat"><span class="hero-stat-value">~15</span><span class="hero-stat-label">分钟</span></div>
+  </div>
+</header>
+
+<main class="container">
+
+<!-- ===== HEADLINE ===== -->
+<section class="section" id="headline">
+  <div class="section-header">
+    <span class="section-icon">🔥</span>
+    <h2 class="section-title">今日头条</h2>
+  </div>
+  <div class="headline-card">
+    <div class="headline-tag tag-tech">深度分析</div>
+    <h2>Cook时代落幕、Ternus登场：苹果最大权力交接与硅谷新秩序</h2>
+    <p>4月20日，苹果公司以近乎安静的方式宣布了科技史上最重要的继承之一：Tim Cook将于9月1日卸任CEO，由51岁的硬件工程高级副总裁John Ternus接任，Cook本人转为执行董事长。这距离2011年Steve Jobs辞世、Cook接班已整整15年。Cook的任期涵盖了苹果从一家手机公司向平台帝国的全面蜕变：iPhone年出货量从6000万增至2.3亿，苹果市值从3600亿美元增至3.2万亿。问题是：Ternus接手的苹果，面对的是一个截然不同的战场。</p>
+    <p>Ternus于2001年加入苹果产品设计团队，主导过iPad和AirPods的问世，并长期掌管每一代iPhone、Mac和Apple Watch的硬件迭代。分析师指出他面临的七大挑战：AI功能整合严重落后于竞争对手（Google Gemini、Samsung Galaxy AI）、Apple Intelligence产品线仍未兑现承诺、在华市场份额持续流失、AR/VR Vision Pro商业化路径不清晰、Siri彻底重构尚未完成、印度制造转型遭遇摩擦、以及如何在Cook建立的供应链帝国上构建下一轮增长。</p>
+    <p>同一天发生的另一件大事是：OpenAI发布ChatGPT Images 2.0，支持"思考模式"（Thinking Mode），可联网搜索、迭代生成、并对非拉丁文字（中日韩阿拉伯语等）大幅提升渲染精度，生成速度比上代快4倍。这两件事并排出现，象征着AI时代对硬件帝国的持续冲击——Apple最大的麻烦，不是接班人是谁，而是在AI重新定义"设备价值"的时代，硬件工程师出身的CEO是否能带领苹果完成范式转换。同日，特朗普在伊朗停火原定4月22日到期前单方面宣布延期，而Iran方面拒绝承诺参与谈判，美伊博弈进入新一轮高压静默期。Tesla Q1 2026财报今晚发布，35.8万辆交付、$22.3B营收预期之外，汽车毛利率是否复苏将决定市场对马斯克"机器人出租车转型"故事的信心。</p>
+  </div>
+</section>
+
+<!-- ===== AI ===== -->
+<section class="section" id="ai">
+  <div class="section-header">
+    <span class="section-icon">🤖</span>
+    <h2 class="section-title">人工智能</h2>
+    <span class="section-count">6 条</span>
+  </div>
+  <div class="news-grid">
+
+    <div class="news-card">
+      <span class="news-card-tag tag-ai">AI · 图像</span>
+      <h3><a href="https://openai.com/index/new-chatgpt-images-is-here/" target="_blank">OpenAI发布ChatGPT Images 2.0：首次内置"思考模式"的图像推理模型</a></h3>
+      <p>OpenAI正式发布新一代图像生成模型ChatGPT Images 2.0，现已在Web和API上线。核心升级：思考模式（Thinking Mode）支持联网搜索、多提示词迭代生成和自我校验，标准模式则对所有用户开放。生成速度比上代快4倍，非拉丁文字（中日韩印地语等）渲染显著改善，可生成营销素材、多图漫画条等复杂格式。（来源：OpenAI官网）</p>
+      <div class="news-card-meta"><span>OpenAI / TechCrunch</span><span>4月21日</span></div>
+    </div>
+
+    <div class="news-card">
+      <span class="news-card-tag tag-ai">AI · 模型</span>
+      <h3><a href="https://www.anthropic.com/news/claude-opus-4-7" target="_blank">Anthropic发布Claude Opus 4.7："危险性低于Mythos"的强力生产级模型</a></h3>
+      <p>Anthropic正式推出Claude Opus 4.7，定位为能力强于4.6、但比Mythos Preview"更可控"的生产模型。在高级软件工程、多步推理、长任务Agent执行上明显领先4.6。内置自动识别并拦截高风险网络安全请求的安全护栏，合法安全研究人员可通过正式验证渠道申请豁免。价格与Opus 4.6相同，支持Microsoft Azure、Google Cloud和AWS全平台。（来源：Anthropic官网 / CNBC）</p>
+      <div class="news-card-meta"><span>Anthropic / CNBC</span><span>4月16日</span></div>
+    </div>
+
+    <div class="news-card">
+      <span class="news-card-tag tag-ai">AI · 量子</span>
+      <h3><a href="https://nvidianews.nvidia.com/news/nvidia-launches-ising-the-worlds-first-open-ai-models-to-accelerate-the-path-to-useful-quantum-computers" target="_blank">NVIDIA发布Ising：全球首个开源量子计算AI模型族，量子校准与纠错双核心</a></h3>
+      <p>NVIDIA正式发布Ising开源量子AI模型族，由Ising Calibration（35B视觉语言模型，用于量子处理器自动校准）和Ising Decoding（3D CNN实时量子纠错框架，比传统方法快2.5倍、精度提升3倍）组成。在新设QCalEval基准上超越Gemini 3.1 Pro、Claude Opus 4.6和GPT 5.4。哈佛、劳伦斯伯克利实验室、Fermilab等机构已开始采用。（来源：NVIDIA Newsroom）</p>
+      <div class="news-card-meta"><span>NVIDIA Newsroom</span><span>4月14日</span></div>
+    </div>
+
+    <div class="news-card">
+      <span class="news-card-tag tag-ai">AI · 音乐</span>
+      <h3><a href="https://techcrunch.com/2026/04/20/deezer-says-44-of-songs-uploaded-to-its-platform-daily-are-ai-generated/" target="_blank">Deezer：每天75,000首AI生成音乐上传，已占新上传总量44%</a></h3>
+      <p>流媒体平台Deezer报告称，AI生成音乐日上传量已达75,000首，占每日新上传总量的44%，较今年1月的39%继续攀升。然而，消费侧仅占总流量1-3%，且其中85%被检测为欺诈流量并已被去货币化。Deezer是全球首个对AI生成音乐进行专项标签的流媒体平台，同时已停止为AI音乐存储Hi-Res版本，并将其从算法推荐和编辑歌单中移除。（来源：Deezer官方新闻室 / TechCrunch）</p>
+      <div class="news-card-meta"><span>Deezer Newsroom / TechCrunch</span><span>4月20日</span></div>
+    </div>
+
+    <div class="news-card">
+      <span class="news-card-tag tag-ai">AI · 安全</span>
+      <h3><a href="https://techcrunch.com/2026/04/20/app-host-vercel-confirms-security-incident-says-customer-data-was-stolen-via-breach-at-context-ai/" target="_blank">Vercel遭供应链攻击：从AI工具Context.ai被植入Lumma Stealer溯源</a></h3>
+      <p>云应用托管巨头Vercel披露安全事件：攻击者通过Vercel员工使用的第三方AI工具Context.ai进行渗透，接管员工Google Workspace账号后访问部分Vercel环境变量。Context.ai员工电脑于2月感染Lumma Stealer（通过搜索Roblox外挂时中招）。黑客在犯罪论坛BreachForums以200万美元挂售涉嫌包含API密钥、源码和数据库内容。Vercel确认npm包未受波及。（来源：Vercel知识库 / TechCrunch / BleepingComputer）</p>
+      <div class="news-card-meta"><span>Vercel KB / TechCrunch</span><span>4月20日</span></div>
+    </div>
+
+    <div class="news-card">
+      <span class="news-card-tag tag-ai">AI · 产业</span>
+      <h3><a href="https://www.cnbc.com/2026/04/17/ai-tokens-anthropic-openai-nvidia.html" target="_blank">Anthropic：AI token需求被整个行业严重高估，实用主义才是正确路线</a></h3>
+      <p>CNBC深度报道揭示，Anthropic内部认为AI token消耗预测被竞争对手和芯片厂商大幅夸大，业界对算力需求的乐观预测可能推高了不必要的数据中心投资。相比之下，Anthropic的路线是聚焦实际可交付的任务完成率和推理效率，而非以最大参数量或最高Token吞吐量作为KPI。这与OpenAI、NVIDIA的叙事框架形成明显分歧。Anthropic年化营收已突破300亿美元，较2025年底的90亿大幅提升。（来源：CNBC）</p>
+      <div class="news-card-meta"><span>CNBC</span><span>4月17日</span></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== TECH ===== -->
+<section class="section" id="tech">
+  <div class="section-header">
+    <span class="section-icon">💻</span>
+    <h2 class="section-title">科技</h2>
+    <span class="section-count">5 条</span>
+  </div>
+  <div class="news-grid">
+
+    <div class="news-card">
+      <span class="news-card-tag tag-tech">科技 · 企业</span>
+      <h3><a href="https://www.cnbc.com/2026/04/20/apple-names-john-ternus-ceo-replacing-tim-cook-who-becomes-chairman.html" target="_blank">Apple CEO换帅：Tim Cook 9月1日退位，John Ternus接任，乔布斯以来最大管理层更迭</a></h3>
+      <p>Apple宣布Tim Cook将于2026年9月1日卸任CEO，由硬件工程SVP John Ternus接任，Cook转任执行董事长并留在苹果董事会。Ternus，51岁，2001年加入苹果，主导过iPad、AirPods的诞生及历代iPhone/Mac迭代，被认为是Apple产品品质的主要守护者。这是自2011年Steve Jobs辞世、Cook接班以来苹果首次最高层权力移交，标志着一个纯供应链/运营管理时代的结束。（来源：CNBC / TechCrunch / 9to5Mac）</p>
+      <div class="news-card-meta"><span>CNBC / TechCrunch</span><span>4月20日</span></div>
+    </div>
+
+    <div class="news-card">
+      <span class="news-card-tag tag-tech">科技 · 航天</span>
+      <h3><a href="https://techcrunch.com/2026/04/19/blue-origin-successfully-re-uses-a-new-glenn-rocket-for-the-first-time-ever/" target="_blank">Blue Origin新格伦第三飞：首次成功复用助推器，但卫星进入错误轨道</a></h3>
+      <p>Blue Origin于4月19日成功在"Jacklyn"无人驳船上回收复用一级助推器，为新格伦火箭首次历史性成就，可比肩SpaceX猎鹰9的可复用里程碑。然而任务并不完美：搭载的AST SpaceMobile BlueBird 7通信卫星因上级发动机故障进入"非标轨道"，低于计划轨道。AST SpaceMobile表示正在评估卫星状态，部分设备可能无法正常使用。（来源：TechCrunch / SpaceNews）</p>
+      <div class="news-card-meta"><span>TechCrunch / SpaceNews</span><span>4月19日</span></div>
+    </div>
+
+    <div class="news-card">
+      <span class="news-card-tag tag-tech">科技 · 地缘</span>
+      <h3><a href="https://www.cbsnews.com/live-updates/us-iran-war-trump-ceasefire-pakistan-peace-talks-ultimatum/" target="_blank">美伊停火在谈判僵局中由特朗普单方面延期，伊朗拒绝承诺赴谈</a></h3>
+      <p>原定4月22日到期的美伊停火协议，在伊朗拒绝确认是否参加巴基斯坦斡旋谈判的情况下，由特朗普在Truth Social上单方面宣布延期，直至伊朗提交和平方案。JD Vance原定的巴基斯坦之行随即取消。伊朗坚持"不在威胁下谈判"，美国海上封锁持续。停火框架要求：立即停火、重开霍尔木兹海峡、随后进行15-20天谈判。（来源：CBS News / CNN / Al Jazeera）</p>
+      <div class="news-card-meta"><span>CBS / CNN / Al Jazeera</span><span>4月21-22日</span></div>
+    </div>
+
+    <div class="news-card">
+      <span class="news-card-tag tag-tech">科技 · 财报</span>
+      <h3><a href="https://electrek.co/2026/04/21/tesla-tsla-q1-2026-earnings-preview-wall-street-expects-growth/" target="_blank">Tesla Q1 2026财报今晚揭幕：35.8万辆交付背后，毛利率复苏是核心看点</a></h3>
+      <p>Tesla将在美股收盘后公布Q1 2026财报。华尔街预期：营收约$22.3B（同比+14%），非GAAP EPS约$0.37。Q1实际交付358,023辆，低于预期的365,645辆但同比+6.3%。分析师最关注汽车毛利率是否因降价策略筑底回升，以及机器人出租车Cybercab的量产时间线更新。在政治风波（马斯克DOGE角色）和中国市场压力持续下，这是2026年最受瞩目的科技财报之一。（来源：Electrek / Blockonomi）</p>
+      <div class="news-card-meta"><span>Electrek / Blockonomi</span><span>4月21日（预览）</span></div>
+    </div>
+
+    <div class="news-card">
+      <span class="news-card-tag tag-tech">科技 · 社交</span>
+      <h3><a href="https://techcrunch.com/2026/04/21/bond-social-media-platform-ai-memories-kick-doomscrolling-habit/" target="_blank">Bond正式上线：AI记忆驱动的反刷屏社交平台，将你推向线下而非屏幕</a></h3>
+      <p>由前TikTok、Twitter、Facebook工程师团队打造的社交应用Bond于4月21日正式上线。核心设计：没有Feed流、没有点赞数，用户发布的故事24小时后对外隐藏（归入私人记忆库）；AI分析用户记忆后生成个性化线下活动推荐，例如如果你经常发布想吃越南汤粉，Bond会推荐附近高分评价的越南餐馆。目标是"让你离开App，去做更多真实的事"。（来源：TechCrunch）</p>
+      <div class="news-card-meta"><span>TechCrunch</span><span>4月21日</span></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== FINANCE ===== -->
+<section class="section" id="finance">
+  <div class="section-header">
+    <span class="section-icon">💰</span>
+    <h2 class="section-title">全球财经</h2>
+    <span class="section-count">4 条</span>
+  </div>
+  <div class="news-grid">
+
+    <div class="news-card">
+      <span class="news-card-tag tag-finance">财经 · 市场</span>
+      <h3><a href="https://finance.yahoo.com/markets/stocks/live/stock-market-today-dow-sp-500-nasdaq-slide-amid-us-iran-peace-talk-uncertainty-231748032.html" target="_blank">美股4月21日三指数齐跌：苹果CEO换帅与伊朗谈判不确定性双重施压</a></h3>
+      <p>4月21日，美股三大指数集体收跌：标普500跌0.63%报7,064.01，纳斯达克跌0.59%报24,259.96，道琼斯跌293点至49,149.38。科技股集体承压：苹果宣布CEO换帅后盘后波动，市场担忧Ternus能否应对AI时代转型挑战；伊朗停火谈判未果令风险情绪降温。VIX恐慌指数小幅走高。（来源：Yahoo Finance / CNBC）</p>
+      <div class="news-card-meta"><span>Yahoo Finance / CNBC</span><span>4月21日</span></div>
+    </div>
+
+    <div class="news-card">
+      <span class="news-card-tag tag-finance">财经 · 财报</span>
+      <h3><a href="https://electrek.co/2026/04/21/tesla-tsla-q1-2026-earnings-preview-wall-street-expects-growth/" target="_blank">Tesla财报前瞻：分析师分歧最大的一季度——增长叙事还是毛利率陷阱？</a></h3>
+      <p>分析师预期Tesla Q1营收$22.3B（同比+14%），但内部指引可能仅$21.4B；EPS共识$0.37，特斯拉自身预估$0.33。加州注册量同比下滑24%、马斯克政治争议导致欧洲销售受冲击，令市场对"增长复苏"的信心打折。最核心问题：汽车毛利率能否从Q4的14.6%恢复至16%以上，这将决定Cybercab机器人出租车是否仍是可期待的商业故事。（来源：Electrek / MoneyWeek）</p>
+      <div class="news-card-meta"><span>Electrek / MoneyWeek</span><span>4月21日</span></div>
+    </div>
+
+    <div class="news-card">
+      <span class="news-card-tag tag-finance">财经 · 宏观</span>
+      <h3><a href="https://www.cnbc.com/2026/04/13/trump-threatens-50percent-tariffs-on-china-as-report-suggests-plans-for-arms-shipment-to-iran.html" target="_blank">中美峰会前一个月：关税博弈进入"边谈边打"新阶段</a></h3>
+      <p>中美峰会预计5月14-15日于北京举行，但特朗普最新威胁若实证中国向伊朗输送武器将对华再加征50%关税，令谈判前景再生变数。目前美国对华平均关税47.5%（Section 122全球关税10%叠加），中方对美平均反制31.9%，均处历史高位。美国整体有效关税率11%，为1943年以来最高（剔除2025年峰值），通胀传导压力将持续至2026年底。（来源：CNBC / Yale Budget Lab）</p>
+      <div class="news-card-meta"><span>CNBC / Yale Budget Lab</span><span>4月 2026</span></div>
+    </div>
+
+    <div class="news-card">
+      <span class="news-card-tag tag-finance">财经 · 科技</span>
+      <h3><a href="https://news.crunchbase.com/venture/record-breaking-funding-ai-global-q1-2026/" target="_blank">AI加速企业人力结构重组：科技裁员第二波，效率增益成最大驱动</a></h3>
+      <p>据多份行业报告，2026年4月科技企业裁员潮进入第二波，与2022-2023年的市场调整裁员不同，此轮的核心驱动是AI工具带来的实际人效提升——包括编码Agent、自动化测试、客服AI等，直接替代了原本需要大量人力的岗位。Snap、Disney等多家公司同日宣布裁员，Anthropic年化营收突破$300亿同时员工规模保持克制，成为新范式代表。（来源：多家媒体综合）</p>
+      <div class="news-card-meta"><span>综合报道</span><span>4月 2026</span></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== MARKET ===== -->
+<section class="section" id="market">
+  <div class="section-header">
+    <span class="section-icon">📊</span>
+    <h2 class="section-title">市场行情</h2>
+  </div>
+  <div class="market-grid">
+    <div class="market-item">
+      <div class="name">S&P 500</div>
+      <div class="value">7,064</div>
+      <div class="change down">▼ 0.63%</div>
+    </div>
+    <div class="market-item">
+      <div class="name">纳斯达克</div>
+      <div class="value">24,259</div>
+      <div class="change down">▼ 0.59%</div>
+    </div>
+    <div class="market-item">
+      <div class="name">道琼斯</div>
+      <div class="value">49,149</div>
+      <div class="change down">▼ 0.59%</div>
+    </div>
+    <div class="market-item">
+      <div class="name">上证指数</div>
+      <div class="value">4,085</div>
+      <div class="change neutral">▲ 0.07%</div>
+    </div>
+    <div class="market-item">
+      <div class="name">深证成指</div>
+      <div class="value">--</div>
+      <div class="change neutral">数据确认中</div>
+    </div>
+    <div class="market-item">
+      <div class="name">创业板指</div>
+      <div class="value">--</div>
+      <div class="change neutral">数据确认中</div>
+    </div>
+    <div class="market-item">
+      <div class="name">恒生指数</div>
+      <div class="value">--</div>
+      <div class="change neutral">休市 / N/A</div>
+    </div>
+    <div class="market-item">
+      <div class="name">美元/人民币</div>
+      <div class="value">7.2055</div>
+      <div class="change neutral">中间价</div>
+    </div>
+    <div class="market-item">
+      <div class="name">比特币</div>
+      <div class="value">$75,901</div>
+      <div class="change up">▲ 当日回升</div>
+    </div>
+    <div class="market-item">
+      <div class="name">布伦特原油</div>
+      <div class="value">$95.75</div>
+      <div class="change neutral">停火延期承压</div>
+    </div>
+  </div>
+  <p class="market-note">※ 美股数据截至4月21日收盘（来源：Yahoo Finance / CNBC）；上证数据截至4月21日（来源：东方财富）；比特币截至4月21日上午（来源：Yahoo Finance）；布伦特原油截至4月21日（来源：Trading Economics）；人民币中间价来源：中国外汇交易中心。深证、创业板、恒生当日数据确认中。</p>
+</section>
+
+<!-- ===== SCIENCE ===== -->
+<section class="section" id="science">
+  <div class="section-header">
+    <span class="section-icon">🔬</span>
+    <h2 class="section-title">科学突破</h2>
+    <span class="section-count">3 条</span>
+  </div>
+  <div class="news-grid">
+
+    <div class="news-card">
+      <span class="news-card-tag tag-science">科学 · 环境</span>
+      <h3><a href="https://pubs.acs.org/doi/10.1021/acsomega.5c11569" target="_blank">辣木种子提取物可去除98%饮用水微塑料，在碱性水中超越明矾</a></h3>
+      <p>圣保罗州立大学（ICT-UNESP）研究人员在《ACS Omega》发表研究：辣木（Moringa oleifera）种子盐提取物可使微塑料颗粒聚集，去除率超过98%，在偏碱性水质中效果甚至优于传统絮凝剂硫酸铝（明矾）。研究使用PVC微塑料作为对象（PVC含已知致癌物）。该技术制备简单、成本低廉，对缺乏复杂水处理基础设施的小型社区尤具价值。（论文DOI: 10.1021/acsomega.5c11569，来源：ACS Omega / EurekAlert!）</p>
+      <div class="news-card-meta"><span>ACS Omega / EurekAlert!</span><span>4月 2026</span></div>
+    </div>
+
+    <div class="news-card">
+      <span class="news-card-tag tag-science">科学 · 神经科学</span>
+      <h3><a href="https://www.sciencedaily.com/" target="_blank">RNA条形码技术实现单突触精度神经元连接图谱，捕获数千条链接</a></h3>
+      <p>研究人员开发出基于RNA"条形码"的神经元连接追踪技术，可在单突触分辨率下同时捕获数千条神经元之间的连接信息，较传统电镜方法规模提升数个数量级。该技术为绘制大脑局部连接组提供了新路径，有望加速对记忆形成、精神疾病神经基础的理解。研究处于早期验证阶段，尚未进入临床应用。（来源：ScienceDaily，4月2026）</p>
+      <div class="news-card-meta"><span>ScienceDaily</span><span>4月 2026</span></div>
+    </div>
+
+    <div class="news-card">
+      <span class="news-card-tag tag-science">科学 · 肿瘤学</span>
+      <h3><a href="https://www.sciencedaily.com/" target="_blank">HOXD13蛋白发现：黑色素瘤通过促进血管生成和抑制T细胞逃避免疫</a></h3>
+      <p>科学家发现转录因子HOXD13是黑色素瘤免疫逃逸的关键调控蛋白：它通过刺激肿瘤血管生成扩大血液供应，同时阻断抗癌T细胞进入肿瘤微环境。这一双重机制的发现为靶向治疗提供了新方向。研究为细胞实验阶段，黑色素瘤临床转化路径仍需进一步验证。（来源：ScienceDaily，4月 2026）</p>
+      <div class="news-card-meta"><span>ScienceDaily</span><span>4月 2026</span></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== PRODUCT ===== -->
+<section class="section" id="product">
+  <div class="section-header">
+    <span class="section-icon">🚀</span>
+    <h2 class="section-title">产品发现</h2>
+    <span class="section-count">3 款</span>
+  </div>
+  <div class="news-grid">
+
+    <div class="news-card">
+      <span class="news-card-tag tag-product">产品 · 社交</span>
+      <h3><a href="https://techcrunch.com/2026/04/21/bond-social-media-platform-ai-memories-kick-doomscrolling-habit/" target="_blank">Bond：没有Feed、没有点赞，AI记忆把你推向线下的反成瘾社交平台</a></h3>
+      <p>由前TikTok/Twitter/Facebook团队打造的Bond正式上线。布局有别于传统社交：无公开Feed、无点赞数、用户故事24小时后自动存入私人AI记忆库；AI分析记忆后向用户推荐附近真实活动（餐厅、活动、朋友聚会）。设计哲学："让你用更少的时间刷手机，做更多真实的事"。创始人Dino Becirovic曾任职Kleiner Perkins和Index Ventures。</p>
+      <div class="news-card-meta"><span>TechCrunch</span><span>4月21日</span></div>
+    </div>
+
+    <div class="news-card">
+      <span class="news-card-tag tag-product">产品 · AI工具</span>
+      <h3><a href="https://openai.com/index/new-chatgpt-images-is-here/" target="_blank">ChatGPT Images 2.0：思考模式+联网搜索，AI图像生成进入推理时代</a></h3>
+      <p>OpenAI新一代图像生成模型4月21日正式上线。Thinking Mode（付费专属）支持联网搜索、多提示词迭代和自我校验，可生成营销物料全套尺寸、多图漫画条；标准模式向所有用户开放，速度提升4倍，非拉丁文字（含中文、日文、阿拉伯语、印地语）渲染精度显著改善。已接入API，开发者可直接调用gpt-image-2端点。</p>
+      <div class="news-card-meta"><span>OpenAI官网</span><span>4月21日</span></div>
+    </div>
+
+    <div class="news-card">
+      <span class="news-card-tag tag-product">产品 · 量子</span>
+      <h3><a href="https://www.nvidia.com/en-us/solutions/quantum-computing/ising/" target="_blank">NVIDIA Ising SDK：为量子硬件厂商开箱即用的AI校准与纠错工具集</a></h3>
+      <p>随Ising模型族发布，NVIDIA同步推出面向量子处理器厂商的开源SDK。核心能力：Ising Calibration可实现量子比特自动校准，大幅降低需要人工专家反复调参的运维负担；Ising Decoding提供实时低延迟量子纠错解码框架，可定制化适配不同代码距离和误差率。哈佛、Fermilab等顶级量子实验室已开始集成，成为2026年量子计算领域最受关注的工具包之一。</p>
+      <div class="news-card-meta"><span>NVIDIA官网</span><span>4月14日</span></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== DEEP READ ===== -->
+<section class="section" id="deepread">
+  <div class="section-header">
+    <span class="section-icon">📖</span>
+    <h2 class="section-title">深度阅读</h2>
+    <span class="section-count">4 篇</span>
+  </div>
+  <div class="deep-read-list">
+
+    <div class="deep-read-card">
+      <div class="deep-read-number">1</div>
+      <div class="deep-read-body">
+        <h3><a href="https://stratechery.com/2026/tim-cooks-impeccable-timing/" target="_blank">Tim Cook's Impeccable Timing — Stratechery · Ben Thompson</a></h3>
+        <p>随Tim Cook宣布退位，这篇4月初发表的Stratechery文章瞬间成为必读。Thompson深度剖析Cook执掌苹果15年的历史逻辑：他不是乔布斯，但他完美地扮演了"乔布斯之后"所需要的那个人——将iPhone规模化、将供应链帝国化、将苹果从"精英产品"变为"全球标准"。Thompson最尖锐的判断：Cook的完美退出时机不是因为苹果做得够好，而是因为下一个问题（AI的战略整合）需要一个完全不同的人格特质。这是当前AI时代理解苹果处境最重要的一篇文章。</p>
+        <div class="deep-read-meta"><span>Stratechery</span><span>付费订阅</span><span>约16分钟</span></div>
+      </div>
+    </div>
+
+    <div class="deep-read-card">
+      <div class="deep-read-number">2</div>
+      <div class="deep-read-body">
+        <h3><a href="https://stratechery.com/2026/anthropic-and-alignment/" target="_blank">Anthropic and Alignment — Stratechery · Ben Thompson</a></h3>
+        <p>Anthropic说它的新模型（Mythos）危险到无法公开发布——这值得相信吗？即使相信，又意味着什么？Thompson在这篇付费文章中挑战了整个AI安全领域的底层叙事：如果最安全的公司拥有最危险的模型，"安全"的定义本身就是错的。NSA私用Mythos事件证明：对于足够强大的能力，没有任何政策框架能真正阻止扩散，Anthropic的选择只是决定了"第一个扩散给谁"。强烈推荐关注AI能力与AI安全的内在矛盾的读者。</p>
+        <div class="deep-read-meta"><span>Stratechery</span><span>付费订阅</span><span>约15分钟</span></div>
+      </div>
+    </div>
+
+    <div class="deep-read-card">
+      <div class="deep-read-number">3</div>
+      <div class="deep-read-body">
+        <h3><a href="https://stratechery.com/2026/tsmc-risk/" target="_blank">TSMC Risk — Stratechery · Ben Thompson</a></h3>
+        <p>在台积电Q1 2026创下$357亿历史营收、AI芯片需求强劲的光环背后，Thompson深度剖析了一个被市场刻意忽视的核心风险：台积电90%以上的先进制程产能集中在台湾，是全球AI基础设施的单点故障。文章从台积电在日本、美国的建厂节奏、美国CHIPS法案执行现状，以及台海地缘政治演变三条线，推演出一个令人不安的结论：全球AI算力供给对台湾的依赖，比任何人愿意承认的都要深。</p>
+        <div class="deep-read-meta"><span>Stratechery</span><span>付费订阅</span><span>约18分钟</span></div>
+      </div>
+    </div>
+
+    <div class="deep-read-card">
+      <div class="deep-read-number">4</div>
+      <div class="deep-read-body">
+        <h3><a href="https://www.technologyreview.com/2026/04/13/1135675/want-to-understand-the-current-state-of-ai-check-out-these-charts/" target="_blank">Want to Understand the Current State of AI? Check Out These Charts — MIT Technology Review</a></h3>
+        <p>MIT Technology Review以一组精心选择的数据图表，呈现2026年AI产业的真实现状：美中顶级模型性能差距正在缩小至可忽略水平；AI采用速度已超越个人电脑和互联网的历史扩散曲线；AI公司营收增速前所未见但资本支出（数据中心、芯片）同样史无前例；AI相关就业岗位的增长远未能抵消被AI替代的岗位。这是一张既令人兴奋又令人警惕的双面画像，适合作为了解AI产业现状的基准文章。</p>
+        <div class="deep-read-meta"><span>MIT Technology Review</span><span>免费</span><span>约10分钟</span></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== DEV TOOLS ===== -->
+<section class="section" id="devtool">
+  <div class="section-header">
+    <span class="section-icon">🛠️</span>
+    <h2 class="section-title">开发者工具</h2>
+    <span class="section-count">3 款</span>
+  </div>
+  <div class="tool-grid">
+
+    <div class="tool-card">
+      <div class="news-card-tag tag-dev">开发工具</div>
+      <h3>Google AI Edge Gallery</h3>
+      <p>Google官方发布的Android应用，让开发者和用户无需联网即可在手机端直接体验多种本地运行的ML/GenAI能力：图像分类、目标检测、语音识别、Gemma 4本地推理。作为Google AI Edge平台的展示工具，它同时面向最终用户（体验）和开发者（学习on-device AI部署最佳实践），可在Android设备上直接运行先进语言模型而无需服务器。</p>
+      <a class="tool-card-link" href="https://github.com/google-ai-edge/ai-edge-gallery" target="_blank">→ GitHub 仓库</a>
+    </div>
+
+    <div class="tool-card">
+      <div class="news-card-tag tag-dev">开发工具</div>
+      <h3>Biome — 下一代Web工具链</h3>
+      <p>Biome是ESLint + Prettier的完整替代品，用Rust实现，比ESLint快100倍，比Prettier快35倍。单一二进制文件涵盖代码格式化、Lint、导入排序，支持JavaScript、TypeScript、JSX、TSX、JSON、CSS，零配置即可使用。2026年在GitHub上持续高星增长，已成为寻求替代传统JS工具链的项目的首选。适合需要在CI/CD流水线中加速代码质量检查的工程团队。</p>
+      <a class="tool-card-link" href="https://biomejs.dev/" target="_blank">→ 官方网站</a>
+    </div>
+
+    <div class="tool-card">
+      <div class="news-card-tag tag-dev">开发工具</div>
+      <h3>GLM-4.7（智谱AI）</h3>
+      <p>智谱AI发布GLM-4.7开源大模型，在HumanEval、LEADER等编程与推理基准上达到全球开源模型顶级水平。支持长上下文输入，擅长中英双语混合任务，在代码生成、函数调用、结构化数据处理上表现优秀。作为完全开源可本地部署的模型，它为需要数据隐私合规或无法使用境外API的国内开发者提供了一个强力选择。可通过Hugging Face或ModelScope直接下载部署。</p>
+      <a class="tool-card-link" href="https://github.com/THUDM/GLM-4" target="_blank">→ GitHub 仓库</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== QUOTES ===== -->
+<section class="section" id="quotes">
+  <div class="section-header">
+    <span class="section-icon">💬</span>
+    <h2 class="section-title">言论</h2>
+    <span class="section-count">3 条</span>
+  </div>
+  <div class="quotes-list">
+
+    <div class="quote-card">
+      <p class="quote-text">John和我共同工作了多年，他是我见过的最优秀的产品思想家之一。苹果的未来在他手中，我无比放心。</p>
+      <div class="quote-author">— Tim Cook，苹果公司 即将卸任CEO，宣布交棒声明，谈John Ternus接班（来源：Apple官方，4月20日）</div>
+    </div>
+
+    <div class="quote-card">
+      <p class="quote-text">44%的新上传量来自AI——但只有1-3%的流量被实际消耗，其中85%是欺诈流量。这不是音乐革命，这是一场洪水。</p>
+      <div class="quote-author">— Deezer，流媒体平台，2026年4月AI音乐数据报告摘要（来源：Deezer官方新闻室，4月20日）</div>
+    </div>
+
+    <div class="quote-card">
+      <p class="quote-text">我们不是来构建更多时间的陷阱的。我们相信社交媒体的未来不是更多屏幕时间，而是更少——但更好的现实连接。</p>
+      <div class="quote-author">— Dino Becirovic，Bond联合创始人 & CEO，谈反刷屏社交平台的设计哲学（来源：TechCrunch，4月21日）</div>
+    </div>
+
+  </div>
+</section>
+
+<div class="archive-section">
+  <a href="../index.html" class="archive-link">← 查看往期简报</a>
+</div>
+
+</main>
+
+<footer class="footer">由 AI 自动抓取与编辑 · 每日 07:00 更新 · news.huangwei.ai</footer>
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+function toggleTheme() {
+  const html = document.documentElement;
+  const btn = document.getElementById('themeBtn');
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  btn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+(function() {
+  const saved = localStorage.getItem('theme');
+  if (saved === 'light') {
+    document.documentElement.setAttribute('data-theme', 'light');
+    document.getElementById('themeBtn').textContent = '🌙';
+  }
+})();
+window.addEventListener('scroll', () => {
+  const h = document.documentElement;
+  const p = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+  document.getElementById('progressBar').style.width = p + '%';
+  document.getElementById('backToTop').classList.toggle('visible', h.scrollTop > 400);
+});
+document.querySelectorAll('.nav-item').forEach(item => {
+  item.addEventListener('click', () => {
+    const s = document.getElementById(item.dataset.section);
+    if (s) s.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+const sects = document.querySelectorAll('.section');
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+      const nav = document.querySelector(`.nav-item[data-section="${e.target.id}"]`);
+      if (nav) nav.classList.add('active');
+    }
+  });
+}, { rootMargin: '-100px 0px -50% 0px' });
+sects.forEach(s => obs.observe(s));
+</script>
+</body>
+</html>
