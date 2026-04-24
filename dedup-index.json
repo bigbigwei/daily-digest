@@ -70,7 +70,9 @@
     "Sim Studio（simstudioai/sim）",
     "VoltAgent/awesome-design-md",
     "system_prompts_leaks（asgeirtj）",
-    "VoltAgent/awesome-agent-skills"
+    "VoltAgent/awesome-agent-skills",
+    "FinceptTerminal（Fincept-Corporation）",
+    "huobao-drama（chatfire-AI）"
   ],
   "used_products": [
     "AI营销Agent：自动化全链路网红营销，Product Hunt 4月热门",
@@ -157,7 +159,10 @@
     "Mesh LLM（分布式算力众筹网络运行开源模型）",
     "Sim Studio：YC支持拖拽式AI Agent工作流设计器100+集成24小时爆1463星",
     "VoltAgent/awesome-agent-skills：1000+精选Agent技能兼容Claude Code Codex Cursor Gemini CLI",
-    "Karpathy CLAUDE.md精华文件：单文件蒸馏LLM编程陷阱全部观察"
+    "Karpathy CLAUDE.md精华文件：单文件蒸馏LLM编程陷阱全部观察",
+    "Magic Patterns Agent 2.0（AI设计Agent，将自然语言转化为React/Tailwind UI组件）",
+    "Kollab（以文档为核心的AI团队协作平台，主动追踪未落地行动项）",
+    "Monid（专为AI Agent设计的链上钱包，允许自主Agent安全管理数字资产）"
   ],
   "used_deepreads": [
     "100x Less Power: The Breakthrough That Could Solve AI's Massive Energy Crisis — SciTechDaily",
@@ -264,17 +269,11 @@
     "Microsoft and Software Survival — Stratechery · Ben Thompson",
     "'Tokenmaxxing' is making developers less productive than they think — TechCrunch",
     "AI at MIT — MIT Technology Review（2026年4月21日）",
-    "What to expect from Google I/O 2026 — Engadget"
+    "What to expect from Google I/O 2026 — Engadget",
+    "An Interview with NYT CEO Meredith Kopit Levien: Betting on Humans With Expertise — Stratechery · Ben Thompson",
+    "大西洋经向翻转环流AMOC减弱速度超预期：新研究预测2100年将减弱51%，比既有估计高60% — phys.org / Science Advances"
   ],
   "recent_topics": [
-    "Voicebox MemPalace ConventionsBot GitHub trending开源语音克隆AI记忆",
-    "Anthropic Mythos Preview NSA Pentagon Supply Chain Risk Cybersecurity Zero-Day Project Glasswing Dario White House",
-    "MIT Technology Review EmTech AI 10 Things AI Companions Mechanistic Interpretability Generative Coding Hyperscale",
-    "Novo Nordisk OpenAI Drug Discovery Manufacturing Supply Chain AI Full Chain Partnership 2026",
-    "Grok 4.3 Beta XChat xAI Encrypted Messaging Video Understanding PDF Generation SuperGrok Heavy",
-    "Meta Smart Glasses Facial Recognition Name Tag ACLU 75 Organizations Google IO 2026 Android 17",
-    "US China Tariff 47.5% IEEPA CAPE Phase 1 Refund Capital One Brex Acquisition 5.15B",
-    "Alphabet Surpasses Apple Second Market Cap S&P 7109 Nasdaq 24404 Brent 95 RMB 7.2055",
     "Breakthrough Prize Gene Therapy FDA GJ887d Habitable Zone Super Earth Northwestern Artificial Neurons",
     "Microsoft Agent Framework 1.0 Semantic Kernel AutoGen GenericAgent Ralph PRD Autonomous",
     "Apple Tim Cook CEO退位 John Ternus 接任 9月1日生效 硬件工程",
@@ -316,6 +315,19 @@
     "布伦特原油$103.67 S&P 7108 纳斯达克24439 13连涨终结 软件股领跌",
     "上证4093 深证15043 创业板3720 恒生25870 A股回调",
     "比特币77831 人民币6.82 华盛顿大学μ子突破奖 皮秒成像 脂肪肝联合用药",
-    "Sim Studio YC Agent工作流 VoltAgent design-md karpathy-skills GitHub trending"
+    "Sim Studio YC Agent工作流 VoltAgent design-md karpathy-skills GitHub trending",
+    "GPT-5.5 OpenAI FrontierMath Terminal-Bench 数学代码Agent旗舰发布",
+    "DeepSeek V4 华为昇腾 MoE 1.6T参数 开源 百万token 默认上下文",
+    "Google Anthropic 400亿投资 100亿现金 350亿估值 年化营收300亿",
+    "Amazon Anthropic 250亿投资 Trainium3 AWS协议 算力绑定",
+    "Intel Q1 2026 136亿营收 AI数据中心CPU 22%增速 1987年最佳单日",
+    "英伟达5万亿市值 SOX18连涨 AMD Arm半导体全线普涨",
+    "Meta Amazon Graviton5 CPU Agent AI工作流 数十亿美元协议",
+    "Cognition AI 250亿估值 Cursor 500亿融资谈判 Factory 1.5亿 AI编码",
+    "S&P 7165 纳斯达克24837 历史收盘新高 道琼斯49231",
+    "上证4080 恒生25978 港股科技逆市 布伦特104.63 比特币78100",
+    "AMOC大西洋洋流减弱51% Science Advances tipping point 2100年",
+    "Northwestern人工神经元打印 活体脑细胞双向通信 BCI",
+    "Magic Patterns Agent 2.0 Kollab Monid Product Hunt Week17"
   ]
 }
