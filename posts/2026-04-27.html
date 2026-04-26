@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trump取消伊斯兰堡之行，科技超级财报周今日拉开序幕 · 每日简报</title>
+<style>
+:root[data-theme="dark"] {
+  --bg: #000000; --bg-elevated: #0a0a0a; --bg-card: #111111; --bg-card-hover: #1a1a1a;
+  --text: #f0f0f0; --text-secondary: #999999; --text-muted: #555555;
+  --border: #222222; --accent: #00d4ff; --accent-dim: rgba(0,212,255,0.1); --accent-glow: rgba(0,212,255,0.15);
+  --tag-ai: #a78bfa; --tag-ai-bg: rgba(167,139,250,0.12); --tag-tech: #22d3ee; --tag-tech-bg: rgba(34,211,238,0.1);
+  --tag-finance: #fbbf24; --tag-finance-bg: rgba(251,191,36,0.1); --tag-science: #34d399; --tag-science-bg: rgba(52,211,153,0.1);
+  --tag-product: #fb7185; --tag-product-bg: rgba(251,113,133,0.1); --tag-dev: #818cf8; --tag-dev-bg: rgba(129,140,248,0.1);
+  --up: #ef4444; --down: #22c55e; --shadow: 0 0 0 1px rgba(255,255,255,0.04);
+  --shadow-hover: 0 8px 40px rgba(0,212,255,0.06), 0 0 0 1px rgba(255,255,255,0.08); --radius: 12px;
+}
+:root[data-theme="light"] {
+  --bg: #fafafa; --bg-elevated: #ffffff; --bg-card: #ffffff; --bg-card-hover: #f5f5f5;
+  --text: #111111; --text-secondary: #666666; --text-muted: #999999;
+  --border: #e8e8e8; --accent: #0066ff; --accent-dim: rgba(0,102,255,0.06); --accent-glow: rgba(0,102,255,0.08);
+  --tag-ai: #7c3aed; --tag-ai-bg: rgba(124,58,237,0.08); --tag-tech: #0891b2; --tag-tech-bg: rgba(8,145,178,0.08);
+  --tag-finance: #d97706; --tag-finance-bg: rgba(217,119,6,0.08); --tag-science: #059669; --tag-science-bg: rgba(5,150,105,0.08);
+  --tag-product: #e11d48; --tag-product-bg: rgba(225,29,72,0.08); --tag-dev: #4f46e5; --tag-dev-bg: rgba(79,70,229,0.08);
+  --up: #dc2626; --down: #16a34a; --shadow: 0 1px 3px rgba(0,0,0,0.06); --shadow-hover: 0 8px 30px rgba(0,0,0,0.08); --radius: 12px;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Inter","Segoe UI",sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;transition:background 0.4s,color 0.4s;}
+a{color:var(--accent);text-decoration:none;transition:opacity 0.2s;}
+a:hover{opacity:0.8;}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--accent);z-index:200;width:0%;transition:width 0.1s;}
+.topbar{position:fixed;top:0;left:0;right:0;z-index:100;padding:14px 32px;display:flex;justify-content:space-between;align-items:center;background:rgba(0,0,0,0.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:background 0.3s;}
+[data-theme="light"] .topbar{background:rgba(255,255,255,0.9);}
+.topbar-left{display:flex;align-items:center;gap:16px;}
+.topbar-brand{font-size:13px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--text-secondary);}
+.topbar-back{font-size:13px;color:var(--accent);display:flex;align-items:center;gap:4px;}
+.theme-toggle{background:none;border:1px solid var(--border);color:var(--text-secondary);width:34px;height:34px;border-radius:50%;cursor:pointer;font-size:15px;display:flex;align-items:center;justify-content:center;transition:all 0.2s;}
+.theme-toggle:hover{border-color:var(--accent);color:var(--accent);}
+.nav-bar{position:sticky;top:52px;z-index:90;background:var(--bg);border-bottom:1px solid var(--border);transition:background 0.3s;}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 32px;display:flex;gap:0;overflow-x:auto;scrollbar-width:none;}
+.nav-inner::-webkit-scrollbar{display:none;}
+.nav-item{padding:12px 16px;font-size:13px;font-weight:500;color:var(--text-muted);white-space:nowrap;cursor:pointer;border-bottom:2px solid transparent;transition:all 0.2s;}
+.nav-item:hover,.nav-item.active{color:var(--accent);border-bottom-color:var(--accent);}
+.hero{padding:100px 48px 60px;max-width:1200px;margin:0 auto;}
+.hero-issue{display:inline-block;font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--accent);border:1px solid var(--accent);padding:5px 12px;border-radius:4px;margin-bottom:20px;}
+.hero-date{font-size:14px;color:var(--text-muted);margin-bottom:16px;}
+.hero h1{font-size:clamp(28px,4vw,48px);font-weight:800;line-height:1.2;letter-spacing:-1.5px;margin-bottom:20px;}
+.hero-summary{font-size:17px;line-height:1.75;color:var(--text-secondary);max-width:720px;margin-bottom:28px;}
+.hero-stats{display:flex;gap:28px;flex-wrap:wrap;}
+.hero-stat{display:flex;flex-direction:column;gap:2px;}
+.hero-stat-value{font-size:24px;font-weight:700;font-variant-numeric:tabular-nums;}
+.hero-stat-label{font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px;}
+.container{max-width:1200px;margin:0 auto;padding:0 48px 80px;}
+.section{margin-bottom:56px;}
+.section-header{display:flex;align-items:center;gap:12px;margin-bottom:24px;}
+.section-icon{font-size:20px;}
+.section-title{font-size:18px;font-weight:700;letter-spacing:-0.2px;}
+.section-count{margin-left:auto;font-size:12px;color:var(--text-muted);}
+.section-header::after{content:"";flex:1;height:1px;background:var(--border);order:99;}
+.section-count{order:98;}
+.news-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:14px;}
+.news-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:22px;transition:all 0.3s;display:flex;flex-direction:column;}
+.news-card:hover{background:var(--bg-card-hover);box-shadow:var(--shadow-hover);transform:translateY(-2px);}
+.news-card-tag{display:inline-flex;font-size:11px;font-weight:600;letter-spacing:0.5px;padding:3px 8px;border-radius:4px;margin-bottom:10px;width:fit-content;}
+.tag-ai{color:var(--tag-ai);background:var(--tag-ai-bg);}
+.tag-tech{color:var(--tag-tech);background:var(--tag-tech-bg);}
+.tag-finance{color:var(--tag-finance);background:var(--tag-finance-bg);}
+.tag-science{color:var(--tag-science);background:var(--tag-science-bg);}
+.tag-product{color:var(--tag-product);background:var(--tag-product-bg);}
+.tag-dev{color:var(--tag-dev);background:var(--tag-dev-bg);}
+.news-card h3{font-size:16px;font-weight:600;margin-bottom:8px;line-height:1.5;letter-spacing:-0.2px;}
+.news-card h3 a{color:var(--text);}
+.news-card h3 a:hover{color:var(--accent);}
+.news-card p{font-size:14px;color:var(--text-secondary);line-height:1.65;flex:1;}
+.news-card-meta{display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding-top:14px;border-top:1px solid var(--border);font-size:12px;color:var(--text-muted);}
+.headline-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:32px;margin-bottom:20px;box-shadow:var(--shadow);}
+.headline-card h2{font-size:24px;font-weight:700;margin-bottom:16px;line-height:1.4;letter-spacing:-0.5px;}
+.headline-card p{font-size:16px;color:var(--text-secondary);line-height:1.8;margin-bottom:12px;}
+.headline-tag{display:inline-block;font-size:11px;font-weight:600;padding:3px 8px;border-radius:4px;margin-bottom:14px;}
+.market-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:12px;}
+.market-item{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:16px;text-align:center;transition:all 0.2s;}
+.market-item:hover{border-color:rgba(0,212,255,0.2);}
+.market-item .name{font-size:12px;color:var(--text-muted);margin-bottom:4px;}
+.market-item .value{font-size:20px;font-weight:700;margin-bottom:2px;font-variant-numeric:tabular-nums;}
+.market-item .change{font-size:14px;font-weight:600;}
+.up{color:var(--up);}
+.down{color:var(--down);}
+.neutral{color:var(--text-secondary);}
+.market-note{margin-top:12px;font-size:12px;color:var(--text-muted);}
+.deep-read-list{display:flex;flex-direction:column;gap:14px;}
+.deep-read-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;display:flex;transition:all 0.3s;}
+.deep-read-card:hover{background:var(--bg-card-hover);box-shadow:var(--shadow-hover);transform:translateY(-2px);}
+.deep-read-number{display:flex;align-items:center;justify-content:center;min-width:64px;font-size:32px;font-weight:800;color:var(--accent);opacity:0.2;}
+.deep-read-body{padding:20px 24px 20px 0;flex:1;}
+.deep-read-body h3{font-size:17px;font-weight:600;margin-bottom:8px;line-height:1.5;}
+.deep-read-body h3 a{color:var(--text);}
+.deep-read-body h3 a:hover{color:var(--accent);}
+.deep-read-body p{font-size:14px;color:var(--text-secondary);line-height:1.65;margin-bottom:10px;}
+.deep-read-meta{display:flex;gap:16px;font-size:12px;color:var(--text-muted);}
+.tool-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;}
+.tool-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:22px;transition:all 0.3s;}
+.tool-card:hover{background:var(--bg-card-hover);box-shadow:var(--shadow-hover);transform:translateY(-2px);}
+.tool-card h3{font-size:16px;font-weight:600;margin-bottom:6px;}
+.tool-card p{font-size:14px;color:var(--text-secondary);line-height:1.6;}
+.tool-card-link{display:inline-block;margin-top:10px;font-size:13px;font-weight:600;color:var(--accent);}
+.quotes-list{display:flex;flex-direction:column;gap:14px;}
+.quote-card{background:var(--bg-card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--radius);padding:20px 24px;}
+.quote-text{font-size:15px;line-height:1.7;font-style:italic;margin-bottom:8px;}
+.quote-author{font-size:12px;color:var(--text-muted);}
+.archive-section{text-align:center;padding:40px 0;border-top:1px solid var(--border);}
+.archive-link{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:500;color:var(--accent);padding:12px 24px;border-radius:8px;border:1px solid var(--accent);transition:all 0.2s;}
+.archive-link:hover{background:var(--accent);color:#000;}
+.footer{text-align:center;padding:32px;font-size:13px;color:var(--text-muted);border-top:1px solid var(--border);}
+.back-to-top{position:fixed;bottom:24px;right:24px;width:42px;height:42px;border-radius:50%;background:var(--bg-card);border:1px solid var(--border);color:var(--accent);cursor:pointer;font-size:18px;box-shadow:var(--shadow);opacity:0;transform:translateY(20px);transition:all 0.3s;z-index:99;}
+.back-to-top.visible{opacity:1;transform:translateY(0);}
+@media(max-width:768px){.hero{padding:80px 20px 40px;}.container{padding:0 20px 60px;}.tool-grid{grid-template-columns:1fr;}.headline-card{padding:24px;}.headline-card h2{font-size:20px;}.deep-read-card{flex-direction:column;}.deep-read-number{min-width:unset;padding:16px 20px 0;justify-content:flex-start;font-size:24px;}.deep-read-body{padding:12px 20px 20px;}.nav-inner{padding:0 20px;}.nav-item{padding:10px 14px;font-size:12px;}}
+@media(prefers-reduced-motion:no-preference){.news-card,.deep-read-card,.quote-card,.tool-card{animation:fadeIn 0.4s ease backwards;}@keyframes fadeIn{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:translateY(0);}}}
+</style>
+</head>
+<body>
+<div class="progress-bar" id="progressBar"></div>
+<header class="topbar">
+  <div class="topbar-left">
+    <span class="topbar-brand">Daily Digest</span>
+    <a href="../index.html" class="topbar-back">← 首页</a>
+  </div>
+  <button class="theme-toggle" id="themeBtn" onclick="toggleTheme()" aria-label="切换主题">☀️</button>
+</header>
+<nav class="nav-bar">
+  <div class="nav-inner">
+    <div class="nav-item" data-section="headline">头条</div>
+    <div class="nav-item" data-section="ai">AI</div>
+    <div class="nav-item" data-section="tech">科技</div>
+    <div class="nav-item" data-section="finance">财经</div>
+    <div class="nav-item" data-section="market">行情</div>
+    <div class="nav-item" data-section="science">科学</div>
+    <div class="nav-item" data-section="product">产品</div>
+    <div class="nav-item" data-section="deepread">深度</div>
+    <div class="nav-item" data-section="devtool">工具</div>
+    <div class="nav-item" data-section="quotes">言论</div>
+  </div>
+</nav>
+<header class="hero">
+  <div class="hero-issue">No.28</div>
+  <div class="hero-date">2026年4月27日（周一）· 北京时间</div>
+  <h1>Trump取消伊斯兰堡之行，和谈骤然生变<br>科技超级财报周今日拉开序幕</h1>
+  <p class="hero-summary">特朗普在Witkoff与Kushner即将登机前突然叫停巴基斯坦之行，伊朗10分钟内回传"明显改善"的新提案，停火进程进入新的拉锯博弈。与此同时，微软、Meta、亚马逊、Alphabet将于本周三（4月29日）同日发布Q1 2026财报，全年AI资本支出是否转化为可见回报将迎来最关键验证。Anthropic发布Claude Opus 4.7并开放Managed Agents公测；NeoCognition携4000万美元融资带来AI Agent持续自学习新范式；X Square Robot宣布Wall-B具身AI家庭部署将于35天内到来。</p>
+  <div class="hero-stats">
+    <div class="hero-stat"><span class="hero-stat-value">34</span><span class="hero-stat-label">资讯</span></div>
+    <div class="hero-stat"><span class="hero-stat-value">3</span><span class="hero-stat-label">深度</span></div>
+    <div class="hero-stat"><span class="hero-stat-value">19</span><span class="hero-stat-label">信源</span></div>
+    <div class="hero-stat"><span class="hero-stat-value">~24</span><span class="hero-stat-label">分钟</span></div>
+  </div>
+</header>
+<main class="container">
+
+<!-- ===== 头条 ===== -->
+<section class="section" id="headline">
+  <div class="section-header"><span class="section-icon">🔥</span><span class="section-title">头条聚焦</span></div>
+  <div class="headline-card">
+    <span class="headline-tag tag-finance">今日头条</span>
+    <h2>和谈骤变与财报超级周：两条时间线在本周交汇，共同决定全球资产定价方向</h2>
+    <p>周日（4月25日），特朗普在Witkoff与Kushner准备登机前宣布取消巴基斯坦伊斯兰堡之行，理由是"伊朗给的方案不够好，我们握有所有筹码，不值得飞18小时"。但随即出现戏剧性反转：取消通知发出后不到10分钟，德黑兰便发来一份特朗普本人形容为"明显改善"的新提案。这个结果与停火谈判博弈逻辑高度吻合——美方展示退出意愿，换取对方加码。伊朗外长Araqchi随后飞赴莫斯科，通过俄方寻求立场协调。此刻布伦特原油维持在105美元高位，市场同时消化两种剧本：和谈成功带来供给释放，或谈判继续拖延推升通胀压力。</p>
+    <p>与地缘博弈并行的，是本周三（4月29日）将成为2026年迄今信息密度最高的单一交易日：微软、Meta、亚马逊、Alphabet四家公司同日公布Q1财报，美联储FOMC同步发布利率决议。这四家超级云服务商合计2026年AI资本支出预期超过4700亿美元。市场核心命题将在本周得到答案：AI基础设施支出能否在同期营收看到可量化回报？Agent服务收入能否从"实验性"升格为结构性增长？上周五S&amp;P 500与纳斯达克双创历史收盘新高，市场对这两个问题都持乐观预期——数据一旦不及，超预期下行的空间同样巨大。两条时间线在本周交汇，将共同决定全球风险资产的基础情绪。</p>
+  </div>
+</section>
+
+<!-- ===== AI ===== -->
+<section class="section" id="ai">
+  <div class="section-header"><span class="section-icon">🤖</span><span class="section-title">人工智能</span><span class="section-count">6 条</span></div>
+  <div class="news-grid">
+    <div class="news-card">
+      <span class="news-card-tag tag-ai">模型发布</span>
+      <h3><a href="https://www.anthropic.com/news/claude-opus-4-7" target="_blank">Anthropic发布Claude Opus 4.7：SWE-bench Pro 64.3%，任务预算机制与视觉分辨率双重升级</a></h3>
+      <p>Anthropic于4月16日正式发布Claude Opus 4.7，在全系产品线、API、Amazon Bedrock、Google Cloud Vertex AI和Microsoft Foundry全面上线，定价与Opus 4.6一致（$5/$25 per MTok）。核心升级：SWE-bench Pro达64.3%（较Opus 4.6提升13%），SWE-bench Verified达87.6%；视觉最大分辨率从1568px提升至2576px（3.75MP）；新增"任务预算"（Task Budget）机制，让Claude在长周期Agent任务中主动管控Token消耗节奏，优化完整agentic loop的执行效率。Anthropic同步推出Cyber Verification Program，允许合规网络安全研究者执行渗透测试与漏洞研究。</p>
+      <div class="news-card-meta"><span>Anthropic（官方）· CNBC · AWS（官方博客）</span><span>2026-04-16</span></div>
+    </div>
+    <div class="news-card">
+      <span class="news-card-tag tag-ai">Agent基础设施</span>
+      <h3><a href="https://claude.com/blog/claude-managed-agents" target="_blank">Anthropic开放Claude Managed Agents公测：托管Agent沙箱，让开发者10分钟内上线自主Agent</a></h3>
+      <p>4月8日，Anthropic在Claude Platform正式开放Claude Managed Agents公测（全开放，无需邀请）。开发者无需自行构建agent loop、工具执行层和运行时环境——仅需调用/v1/agents、/v1/environments和/v1/sessions三个REST端点，即可在安全沙箱内运行能读文件、执行命令、浏览网页、运行代码的完整自主Agent。内置提示词缓存与上下文自动压缩，支持多小时长时运行与断连恢复。这是Anthropic从"提供模型API"向"提供完整托管Agent基础设施"的关键跃迁，与OpenAI Frontier平台形成直接竞争。</p>
+      <div class="news-card-meta"><span>Anthropic（官方博客）· Claude API Docs</span><span>2026-04-08</span></div>
+    </div>
+    <div class="news-card">
+      <span class="news-card-tag tag-ai">AI 融资</span>
+      <h3><a href="https://techcrunch.com/2026/04/21/ai-research-lab-neocognition-lands-40m-seed-to-build-agents-that-learn-like-humans/" target="_blank">NeoCognition从隐身融资4000万美元：让AI Agent在工作中持续自学习成为领域专家的新范式</a></h3>
+      <p>AI研究实验室NeoCognition于4月21日发布，宣布完成4000万美元种子轮，由Cambium Capital与Walden Catalyst Ventures联合领投，Vista Equity Partners参与，天使包括Intel CEO Lip-Bu Tan与Databricks联创Ion Stoica。创始团队来自OSU（Yu Su、Xiang Deng、Yu Gu）。核心创新：Agent不在部署时固化，而是在真实工作中持续学习环境结构、工作流与约束条件，构建"工作世界模型"并自发进化为该领域专家。面向法律、医疗、金融等专业判断密集场景的企业与SaaS平台，采用Agent能力许可形式销售。</p>
+      <div class="news-card-meta"><span>TechCrunch · PRNewswire（官方）· The Next Web</span><span>2026-04-21</span></div>
+    </div>
+    <div class="news-card">
+      <span class="news-card-tag tag-ai">AI 安全</span>
+      <h3><a href="https://openai.com/index/openai-to-acquire-promptfoo/" target="_blank">OpenAI收购Promptfoo：AI红队测试与提示注入防护直接内嵌进Frontier平台，2026年第六次并购</a></h3>
+      <p>OpenAI宣布收购AI安全公司Promptfoo（2024年成立，融资2300万，估值8600万）。Promptfoo已被逾25%的财富500强企业采用，核心能力包括自动化大模型红队测试、Agent工作流安全评估、提示注入检测与数据泄露监控。收购后技术将直接整合进OpenAI Frontier（企业AI协作者平台），为Agent赋予原生安全评估能力并延续开源建设。这是OpenAI 2026年内第六次并购，AI安全能力正从独立工具向平台原生能力集中，标志着"安全即基础设施"在AI企业竞争中的战略位置进一步强化。</p>
+      <div class="news-card-meta"><span>OpenAI（官方公告）· TechCrunch · Futurum Group</span><span>2026-03（宣布）</span></div>
+    </div>
+    <div class="news-card">
+      <span class="news-card-tag tag-ai">具身AI</span>
+      <h3><a href="https://www.prnewswire.com/news-releases/x-square-robot-unveils-new-embodied-ai-model-says-robots-will-arrive-in-homes-in-35-days-302751047.html" target="_blank">X Square Robot发布Wall-B具身AI：小米字节阿里三方背书，35天内进入家庭部署</a></h3>
+      <p>4月22日，X Square Robot（自变量机器人）宣布完成约2.76亿美元B轮融资（小米+红杉中国领投），背后股东涵盖字节跳动、美团、阿里巴巴。同步发布Wall-B——采用WUM（World Unified Model）架构的家庭场景具身AI基础模型，在单一系统内整合视觉理解、自然语言处理、动作规划与物理预测。公司宣称首批家庭机器人将在公告后35天内开始交付，初期聚焦帮助老年人与行动不便者完成日常任务。X Square Robot成立于2023年12月，不足三年已获三大互联网巨头同时押注，是2026年具身AI进入家庭消费市场最具确定性的落地信号之一。</p>
+      <div class="news-card-meta"><span>PRNewswire（官方）· InforCapital · KrASIA</span><span>2026-04-22/23</span></div>
+    </div>
+    <div class="news-card">
+      <span class="news-card-tag tag-ai">大模型竞争</span>
+      <h3><a href="https://techcrunch.com/2026/04/24/deepseek-previews-new-ai-model-that-closes-the-gap-with-frontier-models/" target="_blank">DeepSeek V4 Preview登场：GPT-5.5发布次日即反击，1.6T参数MoE开源低价逼近旗舰性能</a></h3>
+      <p>DeepSeek于GPT-5.5发布次日（4月24日）推出V4 Flash与V4 Pro两款Preview模型，均采用MoE架构（V4-Pro：1.6T总参/49B激活），原生支持100万Token上下文。核心创新Hybrid Attention Architecture大幅降低超长上下文推理开销——V4-Pro在100万Token下仅需V3.2 KV缓存的10%。定价极具攻击性：V4-Pro输出仅$3.48/1M token，全面低于GPT-5.5与Claude Opus 4.7。开源+低价+接近旗舰的性能组合，持续压缩闭源模型的定价空间，是2026年开源AI赛道最重要的竞争压力来源。</p>
+      <div class="news-card-meta"><span>DeepSeek API Docs（官方）· Bloomberg · TechCrunch · CNBC</span><span>2026-04-24</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 科技 ===== -->
+<section class="section" id="tech">
+  <div class="section-header"><span class="section-icon">💻</span><span class="section-title">科技</span><span class="section-count">5 条</span></div>
+  <div class="news-grid">
+    <div class="news-card">
+      <span class="news-card-tag tag-tech">AI 独角兽</span>
+      <h3><a href="https://techcrunch.com/2026/04/16/factory-hits-1-5b-valuation-to-build-ai-coding-for-enterprises/" target="_blank">Factory完成1.5亿美元融资估值15亿：企业AI编码Agent赛道4月密集融资，三家合计估值超800亿</a></h3>
+      <p>Factory于4月16日宣布完成1.5亿美元融资，估值达15亿美元，由Khosla Ventures领投，Sequoia Capital、Insight Partners与Blackstone跟进。Factory专注为大型企业工程团队构建AI编码Agent，能执行代码审查、Bug修复、功能实现与技术文档生成。这是继Cognition AI（估值250亿）、Cursor（谈判中500亿）之后，AI编码赛道4月内第三家完成大额融资的公司，三者合计估值超过800亿美元，折射出"企业工程流水线AI接管"的资本逻辑已从概念走向验证阶段。Khosla Ventures同时投资了Factory与NeoCognition，表明头部机构对Agent化不同路径的分散押注。</p>
+      <div class="news-card-meta"><span>TechCrunch · Khosla Ventures</span><span>2026-04-16</span></div>
+    </div>
+    <div class="news-card">
+      <span class="news-card-tag tag-tech">App 生态</span>
+      <h3><a href="https://techcrunch.com/2026/04/18/the-app-store-is-booming-again-and-ai-may-be-why/" target="_blank">AI驱动App Store复苏：新上架应用同比增长104%，"一人公司+AI开发"成为主力上架模式</a></h3>
+      <p>TechCrunch数据显示，截至2026年4月中旬，App Store新应用上线数量同比增长104%（iOS单独+89%）。AI编程工具（Claude Code、Replit Agent等）是核心推手：大幅压低了非专业开发者的上架门槛，创始人、产品经理和设计师能够独立完成从想法到可上架App的全流程。这一趋势同时带来副作用：上架数量井喷叠加平均质量参差，App Store推荐算法与流量分发机制面临前所未有的压力，发现成本正在快速上升。苹果已于4月28日起强制要求所有新上架应用使用iOS 26 SDK构建。</p>
+      <div class="news-card-meta"><span>TechCrunch · Apple Developer（官方）</span><span>2026-04-18</span></div>
+    </div>
+    <div class="news-card">
+      <span class="news-card-tag tag-tech">AI 推理算力</span>
+      <h3><a href="https://techcrunch.com/2026/04/15/parasail-raises-32m-to-feed-tokenmaxxing-ai-developers/" target="_blank">Parasail完成3200万美元融资：押注Tokenmaxxing成为AI算力消耗主增量，为开发者提供弹性推理资源池</a></h3>
+      <p>AI推理基础设施公司Parasail完成3200万美元融资。Parasail的核心判断：AI开发者正系统性地向模型输入更多Token换取更高质量输出（即"Tokenmaxxing"），这正成为AI算力消耗的主要增量来源，超过模型训练本身。Parasail为这些高token消耗开发者提供按需弹性推理资源池，在现有云服务商GPU成本之外提供更灵活定价，并深度集成主流模型API。TechCrunch本月报告显示Tokenmaxxing可能导致AI编程工具代码返工率高达861%，这也成为推动市场关注Token效率的重要背景。</p>
+      <div class="news-card-meta"><span>TechCrunch</span><span>2026-04-15</span></div>
+    </div>
+    <div class="news-card">
+      <span class="news-card-tag tag-tech">VC 数据</span>
+      <h3><a href="https://news.crunchbase.com/venture/foundational-ai-startup-funding-doubled-openai-anthropic-xai-q1-2026/" target="_blank">Q1 2026全球VC融资297亿美元：AI独占81%，OpenAI 1220亿美元完成史上最大单轮，AI基础模型融资翻倍超全年</a></h3>
+      <p>Crunchbase数据显示，2026年Q1全球股权融资达297亿美元，AI领域约占81%。OpenAI以3月31日完成的1220亿美元融资（估值8520亿，月化营收20亿）成为绝对主角，使Q1 2026 AI基础模型融资总额直接翻倍超过2025年全年水平。但这一数字的稀释效应同样显著：单笔超大轮次掩盖了中小AI公司融资环境依然分化的现实，只有能清晰展示Agent收入路径的公司才能获得优质估值——这也是NeoCognition、Factory等垂直Agent公司在同期密集融资的内在逻辑。</p>
+      <div class="news-card-meta"><span>Crunchbase News</span><span>2026-04</span></div>
+    </div>
+    <div class="news-card">
+      <span class="news-card-tag tag-tech">量子物理</span>
+      <h3><a href="https://www.sciencedaily.com/releases/2026/04/260415042152.htm" target="_blank">石墨烯电子突破Wiedemann-Franz定律200倍：无摩擦量子液体首次实验确认，凝聚态物理百年定律被打破</a></h3>
+      <p>4月15日，IISc（印度科学研究所）与NIMS（日本国立材料科学研究所）联合团队在石墨烯"狄拉克点"附近，观测到电子像无摩擦液体流动的现象，粘度约为水的1/100，偏离Wiedemann-Franz定律（预言热导率与电导率固定比值）超过200倍——该定律此前主导凝聚态物理逾百年。这种"狄拉克液体"类似粒子对撞机中的夸克-胶子等离子体。潜在应用包括极低损耗电子器件与新型量子计算材料基底，是基础物理领域本月最重要的实验突破之一。</p>
+      <div class="news-card-meta"><span>ScienceDaily · IISc（印度）· NIMS（日本）</span><span>2026-04-15</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 财经 ===== -->
+<section class="section" id="finance">
+  <div class="section-header"><span class="section-icon">📈</span><span class="section-title">财经</span><span class="section-count">5 条</span></div>
+  <div class="news-grid">
+    <div class="news-card">
+      <span class="news-card-tag tag-finance">地缘政治</span>
+      <h3><a href="https://www.washingtonpost.com/world/2026/04/25/iran-us-pakistan-ceasefire-talks/" target="_blank">特朗普取消伊斯兰堡行程，伊朗10分钟内回传更优提案：和谈进入"最后博弈"阶段</a></h3>
+      <p>4月25日，特朗普在Witkoff与Kushner准备登机前叫停巴基斯坦之行，理由是伊朗"给的方案不够好"。取消通知发出约10分钟后，德黑兰发来特朗普本人认可为"明显改善"的新提案——这一反应速度本身揭示了伊方的实际谈判意愿。伊朗外长Araqchi随后飞赴莫斯科，通过俄方寻求背书。CBS、CNN与Bloomberg均报道谈判通过阿曼、巴基斯坦、俄罗斯等多个渠道并行推进。和谈是否成功将直接影响布伦特原油与全球通胀路径——当前高位105美元的油价，在停火成功后存在显著下行空间。</p>
+      <div class="news-card-meta"><span>Washington Post · CNN · Bloomberg · CBS News</span><span>2026-04-25</span></div>
+    </div>
+    <div class="news-card">
+      <span class="news-card-tag tag-finance">财报预期</span>
+      <h3><a href="https://www.tipranks.com/news/why-is-td-cowen-doubling-down-on-amazon-amzn-microsoft-msft-and-apple-aapl-ahead-of-earnings-next-week" target="_blank">TD Cowen加码押注：4月29日财报日三大核心指标——AWS Agent渗透率、Azure增速、Apple服务加速</a></h3>
+      <p>TD Cowen财报前重申买入评级，并列出三个核心观测指标：①亚马逊AWS：Amazon Bedrock Agent的企业采用率，及250亿美元Anthropic协议是否转化为可见收入；②微软：Azure增速是否延续37%+，Copilot商业化订阅规模；③苹果：Apple Intelligence设备激活率与服务营收加速迹象。分析师指出，这三个指标合在一起，将为全年AI算力投资叙事提供最有权威的数据验证，或在数据不及预期时触发系统性调仓——4月29日将是AI股全年最重要的单一事件日。</p>
+      <div class="news-card-meta"><span>TipRanks · TD Cowen</span><span>2026-04-27（财报前）</span></div>
+    </div>
+    <div class="news-card">
+      <span class="news-card-tag tag-finance">宏观经济</span>
+      <h3><a href="https://blog.kraken.com/economic-brief/april-22-2026" target="_blank">宏观超级周：FOMC决议、Q1 GDP初值、PCE通胀三连发，共同检验美联储降息时间表</a></h3>
+      <p>除4月29日四大科技巨头财报外，本周还将密集公布美国宏观数据：FOMC利率决议（4月29日）、Q1 GDP初值（4月30日）、3月PCE物价指数（5月1日）。市场预期美联储继续按兵不动，但若PCE受油价高企拉动超预期，将进一步推迟降息预期。Kraken宏观报告指出，油价每上涨10%为美国CPI贡献约0.4个百分点额外通胀，使联储在财报超级周同日面临"AI繁荣叙事"与"通胀黏性"的双重压力，政策空间进一步收窄。</p>
+      <div class="news-card-meta"><span>Kraken Blog（宏观分析）· S&amp;P Global</span><span>2026-04-22</span></div>
+    </div>
+    <div class="news-card">
+      <span class="news-card-tag tag-finance">AI 资本</span>
+      <h3><a href="https://finance.yahoo.com/markets/stocks/articles/amazons-partnership-anthropic-keeps-deepening-193700158.html" target="_blank">亚马逊与Anthropic协议持续深化：AWS算力绑定+Trainium3优先访问，财报将揭开商业回报第一手证据</a></h3>
+      <p>Yahoo Finance报道，亚马逊与Anthropic的250亿美元协议正在以多维方式深化：Amazon Bedrock成为Anthropic主要企业部署渠道，亚马逊将AWS客户向Claude引导，Anthropic优先获得Amazon Trainium3训练芯片资源。分析师预计本周三财报将首次披露Bedrock上Claude Agent工作流的企业客户规模——这将是全市场判断250亿美元AI战略投资商业回报路径的第一手实证数据，市场预期空间极大、波动风险也相应较高。</p>
+      <div class="news-card-meta"><span>Yahoo Finance · AWS（官方博客）</span><span>2026-04-27（财报前）</span></div>
+    </div>
+    <div class="news-card">
+      <span class="news-card-tag tag-finance">半导体行情</span>
+      <h3><a href="https://www.thestreet.com/latest-news/stock-market-today-apr-24-2026-updates" target="_blank">上周五美股双创历史新高：S&amp;P 7165、纳斯达克24837，今日财报超级周开启，市场在历史高位迎接最大考验</a></h3>
+      <p>4月24日（上周五）美股收盘：S&P 500创历史新高至7,165点（+0.80%），纳斯达克创历史新高至24,837点（+1.63%），道琼斯小幅收跌至49,231点（-0.16%）。半导体全产业链在Intel与德州仪器双重验证下持续共振——英伟达市值重收5万亿美元，Intel +24%，AMD +14%，Arm +14%，SOX指数录得18连涨。今日（4月27日，周一）财报超级周正式开启，市场在历史高位迎接全年最重要的AI资本回报检验周，潜在双向波动空间均已显著放大。</p>
+      <div class="news-card-meta"><span>TheStreet · CNBC · Yahoo Finance</span><span>2026-04-24（收盘）</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 市场行情 ===== -->
+<section class="section" id="market">
+  <div class="section-header"><span class="section-icon">📊</span><span class="section-title">市场行情</span><span class="section-count">截至 2026-04-24（周五）收盘</span></div>
+  <div class="market-grid">
+    <div class="market-item"><div class="name">S&amp;P 500</div><div class="value up">7,165</div><div class="change up">+0.80%</div></div>
+    <div class="market-item"><div class="name">纳斯达克</div><div class="value up">24,837</div><div class="change up">+1.63%</div></div>
+    <div class="market-item"><div class="name">道琼斯</div><div class="value down">49,231</div><div class="change down">-0.16%</div></div>
+    <div class="market-item"><div class="name">上证指数</div><div class="value down">4,080</div><div class="change down">-0.33%</div></div>
+    <div class="market-item"><div class="name">深证成指</div><div class="value up">14,967</div><div class="change up">+0.55%</div></div>
+    <div class="market-item"><div class="name">创业板指</div><div class="value down">3,678</div><div class="change down">-0.02%</div></div>
+    <div class="market-item"><div class="name">恒生指数</div><div class="value up">25,978</div><div class="change up">+0.24%</div></div>
+    <div class="market-item"><div class="name">美元/人民币</div><div class="value neutral">6.8650</div><div class="change neutral">4/23 中间价</div></div>
+    <div class="market-item"><div class="name">比特币</div><div class="value neutral">~$77,000</div><div class="change neutral">周末参考</div></div>
+    <div class="market-item"><div class="name">布伦特原油</div><div class="value up">$105.33</div><div class="change up">周高位</div></div>
+  </div>
+  <p class="market-note">数据来源：CNBC · Yahoo Finance（美股，4/24 收盘，为上周最后交易日）· 东方财富（A股/港股，4/24 收盘）· 中国人民银行（人民币中间价，4/23）· angle360ng.com（布伦特，4/25 盘中参考）。4月25日（周六）、4月26日（周日）全球主要股市休市，本简报以 4/24 数据为准。今日（4/27 周一）财报周开启，亚洲市场实时数据请参阅各财经平台。</p>
+</section>
+
+<!-- ===== 科学突破 ===== -->
+<section class="section" id="science">
+  <div class="section-header"><span class="section-icon">🔬</span><span class="section-title">科学突破</span><span class="section-count">3 条</span></div>
+  <div class="news-grid">
+    <div class="news-card">
+      <span class="news-card-tag tag-science">凝聚态物理</span>
+      <h3><a href="https://www.sciencedaily.com/releases/2026/04/260415042152.htm" target="_blank">石墨烯电子流体打破百年物理定律：Wiedemann-Franz偏差200倍，无摩擦狄拉克液体首次确认</a></h3>
+      <p>4月15日，IISc与NIMS联合团队在石墨烯"狄拉克点"附近实验观测到电子以接近无摩擦液体的方式集体流动，粘度约为水的1/100，偏离统治凝聚态物理逾百年的Wiedemann-Franz定律超过200倍。这种"狄拉克液体"与粒子对撞机中的夸克-胶子等离子体类似。潜在应用包括极低损耗电子器件与新型量子计算材料，也为研究量子场论的实验室可观测系统提供了新的自然平台。</p>
+      <div class="news-card-meta"><span>ScienceDaily · IISc · NIMS</span><span>2026-04-15</span></div>
+    </div>
+    <div class="news-card">
+      <span class="news-card-tag tag-science">地质学</span>
+      <h3><a href="https://www.sciencedaily.com" target="_blank">白云石实验室合成200年悬案告破：古海洋碳循环与气候模型将迎来重要修正</a></h3>
+      <p>白云石（Dolomite）是地壳中储量极丰的矿物，但过去200年科学家在实验室条件下从未能人工合成——此前所有尝试均告失败。2026年4月，研究团队首次在实验室完成白云石合成，破解这一长期地质学谜题。这一突破直接关联古海洋化学组成和碳循环过程，是古气候重建的关键拼图，将为建立更精确的古气候模型提供实验基础，并可能改变对若干碳酸盐岩地层成因的既有解释。</p>
+      <div class="news-card-meta"><span>ScienceDaily（2026年4月）· 地质学期刊</span><span>2026-04</span></div>
+    </div>
+    <div class="news-card">
+      <span class="news-card-tag tag-science">天文学</span>
+      <h3><a href="https://www.astronomy.com/science/astronomers-confirm-potentially-habitable-exoplanet-in-the-solar-neighborhood/" target="_blank">GJ 887d确认为宜居带超级地球：10.7光年外，已知第二近宜居带系外行星，成未来大气探测优先目标</a></h3>
+      <p>天文学家利用HARPS与ESPRESSO光谱仪101次新观测数据，正式确认GJ 887d——一颗轨道周期50.8天、质量约地球6.1倍的超级地球，位于红矮星GJ 887的宜居带内，距地球仅10.7光年，成为已知第二近的宜居带系外行星（仅次于Proxima Centauri b）。近距离使其成为ELT等下一代望远镜进行大气光谱探测的优先目标。需注意：当前研究尚无大气数据，实际宜居性待后续观测确认，质量6.1倍地球也使其更可能是岩石超地球而非类地行星。</p>
+      <div class="news-card-meta"><span>Astronomy.com · NASA Exoplanet Archive · HARPS/ESPRESSO</span><span>2026-03-06（确认）</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 产品发现 ===== -->
+<section class="section" id="product">
+  <div class="section-header"><span class="section-icon">🚀</span><span class="section-title">产品发现</span><span class="section-count">3 条</span></div>
+  <div class="news-grid">
+    <div class="news-card">
+      <span class="news-card-tag tag-product">具身AI</span>
+      <h3><a href="https://www.prnewswire.com/news-releases/x-square-robot-unveils-new-embodied-ai-model-says-robots-will-arrive-in-homes-in-35-days-302751047.html" target="_blank">Wall-B（X Square Robot）：首款面向家庭的具身AI基础模型，35天内开始真实交付</a></h3>
+      <p>Wall-B采用WUM（World Unified Model）架构，将视觉、语言、动作规划与物理预测整合在单一系统内，面向家庭场景设计。公司宣布首批机器人将在4月22日公告后35天内进入家庭部署，初期聚焦帮助老年人和行动不便者完成日常任务。背后的供应链（小米生态制造资源）、渠道（电商平台入驻）与资本（字节/美团/阿里背书）三重条件已同步到位。这是具身AI进入家庭消费市场最具确定性的落地信号，也是衡量2026年物理AI商业化进程的重要标志性节点。</p>
+      <div class="news-card-meta"><span>PRNewswire（官方）· KrASIA</span><span>2026-04-22</span></div>
+    </div>
+    <div class="news-card">
+      <span class="news-card-tag tag-product">Agent基础设施</span>
+      <h3><a href="https://claude.com/blog/claude-managed-agents" target="_blank">Claude Managed Agents：Anthropic将完整Agent运行基础设施打包成可购买API，免邀请公测开放</a></h3>
+      <p>Claude Managed Agents是Anthropic首次将Agent基础设施作为独立服务推出：包含Agent循环、工具执行沙箱、状态持久化与SSE推流的完整托管环境，开发者仅需调用三个REST端点。支持长时运行（多小时）与断连恢复，内置提示缓存与自动上下文压缩。这标志着Anthropic不仅是大模型供应商，也正成为Agent运行时（Agent Runtime）基础设施提供商——角色类似于AWS Lambda与Vercel Functions在Serverless时代的平台定位，是开发者构建生产级AI应用的新型基础层。</p>
+      <div class="news-card-meta"><span>Anthropic（官方）· Claude API Docs</span><span>2026-04-08（公测开放）</span></div>
+    </div>
+    <div class="news-card">
+      <span class="news-card-tag tag-product">AI 研究平台</span>
+      <h3><a href="https://techcrunch.com/2026/04/21/ai-research-lab-neocognition-lands-40m-seed-to-build-agents-that-learn-like-humans/" target="_blank">NeoCognition：打破"一次部署永远固化"范式，让Agent在真实工作中持续进化为领域专家</a></h3>
+      <p>NeoCognition的产品核心主张：当前所有AI Agent都在部署时"固化"，能力在上线那刻达到峰值，无法从真实工作环境中学习和进化。NeoCognition的Agent系统能在工作过程中持续构建目标环境的"工作世界模型"，自发积累领域专有知识，在速度、准确率与成本上持续自我优化。首个目标市场是法律、医疗与金融等需要专业判断的企业场景，以SaaS形式向企业客户及SaaS平台销售Agent能力许可。Khosla Ventures领投，Intel CEO Lip-Bu Tan与Databricks联创Ion Stoica作为天使投资人背书。</p>
+      <div class="news-card-meta"><span>TechCrunch · PRNewswire（官方）</span><span>2026-04-21</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 深度阅读 ===== -->
+<section class="section" id="deepread">
+  <div class="section-header"><span class="section-icon">📚</span><span class="section-title">深度阅读</span><span class="section-count">3 篇</span></div>
+  <div class="deep-read-list">
+    <div class="deep-read-card">
+      <div class="deep-read-number">1</div>
+      <div class="deep-read-body">
+        <h3><a href="https://stratechery.com/2026/ai-and-the-human-condition/" target="_blank">AI and the Human Condition — Stratechery · Ben Thompson</a></h3>
+        <p>Ben Thompson在本篇中正面回应了"AI将使人类在经济上完全不必要"的悲观论断——他认为这个结论只有在人类本身不再关心彼此时才成立。只要人类社会存在，人们就会持续创造对彼此的需求，构建反映这种需求的经济结构。这并不意味着AI不会深刻改变就业市场，而是说"被替代"与"变得无意义"是截然不同的两件事。Thompson同时重申：技术是无道德倾向的力量，AI带来的是好是坏，完全取决于我们如何作出选择。在财报超级周前夕，这篇文章提供了一个超越季度数字、直击技术与人文关系的深层视角。</p>
+        <div class="deep-read-meta"><span>来源：Stratechery</span><span>推荐理由：AI经济叙事最深刻的哲学反驳</span><span>约18分钟</span></div>
+      </div>
+    </div>
+    <div class="deep-read-card">
+      <div class="deep-read-number">2</div>
+      <div class="deep-read-body">
+        <h3><a href="https://www.technologyreview.com/2026/04/21/1135643/10-ai-artificial-intelligence-trends-technologies-research-2026/" target="_blank">10 Things That Matter Most in AI Right Now (April 2026) — MIT Technology Review</a></h3>
+        <p>MIT Technology Review首届"当今AI最重要的10件事"榜单，涵盖：Agent基础设施成熟度、模型推理成本下降曲线、具身AI商业化路径、AI安全红队实战、合规监管双轨博弈、Token效率与Tokenmaxxing副作用、多模态性能拐点、AI辅助科学发现加速、开源模型的地缘政治意涵，以及"AI是否开始改变劳动力市场结构"的实证证据。每个议题均附有MIT研究者独立评估与优质延伸阅读。这份榜单是本月AI领域认知密度最高的参考资料，适合作为季度复盘框架。</p>
+        <div class="deep-read-meta"><span>来源：MIT Technology Review</span><span>推荐理由：AI领域认知图谱的季度性权威整理</span><span>约30分钟</span></div>
+      </div>
+    </div>
+    <div class="deep-read-card">
+      <div class="deep-read-number">3</div>
+      <div class="deep-read-body">
+        <h3><a href="https://inforcapital.com/news/embodied-ai-startup-x-square-robot-raises-nearly-276m-in-series-b-led-by-xiaomi-and-sequoia-china/" target="_blank">X Square Robot 2.76亿B轮全解析：中国具身AI三大互联网巨头为何同时押注同一家初创 — InforCapital</a></h3>
+        <p>这篇深度报道拆解了X Square Robot背后的多重投资逻辑：字节（AI内容生产自动化）、美团（物流配送机器人）、阿里（电商仓储自动化）三家公司的战略诉求截然不同，而X Square Robot的WUM架构如何在单一训练框架下满足三条落地路径？文章同时提出一个尖锐问题：当最重要的战略投资人本身即是潜在竞争对手时，创始团队的独立性与技术方向选择如何平衡？这是理解中国具身AI生态格局、以及"战略投资者聚合"这一特有中国科技融资现象的重要参考视角。</p>
+        <div class="deep-read-meta"><span>来源：InforCapital · KrASIA</span><span>推荐理由：中国具身AI生态格局深度分析</span><span>约15分钟</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 开发者工具 ===== -->
+<section class="section" id="devtool">
+  <div class="section-header"><span class="section-icon">🛠️</span><span class="section-title">开发者工具</span><span class="section-count">2 个</span></div>
+  <div class="tool-grid">
+    <div class="tool-card">
+      <h3>NeoCognition Agent SDK（Beta）</h3>
+      <p>NeoCognition从隐身公开后，同步面向受邀企业开放Agent SDK早期访问。SDK核心机制：持续学习环境状态与约束（Environment Learner）、工作流图谱构建（Workflow Graph Builder）与专家化反馈循环（Expert Calibration Loop）。与LangChain/LangGraph等现有框架的主要区别：NeoCognition SDK中的Agent在每次执行后更新自身领域知识图谱，使下一次执行更精准，真正实现"越用越智能"的自学习闭环。支持Python，开发者文档随4月21日融资公告同步发布。</p>
+      <a class="tool-card-link" href="https://www.neocognition.ai" target="_blank">→ 申请早期访问</a>
+    </div>
+    <div class="tool-card">
+      <h3>awesome-ai-agents-2026（caramaschiHG）</h3>
+      <p>GitHub上迄今最完整的AI Agent资源聚合仓库，300+精选资源，20+分类，每月持续更新。涵盖：主流Agent框架对比（OpenAI Agents SDK、Google ADK、Anthropic Claude Managed Agents、Llama Stack等）、生产级Agent安全工具（Promptfoo等）、MCP生态目录、具身AI框架索引，以及按行业分类的Agent应用案例库。与通用awesome列表不同，该仓库强调"已有生产部署证明"的项目，每个资源附有评分与活跃度标签。是快速建立AI Agent全局认知的最佳单一入口，适合技术负责人与AI基础设施选型参考使用。</p>
+      <a class="tool-card-link" href="https://github.com/caramaschiHG/awesome-ai-agents-2026" target="_blank">→ GitHub仓库</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 言论 ===== -->
+<section class="section" id="quotes">
+  <div class="section-header"><span class="section-icon">💬</span><span class="section-title">言论</span><span class="section-count">3 条</span></div>
+  <div class="quotes-list">
+    <div class="quote-card">
+      <p class="quote-text">"I told my people a little while ago, they were getting ready to leave, and I said, 'Nope, you're not making an 18-hour flight to go there.' We have all the cards. They can call us anytime they want... immediately when I canceled it, within ten minutes, we got a new paper that was much better."</p>
+      <p class="quote-author">— 美国总统 Donald Trump，关于取消伊斯兰堡行程声明，来源：CNN · Fox News · Bloomberg（2026-04-25）</p>
+    </div>
+    <div class="quote-card">
+      <p class="quote-text">"The critical missing link is an agent that can learn the structure, workflows, and constraints of the environment it's operating in. That's how humans actually become experts — not by reading a manual, but by doing the work. Our agents build a world model of work."</p>
+      <p class="quote-author">— NeoCognition 联合创始人 Yu Su，TechCrunch 专访，来源：TechCrunch（2026-04-21）</p>
+    </div>
+    <div class="quote-card">
+      <p class="quote-text">"Opus 4.7 introduces task budgets — a rough estimate of how many tokens Claude should target for a full agentic loop, including thinking, tool calls, and final output. This is how you give an agent a sense of time."</p>
+      <p class="quote-author">— Anthropic，Claude Opus 4.7 官方发布公告，来源：anthropic.com（2026-04-16）</p>
+    </div>
+  </div>
+</section>
+
+<div class="archive-section">
+  <a href="../archive.html" class="archive-link">查看全部归档 28 期（含搜索）→</a>
+</div>
+</main>
+<footer class="footer">
+  <p>© 2026 Daily Digest · news.huangwei.ai · 内容仅供参考，不构成投资建议</p>
+</footer>
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="回到顶部">↑</button>
+<script>
+function toggleTheme(){const h=document.documentElement,t=h.getAttribute('data-theme'),n=t==='dark'?'light':'dark';h.setAttribute('data-theme',n);document.getElementById('themeBtn').textContent=n==='dark'?'☀️':'🌙';}
+window.addEventListener('scroll',()=>{const s=document.getElementById('progressBar'),b=document.getElementById('backToTop'),p=(window.scrollY/(document.documentElement.scrollHeight-window.innerHeight))*100;s.style.width=p+'%';b.classList.toggle('visible',window.scrollY>400);});
+document.querySelectorAll('.nav-item').forEach(i=>{i.addEventListener('click',()=>{const t=i.dataset.section,el=document.getElementById(t);if(el){el.scrollIntoView({behavior:'smooth',block:'start'});}document.querySelectorAll('.nav-item').forEach(x=>x.classList.remove('active'));i.classList.add('active');});});
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){const id=e.target.id;document.querySelectorAll('.nav-item').forEach(i=>{i.classList.toggle('active',i.dataset.section===id);});}});},{threshold:0.3});
+document.querySelectorAll('section[id]').forEach(s=>obs.observe(s));
+</script>
+</body>
+</html>
