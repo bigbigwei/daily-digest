@@ -74,7 +74,9 @@
     "FinceptTerminal（Fincept-Corporation）",
     "huobao-drama（chatfire-AI）",
     "Langfuse（langfuse/langfuse）",
-    "v0 by Vercel（重构版）"
+    "v0 by Vercel（重构版）",
+    "NeoCognition Agent SDK（Beta）",
+    "awesome-ai-agents-2026（caramaschiHG）"
   ],
   "used_products": [
     "AI营销Agent：自动化全链路网红营销，Product Hunt 4月热门",
@@ -167,7 +169,10 @@
     "Monid（专为AI Agent设计的链上钱包，允许自主Agent安全管理数字资产）",
     "FocuSee 2.0",
     "Loop（供应链AI预测平台）",
-    "Era（AI可穿戴设备软件平台）"
+    "Era（AI可穿戴设备软件平台）",
+    "Wall-B（X Square Robot）：首款面向家庭场景的具身AI基础模型，35天内开始真实交付",
+    "Claude Managed Agents：Anthropic将完整Agent运行基础设施打包成API，对开发者开放公测",
+    "NeoCognition：持续自学习AI Agent，工作中进化为领域专家的新范式"
   ],
   "used_deepreads": [
     "100x Less Power: The Breakthrough That Could Solve AI's Massive Energy Crisis — SciTechDaily",
@@ -279,19 +284,12 @@
     "大西洋经向翻转环流AMOC减弱速度超预期：新研究预测2100年将减弱51%，比既有估计高60% — phys.org / Science Advances",
     "An Interview with Google Cloud CEO Thomas Kurian About the Agentic Moment — Stratechery · Ben Thompson",
     "Three reasons why DeepSeek's new model matters — MIT Technology Review",
-    "Big tech earnings preview: Microsoft, Meta, Amazon & Apple — S&P Global Market Intelligence"
+    "Big tech earnings preview: Microsoft, Meta, Amazon & Apple — S&P Global Market Intelligence",
+    "AI and the Human Condition — Stratechery · Ben Thompson",
+    "10 Things That Matter Most in AI Right Now (April 2026) — MIT Technology Review",
+    "X Square Robot $2.76亿B轮全解析：中国具身AI三大互联网巨头同时押注意味着什么 — InforCapital"
   ],
   "recent_topics": [
-    "Google Cloud Next 2026 TPU 8t 8i 训练推理芯片 NVIDIA挑战",
-    "Thinking Machines Lab Mira Murati Google Cloud 数十亿算力协议 GB300",
-    "SpaceX Cursor 600亿期权收购 Anysphere AI编程 xAI Colossus",
-    "Meta MCI 模型能力计划 员工键盘鼠标数据训练Agent",
-    "10x Science 480万种子轮 AI制药候选化合物表征 Stanford Bertozzi",
-    "Google Workspace Intelligence 语义层 Gemini Agent企业工作流",
-    "OpenAI Agents SDK April 2026 沙盒执行长周期任务子Agent生产环境",
-    "Mistral Voxtral TTS Small 4 256K多语言语音",
-    "IMF世界经济展望2026年4月 中东战争全球增速3.1% 通胀4.4%",
-    "关税退款系统 5.6万进口商127亿美元 Section 122违宪",
     "上证指数 深证成指 创业板指 历史新高 A股4月22日",
     "比特币79033美元 布伦特原油101 人民币中间价6.8635",
     "Nature催化剂体氧溢出大连化物所 能源转化突破",
@@ -331,6 +329,24 @@
     "Loop supply chain AI 9500万B轮 FocuSee 2.0屏幕录制 Era AI可穿戴11M",
     "东非大裂谷Turkana Rift颈缩 大陆分裂 Nature Geoscience",
     "Morganella morganii 肠道菌群 抑郁症 多巴胺 皮质醇 Cell Host Microbe",
-    "Langfuse开源LLM可观测性 v0 Vercel GitHub仓库感知重构"
+    "Langfuse开源LLM可观测性 v0 Vercel GitHub仓库感知重构",
+    "Trump取消伊斯兰堡 Witkoff Kushner 伊朗和谈 巴基斯坦 10分钟新提案 莫斯科",
+    "微软 Meta 亚马逊 Alphabet Q1 2026财报 4月29日 FOMC 超级财报周",
+    "Claude Opus 4.7 SWE-bench Pro 64.3% 任务预算 Task Budget 视觉分辨率升级",
+    "Claude Managed Agents 公测 Agent沙箱 REST API Anthropic基础设施",
+    "NeoCognition 4000万种子 自学习AI Agent 领域专家 Yu Su Cambium Walden",
+    "OpenAI Promptfoo 收购 AI安全 红队测试 提示注入 Frontier平台",
+    "X Square Robot Wall-B WUM架构 具身AI 家庭部署35天 小米 字节 阿里 B轮2.76亿",
+    "Factory 1.5亿 估值15亿 企业AI编码Agent Khosla Sequoia Insight",
+    "DeepSeek V4 Flash Pro MoE混合注意力 100万Token 低价格 开源",
+    "Parasail Tokenmaxxing 推理资源池 Token消耗增长 3200万融资",
+    "石墨烯Wiedemann-Franz定律 狄拉克液体 IISc NIMS 量子超流",
+    "GJ 887d 宜居带超级地球 10.7光年 HARPS ESPRESSO 系外行星",
+    "白云石 Dolomite 实验室合成成功 200年地质悬案 古海洋碳循环",
+    "Q1 2026 VC融资297亿 AI占81% OpenAI 1220亿 史上最大单轮",
+    "布伦特原油105美元 伊朗停火地缘风险 PCE通胀 FOMC降息时间表",
+    "S&P 7165 纳斯达克24837 历史新高 SOX18连涨 财报超级周迎接最大考验",
+    "AWS Bedrock Agent 亚马逊Anthropic协议 企业采用率 财报核心指标",
+    "App Store 104% 同比增长 AI编程工具 一人公司 iOS 26 SDK"
   ]
 }
